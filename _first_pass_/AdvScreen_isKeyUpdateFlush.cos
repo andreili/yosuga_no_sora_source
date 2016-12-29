@@ -1,0 +1,7 @@
+Function AdvScreen::isKeyUpdateFlush()
+	If (this.fKeyUpdateFlush == -1)
+        Return isSkip() | {PUSH_UNK}.IsJoyButtonPushing(6)
+    EndIf
+    Return 0
+EndFunc
+

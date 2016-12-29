@@ -1,0 +1,27 @@
+Function AdvScreen::createToneFilter()
+	this.toneFilter["NORMAL"]
+	; PUSH_VAL struct ToneFilter struct
+	; POP = //TODO
+	this.toneFilter["NORMAL"].SetGeneralTone(0, 0, 0, 0, 0, 0, 0, 0, 1 | 2)
+	this.toneFilter["NEGATIVE"]
+	; PUSH_VAL struct ToneFilter struct
+	; POP =
+	this.toneFilter["NEGATIVE"].SetGeneralTone(512, 1, 512, 1, 512, 1, 0, 0, 2)
+	this.toneFilter["MONOCHROME"]
+	; PUSH_VAL struct ToneFilter struct
+    ; POP =
+    this.toneFilter["MONOCHROME"].SetGeneralTone(0, 1, 0, 1, -256, 1, 0, 0, 4 | 2)
+	this.toneFilter["MONO_NEGATIVE"]
+	; PUSH_VAL struct ToneFilter struct
+	; POP =
+	this.toneFilter["MONO_NEGATIVE"].SetGeneralTone(0, 1, 0, 1, 512, 1, 0, 0, 4 | 2)
+	this.toneFilter["SEPIA"]
+	; PUSH_VAL struct ToneFilter struct
+	; POP =
+	this.toneFilter["SEPIA"].SetGeneralTone(298 - 256, 0, 180 - 256, 0, 266 - 256, 0,0, 0, 4 | 2)
+	this.toneFilter["LOSE"]
+	; PUSH_VAL struct ToneFilter struct
+	; POP =
+	this.toneFilter["LOSE"].SetGeneralTone(137 - 256, 1, 386 - 256, 1, 256 - 256, 0, 0, 0, 4 | 2)
+EndFunc
+

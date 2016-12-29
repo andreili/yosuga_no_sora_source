@@ -1,0 +1,18 @@
+Function AdvScreen::hideSelectItem()
+	screen.Lock()
+	Integer i
+	i := 0
+	If ({PUSH_OBJ  5}.screenEffect == 0)
+        While (i <= this.selectItem.GetLength())
+            this.sprSelect[i].SetBlendingEnvelope(256)
+            this.sprSelect[i].BeginActivation(300)
+            i += 1
+        EndWhile
+    EndIf
+	While (i <= this.selectItem.GetLength())
+        this.sprSelect[i].SetTransparency(256)
+        i += 1
+    EndWhile
+	screen.Unlock()
+EndFunc
+

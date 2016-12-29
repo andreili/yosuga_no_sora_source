@@ -1,0 +1,10 @@
+Function AdvScreen::name(String str, String voice)
+	this.msgInfo.name := str
+	this.msgInfo.voice := voice
+	If ((str == "") | (str == "心の声") | (str == "語り"))
+        talkType := 0
+    Else
+        talkType := 1
+    EndIf
+EndFunc
+

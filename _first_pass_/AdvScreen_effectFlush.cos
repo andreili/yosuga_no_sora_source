@@ -1,0 +1,28 @@
+Function AdvScreen::effectFlush(String color, Integer time, String cgFile)
+	Sprite spr
+	; PUSH_VAL Integer 0i
+	; JUMP_OK _l_4
+	; JUMP _l_90
+; @_l_4:
+    If (color == "BLACK")
+        spr.CreateRGBImage(RGB(0, 0, 0), {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+    ElseIf (color == "WHITE")
+        spr.CreateRGBImage(RGB(255, 255, 255), {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+    ElseIf (color == "RED")
+        spr.CreateRGBImage(RGB(255, 0, 0), {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+    ElseIf (color == "GREEN")
+        spr.CreateRGBImage(RGB(0, 255, 0), {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+    ElseIf (color == "BLUE")
+        spr.CreateRGBImage(RGB(0, 0, 255), {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+    Else
+        spr.LoadImage(color + ".eri")
+    EndIf
+	{PUSH_UNK}.AddSprite(50900, spr)
+	spr.SetVisible(-1)
+	update(-1)
+	spr.SetBlendingEnvelope(256)
+	spr.BeginActivation(time)
+	spr.WaitUntilSpriteActive(0)
+	{PUSH_UNK}.DetachSprite(spr)
+EndFunc
+
