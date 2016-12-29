@@ -1,0 +1,24 @@
+Function AdvScreen::updateProc()
+	If (this.fCreate == -1)
+		If (this.fUpdating == -1)
+			If (this.sprTemp["transBase"].IsActivation() == 0)
+				flushUpdate()
+			EndIf
+		EndIf
+		ImageInfo info
+		Integer i
+		i := 0
+		While (i <= 4)
+			info := this.bustupMan.spr[i].GetInfo()
+			If ((this.bustupMan.info[i].status == 0) && (this.bustupMan.spr[i].IsActivation() == 0) && (info.nResourceBytes != 0))
+				this.bustupMan.spr[i].SetVisible(0)
+				this.bustupMan.spr[i].Release()
+			EndIf
+			i += 1
+		EndWhile
+	EndIf
+@_l_82:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

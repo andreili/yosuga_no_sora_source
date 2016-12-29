@@ -1,0 +1,30 @@
+Function AdvScreen::setupSelectItem()
+	Integer i
+	i := 0
+	While(i <= this.GetLength())
+		{PUSH_UNK}.DetachSprite(this.sprSelect[i])
+		i += 1
+	EndWhile
+	this.sprSelect.Remove()
+	Point curPos
+	curPos := GetCursorPos(this.msgFrame, this.msprMess)
+	Integer start_y
+	start_y := (this.selectItem.GetLength() * 52) / 2 - 264
+	SpriteParam param
+	i := 0
+	While (i <= this.selectItem.GetLength())
+		JUMP_OK _l_127
+		this.sprSelect[i] := Sprite
+		{PUSH_UNK}.CreateFormPage(this.sprSelect[i], "ID_PAGE_ADVSELECT")
+		this.sprSelect[i].GetParameter(param)
+		param.ptRevCenter := IPoint(375, 24)
+		this.sprSelect[i].SetParameter(param)
+		this.sprSelect[i].MovePosition(400, start_y + 52 * i)
+		this.sprSelect[i].SetSpriteText("ID_TEXT", this.selectItem[i])
+		this.sprSelect[i].SetTransparency(256)
+		this.sprSelect[i].SetVisible(-1)
+		{PUSH_UNK}.AddSprite(50600, this.sprSelect[i])
+		i += 1
+	EndWhile
+EndFunc
+

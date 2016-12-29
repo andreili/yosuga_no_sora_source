@@ -1,0 +1,7 @@
+Function AdvScreen::waitUpdate()
+	If (this.fUpdating == -1)
+		this.sprTemp["transBase"].WaitUntilSpriteActive(-1)
+		flushUpdate()
+	EndIf
+EndFunc
+

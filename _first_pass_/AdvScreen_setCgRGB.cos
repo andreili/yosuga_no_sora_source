@@ -1,0 +1,9 @@
+Function AdvScreen::setCgRGB(Integer r, Integer g, Integer b)
+	Debug(PUSH_VAL String "CGRGB-" + r + "," + g + "," + b)
+	this.cg.pt := IPoint(0, 0)
+	this.colSetCgRGB := RGB(r, g, b)
+	this.fSetCg := -1
+	this.fSetCgRGB := -1
+	this.fUpdate := -1
+EndFunc
+

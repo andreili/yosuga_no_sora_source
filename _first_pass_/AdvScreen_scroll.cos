@@ -1,0 +1,30 @@
+Function AdvScreen::scroll(Integer x, Integer y, Integer time, Integer accel, Integer fWait)
+	If (this.fSetCg == 0)
+		If (this.sprCg.IsActivation() == -1)
+			this.sprCg.FlushActivation)
+		EndIf
+		priteParam param
+		this.prCg.GetParameter(param)
+		Bezier2D bz
+		bz.SetLinear(param.ptDstPos.x, param.ptDstPos.y, {logic_unk1}x, {logic_unk1}y)
+		bz.SetAcceleration(accel, 0)
+		this.sprCg.SetBezierCurve(bz)
+		Integer fFlush
+		fFlush := {PUSH_OBJ  5}.screenEffect == 1)
+		fFlush |= (isSkip() | {PUSH_UNK}.IsJoyButtonPushing(6))
+		If (fFlush == -1)
+			this.sprCg.BeginActivation(0)
+		Else
+			this.sprCg.BeginActivation(time)
+		EndIf
+		If (fWait != 0)
+			this.sprCg.WaitUntilSpriteActive(-1)
+		EndIf
+		this.cg := IPoint(x, y)
+	Else
+		this.fUpdate := -1
+		this.fScroll := -1
+		this.scrlParam.set(IPoint({logic_unk1}x, {logic_unk1}), time, accel)
+	EndIf
+EndFunc
+

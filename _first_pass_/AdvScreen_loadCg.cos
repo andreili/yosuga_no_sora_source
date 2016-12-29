@@ -1,0 +1,36 @@
+Function AdvScreen::loadCg(Reference spr, String filename)
+	If (spr.LoadImage(filename + ".eri") != 0)
+		If (0 == -1)
+			SpriteParam sprParam
+			Sprite sprTemp
+			If(File.filename.Left(3) + ".eri")
+				sprTemp.LoadImage(filename.Left(3) + ".eri")
+			ElseIf (File.IsExisting(filename.Left(4) + ".eri")
+				sprTemp.LoadImage(filename.Left(4) + ".eri")
+			ElseIf (filename.Char(0) == 66)
+				sprTemp.LoadImage("dummyBg.eri")
+			Else
+				sprTemp.LoadImage("dummyEv.eri")
+			EndIf
+			sprTemp.GetParameter(sprParam)
+			spr.CreateSprite(1, {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+			sprParam.ptDstPos := IPoint(0, 0)
+			spr.DrawImage(sprTemp, sprParam)
+			spr.SetBackColor(0, 0)
+			
+			DrawTextParam param
+			param.rcArea := IRect(0, 0, {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)
+			param.ptCurPos := IPoint(32, 16)
+			param.rgbColor := RGB(255, 0, 0)
+			param.nTransparency := 0
+			param.nLineHeight := 50
+			param.nIndentWidth := 50
+			param.nFontSize := 48
+			param.strFontFace := "ＭＳ ゴシック"
+			spr.DrawText(param, "仮 : " + filename)
+			OutputLogText("CG.log", "NotFound-" + filename)
+		EndIf
+	EndIf
+	spr.SetBackColor(0, 0)
+EndFunc
+

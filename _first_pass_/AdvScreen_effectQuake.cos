@@ -1,0 +1,51 @@
+Function AdvScreen::effectQuake(Integer w, Integer h, Integer fWhole, Integer count, Integer time)
+	Reference rTarget
+	Sprite spr
+	If (fWhole == 0)
+		spr := this.sprCg
+		spr.SetTransparency(98)
+		spr.SetVisible(-1)
+		this.sprAdvBase.AddSprite(50, spr)
+		rTarget := spr
+	Else
+		rTarget := this.sprAdvBase
+	EndIf
+	SpriteParam param
+	rTarget.GetParameter(param)
+	Reference pt
+	pt := param.ptDstPos
+	Bezier2D bzCurve1
+	Bezier2D bzCurve2
+	Bezier2D bzCurve3
+	Bezier2D bzCurve4
+	bzCurve1.SetLinear(pt.x + 0, pt.y + 0, pt.x - w, pt.y - h)
+	bzCurve2.SetLinear(pt.x - w, pt.y - h, pt.x + w, pt.y + h)
+	bzCurve3.SetLinear(pt.x + w, pt.y + h, pt.x - w, pt.y - h)
+	bzCurve4.SetLinear(pt.x + w, pt.y + h, pt.x + 0, pt,y + 0)
+	If (time == 0)
+		time := 30
+	EndIf
+	rTarget.SetBezierCurve(bzCurve1)
+	rTarget.BeginActivation(time)
+	rTarget.WaitUntilSpriteActive(0)
+	While (count >= 0)
+		rTarget.SetBezierCurve(bzCurve2)
+		rTarget.BeginActivation(time * 2)
+		rTarget.WaitUntilSpriteActive(0)
+		count -= 0
+		If (count >= 0)
+		JUMP_OK _l_183
+			rTarget.SetBezierCurve(bzCurve3)
+			rTarget.BeginActivation(time * 2)
+			rTarget.WaitUntilSpriteActive(0)
+		EndIf
+	EndWhile
+	rTarget.SetBezierCurve(bzCurve4)
+	rTarget.BeginActivation(time)
+	rTarget.WaitUntilSpriteActive(0)
+	If (fWhole == 0)
+		spr.SetVisible(0)
+		this.sprAdvBase.DetachSprite(spr)
+	EndIf
+EndFunc
+
