@@ -1,0 +1,31 @@
+Function OutputLogText(String path, String text)
+	INIT_LOCAL struct File file
+	PUSH_VAR file
+	PUSH_VAR path
+	PUSH_VAL Integer 4i
+	CALL_METHOD Open
+	JUMP_OK _l_13
+	PUSH_VAR file
+	PUSH_VAR path
+	PUSH_VAL Integer 5i
+	CALL_METHOD Open
+	JUMP_OK _l_13
+	PUSH_VAL Integer 1i
+	Return
+@_l_13:
+	PUSH_VAR file
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 2i
+	CALL_METHOD Seek
+	NOP
+	PUSH_VAR file
+	PUSH_VAR text
+	CALL_METHOD WriteText
+	NOP
+	PUSH_VAR file
+	CALL_METHOD Close
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

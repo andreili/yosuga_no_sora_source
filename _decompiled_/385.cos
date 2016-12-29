@@ -1,0 +1,19 @@
+Function AdvScreen::setTransition(Reference this, String type, Integer time)
+	PUSH_FIELD fTransition
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD transInfo
+	GET_FIELD type
+	PUSH_VAR type
+	POP =
+	NOP
+	PUSH_FIELD transInfo
+	GET_FIELD time
+	PUSH_VAR time
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

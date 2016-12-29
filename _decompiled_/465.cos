@@ -1,0 +1,14 @@
+Function CgViewManager::CgViewManager(Reference this)
+	INIT_FIELD Integer isCreate
+	INIT_FIELD parent thumbInfo
+	PUSH_VAL Integer -1i
+	JUMP_OK _l_8
+	PUSH_FIELD isCreate
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_8:
+	PUSH_VAL Integer 0i
+	Return this
+EndFunc
+

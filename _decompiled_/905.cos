@@ -1,0 +1,2107 @@
+Function sc00_C002()
+	CALL ScenarioEnter
+	NOP
+	PUSH_VAL String "SE352"
+	PUSH_VAL Integer 0i
+	CALL ScPlaySe
+	NOP
+	PUSH_VAL String "B17a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	CALL Update
+	NOP
+	PUSH_VAL Integer 1500i
+	PUSH_VAL Integer 0i
+	CALL ScWait
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 1i
+	CALL BlackOut
+	NOP
+	PUSH_VAL String "B19a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "WIP_LR"
+	PUSH_VAL Integer 500i
+	CALL Transition
+	NOP
+	PUSH_VAL String "BGM05"
+	PUSH_VAL Integer 0i
+	CALL ScPlayBgm
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Well then, I'm going."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18105i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_60
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_66
+@_l_60:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_66
+	PUSH_VAL Integer 0i
+	Return
+@_l_66:
+	PUSH_VAL String "CC01_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020046"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Huh, Haru-kun, do you have something planned?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18106i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_97
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_103
+@_l_97:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_103
+	PUSH_VAL Integer 0i
+	Return
+@_l_103:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, I was called. My uniform was delivered, so I'm／going to pick it up."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18107i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_129
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_135
+@_l_129:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_135
+	PUSH_VAL Integer 0i
+	Return
+@_l_135:
+	PUSH_VAL String "CF01_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020001"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ah, finally graduating from these clothes, huh?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18108i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_166
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_172
+@_l_166:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_172
+	PUSH_VAL Integer 0i
+	Return
+@_l_172:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, being the only one around wearing different／clothes is kind of embarrassing after all."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18109i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_198
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_204
+@_l_198:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_204
+	PUSH_VAL Integer 0i
+	Return
+@_l_204:
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020002"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Wearing special white robes makes you kinda elite."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18110i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_230
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_236
+@_l_230:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_236
+	PUSH_VAL Integer 0i
+	Return
+@_l_236:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "What's up with that, some juvenile deliquent stuff from／a manga?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18111i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_262
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_268
+@_l_262:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_268
+	PUSH_VAL Integer 0i
+	Return
+@_l_268:
+	PUSH_VAL String "CC01_14M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020047"
+	CALL Talk
+	NOP
+	PUSH_VAL String "If it's Haru-kun, he might look good, somehow like a／young noble. Beautiful but frail, that kind of stuff."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18112i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_299
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_305
+@_l_299:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_305
+	PUSH_VAL Integer 0i
+	Return
+@_l_305:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "I'd rather you spared me the young noble thing... Sure,／my body is weak, and I lack strength, but I'm not good／looking at all."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18113i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_331
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_337
+@_l_331:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_337
+	PUSH_VAL Integer 0i
+	Return
+@_l_337:
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020003"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Hoho. Indeed, you don't have the atmosphere of the good／guy we're talking about here."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18114i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_363
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_369
+@_l_363:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_369
+	PUSH_VAL Integer 0i
+	Return
+@_l_369:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "W- What are you talking about? Only the atmosphere of a／good-looking guy?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18115i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_395
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_401
+@_l_395:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_401
+	PUSH_VAL Integer 0i
+	Return
+@_l_401:
+	PUSH_VAL String "CC01_02M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020048"
+	CALL Talk
+	NOP
+	PUSH_VAL String "It's not that at all, even if Haru-kun were to／accidentally wear Sora's uniform, it seems he would look／good."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18116i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_432
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_438
+@_l_432:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_438
+	PUSH_VAL Integer 0i
+	Return
+@_l_438:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ugh, even if you talk about us twins being similar, I'm／not into wearing a drag!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18117i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_464
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_470
+@_l_464:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_470
+	PUSH_VAL Integer 0i
+	Return
+@_l_470:
+	PUSH_VAL String "CC01_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020049"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Is that so? It seems like you would be able to decieve／people who are seeing you for the first time, but..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18118i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_501
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_507
+@_l_501:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_507
+	PUSH_VAL Integer 0i
+	Return
+@_l_507:
+	PUSH_VAL String "CF01_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020004"
+	CALL Talk
+	NOP
+	PUSH_VAL String "What would you do after..... Hmm.... It could happen!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18119i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_538
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_544
+@_l_538:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_544
+	PUSH_VAL Integer 0i
+	Return
+@_l_544:
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 16i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 30i
+	CALL Quake
+	NOP
+	PUSH_VAL Integer 36i
+	PUSH_VAL String ""
+	CALL Font
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "No way in hell!!!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18120i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_581
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_587
+@_l_581:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_587
+	PUSH_VAL Integer 0i
+	Return
+@_l_587:
+	PUSH_VAL String "CC01_14M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020050"
+	CALL Talk
+	NOP
+	PUSH_VAL String "If you carelessly do take the wrong uniform by mistake／or something, I'd like to see it."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18121i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_618
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_624
+@_l_618:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_624
+	PUSH_VAL Integer 0i
+	Return
+@_l_624:
+	PUSH_VAL String "CF01_02M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020005"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ah, damn, I ended up coming to school wearing a skirt!／...or so you would say."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18122i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_655
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_661
+@_l_655:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_661
+	PUSH_VAL Integer 0i
+	Return
+@_l_661:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "As if!!!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18123i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_687
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_693
+@_l_687:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_693
+	PUSH_VAL Integer 0i
+	Return
+@_l_693:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "I've got different physique than Sora, so I don't think／that I'd fit into her uniform."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18124i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_719
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_725
+@_l_719:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_725
+	PUSH_VAL Integer 0i
+	Return
+@_l_725:
+	PUSH_VAL String "CF01_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020006"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Tsk... You're a guy without dreams, huh?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18125i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_756
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_762
+@_l_756:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_762
+	PUSH_VAL Integer 0i
+	Return
+@_l_762:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Sorry for not living up to your expectations. Well then,／I'm going."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18126i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_788
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_794
+@_l_788:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_794
+	PUSH_VAL Integer 0i
+	Return
+@_l_794:
+	PUSH_VAL String "CC01_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020051"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah! See you again!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18127i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_825
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_831
+@_l_825:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_831
+	PUSH_VAL Integer 0i
+	Return
+@_l_831:
+	CALL ScStopBgm
+	NOP
+	PUSH_VAL String "Ryouhei"
+	PUSH_VAL String "RH020007"
+	CALL Talk
+	NOP
+	PUSH_VAL String "See ya!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18128i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_859
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_865
+@_l_859:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_865
+	PUSH_VAL Integer 0i
+	Return
+@_l_865:
+	PUSH_VAL String "BGM03"
+	PUSH_VAL Integer 0i
+	CALL ScPlayBgm
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 1i
+	CALL BlackOut
+	NOP
+	PUSH_VAL Integer 1500i
+	PUSH_VAL Integer 0i
+	CALL ScWait
+	NOP
+	PUSH_VAL String "B12a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "......... Heavy."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18129i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_908
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_914
+@_l_908:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_914
+	PUSH_VAL Integer 0i
+	Return
+@_l_914:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "As expected, a box with uniforms for two people is hard／to carry..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18130i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_940
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_946
+@_l_940:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_946
+	PUSH_VAL Integer 0i
+	Return
+@_l_946:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "A spare skirt and trousers are included, so it's pretty／heavy."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18131i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_972
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_978
+@_l_972:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_978
+	PUSH_VAL Integer 0i
+	Return
+@_l_978:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020052"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ha~ru-kun!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18132i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1004
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1010
+@_l_1004:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1010
+	PUSH_VAL Integer 0i
+	Return
+@_l_1010:
+	PUSH_VAL String "SE255"
+	PUSH_VAL Integer 0i
+	CALL ScPlaySe
+	NOP
+	PUSH_VAL String "EC02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "WIP_LR"
+	PUSH_VAL Integer 500i
+	CALL Transition
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Appearing in front of me, Amatsume came to a stop, her／brakes making a screeching sound."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18133i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1049
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1055
+@_l_1049:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1055
+	PUSH_VAL Integer 0i
+	Return
+@_l_1055:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Amatsume, are you going somewhere?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18134i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1081
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1087
+@_l_1081:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1087
+	PUSH_VAL Integer 0i
+	Return
+@_l_1087:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020053"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, I went to pass around notices from the temple. Ah,／are those new uniforms? Show me, show me."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18135i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1113
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1119
+@_l_1113:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1119
+	PUSH_VAL Integer 0i
+	Return
+@_l_1119:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "You have your own, Amatsume. It's not any different from／anyone else you know?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18136i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1145
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1151
+@_l_1145:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1151
+	PUSH_VAL Integer 0i
+	Return
+@_l_1151:
+	PUSH_VAL String "EC02c"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020054"
+	CALL Talk
+	NOP
+	PUSH_VAL String "However, I love that soft feeling of a fresh uniform.／Ah, are you going to try it on after you get home?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18137i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1182
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1188
+@_l_1182:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1188
+	PUSH_VAL Integer 0i
+	Return
+@_l_1188:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah. Firstly, I want to check that the sizes match."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18138i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1214
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1220
+@_l_1214:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1220
+	PUSH_VAL Integer 0i
+	Return
+@_l_1220:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020055"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Well then, you can place those clothes on my bicycle.／I'll carry them for you."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18139i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1246
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1252
+@_l_1246:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1252
+	PUSH_VAL Integer 0i
+	Return
+@_l_1252:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020056"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Haru-kun, you paid a visit to the shrine for me, so I'll／make you a honour shrine parishioner, okay? When you're／in trouble, I'll come help you anytime."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18140i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1278
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1284
+@_l_1278:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1284
+	PUSH_VAL Integer 0i
+	Return
+@_l_1284:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Thank you, just saying that helps... Wait, what? A／honour shrine parishioner?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18141i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1310
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1316
+@_l_1310:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1316
+	PUSH_VAL Integer 0i
+	Return
+@_l_1316:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020057"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, Haru-kun is special! That's why, even if just once／in a while, I'll count on you on Sayohime-sama's matter."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18142i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1342
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1348
+@_l_1342:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1348
+	PUSH_VAL Integer 0i
+	Return
+@_l_1348:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, got it."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18143i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1374
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1380
+@_l_1374:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1380
+	PUSH_VAL Integer 0i
+	Return
+@_l_1380:
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 1i
+	CALL BlackOut
+	NOP
+	PUSH_VAL Integer 2000i
+	PUSH_VAL Integer 0i
+	CALL ScWait
+	NOP
+	PUSH_VAL String "B01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "WIP_RL"
+	PUSH_VAL Integer 500i
+	CALL Transition
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Thanks, Amatsume. Ah, If you'd like, would you like to／drop in for a while? I'd like to thank you for carrying／my stuff too."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18144i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1423
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1429
+@_l_1423:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1429
+	PUSH_VAL Integer 0i
+	Return
+@_l_1429:
+	PUSH_VAL String "CC06_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020058"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Huh? Is it okay for me to come in?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18145i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1460
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1466
+@_l_1460:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1466
+	PUSH_VAL Integer 0i
+	Return
+@_l_1466:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, there's nothing here, but I could treat you to／some tea at least."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18146i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1492
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1498
+@_l_1492:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1498
+	PUSH_VAL Integer 0i
+	Return
+@_l_1498:
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020059"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Well then, I'll barge in a little."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18147i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1524
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1530
+@_l_1524:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1530
+	PUSH_VAL Integer 0i
+	Return
+@_l_1530:
+	PUSH_VAL String "B02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "WIP_LR"
+	PUSH_VAL Integer 500i
+	CALL Transition
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020060"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Excuse me for the intrusion!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18148i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1565
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1571
+@_l_1565:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1571
+	PUSH_VAL Integer 0i
+	Return
+@_l_1571:
+	PUSH_VAL String "CA02_13M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL Integer 4i
+	CALL Shake
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR020001"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Geh!?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18149i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1605
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1611
+@_l_1605:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1611
+	PUSH_VAL Integer 0i
+	Return
+@_l_1611:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Sora, who had been waiting for me, was startled by／Amatsume, who appeared out of nowhere."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18150i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1637
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1643
+@_l_1637:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1643
+	PUSH_VAL Integer 0i
+	Return
+@_l_1643:
+	PUSH_VAL String "CC06_02M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020061"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ahaa, hello!"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18151i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1674
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1680
+@_l_1674:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1680
+	PUSH_VAL Integer 0i
+	Return
+@_l_1680:
+	PUSH_VAL String "CA02_12M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR020002"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Hii..... Who's that???"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18152i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1711
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1717
+@_l_1711:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1717
+	PUSH_VAL Integer 0i
+	Return
+@_l_1717:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Amatsume, my classmate."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18153i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1743
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1749
+@_l_1743:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1749
+	PUSH_VAL Integer 0i
+	Return
+@_l_1749:
+	PUSH_VAL String "CC06_03M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020062"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Sorry for imposing on you, Amatsume Akira here. It's／been a while, do you remember me, Sora-chan?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18154i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1780
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1786
+@_l_1780:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1786
+	PUSH_VAL Integer 0i
+	Return
+@_l_1786:
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR020003"
+	CALL Talk
+	NOP
+	PUSH_VAL String "..... Eh?......"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18155i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1812
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1818
+@_l_1812:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1818
+	PUSH_VAL Integer 0i
+	Return
+@_l_1818:
+	PUSH_VAL String "CC06_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020063"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Ah, so that's how it is... You forgot me, right?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18156i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1849
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1855
+@_l_1849:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1855
+	PUSH_VAL Integer 0i
+	Return
+@_l_1855:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "What? Amatsume, have you met Sora already?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18157i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1881
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1887
+@_l_1881:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1887
+	PUSH_VAL Integer 0i
+	Return
+@_l_1887:
+	PUSH_VAL String "CC06_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Akira"
+	PUSH_VAL String "AK020064"
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah. It was a long time ago, though. I found Sora-chan／while she was lost. I had that same feeling of／protectiveness then..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18158i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1918
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1924
+@_l_1918:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1924
+	PUSH_VAL Integer 0i
+	Return
+@_l_1924:
+	PUSH_VAL String "CA02_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR020004"
+	CALL Talk
+	NOP
+	PUSH_VAL String "................................"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18159i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1955
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1961
+@_l_1955:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1961
+	PUSH_VAL Integer 0i
+	Return
+@_l_1961:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "So that's what happened with Sora? She had her doubts."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 18160i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1987
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1993
+@_l_1987:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1993
+	PUSH_VAL Integer 0i
+	Return
+@_l_1993:
+	PUSH_VAL Str

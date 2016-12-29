@@ -1,0 +1,26 @@
+Function SetBgmVolume(Real vol)
+	PUSH_OBJ  13
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR vol
+	PUSH_VAR vol
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  13
+	PUSH_VAL Integer 1i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR vol
+	PUSH_VAR vol
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_VAR vol
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

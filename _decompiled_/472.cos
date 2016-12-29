@@ -1,0 +1,889 @@
+Function CheckSetupBustup(String str, Integer timezone)
+	INIT_LOCAL Integer id
+	PUSH_VAL Integer -1i
+	POP =
+	INIT_LOCAL struct BustupInfo info
+	PUSH_VAR str
+	CALL_METHOD MakeUpper
+	NOP
+	PUSH_VAR info
+	GET_FIELD basename
+	PUSH_VAR str
+	POP =
+	NOP
+	INIT_LOCAL Integer fFileNotFound
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_VAL String ""
+	PUSH_VAR str
+	==
+	JUMP_OK _l_20
+	JUMP _l_551
+@_l_20:
+	PUSH_VAR str
+	PUSH_VAL String "CA"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_85
+	PUSH_VAR id
+	PUSH_VAL Integer 4i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_33
+	JUMP _l_84
+@_l_33:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 1i
+	CALL CheckBu
+	JUMP_OK _l_39
+	JUMP _l_84
+@_l_39:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 2i
+	CALL CheckBu
+	JUMP_OK _l_45
+	JUMP _l_84
+@_l_45:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 3i
+	CALL CheckBu
+	JUMP_OK _l_51
+	JUMP _l_84
+@_l_51:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 4i
+	CALL CheckBu
+	JUMP_OK _l_57
+	JUMP _l_84
+@_l_57:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 5i
+	CALL CheckBu
+	JUMP_OK _l_63
+	JUMP _l_84
+@_l_63:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 6i
+	CALL CheckBu
+	JUMP_OK _l_69
+	JUMP _l_84
+@_l_69:
+	PUSH_VAR str
+	PUSH_VAL String "07_"
+	PUSH_VAL Integer 7i
+	CALL CheckBu
+	JUMP_OK _l_75
+	JUMP _l_84
+@_l_75:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01CA"
+	CALL CheckBu
+	JUMP_OK _l_80
+	JUMP _l_84
+@_l_80:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_84:
+	JUMP _l_551
+@_l_85:
+	PUSH_VAR str
+	PUSH_VAL String "CB"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_150
+	PUSH_VAR id
+	PUSH_VAL Integer 3i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_98
+	JUMP _l_149
+@_l_98:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 11i
+	CALL CheckBu
+	JUMP_OK _l_104
+	JUMP _l_149
+@_l_104:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 12i
+	CALL CheckBu
+	JUMP_OK _l_110
+	JUMP _l_149
+@_l_110:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 13i
+	CALL CheckBu
+	JUMP_OK _l_116
+	JUMP _l_149
+@_l_116:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 14i
+	CALL CheckBu
+	JUMP_OK _l_122
+	JUMP _l_149
+@_l_122:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 15i
+	CALL CheckBu
+	JUMP_OK _l_128
+	JUMP _l_149
+@_l_128:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 16i
+	CALL CheckBu
+	JUMP_OK _l_134
+	JUMP _l_149
+@_l_134:
+	PUSH_VAR str
+	PUSH_VAL String "07_"
+	PUSH_VAL Integer 17i
+	CALL CheckBu
+	JUMP_OK _l_140
+	JUMP _l_149
+@_l_140:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01CB"
+	CALL CheckBu
+	JUMP_OK _l_145
+	JUMP _l_149
+@_l_145:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_149:
+	JUMP _l_551
+@_l_150:
+	PUSH_VAR str
+	PUSH_VAL String "CC"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_221
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_163
+	JUMP _l_220
+@_l_163:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 21i
+	CALL CheckBu
+	JUMP_OK _l_169
+	JUMP _l_220
+@_l_169:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 22i
+	CALL CheckBu
+	JUMP_OK _l_175
+	JUMP _l_220
+@_l_175:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 23i
+	CALL CheckBu
+	JUMP_OK _l_181
+	JUMP _l_220
+@_l_181:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 24i
+	CALL CheckBu
+	JUMP_OK _l_187
+	JUMP _l_220
+@_l_187:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 25i
+	CALL CheckBu
+	JUMP_OK _l_193
+	JUMP _l_220
+@_l_193:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 26i
+	CALL CheckBu
+	JUMP_OK _l_199
+	JUMP _l_220
+@_l_199:
+	PUSH_VAR str
+	PUSH_VAL String "07_"
+	PUSH_VAL Integer 27i
+	CALL CheckBu
+	JUMP_OK _l_205
+	JUMP _l_220
+@_l_205:
+	PUSH_VAR str
+	PUSH_VAL String "08_"
+	PUSH_VAL Integer 28i
+	CALL CheckBu
+	JUMP_OK _l_211
+	JUMP _l_220
+@_l_211:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01CC"
+	CALL CheckBu
+	JUMP_OK _l_216
+	JUMP _l_220
+@_l_216:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_220:
+	JUMP _l_551
+@_l_221:
+	PUSH_VAR str
+	PUSH_VAL String "CD"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_286
+	PUSH_VAR id
+	PUSH_VAL Integer 5i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_234
+	JUMP _l_285
+@_l_234:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 31i
+	CALL CheckBu
+	JUMP_OK _l_240
+	JUMP _l_285
+@_l_240:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 32i
+	CALL CheckBu
+	JUMP_OK _l_246
+	JUMP _l_285
+@_l_246:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 33i
+	CALL CheckBu
+	JUMP_OK _l_252
+	JUMP _l_285
+@_l_252:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 34i
+	CALL CheckBu
+	JUMP_OK _l_258
+	JUMP _l_285
+@_l_258:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 35i
+	CALL CheckBu
+	JUMP_OK _l_264
+	JUMP _l_285
+@_l_264:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 36i
+	CALL CheckBu
+	JUMP_OK _l_270
+	JUMP _l_285
+@_l_270:
+	PUSH_VAR str
+	PUSH_VAL String "07_"
+	PUSH_VAL Integer 37i
+	CALL CheckBu
+	JUMP_OK _l_276
+	JUMP _l_285
+@_l_276:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01CD"
+	CALL CheckBu
+	JUMP_OK _l_281
+	JUMP _l_285
+@_l_281:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_285:
+	JUMP _l_551
+@_l_286:
+	PUSH_VAR str
+	PUSH_VAL String "CE"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_328
+	PUSH_VAR id
+	PUSH_VAL Integer 6i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_299
+	JUMP _l_327
+@_l_299:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 41i
+	CALL CheckBu
+	JUMP_OK _l_305
+	JUMP _l_327
+@_l_305:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 42i
+	CALL CheckBu
+	JUMP_OK _l_311
+	JUMP _l_327
+@_l_311:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 43i
+	CALL CheckBu
+	JUMP_OK _l_317
+	JUMP _l_327
+@_l_317:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 44i
+	CALL CheckBu
+	JUMP_OK _l_323
+	JUMP _l_327
+@_l_323:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_327:
+	JUMP _l_551
+@_l_328:
+	PUSH_VAR str
+	PUSH_VAL String "CF"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_387
+	PUSH_VAR id
+	PUSH_VAL Integer 7i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_341
+	JUMP _l_386
+@_l_341:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 51i
+	CALL CheckBu
+	JUMP_OK _l_347
+	JUMP _l_386
+@_l_347:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 52i
+	CALL CheckBu
+	JUMP_OK _l_353
+	JUMP _l_386
+@_l_353:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 53i
+	CALL CheckBu
+	JUMP_OK _l_359
+	JUMP _l_386
+@_l_359:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 54i
+	CALL CheckBu
+	JUMP_OK _l_365
+	JUMP _l_386
+@_l_365:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 55i
+	CALL CheckBu
+	JUMP_OK _l_371
+	JUMP _l_386
+@_l_371:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 56i
+	CALL CheckBu
+	JUMP_OK _l_377
+	JUMP _l_386
+@_l_377:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01CF"
+	CALL CheckBu
+	JUMP_OK _l_382
+	JUMP _l_386
+@_l_382:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_386:
+	JUMP _l_551
+@_l_387:
+	PUSH_VAR str
+	PUSH_VAL String "CG"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_423
+	PUSH_VAR id
+	PUSH_VAL Integer 8i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_400
+	JUMP _l_422
+@_l_400:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 61i
+	CALL CheckBu
+	JUMP_OK _l_406
+	JUMP _l_422
+@_l_406:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 62i
+	CALL CheckBu
+	JUMP_OK _l_412
+	JUMP _l_422
+@_l_412:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 63i
+	CALL CheckBu
+	JUMP_OK _l_418
+	JUMP _l_422
+@_l_418:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_422:
+	JUMP _l_551
+@_l_423:
+	PUSH_VAR str
+	PUSH_VAL String "CH"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_483
+	PUSH_VAR id
+	PUSH_VAL Integer 9i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_436
+	JUMP _l_482
+@_l_436:
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 71i
+	CALL CheckBu
+	JUMP_OK _l_442
+	JUMP _l_482
+@_l_442:
+	PUSH_VAR str
+	PUSH_VAL String "02_"
+	PUSH_VAL Integer 72i
+	CALL CheckBu
+	JUMP_OK _l_448
+	JUMP _l_482
+@_l_448:
+	PUSH_VAR str
+	PUSH_VAL String "03_"
+	PUSH_VAL Integer 73i
+	CALL CheckBu
+	JUMP_OK _l_454
+	JUMP _l_482
+@_l_454:
+	PUSH_VAR str
+	PUSH_VAL String "04_"
+	PUSH_VAL Integer 74i
+	CALL CheckBu
+	JUMP_OK _l_460
+	JUMP _l_482
+@_l_460:
+	PUSH_VAR str
+	PUSH_VAL String "05_"
+	PUSH_VAL Integer 75i
+	CALL CheckBu
+	JUMP_OK _l_466
+	JUMP _l_482
+@_l_466:
+	PUSH_VAR str
+	PUSH_VAL String "06_"
+	PUSH_VAL Integer 76i
+	CALL CheckBu
+	JUMP_OK _l_472
+	JUMP _l_482
+@_l_472:
+	PUSH_VAR str
+	PUSH_VAL String "07_"
+	PUSH_VAL Integer 77i
+	CALL CheckBu
+	JUMP_OK _l_478
+	JUMP _l_482
+@_l_478:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_482:
+	JUMP _l_551
+@_l_483:
+	PUSH_VAR str
+	PUSH_VAL String "CI"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_494
+	PUSH_VAR id
+	PUSH_VAL Integer 12i
+	POP =
+	NOP
+	JUMP _l_551
+@_l_494:
+	PUSH_VAR str
+	PUSH_VAL String "CJ"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_515
+	PUSH_VAR id
+	PUSH_VAL Integer 10i
+	POP =
+	NOP
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 81i
+	CALL CheckBu
+	JUMP_OK _l_510
+	JUMP _l_514
+@_l_510:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_514:
+	JUMP _l_551
+@_l_515:
+	PUSH_VAR str
+	PUSH_VAL String "CK"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_536
+	PUSH_VAR id
+	PUSH_VAL Integer 11i
+	POP =
+	NOP
+	PUSH_VAR str
+	PUSH_VAL String "01_"
+	PUSH_VAL Integer 91i
+	CALL CheckBu
+	JUMP_OK _l_531
+	JUMP _l_535
+@_l_531:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_535:
+	JUMP _l_551
+@_l_536:
+	PUSH_VAR str
+	PUSH_VAL String "CL"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_547
+	PUSH_VAR id
+	PUSH_VAL Integer 99i
+	POP =
+	NOP
+	JUMP _l_551
+@_l_547:
+	PUSH_VAR fFileNotFound
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_551:
+	PUSH_VAL Integer 0i
+	PUSH_VAR fFileNotFound
+	and
+	JUMP_OK _l_581
+	PUSH_VAL String "BUSTUP指定が不正です。"
+	CALL Debug
+	NOP
+
+	INIT_LOCAL String filename
+	PUSH_VAR filename
+	PUSH_OBJ  4
+	GET_FIELD scenarioCall
+	PUSH_VAL String "sc"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAL String "CgCheckLog.log"
+	PUSH_VAL String "BU指定が不正です - "
+	PUSH_VAR filename
+	+
+	PUSH_VAL String ":["
+	+
+	PUSH_VAR str
+	+
+	PUSH_VAL String "]
+"
+	+
+	CALL OutputLogText
+	NOP
+	NOP
+@_l_581:
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_587
+	PUSH_VAR str
+	PUSH_VAR timezone
+	CALL SetTimezomeBustup
+	NOP
+@_l_587:
+	PUSH_VAR info
+	GET_FIELD basePosition
+	GET_FIELD y
+	PUSH_VAL Integer 600i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD id
+	PUSH_VAR id
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAR str
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_606
+	JUMP _l_755
+@_l_606:
+	PUSH_VAL Integer 2i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_621
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 10i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 52i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_621:
+	PUSH_VAL Integer 3i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_636
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 50i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 55i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_636:
+	PUSH_VAL Integer 4i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_651
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 70i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 51i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_651:
+	PUSH_VAL Integer 5i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_666
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 20i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 56i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_666:
+	PUSH_VAL Integer 6i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_681
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 60i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 54i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_681:
+	PUSH_VAL Integer 7i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_696
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 40i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 58i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_696:
+	PUSH_VAL Integer 8i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_711
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 80i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 57i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_711:
+	PUSH_VAL Integer 9i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_726
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 30i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 53i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_726:
+	PUSH_VAL Integer 10i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_741
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 90i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 60i
+	POP =
+	NOP
+	JUMP _l_755
+@_l_741:
+	PUSH_VAL Integer 11i
+	PUSH_VAR id
+	==
+	JUMP_OK _l_755
+	PUSH_VAR info
+	GET_FIELD relation
+	PUSH_VAL Integer 15i
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 59i
+	POP =
+	NOP
+@_l_755:
+	PUSH_VAR str
+	PUSH_VAL String "S"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_767
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 20i
+	POP +=
+	NOP
+	JUMP _l_778
+@_l_767:
+	PUSH_VAR str
+	PUSH_VAL String "L"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_778
+	PUSH_VAR info
+	GET_FIELD priority
+	PUSH_VAL Integer 20i
+	POP -=
+	NOP
+@_l_778:
+	PUSH_VAR info
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

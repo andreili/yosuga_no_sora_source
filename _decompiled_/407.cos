@@ -1,0 +1,1212 @@
+Function AdvScreen::update(Reference this, Integer fFlush, Integer fWait)
+	PUSH_FIELD fUpdate
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_FIELD fUpdate
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD fUpdating
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_16
+	CALL flushUpdate
+	NOP
+@_l_16:
+	PUSH_FIELD transInfo
+	GET_FIELD type
+	PUSH_VAL String "NONE"
+	==
+	JUMP_OK _l_26
+	PUSH_VAR fFlush
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_35
+@_l_26:
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_35
+	PUSH_VAR fFlush
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_35:
+	INIT_LOCAL Integer activationWait
+	PUSH_VAL Integer 500i
+	POP =
+	PUSH_FIELD fTransition
+	PUSH_VAL Integer -1i
+	==
+	PUSH_FIELD transInfo
+	GET_FIELD time
+	PUSH_VAL Integer 0i
+	!=
+	and
+	JUMP_OK _l_52
+	PUSH_VAR activationWait
+	PUSH_FIELD transInfo
+	GET_FIELD time
+	POP =
+	NOP
+@_l_52:
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_82
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "dummyCg"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "dummyCg"
+	GET_FIELD_BY_OFFSET
+	CALL copyAdvScreen
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "dummyCg"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+@_l_82:
+	PUSH_FIELD bustupMan
+	CALL_METHOD adjustPosition
+	NOP
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD IsActivation
+	JUMP_OK _l_94
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD FlushActivation
+	NOP
+@_l_94:
+	PUSH_FIELD fSetCg
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_160
+	PUSH_FIELD sprAdvBase
+	PUSH_FIELD sprCg
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_FIELD sprCg
+	CALL_METHOD IsActivation
+	JUMP_OK _l_108
+	PUSH_FIELD sprCg
+	CALL_METHOD FlushActivation
+	NOP
+@_l_108:
+	PUSH_FIELD fSetCgRGB
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_118
+	PUSH_FIELD sprCg
+	PUSH_FIELD cg
+	GET_FIELD filename
+	CALL loadCg
+	NOP
+	JUMP _l_126
+@_l_118:
+	PUSH_FIELD sprCg
+	PUSH_FIELD colSetCgRGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+@_l_126:
+	PUSH_FIELD sprCg
+	PUSH_FIELD cg
+	GET_FIELD effectParam
+	CALL_METHOD SetEffectParameter
+	NOP
+	PUSH_FIELD sprCg
+	PUSH_FIELD cg
+	GET_FIELD pt
+	GET_FIELD x
+	logic_unk1
+	PUSH_FIELD cg
+	GET_FIELD pt
+	GET_FIELD y
+	logic_unk1
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_FIELD sprCg
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBackColor
+	NOP
+	PUSH_FIELD sprCg
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprAdvBase
+	PUSH_VAL Integer 60i
+	PUSH_FIELD sprCg
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR fWait
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_160:
+	PUSH_FIELD fSetBustup
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_327
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_168:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_203
+
+	INIT_LOCAL Reference info
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAR info
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	!=
+	JUMP_OK _l_197
+	PUSH_FIELD sprBustupParent
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD Release
+	NOP
+@_l_197:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	NOP
+	JUMP _l_168
+@_l_203:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_207:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_327
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD IsActivation
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_225
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD FlushActivation
+	NOP
+@_l_225:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_234
+	JUMP _l_279
+@_l_234:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 0i
+	!=
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 8i
+	!=
+	and
+	JUMP_OK _l_279
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL loadBustup
+	NOP
+	PUSH_FIELD sprBustupParent
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+@_l_279:
+	PUSH_FIELD bustupMan
+	PUSH_VAR i
+	CALL_METHOD adjustSprPosition
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 1i
+	==
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 4i
+	==
+	or
+	JUMP_OK _l_308
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+	JUMP _l_322
+@_l_308:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 8i
+	==
+	JUMP_OK _l_322
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD clear
+	NOP
+@_l_322:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_207
+@_l_327:
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_334
+	CALL endAnimation
+	NOP
+@_l_334:
+	PUSH_FIELD reqToneFilter
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_357
+	PUSH_FIELD sprAdvBase
+	PUSH_FIELD toneFilter
+	PUSH_FIELD typeToneFilter
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AttachToneFilter
+	NOP
+	PUSH_FIELD typeToneFilter
+	PUSH_VAL String "NORMAL"
+	==
+	JUMP_OK _l_353
+	PUSH_FIELD fToneFilter
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	JUMP _l_357
+@_l_353:
+	PUSH_FIELD fToneFilter
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_357:
+	PUSH_FIELD reqToneFilter
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD reqZoom
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_461
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR info
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_FIELD zoomParam
+	CALL_METHOD isZoom
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_405
+	PUSH_VAR info
+	GET_FIELD ptDstPos
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD ptRevCenter
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD rHorzUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD rVertUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	JUMP _l_452
+@_l_405:
+	PUSH_VAR info
+	GET_FIELD ptDstPos
+	PUSH_FIELD zoomParam
+	GET_FIELD pt
+	GET_FIELD x
+	PUSH_FIELD zoomParam
+	GET_FIELD size
+	GET_FIELD w
+	PUSH_VAL Integer 2i
+	/
+	-
+	logic_unk1
+	PUSH_FIELD zoomParam
+	CALL_METHOD horzUnit
+	*
+	PUSH_FIELD zoomParam
+	GET_FIELD pt
+	GET_FIELD y
+	PUSH_FIELD zoomParam
+	GET_FIELD size
+	GET_FIELD h
+	PUSH_VAL Integer 2i
+	/
+	-
+	logic_unk1
+	PUSH_FIELD zoomParam
+	CALL_METHOD vertUnit
+	*
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD rHorzUnit
+	PUSH_FIELD zoomParam
+	CALL_METHOD horzUnit
+	POP =
+	NOP
+	PUSH_VAR info
+	GET_FIELD rVertUnit
+	PUSH_FIELD zoomParam
+	CALL_METHOD vertUnit
+	POP =
+	NOP
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_452:
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR info
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_FIELD reqZoom
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	NOP
+@_l_461:
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_491
+	PUSH_VAR fFlush
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_478
+	PUSH_FIELD sprCg
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD x
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+@_l_478:
+	PUSH_FIELD cg
+	GET_FIELD pt
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD x
+	logic_unk1
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD y
+	logic_unk1
+	CALL IPoint
+	POP =
+	NOP
+@_l_491:
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_709
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_499:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_708
+
+	INIT_LOCAL Reference info
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 16i
+	==
+	JUMP_OK _l_580
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bz
+	PUSH_VAR info
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD downParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR info
+	GET_FIELD localPosition
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD downParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR info
+	PUSH_VAR info
+	GET_FIELD downParam
+	GET_FIELD accel
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR info
+	CALL_METHOD SetBezierCurve
+	NOP
+	NOP
+	JUMP _l_702
+@_l_580:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 128i
+	==
+	JUMP_OK _l_702
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bz
+	PUSH_VAR info
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD x
+	+
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR info
+	GET_FIELD localPosition
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD x
+	+
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR info
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD accel
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR info
+	CALL_METHOD SetBezierCurve
+	NOP
+	INIT_LOCAL struct Sprite spr
+	PUSH_FIELD sprAdvBase
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_VAR i
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL copyBustup
+	NOP
+	PUSH_FIELD sprBustupParent
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50940i
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD fFade
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_701
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+@_l_701:
+	NOP
+@_l_702:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	NOP
+	JUMP _l_499
+@_l_708:
+	JUMP _l_821
+@_l_709:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_713:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_821
+
+	INIT_LOCAL Reference info
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 16i
+	==
+	JUMP_OK _l_761
+	PUSH_VAR info
+	GET_FIELD localPosition
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD downParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	JUMP _l_815
+@_l_761:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 128i
+	==
+	JUMP_OK _l_815
+	PUSH_VAR info
+	GET_FIELD localPosition
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD x
+	+
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD pt
+	GET_FIELD y
+	+
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD localPosition
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR info
+	GET_FIELD leaveParam
+	GET_FIELD fFade
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_815
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+@_l_815:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	NOP
+	JUMP _l_713
+@_l_821:
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_999
+
+	INIT_LOCAL Integer type
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_FIELD fTransition
+	PUSH_VAL Integer -1i
+	==
+	PUSH_FIELD transInfo
+	GET_FIELD type
+	PUSH_VAL String ""
+	!=
+	and
+	JUMP_OK _l_863
+	PUSH_FIELD sprAlpha
+	PUSH_FIELD transInfo
+	GET_FIELD type
+	PUSH_VAL String ".eri"
+	+
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD sprAlpha
+	PUSH_VAL Integer 8i
+	CALL_METHOD SetAlphaImage
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendDegree
+	NOP
+	PUSH_VAR info
+	PUSH_VAL Integer 1i
+	POP =
+	NOP
+	JUMP _l_879
+@_l_863:
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1i
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+@_l_879:
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBackColor
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 10i
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "dummyCg"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50950i
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer -1i
+	==
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_957
+	PUSH_FIELD sprCg
+	CALL_METHOD IsActivation
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_924
+	PUSH_FIELD sprCg
+	CALL_METHOD FlushActivation
+	NOP
+@_l_924:
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD sprCg
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bz
+	PUSH_VAR info
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD x
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD y
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD x
+	PUSH_FIELD scrlParam
+	GET_FIELD pt
+	GET_FIELD y
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR info
+	PUSH_FIELD scrlParam
+	GET_FIELD accel
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD sprCg
+	PUSH_VAR info
+	CALL_METHOD SetBezierCurve
+	NOP
+	NOP
+@_l_957:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR activationWait
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_981
+	PUSH_FIELD sprCg
+	PUSH_FIELD scrlParam
+	GET_FIELD time
+	CALL_METHOD BeginActivation
+	NOP
+@_l_981:
+	PUSH_FIELD fUpdating
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAR fWait
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_997
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+	CALL flushUpdate
+	NOP
+@_l_997:
+	NOP
+	JUMP _l_1002
+@_l_999:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+@_l_1002:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_1006:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_1126
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 16i
+	==
+	JUMP_OK _l_1039
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD downParam
+	GET_FIELD time
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+	JUMP _l_1121
+@_l_1039:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 128i
+	==
+	JUMP_OK _l_1066
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD leaveParam
+	GET_FIELD time
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD clear
+	NOP
+	JUMP _l_1121
+@_l_1066:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 32i
+	==
+	JUMP_OK _l_1094
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_1085
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD id
+	CALL actionJump
+	NOP
+@_l_1085:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+	JUMP _l_1121
+@_l_1094:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 64i
+	==
+	JUMP_OK _l_1121
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_1113
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD id
+	CALL actionShake
+	NOP
+@_l_1113:
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+@_l_1121:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_1006
+@_l_1126:
+	CALL IsEyeCatch
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_1132
+	CALL EyeCatchLeave
+	NOP
+@_l_1132:
+	PUSH_FIELD fTransition
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD transInfo
+	CALL_METHOD clear
+	NOP
+	PUSH_FIELD fSetCg
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD fSetBustup
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

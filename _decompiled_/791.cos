@@ -1,0 +1,31 @@
+Function main()
+	CALL Initialize
+	NOP
+	@@TRY IF CATCH -> JUMP 32
+
+	CALL Starting
+	NOP
+	JUMP _l_19
+	@@CATCH
+
+	@error
+
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	PUSH_UNK
+	CALL_METHOD DetachAllSprite
+	NOP
+	NOP
+@_l_19:
+	NOP
+	CALL Postprocessing
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

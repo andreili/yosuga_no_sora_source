@@ -1,0 +1,26 @@
+Function AdvScreen::setBustup(Reference this, String str, Integer pos, Integer priority)
+	PUSH_VAL String "Char-"
+	PUSH_VAR str
+	+
+	CALL Debug
+	NOP
+	PUSH_FIELD bustupMan
+	PUSH_VAR str
+	PUSH_VAR pos
+	PUSH_VAR priority
+	PUSH_FIELD cg
+	GET_FIELD timeZone
+	CALL_METHOD set
+	NOP
+	PUSH_FIELD fSetBustup
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD fUpdate
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

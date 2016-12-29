@@ -1,0 +1,26 @@
+Function BustupManager::swap(Reference this, Integer n, Integer m)
+	INIT_LOCAL struct BustupInfo temp
+	PUSH_VAR temp
+	PUSH_FIELD info
+	PUSH_VAR n
+	GET_FIELD_BY_OFFSET
+	POP =
+	NOP
+	PUSH_FIELD info
+	PUSH_VAR n
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD info
+	PUSH_VAR m
+	GET_FIELD_BY_OFFSET
+	POP =
+	NOP
+	PUSH_FIELD info
+	PUSH_VAR m
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR temp
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

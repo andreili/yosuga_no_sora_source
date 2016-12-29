@@ -1,0 +1,94 @@
+Function AdvScreen::updateProc(Reference this)
+	PUSH_FIELD fCreate
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_82
+	PUSH_FIELD fUpdating
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_17
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD IsActivation
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_17
+	CALL flushUpdate
+	NOP
+@_l_17:
+
+	INIT_LOCAL struct ImageInfo info
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_28
+@_l_24:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_28:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 1i
+	-
+	>
+	JUMP_OK _l_36
+	NOP
+	JUMP _l_81
+@_l_36:
+
+	PUSH_VAR info
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 0i
+	==
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD IsActivation
+	PUSH_VAL Integer 0i
+	==
+	and
+	PUSH_VAR info
+	GET_FIELD nResourceBytes
+	PUSH_VAL Integer 0i
+	!=
+	and
+	JUMP_OK _l_79
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD bustupMan
+	GET_FIELD spr
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD Release
+	NOP
+@_l_79:
+	NOP
+	JUMP _l_24
+@_l_81:
+	NOP
+@_l_82:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

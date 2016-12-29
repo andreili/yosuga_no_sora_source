@@ -1,0 +1,44 @@
+Function ScPlayMovie(String file)
+	CALL DestroyAdvScreen
+	NOP
+	INIT_LOCAL struct Resource rs
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_17
+	PUSH_VAR rs
+	PUSH_VAL Integer 0i
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_VAL Real 0d
+	*
+	CALL_METHOD SetTotalVolume
+	NOP
+	JUMP _l_22
+@_l_17:
+	PUSH_VAR rs
+	PUSH_VAL Integer 0i
+	PUSH_VAL Real 0d
+	CALL_METHOD SetTotalVolume
+	NOP
+@_l_22:
+	PUSH_VAR file
+	PUSH_VAL String ".mei"
+	+
+	CALL PlayMovie
+	NOP
+	PUSH_VAR rs
+	PUSH_VAL Integer 0i
+	PUSH_VAL Real 0d
+	CALL_METHOD SetTotalVolume
+	NOP
+	CALL SetupAdvScreen
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	@@Initialize
+
+	Return this
+EndFunc
+

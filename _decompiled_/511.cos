@@ -1,0 +1,17 @@
+Function DumpContext(String path)
+	INIT_LOCAL struct File file
+	PUSH_VAR file
+	PUSH_VAR path
+	PUSH_VAL Integer 5i
+	CALL_METHOD Open
+	JUMP_OK _l_8
+	PUSH_VAL Integer 1i
+	Return
+@_l_8:
+	PUSH_VAR file
+	CALL_METHOD DumpContext
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,107 @@
+Function BustupManager::sortPriority(Reference this, Integer fDescend)
+	INIT_LOCAL Integer i
+	INIT_LOCAL Integer j
+	PUSH_VAR fDescend
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_49
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_10:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<
+	JUMP_OK _l_48
+	PUSH_VAR j
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	NOP
+@_l_20:
+	PUSH_VAR j
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_43
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	PUSH_FIELD info
+	PUSH_VAR j
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	<=
+	JUMP_OK _l_38
+	PUSH_VAR i
+	PUSH_VAR j
+	CALL swap
+	NOP
+@_l_38:
+	PUSH_VAR j
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_20
+@_l_43:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_10
+@_l_48:
+	JUMP _l_91
+@_l_49:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_53:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<
+	JUMP_OK _l_91
+	PUSH_VAR j
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	NOP
+@_l_63:
+	PUSH_VAR j
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_86
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	PUSH_FIELD info
+	PUSH_VAR j
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	>
+	JUMP_OK _l_81
+	PUSH_VAR i
+	PUSH_VAR j
+	CALL swap
+	NOP
+@_l_81:
+	PUSH_VAR j
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_63
+@_l_86:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_53
+@_l_91:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

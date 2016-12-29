@@ -1,0 +1,99 @@
+Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold, Integer fItalic, String face)
+	INIT_LOCAL String sequence
+	PUSH_VAR size
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_16
+	PUSH_VAR sequence
+	PUSH_VAL String "\s;"
+	PUSH_VAL String ""
+	PUSH_VAR size
+	POP =
+	+
+	PUSH_VAL String ":"
+	+
+	POP +=
+	NOP
+	JUMP _l_20
+@_l_16:
+	PUSH_VAR sequence
+	PUSH_VAL String "\s:"
+	POP +=
+	NOP
+@_l_20:
+	PUSH_VAR height
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_35
+	PUSH_VAR sequence
+	PUSH_VAL String "\h;"
+	PUSH_VAL String ""
+	PUSH_VAR height
+	POP =
+	+
+	PUSH_VAL String ":"
+	+
+	POP +=
+	NOP
+	JUMP _l_39
+@_l_35:
+	PUSH_VAR sequence
+	PUSH_VAL String "\h:"
+	POP +=
+	NOP
+@_l_39:
+	PUSH_VAR fBold
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_48
+	PUSH_VAR sequence
+	PUSH_VAL String "\b"
+	POP +=
+	NOP
+	JUMP _l_52
+@_l_48:
+	PUSH_VAR sequence
+	PUSH_VAL String "\nb"
+	POP +=
+	NOP
+@_l_52:
+	PUSH_VAR fItalic
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_61
+	PUSH_VAR sequence
+	PUSH_VAL String "\i"
+	POP +=
+	NOP
+	JUMP _l_65
+@_l_61:
+	PUSH_VAR sequence
+	PUSH_VAL String "\ni"
+	POP +=
+	NOP
+@_l_65:
+	PUSH_VAR face
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_74
+	PUSH_VAR sequence
+	PUSH_VAL String "\f:"
+	POP +=
+	NOP
+	JUMP _l_82
+@_l_74:
+	PUSH_VAR sequence
+	PUSH_VAL String "\f;"
+	PUSH_VAR face
+	+
+	PUSH_VAL String ":"
+	+
+	POP +=
+	NOP
+@_l_82:
+	PUSH_VAR sequence
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,30 @@
+Function BlackOut(Integer wait, Integer fHide)
+	PUSH_VAR fHide
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_6
+	CALL Hide
+	NOP
+@_l_6:
+	PUSH_VAR wait
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_14
+	PUSH_VAR wait
+	PUSH_VAL Integer 1000i
+	POP =
+	NOP
+@_l_14:
+	PUSH_VAL String "black"
+	CALL SetCg
+	NOP
+	PUSH_VAL String ""
+	PUSH_VAR wait
+	CALL Transition
+	NOP
+	CALL Update
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,16 @@
+Function Shake(Integer id)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAR id
+	CALL_METHOD bustupShake
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

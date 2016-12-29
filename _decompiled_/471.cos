@@ -1,0 +1,361 @@
+Function CheckPlayVoice(String trueName)
+	INIT_LOCAL Integer cnfId
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_12
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 4i
+	CALL_METHOD SetBit
+	NOP
+@_l_12:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 1i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_23
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 2i
+	CALL_METHOD SetBit
+	NOP
+@_l_23:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 2i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_34
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 3i
+	CALL_METHOD SetBit
+	NOP
+@_l_34:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 3i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_45
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 5i
+	CALL_METHOD SetBit
+	NOP
+@_l_45:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 4i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_56
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 6i
+	CALL_METHOD SetBit
+	NOP
+@_l_56:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 5i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_67
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 9i
+	CALL_METHOD SetBit
+	NOP
+@_l_67:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 6i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_78
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 8i
+	CALL_METHOD SetBit
+	NOP
+@_l_78:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 7i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_89
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 7i
+	CALL_METHOD SetBit
+	NOP
+@_l_89:
+	PUSH_OBJ  5
+	GET_FIELD voiceDetails
+	PUSH_VAL Integer 8i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_100
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 24i
+	CALL_METHOD SetBit
+	NOP
+@_l_100:
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "＆"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	INIT_LOCAL Integer fPlayVoice
+	PUSH_VAL Integer -1i
+	POP =
+	PUSH_VAR trueName
+	PUSH_VAL String "穹"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_135
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 4i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_135:
+	PUSH_VAR trueName
+	PUSH_VAL String "瑛"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_153
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 2i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_153:
+	PUSH_VAR trueName
+	PUSH_VAL String "奈緒"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_171
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 3i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_171:
+	PUSH_VAR trueName
+	PUSH_VAL String "一葉"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_189
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 5i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_189:
+	PUSH_VAR trueName
+	PUSH_VAL String "初佳"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_207
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 6i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_207:
+	PUSH_VAR trueName
+	PUSH_VAL String "委員長"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_225
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 9i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_225:
+	PUSH_VAR trueName
+	PUSH_VAL String "やひろ"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_243
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 8i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_243:
+	PUSH_VAR trueName
+	PUSH_VAL String "亮平"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_261
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 7i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_261:
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "穹"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "瑛"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "奈緒"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "一葉"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "初佳"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "委員長"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "やひろ"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAR trueName
+	PUSH_VAL String "亮平"
+	PUSH_VAL String ""
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR trueName
+	PUSH_VAL String ""
+	!=
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_333
+	PUSH_VAR fPlayVoice
+	PUSH_VAR cnfId
+	PUSH_VAL Integer 24i
+	CALL_METHOD TestBit
+	PUSH_VAL Integer -1i
+	==
+	POP =
+	NOP
+@_l_333:
+	PUSH_VAR fPlayVoice
+	Return
+	PUSH_VAL Integer 0i
+	Return
+	@@Initialize
+
+	Return this
+EndFunc
+

@@ -1,0 +1,319 @@
+Function LeaveLoad()
+	PUSH_OBJ  4
+	GET_FIELD isLoad
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_OBJ  10
+	CALL_METHOD flushUpdate
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD playBgm
+	PUSH_VAL String ""
+	!=
+	JUMP_OK _l_24
+	PUSH_OBJ  4
+	GET_FIELD playBgm
+	CALL PlayBgm
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD fPauseBgm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_24
+	CALL PauseBgm
+	NOP
+@_l_24:
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_27:
+	PUSH_VAR i
+	PUSH_OBJ  4
+	GET_FIELD playEnvSe
+	CALL_METHOD GetLength
+	<=
+	JUMP_OK _l_44
+	PUSH_OBJ  4
+	GET_FIELD playEnvSe
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL PlayEnvSe
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_27
+@_l_44:
+	PUSH_OBJ  10
+	PUSH_OBJ  4
+	GET_FIELD viewType
+	CALL_METHOD messageView
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD msgFrame
+	CALL_METHOD clearPage
+	NOP
+	INIT_LOCAL String showName
+	INIT_LOCAL String trueName
+	PUSH_OBJ  4
+	GET_FIELD nameLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	PUSH_VAR showName
+	PUSH_VAR trueName
+	CALL CheckTrueName
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD msgFrame
+	PUSH_VAR showName
+	PUSH_OBJ  4
+	GET_FIELD seqLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	PUSH_OBJ  4
+	GET_FIELD messLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	+
+	PUSH_VAL Integer -1i
+	CALL_METHOD output
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	PUSH_VAL String ""
+	!=
+	JUMP_OK _l_90
+	PUSH_OBJ  10
+	GET_FIELD msgFrame
+	CALL_METHOD showVoice
+	NOP
+	JUMP _l_94
+@_l_90:
+	PUSH_OBJ  10
+	GET_FIELD msgFrame
+	CALL_METHOD hideVoice
+	NOP
+@_l_94:
+	PUSH_OBJ  10
+	GET_FIELD msgFrame
+	PUSH_VAL Integer -1i
+	CALL_METHOD show
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	CALL_METHOD skip
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	CALL_METHOD autoMode
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD fToneFilter
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_118
+	PUSH_OBJ  10
+	PUSH_OBJ  4
+	GET_FIELD toneFilter
+	CALL_METHOD setToneFilter
+	NOP
+	JUMP _l_122
+@_l_118:
+	PUSH_OBJ  10
+	PUSH_VAL String "NORMAL"
+	CALL_METHOD setToneFilter
+	NOP
+@_l_122:
+	PUSH_OBJ  4
+	GET_FIELD fCgRGB
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_141
+	PUSH_OBJ  4
+	GET_FIELD cg
+	GET_FIELD filename
+	PUSH_OBJ  4
+	GET_FIELD cg
+	GET_FIELD pt
+	GET_FIELD x
+	PUSH_OBJ  4
+	GET_FIELD cg
+	GET_FIELD pt
+	GET_FIELD y
+	CALL SetCg
+	NOP
+	JUMP _l_162
+@_l_141:
+
+	INIT_LOCAL Integer col
+	PUSH_OBJ  4
+	GET_FIELD colSetCgRGB
+	POP =
+	PUSH_VAR col
+	PUSH_VAL Integer 16711680i
+	and
+	PUSH_VAL Integer 16i
+	CALL_METHOD ShiftRight
+	PUSH_VAR col
+	PUSH_VAL Integer 65280i
+	and
+	PUSH_VAL Integer 8i
+	CALL_METHOD ShiftRight
+	PUSH_VAR col
+	PUSH_VAL Integer 255i
+	and
+	CALL SetCgRGB
+	NOP
+	NOP
+@_l_162:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_166:
+	PUSH_VAR i
+	PUSH_OBJ  4
+	GET_FIELD bustup
+	CALL_METHOD GetLength
+	<=
+	JUMP_OK _l_233
+
+	INIT_LOCAL Reference info
+	PUSH_OBJ  4
+	GET_FIELD bustup
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAR col
+	GET_FIELD status
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_227
+	PUSH_VAR col
+	GET_FIELD fPosFix
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_199
+	PUSH_VAR col
+	GET_FIELD basename
+	PUSH_VAR col
+	GET_FIELD pos
+	logic_unk1
+	PUSH_VAR col
+	GET_FIELD priority
+	CALL SetBustup
+	NOP
+	JUMP _l_207
+@_l_199:
+	PUSH_VAR col
+	GET_FIELD basename
+	PUSH_VAR col
+	GET_FIELD pos
+	PUSH_VAR col
+	GET_FIELD priority
+	CALL SetBustup
+	NOP
+@_l_207:
+	PUSH_VAR col
+	GET_FIELD basePosition
+	GET_FIELD y
+	PUSH_VAR col
+	GET_FIELD localPosition
+	GET_FIELD y
+	!=
+	JUMP_OK _l_227
+	PUSH_OBJ  10
+	PUSH_VAR col
+	GET_FIELD id
+	PUSH_VAR col
+	GET_FIELD localPosition
+	GET_FIELD y
+	PUSH_VAR col
+	GET_FIELD basePosition
+	GET_FIELD y
+	-
+	CALL_METHOD bustupDown
+	NOP
+@_l_227:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	NOP
+	JUMP _l_166
+@_l_233:
+	PUSH_OBJ  4
+	GET_FIELD fZoom
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_266
+
+	INIT_LOCAL Reference param
+	PUSH_VAR col
+	PUSH_OBJ  4
+	GET_FIELD zoomParam
+	POP =
+	NOP
+	PUSH_OBJ  10
+	PUSH_OBJ  4
+	GET_FIELD zoomParam
+	GET_FIELD pt
+	GET_FIELD x
+	PUSH_OBJ  4
+	GET_FIELD zoomParam
+	GET_FIELD pt
+	GET_FIELD y
+	PUSH_OBJ  4
+	GET_FIELD zoomParam
+	GET_FIELD size
+	GET_FIELD w
+	PUSH_OBJ  4
+	GET_FIELD zoomParam
+	GET_FIELD size
+	GET_FIELD h
+	CALL_METHOD zoom
+	NOP
+	NOP
+	JUMP _l_273
+@_l_266:
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL_METHOD zoom
+	NOP
+@_l_273:
+	PUSH_OBJ  10
+	PUSH_VAL Integer -1i
+	CALL_METHOD update
+	NOP
+	CALL HideLoadEffect
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	PUSH_VAL String ""
+	!=
+	JUMP_OK _l_297
+	PUSH_VAR trueName
+	CALL CheckPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_297
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_VAL Integer 0i
+	CALL_METHOD get
+	CALL PlayVoice
+	NOP
+@_l_297:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

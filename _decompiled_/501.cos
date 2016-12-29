@@ -1,0 +1,58 @@
+Function Debug(String str)
+	PUSH_OBJ  35
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_VAR str
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_12
+	PUSH_VAL Integer 0i
+	Return
+@_l_12:
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	PUSH_OBJ  31
+	CALL_METHOD ClearMessage
+	NOP
+	PUSH_OBJ  32
+	PUSH_VAR str
+	CALL_METHOD add
+	NOP
+	INIT_LOCAL Integer i
+	PUSH_OBJ  32
+	CALL_METHOD num
+	PUSH_VAL Integer 1i
+	-
+	POP =
+@_l_28:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	>=
+	JUMP_OK _l_45
+	PUSH_OBJ  31
+	PUSH_OBJ  32
+	PUSH_VAR i
+	CALL_METHOD get
+	PUSH_VAL String "
+"
+	+
+	CALL_METHOD OutputMessage
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP -=
+	NOP
+	JUMP _l_28
+@_l_45:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,80 @@
+Function LoadSaveWindow::loadsave(Reference this, Integer index, Reference arrayHideSpr, Reference arrayShowSpr)
+	INIT_LOCAL Integer ret
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_FIELD fLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_27
+	PUSH_VAL String ""
+	PUSH_VAR index
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	PUSH_VAL String "番をロードします"
+	+
+	PUSH_VAL Integer -1i
+	CALL Confirm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_26
+	PUSH_VAR index
+	CALL NormalLoad
+	NOP
+	PUSH_VAR ret
+	PUSH_VAL Integer 40i
+	POP =
+	NOP
+@_l_26:
+	JUMP _l_68
+@_l_27:
+	PUSH_OBJ  6
+	GET_FIELD bookmark
+	PUSH_VAR index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fSave
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_58
+	PUSH_VAL String ""
+	PUSH_VAR index
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	PUSH_VAL String "番にセーブします"
+	+
+	PUSH_VAL Integer -1i
+	CALL Confirm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_57
+	PUSH_VAR index
+	PUSH_VAR arrayHideSpr
+	PUSH_VAR arrayShowSpr
+	CALL NormalSave
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD GetVertScrollPos
+	CALL setPage
+	NOP
+@_l_57:
+	JUMP _l_68
+@_l_58:
+	PUSH_VAR index
+	PUSH_VAR arrayHideSpr
+	PUSH_VAR arrayShowSpr
+	CALL NormalSave
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD GetVertScrollPos
+	CALL setPage
+	NOP
+@_l_68:
+	PUSH_VAR ret
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,83 @@
+Function AdvScreen::showSelectItem(Reference this)
+	INIT_LOCAL struct Bezier2D bzMag
+	PUSH_VAR bzMag
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAL Real 3d
+	PUSH_VAL Real 0d
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_55
+@_l_24:
+	PUSH_VAR i
+	PUSH_FIELD selectItem
+	CALL_METHOD GetLength
+	<=
+	JUMP_OK _l_54
+	PUSH_FIELD sprSelect
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_FIELD sprSelect
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Reference ref
+	PUSH_VAL Reference ref
+	PUSH_VAR bzMag
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_FIELD sprSelect
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 300i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_24
+@_l_54:
+	JUMP _l_71
+@_l_55:
+	PUSH_VAR i
+	PUSH_FIELD selectItem
+	CALL_METHOD GetLength
+	<=
+	JUMP_OK _l_71
+	PUSH_FIELD sprSelect
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_55
+@_l_71:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

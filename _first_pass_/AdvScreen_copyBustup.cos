@@ -1,0 +1,38 @@
+Function AdvScreen::copyBustup(Integer id, Reference sprDst)
+	screen.Lock()
+	this.sprCg.SetVisible(0)
+	Integer i
+	i := 0
+    While (i <= 5)
+        Reference info
+        info := this.bustupMan.info[i]
+        If (i != id)
+            this.bustupMan.spr[i].SetVisible(0)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Refresh()
+	struct ImageInfo info
+	info := this.bustupMan.spr[id].GetInfo()
+	sprDst.Release()
+	
+	sprDst.CreateSprite(67108865, info.nImageWidth, info.nImageHeight)
+	SpriteParam param
+	param = this.bustupMan.spr[id].GetParameter(info)
+	Rect rect
+	rect = IRect(info.ptDstPos.x - (info.nImageWidth / 2), info.ptDstPos.y - info.nImageHeight + 50, info.ptDstPos.x + info.nImageWidth, info.ptDstPos.y + info.nImageHeight)
+	this.sprAdvBase.GetParameter(info)
+	sprDst.DrawImage(this.sprAdvBase, info, 0, param)
+	this.sprCg.SetVisible(-1)
+	i := 0
+    While (i <= 5)
+        Reference info
+        info := this.bustupMan.info[i]
+        If (i != id)
+            this.bustupMan.spr[i].SetVisible(-1)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Unlock()
+EndFunc
+

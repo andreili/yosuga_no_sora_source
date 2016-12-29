@@ -1,0 +1,41 @@
+Function MessageFrame::transparency(Reference this, Integer trans, Integer fFlush, Integer fWait)
+	CALL isShow
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_32
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_24
+	PUSH_FIELD sprParent
+	PUSH_VAR trans
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_FIELD sprParent
+	PUSH_VAL Integer 300i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR fWait
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_23
+	PUSH_FIELD sprParent
+	CALL WaitUntilSpriteActive
+	NOP
+@_l_23:
+	JUMP _l_28
+@_l_24:
+	PUSH_FIELD sprParent
+	PUSH_VAR trans
+	CALL_METHOD SetTransparency
+	NOP
+@_l_28:
+	PUSH_FIELD isShow
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_32:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

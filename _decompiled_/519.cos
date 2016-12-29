@@ -1,0 +1,69 @@
+Function EnvSeCheckCallback()
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_3:
+	PUSH_VAR i
+	PUSH_OBJ  14
+	CALL_METHOD GetLength
+	<=
+	JUMP_OK _l_61
+
+	INIT_LOCAL String str
+	PUSH_VAR str
+	PUSH_OBJ  14
+	PUSH_VAR i
+	CALL_METHOD GetTagName
+	POP =
+	NOP
+	PUSH_OBJ  14
+	PUSH_VAR str
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fEndingProcess
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_55
+	PUSH_OBJ  14
+	PUSH_VAR str
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD IsPlaying
+	PUSH_VAL Integer -1i
+	==
+	PUSH_OBJ  14
+	PUSH_VAR str
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD IsPendingEnvelope
+	PUSH_VAL Integer 0i
+	==
+	math_UNK2
+	JUMP_OK _l_55
+	PUSH_OBJ  14
+	PUSH_VAR str
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD Stop
+	NOP
+	PUSH_OBJ  14
+	PUSH_VAR str
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD Release
+	NOP
+	PUSH_OBJ  14
+	PUSH_VAR str
+	CALL_METHOD Remove
+	NOP
+@_l_55:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	NOP
+	JUMP _l_3
+@_l_61:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

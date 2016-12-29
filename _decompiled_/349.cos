@@ -1,0 +1,55 @@
+Function AdvScreen::destroy(Reference this)
+	PUSH_FIELD fCreate
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_48
+	CALL flushUpdate
+	NOP
+	PUSH_UNK
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD GetType
+	PUSH_VAL String "Sprite"
+	==
+	JUMP_OK _l_26
+	PUSH_UNK
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_FIELD sprTemp
+	CALL_METHOD Remove
+	NOP
+@_l_26:
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD DetachAllSprite
+	NOP
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD sprCg
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD sprBustupParent
+	CALL_METHOD DetachAllSprite
+	NOP
+	PUSH_FIELD sprBustupParent
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD msgFrame
+	CALL_METHOD destroy
+	NOP
+	PUSH_FIELD fCreate
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_48:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

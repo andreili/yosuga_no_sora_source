@@ -1,0 +1,51 @@
+Function StaffRollView::destroyProc(Reference this, Integer fDestroy)
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	INIT_LOCAL Integer i
+	PUSH_FIELD task
+	CALL_METHOD GetLength
+	PUSH_VAL Integer 1i
+	-
+	POP =
+@_l_9:
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	>=
+	JUMP_OK _l_40
+	PUSH_FIELD task
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 4i
+	==
+	PUSH_VAR fDestroy
+	PUSH_VAL Integer -1i
+	==
+	or
+	JUMP_OK _l_35
+	PUSH_FIELD task
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD sprBase
+	CALL_METHOD DetachAllSprite
+	NOP
+	PUSH_FIELD task
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	CALL_METHOD Remove
+	NOP
+@_l_35:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP -=
+	NOP
+	JUMP _l_9
+@_l_40:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

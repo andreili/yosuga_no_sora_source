@@ -1,0 +1,193 @@
+Function AdvScreen::zoom(Reference this, Integer cx, Integer cy, Integer w, Integer h, Integer time, Integer accel)
+	PUSH_FIELD zoomParam
+	PUSH_VAR cx
+	PUSH_VAR cy
+	PUSH_VAR w
+	PUSH_VAR h
+	PUSH_VAR time
+	PUSH_VAR accel
+	CALL_METHOD set
+	NOP
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer 0i
+	==
+	PUSH_FIELD zoomParam
+	CALL_METHOD isZoom
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_20
+	PUSH_VAL Integer 0i
+	Return
+@_l_20:
+	PUSH_FIELD fUpdate
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_168
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bzMov
+	INIT_LOCAL struct Bezier2D bzMag
+	PUSH_FIELD zoomParam
+	CALL_METHOD isZoom
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_93
+
+	INIT_LOCAL Real magH
+	INIT_LOCAL Real magV
+	PUSH_VAR magH
+	PUSH_FIELD zoomParam
+	CALL_METHOD horzUnit
+	POP =
+	NOP
+	PUSH_VAR magV
+	PUSH_FIELD zoomParam
+	CALL_METHOD vertUnit
+	POP =
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD x
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD y
+	PUSH_VAR cx
+	PUSH_VAR w
+	PUSH_VAL Integer 2i
+	/
+	-
+	logic_unk1
+	PUSH_VAR magH
+	*
+	PUSH_VAR cy
+	PUSH_VAR h
+	PUSH_VAL Integer 2i
+	/
+	-
+	logic_unk1
+	PUSH_VAR magV
+	*
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAR param
+	GET_FIELD rHorzUnit
+	PUSH_VAR param
+	GET_FIELD rVertUnit
+	PUSH_VAR magH
+	PUSH_VAR magV
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	NOP
+	JUMP _l_121
+@_l_93:
+	PUSH_VAR bzMov
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD x
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD y
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	GET_FIELD x
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	GET_FIELD y
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAR param
+	GET_FIELD rHorzUnit
+	PUSH_VAR param
+	GET_FIELD rVertUnit
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_121:
+	PUSH_VAR bzMov
+	PUSH_VAR accel
+	PUSH_VAL Real 0d
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAR accel
+	PUSH_VAL Real 0d
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR bzMov
+	PUSH_VAL Reference ref
+	PUSH_VAR bzMag
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR time
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 1i
+	==
+	PUSH_OBJ  10
+	CALL_METHOD isSkip
+	PUSH_VAL Integer -1i
+	==
+	or
+	PUSH_OBJ  10
+	CALL_METHOD isKeyUpdateFlush
+	PUSH_VAL Integer -1i
+	==
+	or
+	JUMP_OK _l_159
+	PUSH_FIELD sprAdvBase
+	CALL_METHOD FlushActivation
+	NOP
+@_l_159:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	NOP
+	JUMP _l_181
+@_l_168:
+	PUSH_FIELD zoomParam
+	CALL_METHOD isZoom
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_177
+	PUSH_FIELD fZoom
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_177:
+	PUSH_FIELD reqZoom
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_181:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

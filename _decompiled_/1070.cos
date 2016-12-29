@@ -1,0 +1,2155 @@
+Function sc00_E032B()
+	CALL ScenarioEnter
+	NOP
+	PUSH_VAL String "BGM10"
+	PUSH_VAL Integer 0i
+	CALL ScPlayBgm
+	NOP
+	PUSH_VAL String "B02c"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "あの後、亮平から元彼がサラリーマンだってことだけ、聞き出"
+	CALL Mess
+	NOP
+	PUSH_VAL String "した。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38470i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_40
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_46
+@_l_40:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_46
+	PUSH_VAL Integer 0i
+	Return
+@_l_46:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "そんな事を聞いてもどうにもならないのに、聞かずにはいられ"
+	CALL Mess
+	NOP
+	PUSH_VAL String "なかった。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38471i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_75
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_81
+@_l_75:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_81
+	PUSH_VAL Integer 0i
+	Return
+@_l_81:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "情けないのに加えて、女々しいかも。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38472i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_107
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_113
+@_l_107:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_113
+	PUSH_VAL Integer 0i
+	Return
+@_l_113:
+	PUSH_VAL String "CA02_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050184"
+	CALL Talk
+	NOP
+	PUSH_VAL String "ハル、ご飯は？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38473i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_144
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_150
+@_l_144:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_150
+	PUSH_VAL Integer 0i
+	Return
+@_l_150:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "ああ、うん……出来てる。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38474i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_176
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_182
+@_l_176:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_182
+	PUSH_VAL Integer 0i
+	Return
+@_l_182:
+	CALL BustupClear
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "今夜の献立は、クリームシチューと余った野菜でのサラダ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38475i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_210
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_216
+@_l_210:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_216
+	PUSH_VAL Integer 0i
+	Return
+@_l_216:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "いつだったか、初佳さんが作ってくれたメニューだ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38476i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_242
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_248
+@_l_242:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_248
+	PUSH_VAL Integer 0i
+	Return
+@_l_248:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "僕って奴はこんなところまで女々しいんだな。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38477i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_274
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_280
+@_l_274:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_280
+	PUSH_VAL Integer 0i
+	Return
+@_l_280:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "やっぱり、大人は大人同士で付き合った方が良いんだろう……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38478i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_306
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_312
+@_l_306:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_312
+	PUSH_VAL Integer 0i
+	Return
+@_l_312:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "初佳さんは大人だから、自分の身に起きたことは、自分で対処"
+	CALL Mess
+	NOP
+	PUSH_VAL String "出来る。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38479i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_341
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_347
+@_l_341:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_347
+	PUSH_VAL Integer 0i
+	Return
+@_l_347:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "僕はまだ子供で、何かあったら、誰かに世話して貰わなくちゃ"
+	CALL Mess
+	NOP
+	PUSH_VAL String "いけない。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38480i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_376
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_382
+@_l_376:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_382
+	PUSH_VAL Integer 0i
+	Return
+@_l_382:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "父さん達が死んだ時や……奈緒ちゃんとの時みたいに……周り"
+	CALL Mess
+	NOP
+	PUSH_VAL String "に流されてばかりの僕じゃあ……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38481i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_411
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_417
+@_l_411:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_417
+	PUSH_VAL Integer 0i
+	Return
+@_l_417:
+	PUSH_VAL String "CA02_07M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050185"
+	CALL Talk
+	NOP
+	PUSH_VAL String "……しょっぱい。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38482i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_448
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_454
+@_l_448:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_454
+	PUSH_VAL Integer 0i
+	Return
+@_l_454:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "……ほんとだ。塩の入れすぎだな、こりゃ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38483i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_480
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_486
+@_l_480:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_486
+	PUSH_VAL Integer 0i
+	Return
+@_l_486:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "晩ご飯まで涙味かよ……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38484i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_512
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_518
+@_l_512:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_518
+	PUSH_VAL Integer 0i
+	Return
+@_l_518:
+	PUSH_VAL String "CA02_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050186"
+	CALL Talk
+	NOP
+	PUSH_VAL String "なにやってるの？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38485i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_549
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_555
+@_l_549:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_555
+	PUSH_VAL Integer 0i
+	Return
+@_l_555:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "捨てる……のはもったいないから、水とルウで薄めるよ。少し"
+	CALL Mess
+	NOP
+	PUSH_VAL String "待ってな。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38486i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_584
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_590
+@_l_584:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_590
+	PUSH_VAL Integer 0i
+	Return
+@_l_590:
+	CALL BustupClear
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "シチューの鍋を火に掛け直して、水を入れる。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38487i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_618
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_624
+@_l_618:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_624
+	PUSH_VAL Integer 0i
+	Return
+@_l_624:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "薄まり過ぎないように慎重に……それから、ルウを……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38488i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_650
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_656
+@_l_650:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_656
+	PUSH_VAL Integer 0i
+	Return
+@_l_656:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "って、ルウの買い置きなんか無いじゃん。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38489i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_682
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_688
+@_l_682:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_688
+	PUSH_VAL Integer 0i
+	Return
+@_l_688:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "ああもう、気が抜けてるにも程があるだろ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38490i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_714
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_720
+@_l_714:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_720
+	PUSH_VAL Integer 0i
+	Return
+@_l_720:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050187"
+	CALL Talk
+	NOP
+	PUSH_VAL String "ハル。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38491i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_746
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_752
+@_l_746:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_752
+	PUSH_VAL Integer 0i
+	Return
+@_l_752:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "何だよ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38492i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_778
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_784
+@_l_778:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_784
+	PUSH_VAL Integer 0i
+	Return
+@_l_784:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "苛立ちから、答える声がつい荒くなる。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38493i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_810
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_816
+@_l_810:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_816
+	PUSH_VAL Integer 0i
+	Return
+@_l_816:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050188"
+	CALL Talk
+	NOP
+	PUSH_VAL String "メイドと別れたんでしょ？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38494i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_842
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_848
+@_l_842:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_848
+	PUSH_VAL Integer 0i
+	Return
+@_l_848:
+	PUSH_VAL String "CA02_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "なっ！？　何でそれをっ！"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38495i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_879
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_885
+@_l_879:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_885
+	PUSH_VAL Integer 0i
+	Return
+@_l_885:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "その声に、わずかながら喜びの響きを感じ取って、僕はお玉を"
+	CALL Mess
+	NOP
+	PUSH_VAL String "持つ手もそのままに振り向いていた。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38496i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_914
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_920
+@_l_914:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_920
+	PUSH_VAL Integer 0i
+	Return
+@_l_920:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "そんな僕を、穹は涼しい顔で見つめる。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38497i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_946
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_952
+@_l_946:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_952
+	PUSH_VAL Integer 0i
+	Return
+@_l_952:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050189"
+	CALL Talk
+	NOP
+	PUSH_VAL String "昼休みの話、聞いてた。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38498i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_978
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_984
+@_l_978:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_984
+	PUSH_VAL Integer 0i
+	Return
+@_l_984:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "盗み聞きしたのかっ？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38499i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1010
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1016
+@_l_1010:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1016
+	PUSH_VAL Integer 0i
+	Return
+@_l_1016:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050190"
+	CALL Talk
+	NOP
+	PUSH_VAL String "ハルが呼びに来ないから。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38500i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1042
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1048
+@_l_1042:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1048
+	PUSH_VAL Integer 0i
+	Return
+@_l_1048:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "理由になってないだろっ！"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38501i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1074
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1080
+@_l_1074:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1080
+	PUSH_VAL Integer 0i
+	Return
+@_l_1080:
+	PUSH_VAL String "CA02_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050191"
+	CALL Talk
+	NOP
+	PUSH_VAL String "八つ当たり？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38502i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1111
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1117
+@_l_1111:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1117
+	PUSH_VAL Integer 0i
+	Return
+@_l_1117:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "お前が悪いことしたんだろ！"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38503i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1143
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1149
+@_l_1143:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1149
+	PUSH_VAL Integer 0i
+	Return
+@_l_1149:
+	PUSH_VAL String "CA02_01M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050192"
+	CALL Talk
+	NOP
+	PUSH_VAL String "……ハル、メイドの相手、疲れてなかった？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38504i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1180
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1186
+@_l_1180:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1186
+	PUSH_VAL Integer 0i
+	Return
+@_l_1186:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "人の話を聞けよ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38505i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1212
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1218
+@_l_1212:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1218
+	PUSH_VAL Integer 0i
+	Return
+@_l_1218:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050193"
+	CALL Talk
+	NOP
+	PUSH_VAL String "別れて、せいせいした？"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38506i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1244
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1250
+@_l_1244:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1250
+	PUSH_VAL Integer 0i
+	Return
+@_l_1250:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "さっきから何言ってんだよっ。そんなワケないだろっ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38507i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1276
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1282
+@_l_1276:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1282
+	PUSH_VAL Integer 0i
+	Return
+@_l_1282:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050194"
+	CALL Talk
+	NOP
+	PUSH_VAL String "あんな女、忘れよ？　私、ずっと側にいる。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38508i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1308
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1314
+@_l_1308:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1314
+	PUSH_VAL Integer 0i
+	Return
+@_l_1314:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "勝手な事ばかり言うんじゃないっ！　穹がそんなだから僕は。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38509i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1340
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1346
+@_l_1340:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1346
+	PUSH_VAL Integer 0i
+	Return
+@_l_1346:
+	PUSH_VAL String "CA02_06M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050195"
+	CALL Talk
+	NOP
+	PUSH_VAL String "やっぱり、八つ当たり。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38510i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1377
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1383
+@_l_1377:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1383
+	PUSH_VAL Integer 0i
+	Return
+@_l_1383:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "だからお前がだなっ……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38511i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1409
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1415
+@_l_1409:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1415
+	PUSH_VAL Integer 0i
+	Return
+@_l_1415:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "イチイチ頭に来る事を言う。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38512i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1441
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1447
+@_l_1441:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1447
+	PUSH_VAL Integer 0i
+	Return
+@_l_1447:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "人が落ち込んでるっていうのに、傷口に塩を塗るようなことし"
+	CALL Mess
+	NOP
+	PUSH_VAL String "て……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38513i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1476
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1482
+@_l_1476:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1482
+	PUSH_VAL Integer 0i
+	Return
+@_l_1482:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "って、これじゃ本当に八つ当たりじゃないか。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38514i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1508
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1514
+@_l_1508:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1514
+	PUSH_VAL Integer 0i
+	Return
+@_l_1514:
+	PUSH_VAL String "穹"
+	PUSH_VAL String "SR050196"
+	CALL Talk
+	NOP
+	PUSH_VAL String "馬鹿みたい。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38515i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1540
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1546
+@_l_1540:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1546
+	PUSH_VAL Integer 0i
+	Return
+@_l_1546:
+	CALL BustupClear
+	NOP
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "何だよ、くそっ……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38516i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1574
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1580
+@_l_1574:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1580
+	PUSH_VAL Integer 0i
+	Return
+@_l_1580:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "せいせいなんてする訳ない。忘れられる訳ない。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38517i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1606
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1612
+@_l_1606:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1612
+	PUSH_VAL Integer 0i
+	Return
+@_l_1612:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "初佳さんと一緒にいるのは、楽しかったんだ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38518i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1638
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1644
+@_l_1638:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1644
+	PUSH_VAL Integer 0i
+	Return
+@_l_1644:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "初佳さんはとぼけてるところもあって、思いも掛けない事をし"
+	CALL Mess
+	NOP
+	PUSH_VAL String "たりもするけど、それをフォローするのも自分が認められてる"
+	CALL Mess
+	NOP
+	PUSH_VAL String "みたいで、嬉しかったんだ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38519i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1676
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1682
+@_l_1676:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1682
+	PUSH_VAL Integer 0i
+	Return
+@_l_1682:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "そこに居ていいんだって、思えた。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38520i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1708
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1714
+@_l_1708:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1714
+	PUSH_VAL Integer 0i
+	Return
+@_l_1714:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "初佳さんに寄りかかってるだけと言われれば、そうだ。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38521i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1740
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1746
+@_l_1740:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1746
+	PUSH_VAL Integer 0i
+	Return
+@_l_1746:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "初佳さんを支えられるのかと聞かれたら、出来ないとしか言え"
+	CALL Mess
+	NOP
+	PUSH_VAL String "ない。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38522i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1775
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1781
+@_l_1775:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1781
+	PUSH_VAL Integer 0i
+	Return
+@_l_1781:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "それでも、僕は初佳さんと一緒に居たい。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38523i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1807
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1813
+@_l_1807:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1813
+	PUSH_VAL Integer 0i
+	Return
+@_l_1813:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "例え、迷惑を掛けることになっても……釣り合いが取れなくて"
+	CALL Mess
+	NOP
+	PUSH_VAL String "も……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38524i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1842
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1848
+@_l_1842:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1848
+	PUSH_VAL Integer 0i
+	Return
+@_l_1848:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "好きだから……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38525i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1874
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1880
+@_l_1874:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1880
+	PUSH_VAL Integer 0i
+	Return
+@_l_1880:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "好きになったんだから……"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38526i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1906
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1912
+@_l_1906:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1912
+	PUSH_VAL Integer 0i
+	Return
+@_l_1912:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "自分の気持ちくらいは、流されたくない。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38527i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1938
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1944
+@_l_1938:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1944
+	PUSH_VAL Integer 0i
+	Return
+@_l_1944:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "だからもう一度、初佳さんと会おう。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38528i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1970
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1976
+@_l_1970:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1976
+	PUSH_VAL Integer 0i
+	Return
+@_l_1976:
+	PUSH_VAL String "悠"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "……ほんと、馬鹿みたいだよな。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38529i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_2002
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_2008
+@_l_2002:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_2008
+	PUSH_VAL Integer 0i
+	Return
+@_l_2008:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "振られなきゃ、自分の気持ちとさえ向き合えないなんて。"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 38530i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_2034
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_2

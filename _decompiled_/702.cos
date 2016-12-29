@@ -1,0 +1,96 @@
+Function ScenarioLoop(String func)
+	CALL StopBgm
+	NOP
+	CALL SetupAdvScreen
+	NOP
+	PUSH_VAR func
+	CALL Change
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL String "NORMAL"
+	CALL_METHOD setToneFilter
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL String "BLACK"
+	CALL_METHOD setCg
+	NOP
+@_l_15:
+	PUSH_OBJ  4
+	GET_FIELD scenarioCall
+	PUSH_VAL String "EXIT_SCENARIO"
+	!=
+	JUMP_OK _l_57
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_32
+	PUSH_VAL String "\c;8888FF:Jump-"
+	PUSH_OBJ  4
+	GET_FIELD scenarioCall
+	+
+	PUSH_VAL String "\c:"
+	+
+	CALL Debug
+	NOP
+@_l_32:
+
+	INIT_LOCAL String tempCall
+	PUSH_VAR tempCall
+	PUSH_VAL String "sc"
+	PUSH_OBJ  4
+	GET_FIELD scenarioCall
+	+
+	POP =
+	NOP
+	PUSH_VAR tempCall
+	PUSH_VAR tempCall
+	PUSH_VAL String "-"
+	PUSH_VAL String "_"
+	CALL_METHOD Replace
+	POP =
+	NOP
+	PUSH_VAR tempCall
+	CALL_METHOD Call
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_55
+	NOP
+	JUMP _l_57
+@_l_55:
+	NOP
+	JUMP _l_15
+@_l_57:
+	PUSH_OBJ  10
+	PUSH_VAL String "NORMAL"
+	CALL_METHOD setToneFilter
+	NOP
+	PUSH_OBJ  10
+	CALL_METHOD hideMessage
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL String "BLACK"
+	CALL_METHOD setCg
+	NOP
+	PUSH_OBJ  10
+	CALL_METHOD bustupClear
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	CALL_METHOD update
+	NOP
+	CALL StopVoice
+	NOP
+	CALL StopSe
+	NOP
+	CALL StopEnvSe
+	NOP
+	PUSH_VAL Integer 0i
+	CALL StopBgm
+	NOP
+	CALL DestroyAdvScreen
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

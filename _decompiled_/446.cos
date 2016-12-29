@@ -1,0 +1,61 @@
+Function BustupManager::clear(Reference this, Integer id)
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_29
+@_l_7:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_28
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_23
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD clear
+	NOP
+@_l_23:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_7
+@_l_28:
+	JUMP _l_50
+@_l_29:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_50
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD id
+	PUSH_VAR id
+	==
+	JUMP_OK _l_45
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD clear
+	NOP
+@_l_45:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_29
+@_l_50:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

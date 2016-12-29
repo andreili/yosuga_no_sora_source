@@ -1,0 +1,39 @@
+Function ChangeDisplay(Integer fFullscreen)
+	PUSH_VAR fFullscreen
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_18
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_13
+	PUSH_UNK
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL_METHOD ChangeDisplaySize
+	NOP
+@_l_13:
+	PUSH_UNK
+	PUSH_VAL Integer 3i
+	CALL_METHOD ChangeCooperationLevel
+	NOP
+	JUMP _l_31
+@_l_18:
+	PUSH_UNK
+	PUSH_VAL Integer 0i
+	CALL_METHOD ChangeCooperationLevel
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_31
+	PUSH_UNK
+	PUSH_VAL Integer 1024i
+	PUSH_VAL Integer 600i
+	CALL_METHOD ChangeDisplaySize
+	NOP
+@_l_31:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

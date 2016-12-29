@@ -1,0 +1,235 @@
+Function AppreciationView::playBgm(Reference this, Integer id)
+	INIT_LOCAL String file
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_4
+	JUMP _l_195
+@_l_4:
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_13
+	PUSH_VAR file
+	PUSH_VAL String "BGM01"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_13:
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_22
+	PUSH_VAR file
+	PUSH_VAL String "BGM03"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_22:
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_31
+	PUSH_VAR file
+	PUSH_VAL String "BGM04"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_31:
+	PUSH_VAR id
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_40
+	PUSH_VAR file
+	PUSH_VAL String "BGM05"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_40:
+	PUSH_VAR id
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_49
+	PUSH_VAR file
+	PUSH_VAL String "BGM06"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_49:
+	PUSH_VAR id
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_58
+	PUSH_VAR file
+	PUSH_VAL String "BGM07"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_58:
+	PUSH_VAR id
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_67
+	PUSH_VAR file
+	PUSH_VAL String "BGM08"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_67:
+	PUSH_VAR id
+	PUSH_VAL Integer 7i
+	==
+	JUMP_OK _l_76
+	PUSH_VAR file
+	PUSH_VAL String "BGM09"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_76:
+	PUSH_VAR id
+	PUSH_VAL Integer 8i
+	==
+	JUMP_OK _l_85
+	PUSH_VAR file
+	PUSH_VAL String "BGM10"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_85:
+	PUSH_VAR id
+	PUSH_VAL Integer 9i
+	==
+	JUMP_OK _l_94
+	PUSH_VAR file
+	PUSH_VAL String "BGM11"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_94:
+	PUSH_VAR id
+	PUSH_VAL Integer 10i
+	==
+	JUMP_OK _l_103
+	PUSH_VAR file
+	PUSH_VAL String "BGM12"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_103:
+	PUSH_VAR id
+	PUSH_VAL Integer 11i
+	==
+	JUMP_OK _l_112
+	PUSH_VAR file
+	PUSH_VAL String "BGM13"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_112:
+	PUSH_VAR id
+	PUSH_VAL Integer 12i
+	==
+	JUMP_OK _l_121
+	PUSH_VAR file
+	PUSH_VAL String "BGM14"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_121:
+	PUSH_VAR id
+	PUSH_VAL Integer 13i
+	==
+	JUMP_OK _l_130
+	PUSH_VAR file
+	PUSH_VAL String "BGM15"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_130:
+	PUSH_VAR id
+	PUSH_VAL Integer 14i
+	==
+	JUMP_OK _l_139
+	PUSH_VAR file
+	PUSH_VAL String "BGM16"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_139:
+	PUSH_VAR id
+	PUSH_VAL Integer 15i
+	==
+	JUMP_OK _l_148
+	PUSH_VAR file
+	PUSH_VAL String "BGM17"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_148:
+	PUSH_VAR id
+	PUSH_VAL Integer 16i
+	==
+	JUMP_OK _l_157
+	PUSH_VAR file
+	PUSH_VAL String "BGM18"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_157:
+	PUSH_VAR id
+	PUSH_VAL Integer 17i
+	==
+	JUMP_OK _l_166
+	PUSH_VAR file
+	PUSH_VAL String "BGM19"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_166:
+	PUSH_VAR id
+	PUSH_VAL Integer 18i
+	==
+	JUMP_OK _l_175
+	PUSH_VAR file
+	PUSH_VAL String "BGM20"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_175:
+	PUSH_VAR id
+	PUSH_VAL Integer 19i
+	==
+	JUMP_OK _l_184
+	PUSH_VAR file
+	PUSH_VAL String "BGM21"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_184:
+	PUSH_VAR id
+	PUSH_VAL Integer 20i
+	==
+	JUMP_OK _l_193
+	PUSH_VAR file
+	PUSH_VAL String "BGM02_S"
+	POP =
+	NOP
+	JUMP _l_195
+@_l_193:
+	PUSH_VAL Integer 0i
+	Return
+@_l_195:
+	PUSH_VAR file
+	PUSH_VAL Integer -1i
+	CALL PlayBgm
+	NOP
+	PUSH_FIELD selPlayBgm
+	PUSH_VAR id
+	POP =
+	NOP
+	PUSH_FIELD isPlayBgm
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

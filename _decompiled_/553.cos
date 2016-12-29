@@ -1,0 +1,185 @@
+Function HistoryWindow::setPage(Reference this, Integer index)
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	PUSH_FIELD msprMessage
+	CALL_METHOD ClearMessage
+	NOP
+	INIT_LOCAL Integer y
+	INIT_LOCAL Integer num
+	PUSH_OBJ  4
+	GET_FIELD messLog
+	CALL_METHOD num
+	POP =
+	PUSH_FIELD indexRange
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_23
+	PUSH_FIELD pagePointer
+	PUSH_VAR num
+	PUSH_VAL Integer 1i
+	-
+	POP =
+	NOP
+	JUMP _l_31
+@_l_23:
+	PUSH_FIELD pagePointer
+	PUSH_VAL Integer 4i
+	PUSH_VAR index
+	+
+	PUSH_VAL Integer 1i
+	-
+	POP =
+	NOP
+@_l_31:
+	PUSH_FIELD msprMessage
+	PUSH_UNK
+	PUSH_VAL String "ID_FONT_MESSAGE"
+	CALL_METHOD AttachMessageStyle
+	NOP
+	PUSH_VAR y
+	PUSH_VAL Integer 37i
+	POP =
+	NOP
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_43:
+	PUSH_VAR i
+	PUSH_VAL Integer 4i
+	<=
+	JUMP_OK _l_77
+	PUSH_FIELD msprMessage
+	PUSH_VAL Integer 0i
+	PUSH_VAR y
+	CALL_METHOD MoveCursorPos
+	NOP
+	PUSH_FIELD msprMessage
+	PUSH_OBJ  4
+	GET_FIELD seqLog
+	PUSH_FIELD pagePointer
+	PUSH_VAR i
+	-
+	CALL_METHOD get
+	PUSH_OBJ  4
+	GET_FIELD messLog
+	PUSH_FIELD pagePointer
+	PUSH_VAR i
+	-
+	CALL_METHOD get
+	+
+	CALL_METHOD OutputMessage
+	NOP
+	PUSH_VAR y
+	PUSH_VAL Integer 128i
+	POP +=
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_43
+@_l_77:
+	INIT_LOCAL struct Point pt
+	PUSH_FIELD msprMessage
+	PUSH_UNK
+	PUSH_VAL String "ID_FONT_NAME"
+	CALL_METHOD AttachMessageStyle
+	NOP
+	PUSH_VAR y
+	PUSH_VAL Integer 6i
+	POP =
+	NOP
+	INIT_LOCAL String showName
+	INIT_LOCAL String trueName
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_93:
+	PUSH_VAR i
+	PUSH_VAL Integer 4i
+	<=
+	JUMP_OK _l_169
+	PUSH_OBJ  4
+	GET_FIELD nameLog
+	PUSH_FIELD pagePointer
+	PUSH_VAR i
+	-
+	CALL_METHOD get
+	PUSH_VAR showName
+	PUSH_VAR trueName
+	CALL CheckTrueName
+	NOP
+	PUSH_FIELD msprMessage
+	PUSH_VAL Integer 5i
+	PUSH_VAR y
+	CALL_METHOD MoveCursorPos
+	NOP
+	PUSH_FIELD msprMessage
+	PUSH_VAR showName
+	CALL_METHOD OutputMessage
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_FIELD pagePointer
+	PUSH_VAR i
+	-
+	CALL_METHOD get
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_132
+	PUSH_FIELD sprVoice
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	JUMP _l_160
+@_l_132:
+	PUSH_VAR pt
+	PUSH_FIELD msprMessage
+	CALL_METHOD GetCursorPos
+	POP =
+	NOP
+	PUSH_FIELD sprVoice
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprVoice
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 14i
+	PUSH_VAR pt
+	GET_FIELD x
+	+
+	PUSH_VAL Integer 4i
+	+
+	PUSH_VAL Integer 0i
+	PUSH_VAR pt
+	GET_FIELD y
+	+
+	PUSH_VAL Integer 5i
+	+
+	CALL_METHOD MovePosition
+	NOP
+@_l_160:
+	PUSH_VAR y
+	PUSH_VAL Integer 128i
+	POP +=
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_93
+@_l_169:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

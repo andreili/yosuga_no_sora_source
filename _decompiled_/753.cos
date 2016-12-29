@@ -1,0 +1,17 @@
+Function Transition(String type, Integer time)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAR type
+	PUSH_VAR time
+	CALL_METHOD setTransition
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

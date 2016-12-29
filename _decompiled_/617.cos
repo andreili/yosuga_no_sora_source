@@ -1,0 +1,213 @@
+Function Logo()
+	INIT_LOCAL struct ResourceManager titleSkin
+	PUSH_VAR titleSkin
+	PUSH_VAL String "title.noa"
+	CALL_METHOD LoadResource
+	NOP
+	INIT_LOCAL struct Sprite sprBase
+	INIT_LOCAL struct Sprite sprLogo
+	PUSH_VAR sprBase
+	PUSH_VAR titleSkin
+	GET_FIELD ID_FRM_0601
+	CALL_METHOD AttachImage
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50050i
+	PUSH_VAR sprBase
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	INIT_LOCAL Integer fCancel
+	PUSH_VAR sprBase
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	POP =
+	PUSH_VAR fCancel
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_47
+	PUSH_VAR fCancel
+	PUSH_VAL Integer 1000i
+	CALL HitWait
+	POP =
+	NOP
+@_l_47:
+	PUSH_VAR fCancel
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_155
+
+	INIT_LOCAL parent brandCall
+	PUSH_VAR brandCall
+	PUSH_VAL String "AK080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "KA080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "KO080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "MT080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "NO080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "RH080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "SR080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAL String "YH080001"
+	POP +=
+	NOP
+	PUSH_VAR brandCall
+	PUSH_VAR brandCall
+	CALL_METHOD GetLength
+	CALL MakeRandom
+	GET_FIELD_BY_OFFSET
+	CALL PlaySysSe
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAR titleSkin
+	GET_FIELD ID_FRM_0602
+	CALL_METHOD AttachImage
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	INIT_LOCAL struct ImageInfo info
+	PUSH_VAR info
+	PUSH_VAR sprLogo
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	-
+	PUSH_VAL Integer 2i
+	/
+	PUSH_OBJ  2
+	GET_FIELD h
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	-
+	PUSH_VAL Integer 2i
+	/
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50050i
+	PUSH_VAL Integer 1i
+	-
+	PUSH_VAR sprLogo
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_154
+	PUSH_VAR fCancel
+	PUSH_VAL Integer 5000i
+	CALL HitWait
+	POP =
+	NOP
+@_l_154:
+	NOP
+@_l_155:
+	PUSH_VAR fCancel
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_179
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+@_l_179:
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	PUSH_VAR sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR sprLogo
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_UNK
+	PUSH_VAR sprBase
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAR sprLogo
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_VAR titleSkin
+	CALL_METHOD DeleteContents
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

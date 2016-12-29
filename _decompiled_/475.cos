@@ -1,0 +1,23 @@
+Function ChkFlagOff(Integer i)
+	PUSH_VAL Integer 1i
+	PUSH_VAR i
+	<
+	PUSH_VAR i
+	PUSH_VAL Integer 512i
+	<=
+	and
+	JUMP_OK _l_15
+	PUSH_OBJ  4
+	GET_FIELD flag
+	PUSH_VAR i
+	CALL_METHOD check
+	PUSH_VAL Integer 0i
+	==
+	Return
+@_l_15:
+	PUSH_VAL Integer 0i
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

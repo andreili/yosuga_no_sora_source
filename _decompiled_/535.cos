@@ -1,0 +1,61 @@
+Function Flag::create(Reference this, Integer size)
+	PUSH_FIELD flag
+	CALL_METHOD Remove
+	NOP
+	INIT_LOCAL Integer flagsize
+	PUSH_VAR size
+	PUSH_VAL Integer 32i
+	/
+	POP =
+	INIT_LOCAL Integer flagsize_
+	PUSH_VAR size
+	PUSH_VAL Integer 32i
+	%
+	POP =
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_16:
+	PUSH_VAR i
+	PUSH_VAR flagsize
+	<=
+	JUMP_OK _l_37
+	PUSH_FIELD flag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD flag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_16
+@_l_37:
+	PUSH_VAR flagsize_
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_53
+	PUSH_FIELD flag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD flag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_53:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

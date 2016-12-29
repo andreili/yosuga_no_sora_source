@@ -1,0 +1,46 @@
+Function TestHitret(String str)
+	PUSH_VAR str
+	PUSH_VAL String ""
+	!=
+	JUMP_OK _l_7
+	PUSH_VAR str
+	CALL Debug
+	NOP
+@_l_7:
+	PUSH_UNK
+	CALL_METHOD FlushJoyButtonPushed
+	NOP
+	INIT_LOCAL struct WndSpriteCmd wscmd
+@_l_11:
+	PUSH_VAL Integer -1i
+	JUMP_OK _l_31
+	PUSH_VAR wscmd
+	PUSH_VAL Integer 33i
+	CALL GetCommand
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 4i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	PUSH_UNK
+	PUSH_VAL Integer 5i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	or
+	JUMP_OK _l_30
+	JUMP _l_31
+@_l_30:
+	JUMP _l_11
+@_l_31:
+	PUSH_UNK
+	CALL_METHOD FlushJoyButtonPushed
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	@@Initialize
+
+	Return this
+EndFunc
+

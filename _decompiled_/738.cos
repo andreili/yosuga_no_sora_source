@@ -1,0 +1,84 @@
+Function StopBgm(Integer fNonFade, Integer fConfigStop)
+	PUSH_VAL String "BGM-STOP"
+	CALL Debug
+	NOP
+	PUSH_VAR fNonFade
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_42
+
+	INIT_LOCAL struct Bezier2D bzVol
+	INIT_LOCAL Real leftVol
+	INIT_LOCAL Real rightVol
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR leftVol
+	PUSH_VAR rightVol
+	CALL_METHOD GetVolume
+	NOP
+	PUSH_VAR bzVol
+	PUSH_VAR leftVol
+	PUSH_VAR rightVol
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 0d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR bzVol
+	PUSH_VAL Integer 3000i
+	CALL_METHOD SetVolumeEnvelope
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fEndingProcess
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	NOP
+@_l_42:
+	PUSH_VAR fNonFade
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_58
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD Stop
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD Release
+	NOP
+@_l_58:
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fPlaying
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR fConfigStop
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_76
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD filename
+	PUSH_VAL String ""
+	POP =
+	NOP
+@_l_76:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,22 @@
+Function StaffRoll(Integer type)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	CALL StopBgm
+	NOP
+	INIT_LOCAL struct StaffRollView view
+	PUSH_VAR view
+	PUSH_VAR type
+	CALL_METHOD run
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	@@Initialize
+
+	Return this
+EndFunc
+

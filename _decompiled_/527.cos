@@ -1,0 +1,340 @@
+Function EyeCatch01(Integer fEnter)
+	INIT_LOCAL Reference spr
+	PUSH_VAR spr
+	PUSH_OBJ  25
+	POP =
+	NOP
+	PUSH_VAR fEnter
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_288
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Resource struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "EyeCatchT.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Resource struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "EyeCatchB.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1i
+	CALL_METHOD SetAlphaImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendDegree
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR spr
+	PUSH_VAL String "AlphaB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1i
+	CALL_METHOD SetAlphaImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendDegree
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 500i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "title.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 10i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 100i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 100i
+	CALL IRect
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	CALL_METHOD FillRect
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackT"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 100i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 100i
+	CALL IRect
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	CALL_METHOD FillRect
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "BlackB"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 10i
+	PUSH_VAR spr
+	PUSH_VAL String "BlackT"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 10i
+	PUSH_VAR spr
+	PUSH_VAL String "BlackB"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50800i
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50800i
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 5i
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1500i
+	CALL_METHOD BeginActivation
+	NOP
+	CALL BustupClear
+	NOP
+	CALL Update
+	NOP
+	PUSH_VAL Integer 1500i
+	CALL ScWait
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAL Integer 2500i
+	CALL ScWait
+	NOP
+	JUMP _l_333
+@_l_288:
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAL Integer 1500i
+	CALL ScWait
+	NOP
+	PUSH_UNK
+	PUSH_VAR spr
+	PUSH_VAL String "T"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAR spr
+	PUSH_VAL String "B"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD DetachSprite
+	NOP
+@_l_333:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

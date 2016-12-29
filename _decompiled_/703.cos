@@ -1,0 +1,27 @@
+Function Sepia(Integer flag)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_VAR flag
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_15
+	PUSH_OBJ  10
+	PUSH_VAL String "SEPIA"
+	CALL_METHOD setToneFilter
+	NOP
+	JUMP _l_19
+@_l_15:
+	PUSH_OBJ  10
+	PUSH_VAL String "NORMAL"
+	CALL_METHOD setToneFilter
+	NOP
+@_l_19:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,54 @@
+Function BustupManager::sortRelation(Reference this)
+	INIT_LOCAL Integer i
+	INIT_LOCAL Integer j
+	PUSH_VAR i
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_6:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<
+	JUMP_OK _l_44
+	PUSH_VAR j
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	NOP
+@_l_16:
+	PUSH_VAR j
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_39
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD relation
+	PUSH_FIELD info
+	PUSH_VAR j
+	GET_FIELD_BY_OFFSET
+	GET_FIELD relation
+	>
+	JUMP_OK _l_34
+	PUSH_VAR i
+	PUSH_VAR j
+	CALL swap
+	NOP
+@_l_34:
+	PUSH_VAR j
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_16
+@_l_39:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_6
+@_l_44:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

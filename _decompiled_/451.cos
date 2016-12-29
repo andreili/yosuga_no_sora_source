@@ -1,0 +1,46 @@
+Function BustupManager::leave(Reference this, Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_3:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_38
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD id
+	PUSH_VAR id
+	==
+	JUMP_OK _l_33
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 128i
+	POP =
+	NOP
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD leaveParam
+	PUSH_VAR mx
+	PUSH_VAR my
+	CALL IPoint
+	PUSH_VAR time
+	PUSH_VAR accel
+	PUSH_VAR fFade
+	CALL_METHOD set
+	NOP
+@_l_33:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_3
+@_l_38:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

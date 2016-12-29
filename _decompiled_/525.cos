@@ -1,0 +1,39 @@
+Function EyeCatchLeave()
+	PUSH_OBJ  24
+	PUSH_VAL String "NORMAL"
+	==
+	JUMP_OK _l_8
+	PUSH_VAL Integer 0i
+	CALL EyeCatch01
+	NOP
+	JUMP _l_24
+@_l_8:
+	PUSH_OBJ  24
+	PUSH_VAL String "DATE"
+	==
+	JUMP_OK _l_16
+	PUSH_VAL Integer 0i
+	CALL EyeCatch03
+	NOP
+	JUMP _l_24
+@_l_16:
+	PUSH_OBJ  24
+	PUSH_VAL String "BLACKOUT"
+	==
+	JUMP_OK _l_24
+	PUSH_VAL Integer 0i
+	CALL EyeCatch03
+	NOP
+	JUMP _l_24
+@_l_24:
+	PUSH_OBJ  25
+	CALL_METHOD RemoveAll
+	NOP
+	PUSH_OBJ  23
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

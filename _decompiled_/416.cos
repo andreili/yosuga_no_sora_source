@@ -1,0 +1,134 @@
+Function AppreciationView::showCg(Reference this, Reference info, Integer fFlush)
+	PUSH_VAR fFlush
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 1i
+	==
+	POP |=
+	NOP
+	PUSH_OBJ  10
+	CALL_METHOD bustupClear
+	NOP
+	PUSH_FIELD fScroll
+	PUSH_VAR info
+	GET_FIELD fScroll
+	POP =
+	NOP
+	PUSH_VAR fFlush
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_37
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_28
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	JUMP _l_32
+@_l_28:
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+@_l_32:
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 300i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_50
+@_l_37:
+	PUSH_FIELD fScroll
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_46
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+	JUMP _l_50
+@_l_46:
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+@_l_50:
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetHorzScrollPos
+	NOP
+	PUSH_FIELD scrollT
+	PUSH_VAL Real 0d
+	POP =
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAR info
+	GET_FIELD cgFile
+	PUSH_VAR info
+	GET_FIELD ptCg1
+	GET_FIELD x
+	PUSH_VAR info
+	GET_FIELD ptCg1
+	GET_FIELD y
+	CALL_METHOD setCg
+	NOP
+	PUSH_VAR info
+	GET_FIELD buList
+	CALL_METHOD GetLength
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_116
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_85
+@_l_81:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_85:
+	PUSH_VAR i
+	PUSH_VAR info
+	GET_FIELD buList
+	CALL_METHOD GetLength
+	PUSH_VAL Integer 1i
+	-
+	>
+	JUMP_OK _l_95
+	NOP
+	JUMP _l_116
+@_l_95:
+
+	PUSH_OBJ  10
+	PUSH_VAR info
+	GET_FIELD buList
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD file
+	PUSH_VAR info
+	GET_FIELD buList
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD pos
+	PUSH_VAR info
+	GET_FIELD buList
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD priority
+	CALL_METHOD setBustup
+	NOP
+	NOP
+	JUMP _l_81
+@_l_116:
+	PUSH_OBJ  10
+	PUSH_VAR fFlush
+	CALL_METHOD update
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

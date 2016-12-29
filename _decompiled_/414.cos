@@ -1,0 +1,206 @@
+Function AppreciationView::setPage(Reference this, Integer tagID, Integer pageID, Integer fFlush)
+	PUSH_FIELD selTag
+	PUSH_VAR tagID
+	==
+	PUSH_FIELD selPage
+	PUSH_VAR pageID
+	==
+	and
+	JUMP_OK _l_10
+	PUSH_VAL Integer 0i
+	Return
+@_l_10:
+	PUSH_UNK
+	CALL_METHOD Lock
+	NOP
+	PUSH_FIELD selTag
+	PUSH_VAR tagID
+	!=
+	JUMP_OK _l_20
+	PUSH_FIELD cgViewMan
+	CALL_METHOD Remove
+	NOP
+@_l_20:
+	PUSH_VAR tagID
+	PUSH_VAR pageID
+	CALL setCgPalette
+	NOP
+	INIT_LOCAL struct SpriteParam param
+	INIT_LOCAL struct Bezier2D bzMov
+	INIT_LOCAL struct Bezier2D bzMag
+	INIT_LOCAL Integer y
+	PUSH_VAL Integer 38i
+	POP =
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_39
+@_l_35:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_39:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	>
+	JUMP_OK _l_45
+	NOP
+	JUMP _l_136
+@_l_45:
+
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD x
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD y
+	PUSH_VAL Integer 5i
+	PUSH_VAR y
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAL Real 3d
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR bzMov
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR y
+	PUSH_VAL Integer 38i
+	POP +=
+	NOP
+	PUSH_VAR tagID
+	PUSH_VAR i
+	==
+	JUMP_OK _l_134
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAL Integer 270i
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	GET_FIELD x
+	PUSH_VAL Integer 270i
+	PUSH_VAR y
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAL Real 3d
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAL Real 3d
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_FIELD selTag
+	PUSH_VAR tagID
+	!=
+	JUMP_OK _l_122
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR bzMov
+	PUSH_VAL Reference ref
+	PUSH_VAR bzMag
+	CALL_METHOD SetBezierCurve
+	NOP
+@_l_122:
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 128i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR y
+	PUSH_VAL Integer 312i
+	POP +=
+	NOP
+@_l_134:
+	NOP
+	JUMP _l_35
+@_l_136:
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_145
+@_l_141:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_145:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	>
+	JUMP_OK _l_151
+	NOP
+	JUMP _l_167
+@_l_151:
+
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR fFlush
+	JUMP_OK _l_165
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD FlushActivation
+	NOP
+@_l_165:
+	NOP
+	JUMP _l_141
+@_l_167:
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR fFlush
+	JUMP_OK _l_176
+	PUSH_FIELD sprThumbBase
+	CALL_METHOD FlushActivation
+	NOP
+@_l_176:
+	PUSH_UNK
+	CALL_METHOD Unlock
+	NOP
+	PUSH_FIELD selTag
+	PUSH_VAR tagID
+	POP =
+	NOP
+	PUSH_FIELD selPage
+	PUSH_VAR pageID
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

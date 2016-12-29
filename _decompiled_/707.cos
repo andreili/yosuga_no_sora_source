@@ -1,0 +1,19 @@
+Function SetCgFlag(Integer id)
+	PUSH_VAL Integer 1i
+	PUSH_VAR id
+	<
+	PUSH_VAR id
+	PUSH_VAL Integer 4096i
+	<=
+	and
+	JUMP_OK _l_13
+	PUSH_OBJ  6
+	GET_FIELD cgFlag
+	PUSH_VAR id
+	CALL_METHOD set
+	NOP
+@_l_13:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

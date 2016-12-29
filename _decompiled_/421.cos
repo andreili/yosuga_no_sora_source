@@ -1,0 +1,54 @@
+Function AppreciationView::startRecollect(Reference this, String scenario)
+	INIT_LOCAL Integer flag
+	PUSH_FIELD isPlayBgm
+	POP =
+	CALL stopBgm
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL String "BLACK"
+	CALL_METHOD setCg
+	NOP
+	PUSH_OBJ  10
+	CALL_METHOD bustupClear
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer -1i
+	CALL_METHOD update
+	NOP
+	PUSH_VAL Integer -1i
+	CALL hide
+	NOP
+	CALL destroy
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_FIELD cnfPlayBgm
+	POP =
+	NOP
+	CALL InitScenarioData
+	NOP
+	PUSH_VAR scenario
+	CALL ScenarioLoop
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD selTag
+	PUSH_FIELD selPage
+	PUSH_FIELD selPlayBgm
+	CALL create
+	NOP
+	CALL SetupAdvScreen
+	NOP
+	CALL show
+	NOP
+	PUSH_FIELD isPlayBgm
+	PUSH_VAR flag
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

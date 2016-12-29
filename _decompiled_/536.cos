@@ -1,0 +1,20 @@
+Function FlushInputQueue()
+	PUSH_OBJ  7
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_9
+	PUSH_UNK
+	PUSH_VAL Integer 256i
+	CALL_METHOD FlushInputQueue
+	NOP
+	JUMP _l_13
+@_l_9:
+	PUSH_UNK
+	PUSH_VAL Integer 256i
+	CALL_METHOD FlushInputQueue
+	NOP
+@_l_13:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

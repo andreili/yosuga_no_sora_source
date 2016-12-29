@@ -1,0 +1,84 @@
+Function AdvScreen::create(Reference this)
+	If (this.fCreate == 0)
+        this.sprAdvBase.CreateSprite(67108865, {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)    ; //TODO
+        {PUSH_UNK}.AddSprite(51000, this.sprAdvBase)
+        this.sprAdvBase.SetVisible(-1)
+        this.sprBustupParent.CreateSprite(67108865, {PUSH_OBJ  2}.w, {PUSH_OBJ  2}.h)    ; //TODO
+        this.sprAdvBase.AddSprite(40, this.sprBustupParent)
+        this.sprBustupParent.SetVisible(-1)
+        PUSH_FIELD msgFrame
+        CALL_METHOD create
+        NOP
+        PUSH_FIELD cg
+        CALL_METHOD clear
+        NOP
+        PUSH_FIELD bustupMan
+        PUSH_VAL Integer 5i
+        CALL_METHOD create
+        NOP
+
+        INIT_LOCAL Integer i
+        PUSH_VAL Integer 0i
+        POP =
+    @_l_52:
+        PUSH_VAR i
+        PUSH_VAL Integer 5i
+        <=
+        JUMP_OK _l_67
+        PUSH_FIELD bustupMan
+        GET_FIELD info
+        PUSH_VAR i
+        GET_FIELD_BY_OFFSET
+        CALL_METHOD clear
+        NOP
+        PUSH_VAR i
+        PUSH_VAL Integer 1i
+        POP +=
+        NOP
+        JUMP _l_52
+    @_l_67:
+        CALL createToneFilter
+        NOP
+        PUSH_FIELD sprAdvBase
+        PUSH_FIELD toneFilter
+        PUSH_VAL String "NORMAL"
+        GET_FIELD_BY_OFFSET
+        CALL_METHOD AttachToneFilter
+        NOP
+        PUSH_VAL Integer 400i
+        PUSH_VAL Integer 300i
+        PUSH_VAL Integer 800i
+        PUSH_VAL Integer 600i
+        CALL zoom
+        NOP
+        PUSH_FIELD fKeyUpdateFlush
+        PUSH_VAL Integer -1i
+        POP =
+        NOP
+        PUSH_FIELD fUpdate
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+        PUSH_FIELD fSelect
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+        PUSH_FIELD selectItem
+        CALL_METHOD Remove
+        NOP
+        PUSH_FIELD fSkip
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+        PUSH_FIELD fAutoMode
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+        PUSH_FIELD fCreate
+        PUSH_VAL Integer -1i
+        POP =
+        NOP
+        NOP
+	EndIf
+EndFunc
+

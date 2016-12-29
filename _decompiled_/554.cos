@@ -1,0 +1,215 @@
+Function HistoryWindow::run(Reference this)
+	INIT_LOCAL Integer ret
+	PUSH_VAL Integer 0i
+	POP =
+	INIT_LOCAL Integer fPlayVoice
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_UNK
+	CALL_METHOD FlushJoyButtonPushed
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer -1i
+	CALL_METHOD FlushCommandQueue
+	NOP
+	INIT_LOCAL struct WndSpriteCmd wscmd
+@_l_14:
+	PUSH_VAL Integer -1i
+	JUMP_OK _l_188
+	PUSH_VAR wscmd
+	PUSH_VAL Integer 33i
+	CALL GetCommand
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_23
+	JUMP _l_187
+@_l_23:
+	PUSH_UNK
+	PUSH_VAL Integer 5i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	JUMP_OK _l_31
+	JUMP _l_188
+	JUMP _l_187
+@_l_31:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_SCROLL"
+	==
+	JUMP_OK _l_56
+	PUSH_FIELD index
+	PUSH_FIELD indexRange
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD GetVertScrollPos
+	-
+	!=
+	JUMP_OK _l_55
+	PUSH_FIELD index
+	PUSH_FIELD indexRange
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD GetVertScrollPos
+	-
+	POP =
+	NOP
+	PUSH_FIELD index
+	CALL setPage
+	NOP
+@_l_55:
+	JUMP _l_187
+@_l_56:
+	PUSH_UNK
+	PUSH_VAL Integer 0i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	JUMP_OK _l_83
+	PUSH_FIELD index
+	PUSH_FIELD indexRange
+	<=
+	JUMP_OK _l_80
+	PUSH_FIELD index
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_FIELD indexRange
+	PUSH_FIELD index
+	-
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetVertScrollPos
+	NOP
+	PUSH_FIELD index
+	CALL setPage
+	NOP
+@_l_80:
+	CALL FlushJoyButton
+	NOP
+	JUMP _l_187
+@_l_83:
+	PUSH_UNK
+	PUSH_VAL Integer 1i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	JUMP_OK _l_112
+	PUSH_FIELD index
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_95
+	JUMP _l_188
+	JUMP _l_109
+@_l_95:
+	PUSH_FIELD index
+	PUSH_VAL Integer 1i
+	POP -=
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_FIELD indexRange
+	PUSH_FIELD index
+	-
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetVertScrollPos
+	NOP
+	PUSH_FIELD index
+	CALL setPage
+	NOP
+@_l_109:
+	CALL FlushJoyButton
+	NOP
+	JUMP _l_187
+@_l_112:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_VOICE1"
+	==
+	JUMP_OK _l_131
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_FIELD pagePointer
+	PUSH_VAL Integer 0i
+	-
+	CALL_METHOD get
+	PUSH_VAL Integer -1i
+	CALL PlayVoice
+	NOP
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_187
+@_l_131:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_VOICE2"
+	==
+	JUMP_OK _l_150
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_FIELD pagePointer
+	PUSH_VAL Integer 1i
+	-
+	CALL_METHOD get
+	PUSH_VAL Integer -1i
+	CALL PlayVoice
+	NOP
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_187
+@_l_150:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_VOICE3"
+	==
+	JUMP_OK _l_169
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_FIELD pagePointer
+	PUSH_VAL Integer 2i
+	-
+	CALL_METHOD get
+	PUSH_VAL Integer -1i
+	CALL PlayVoice
+	NOP
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_187
+@_l_169:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_VOICE4"
+	==
+	JUMP_OK _l_187
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_FIELD pagePointer
+	PUSH_VAL Integer 3i
+	-
+	CALL_METHOD get
+	PUSH_VAL Integer -1i
+	CALL PlayVoice
+	NOP
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_187:
+	JUMP _l_14
+@_l_188:
+	PUSH_VAR fPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_194
+	CALL StopVoice
+	NOP
+@_l_194:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,41 @@
+Function AdvScreen::callLoadSave(Integer fLoad, Reference arrayHideSpr, Reference arrayShowSpr)
+	Integer index
+	index := arrayShowSpr.GetLength()
+	arrayShowSpr[index] := ref
+	PUSH_VAR arrayShowSpr
+	PUSH_VAR index
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD msgFrame
+	GET_FIELD sprParent
+	POP =
+	NOP
+	index += 1
+	If (isSelect() == -1)
+        i := 0
+        While (i <= this.selectItem.GetLength())
+            arrayShowSpr[index] := ref
+            arrayShowSpr[index] := this.sprSelect[i]
+            index += 1
+            i += 1
+        EndWhile
+    EndIf
+    this.msgFrame(0)
+	LoadSaveWindow win
+	win.create(i, fLoad)
+	win.show(i)
+	this.msgFrame.hide()
+	If (isSelect() == -1)
+        transparencySelect(256)
+    EndIf
+    Integer ret
+    ret := win.run(i, arrayHideSpr, arrayShowSpr) ; //TODO
+	If (isSelect() == -1)
+        transparencySelect()
+    EndIf
+	this.msgFrame.show()
+	this.msgFrame.hide(i, -1)  ; //TODO
+	this.msgFrame.destroy(i)   ; //TODO
+	this.msgFrame.enable(-1)
+	Return win
+EndFunc
+

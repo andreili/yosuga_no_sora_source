@@ -1,0 +1,18 @@
+Function PauseBgm()
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	CALL_METHOD Pause
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fPause
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

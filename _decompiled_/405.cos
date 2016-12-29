@@ -1,0 +1,269 @@
+Function AppreciationView::create(Reference this, Integer tagID, Integer pageID, Integer bgm)
+	PUSH_FIELD optionSkin
+	PUSH_VAL String "option.noa"
+	CALL_METHOD LoadResource
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 67108865i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50400i
+	PUSH_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD sprBack
+	PUSH_FIELD optionSkin
+	GET_FIELD ID_FRM_0701
+	CALL_METHOD AttachImage
+	NOP
+	PUSH_FIELD sprBack
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 100i
+	PUSH_FIELD sprBack
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD sprTitle
+	PUSH_FIELD optionSkin
+	GET_FIELD ID_FRM_0702
+	CALL_METHOD AttachImage
+	NOP
+	PUSH_FIELD sprTitle
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 6i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_FIELD sprTitle
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 5i
+	PUSH_FIELD sprTitle
+	CALL_METHOD AddSprite
+	NOP
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_65
+@_l_61:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_65:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	>
+	JUMP_OK _l_71
+	NOP
+	JUMP _l_115
+@_l_71:
+
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_FIELD optionSkin
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_PAGE_TAG"
+	PUSH_VAL String ""
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	CALL_METHOD CreateFormPage
+	NOP
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_PAGE1"
+	PUSH_VAL Integer -1i
+	CALL_METHOD CheckButton
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 10i
+	PUSH_VAR i
+	+
+	PUSH_FIELD sprTag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	NOP
+	JUMP _l_61
+@_l_115:
+	PUSH_FIELD optionSkin
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL String "ID_PAGE_THUMB"
+	CALL_METHOD CreateFormPage
+	NOP
+	INIT_LOCAL struct ImageInfo info
+	PUSH_VAR i
+	PUSH_FIELD sprThumbBase
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR info
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR info
+	GET_FIELD ptRevCenter
+	PUSH_VAR i
+	GET_FIELD nImageWidth
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR info
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 30i
+	PUSH_FIELD sprThumbBase
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD optionSkin
+	PUSH_FIELD sprMusic
+	PUSH_VAL String "ID_PAGE_MUSIC"
+	CALL_METHOD CreateFormPage
+	NOP
+	PUSH_FIELD sprMusic
+	PUSH_VAL Integer 534i
+	PUSH_VAL Integer 38i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_FIELD sprMusic
+	PUSH_VAL String "ID_STOP"
+	PUSH_VAL Integer -1i
+	CALL_METHOD CheckButton
+	NOP
+	PUSH_FIELD sprMusic
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 50i
+	PUSH_FIELD sprMusic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR bgm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_188
+	PUSH_FIELD sprMusic
+	PUSH_VAL String "ID_STOP"
+	PUSH_VAL Integer -1i
+	CALL_METHOD CheckButton
+	NOP
+	JUMP _l_202
+@_l_188:
+	PUSH_VAR bgm
+	CALL playBgm
+	NOP
+	PUSH_FIELD sprMusic
+	PUSH_VAL String "ID_BGM"
+	PUSH_VAL String ""
+	PUSH_VAR bgm
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	PUSH_VAL Integer -1i
+	CALL_METHOD CheckButton
+	NOP
+@_l_202:
+	PUSH_FIELD optionSkin
+	PUSH_FIELD sprScroll
+	PUSH_VAL String "ID_PAGE_SCROLL"
+	CALL_METHOD CreateFormPage
+	NOP
+	PUSH_VAR i
+	PUSH_FIELD sprScroll
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 800i
+	PUSH_VAR i
+	GET_FIELD nImageWidth
+	-
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAL Integer 550i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 100i
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetHorzScrollRange
+	NOP
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetHorzScrollPos
+	NOP
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprScroll
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50410i
+	PUSH_FIELD sprScroll
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD selTag
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD selPage
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAR tagID
+	PUSH_VAR pageID
+	PUSH_VAL Integer -1i
+	CALL setPage
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

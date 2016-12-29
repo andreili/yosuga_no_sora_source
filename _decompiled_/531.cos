@@ -1,0 +1,21 @@
+Function Flag::reset(Reference this, Integer id)
+	INIT_LOCAL Integer index
+	PUSH_VAR id
+	PUSH_VAL Integer 32i
+	/
+	POP =
+	INIT_LOCAL Integer shift
+	PUSH_VAR id
+	PUSH_VAL Integer 32i
+	%
+	POP =
+	PUSH_FIELD flag
+	PUSH_VAR index
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR shift
+	CALL_METHOD ResetBit
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

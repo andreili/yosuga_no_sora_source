@@ -1,0 +1,48 @@
+Function MessageFrame::showBlink(Reference this)
+	INIT_LOCAL struct Point pos
+	PUSH_VAR pos
+	PUSH_FIELD msprMess
+	CALL_METHOD GetCursorPos
+	POP =
+	NOP
+	PUSH_FIELD sprBlinkHit
+	PUSH_VAL Integer 39i
+	PUSH_VAR pos
+	GET_FIELD x
+	+
+	PUSH_VAL Integer 40i
+	PUSH_VAR pos
+	GET_FIELD y
+	+
+	PUSH_VAL Integer 2i
+	+
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_33
+	PUSH_FIELD sprBlinkHit
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_FIELD sprBlinkHit
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_37
+@_l_33:
+	PUSH_FIELD sprBlinkHit
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+@_l_37:
+	PUSH_FIELD isShowBlinkHit
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

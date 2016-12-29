@@ -1,0 +1,16 @@
+Function MessageFrame::hideBlink(Reference this)
+	PUSH_FIELD sprBlinkHit
+	CALL_METHOD FlushActivation
+	NOP
+	PUSH_FIELD sprBlinkHit
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD isShowBlinkHit
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

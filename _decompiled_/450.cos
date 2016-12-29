@@ -1,0 +1,35 @@
+Function BustupManager::jump(Reference this, Integer id, Integer mv)
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_3:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_27
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD id
+	PUSH_VAR id
+	==
+	JUMP_OK _l_22
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 32i
+	POP =
+	NOP
+	JUMP _l_27
+@_l_22:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_3
+@_l_27:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,21 @@
+Function ChkGlobalFlagOn(Integer i)
+	PUSH_VAL Integer 1i
+	PUSH_VAR i
+	<
+	PUSH_VAR i
+	PUSH_VAL Integer 128i
+	<=
+	and
+	JUMP_OK _l_13
+	PUSH_OBJ  6
+	GET_FIELD globalScFlag
+	PUSH_VAR i
+	CALL_METHOD check
+	Return
+@_l_13:
+	PUSH_VAL Integer 0i
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

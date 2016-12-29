@@ -1,0 +1,1380 @@
+Function sc00_B008()
+	CALL ScenarioEnter
+	NOP
+	PUSH_VAL String "SE301"
+	PUSH_VAL String ""
+	PUSH_VAL Integer 0i
+	CALL ScPlayEnvSe
+	NOP
+	PUSH_VAL String "B01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "WIP_LR"
+	PUSH_VAL Integer 1000i
+	CALL Transition
+	NOP
+	CALL Update
+	NOP
+	PUSH_VAL Integer 2000i
+	PUSH_VAL Integer 0i
+	CALL ScWait
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 1i
+	CALL BlackOut
+	NOP
+	PUSH_VAL String "B02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "It's hot..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12255i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_57
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_63
+@_l_57:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_63
+	PUSH_VAL Integer 0i
+	Return
+@_l_63:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "It's so refreshing here at the countryside. It's／impression on me never changed ever since I was still a／kid."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12256i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_89
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_95
+@_l_89:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_95
+	PUSH_VAL Integer 0i
+	Return
+@_l_95:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Along with my childhood memories, it's much refreshing／by the balcony's shade, the wind that blows through／there always felt so good..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12257i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_121
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_127
+@_l_121:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_127
+	PUSH_VAL Integer 0i
+	Return
+@_l_127:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "But, you can still feel the effect of the heat around／inside the house, the humidty makes the my body／uncomfortably sticky."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12258i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_153
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_159
+@_l_153:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_159
+	PUSH_VAL Integer 0i
+	Return
+@_l_159:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "It's unfortunate that we have to endure the whole summer／without any aircons."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12259i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_185
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_191
+@_l_185:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_191
+	PUSH_VAL Integer 0i
+	Return
+@_l_191:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Though I would probably see an electric fan hanging／around by the warehouse, in times like this, we need a／better substitute for cooling down than water."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12260i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_217
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_223
+@_l_217:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_223
+	PUSH_VAL Integer 0i
+	Return
+@_l_223:
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL BlackOut
+	NOP
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Sora?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12261i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_253
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_259
+@_l_253:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_259
+	PUSH_VAL Integer 0i
+	Return
+@_l_259:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12262i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_285
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_291
+@_l_285:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_291
+	PUSH_VAL Integer 0i
+	Return
+@_l_291:
+	PUSH_VAL String "B04a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "CA02_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "I took an iced barley tea to the room, and as usual,／Sora doesn't have any other set of clothes excpet her／long sleeves, it's looks really dull."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12263i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_327
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_333
+@_l_327:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_333
+	PUSH_VAL Integer 0i
+	Return
+@_l_333:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Here, have some tea. Or do you want it warm? It's much／refreshing if you have it this way."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12264i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_359
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_365
+@_l_359:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_365
+	PUSH_VAL Integer 0i
+	Return
+@_l_365:
+	PUSH_VAL String "CA02_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030066"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Ice cream."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12265i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_396
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_402
+@_l_396:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_402
+	PUSH_VAL Integer 0i
+	Return
+@_l_402:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Sora took the barley tea I gave her then she took a／small sip."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12266i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_428
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_434
+@_l_428:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_434
+	PUSH_VAL Integer 0i
+	Return
+@_l_434:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Eh?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12267i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_460
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_466
+@_l_460:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_466
+	PUSH_VAL Integer 0i
+	Return
+@_l_466:
+	PUSH_VAL String "CA02_06M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030067"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...I want to some ice cream."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12268i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_497
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_503
+@_l_497:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_503
+	PUSH_VAL Integer 0i
+	Return
+@_l_503:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Well, you're right... I also want some in this kind of／heat."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12269i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_529
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_535
+@_l_529:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_535
+	PUSH_VAL Integer 0i
+	Return
+@_l_535:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Well, shall we go and buy now?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12270i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_561
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_567
+@_l_561:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_567
+	PUSH_VAL Integer 0i
+	Return
+@_l_567:
+	PUSH_VAL String "CA02_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030068"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...No."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12271i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_598
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_604
+@_l_598:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_604
+	PUSH_VAL Integer 0i
+	Return
+@_l_604:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "It's by the neighbourhood, or you'd have the same as／mine?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12272i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_630
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_636
+@_l_630:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_636
+	PUSH_VAL Integer 0i
+	Return
+@_l_636:
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030069"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Not really... anything is fine."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12273i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_662
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_668
+@_l_662:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_668
+	PUSH_VAL Integer 0i
+	Return
+@_l_668:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Okay, I'll just get what's available. Any other／requests?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12274i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_694
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_700
+@_l_694:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_700
+	PUSH_VAL Integer 0i
+	Return
+@_l_700:
+	PUSH_VAL String "CA02_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030070"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Aircon."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12275i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_731
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_737
+@_l_731:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_737
+	PUSH_VAL Integer 0i
+	Return
+@_l_737:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "They don't have that."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12276i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_763
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_769
+@_l_763:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_769
+	PUSH_VAL Integer 0i
+	Return
+@_l_769:
+	PUSH_VAL String "CA02_06M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030071"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...The heat is killing me."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12277i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_800
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_806
+@_l_800:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_806
+	PUSH_VAL Integer 0i
+	Return
+@_l_806:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "If you can't really stand the heat, why don't you take a／shower?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12278i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_832
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_838
+@_l_832:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_838
+	PUSH_VAL Integer 0i
+	Return
+@_l_838:
+	PUSH_VAL String "CA02_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030072"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Eeeeh..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12279i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_869
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_875
+@_l_869:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_875
+	PUSH_VAL Integer 0i
+	Return
+@_l_875:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "For the mean time, I'll just look in the warehouse if I／ever find something. The electric fan could be there／too."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12280i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_901
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_907
+@_l_901:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_907
+	PUSH_VAL Integer 0i
+	Return
+@_l_907:
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030073"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Just buy one."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12281i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_933
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_939
+@_l_933:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_939
+	PUSH_VAL Integer 0i
+	Return
+@_l_939:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Yeah, I'll just buy for one person if there isn't one."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12282i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_965
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_971
+@_l_965:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_971
+	PUSH_VAL Integer 0i
+	Return
+@_l_971:
+	PUSH_VAL String "CA02_04M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030074"
+	CALL Talk
+	NOP
+	PUSH_VAL String "...Aircon."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12283i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1002
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1008
+@_l_1002:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1008
+	PUSH_VAL Integer 0i
+	Return
+@_l_1008:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "That's expensive... the electric bill would be／ridiculously high too. Also, don't take long baths Sora,／you might catch a cold, okay?"
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12284i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1034
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1040
+@_l_1034:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1040
+	PUSH_VAL Integer 0i
+	Return
+@_l_1040:
+	PUSH_VAL String "CA02_05M"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetBustup
+	NOP
+	PUSH_VAL String "Sora"
+	PUSH_VAL String "SR030075"
+	CALL Talk
+	NOP
+	PUSH_VAL String "..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12285i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1071
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1077
+@_l_1071:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1077
+	PUSH_VAL Integer 0i
+	Return
+@_l_1077:
+	PUSH_VAL String "Haruka"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Your summer would be a total waste if you don't watch／out for it, especially in this heat... that's why if it／gets more hotter and we won't be able stand it, I may／think of getting an aircon."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12286i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1103
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1109
+@_l_1103:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1109
+	PUSH_VAL Integer 0i
+	Return
+@_l_1109:
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL BlackOut
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Sora pouted her mouth in displeased as I couldn't attend／to all of her complaints, then I waved my hands at her／as I went out."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12287i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1139
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1145
+@_l_1139:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1145
+	PUSH_VAL Integer 0i
+	Return
+@_l_1145:
+	PUSH_VAL String "B02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL SetCg
+	NOP
+	PUSH_VAL String "SE301"
+	PUSH_VAL Integer 1i
+	CALL ScStopEnvSe
+	NOP
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "It really is hot... Even though it's made of wood."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12288i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1180
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1186
+@_l_1180:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1186
+	PUSH_VAL Integer 0i
+	Return
+@_l_1186:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "Back then, it was so great to take a nap by the balcony,／compared to now..."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12289i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1212
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1218
+@_l_1212:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1218
+	PUSH_VAL Integer 0i
+	Return
+@_l_1218:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "For now, we can't even open the windows since the／mosquitos might come in as well."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12290i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1244
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1250
+@_l_1244:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1250
+	PUSH_VAL Integer 0i
+	Return
+@_l_1250:
+	PUSH_VAL String "心の声"
+	PUSH_VAL String ""
+	CALL Talk
+	NOP
+	PUSH_VAL String "If this was just close to us, it would only take a while／to buy an ice cream."
+	CALL Mess
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 12291i
+	CALL Hitret
+	POP =
+	NOP
+	PUSH_OBJ  1
+	PUSH_VAL Integer 30i
+	==
+	PUSH_OBJ  1
+	PUSH_VAL Integer 20i
+	==
+	or
+	JUMP_OK _l_1276
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	JUMP _l_1282
+@_l_1276:
+	PUSH_OBJ  1
+	PUSH_VAL Integer 40i
+	==
+	JUMP_OK _l_1282
+	PUSH_VAL Integer 0i
+	Return
+@_l_1282:
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 1i
+	CALL BlackOut
+	NOP
+	PUSH_VAL Integer 1500i
+	PUSH_VAL Integer 0i
+	CALL ScWait
+	NOP
+	PUSH_VAL String "00_b008b"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	PUSH_VAL String "EXIT_SCENARIO"
+	CALL Change
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+	@@Initialize
+
+	Return this
+EndFunc
+

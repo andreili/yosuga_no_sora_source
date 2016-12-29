@@ -1,0 +1,93 @@
+Function AppreciationView::resetThumbBase(Reference this)
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_9
+@_l_5:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_9:
+	PUSH_VAR i
+	PUSH_VAL Integer 11i
+	>
+	JUMP_OK _l_15
+	NOP
+	JUMP _l_40
+@_l_15:
+
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 256i
+	PUSH_VAL String "ID_CG"
+	PUSH_VAL String ""
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 256i
+	PUSH_VAL String "ID_CGSEL"
+	PUSH_VAL String ""
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	NOP
+	JUMP _l_5
+@_l_40:
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_49
+@_l_45:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_49:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	>
+	JUMP_OK _l_55
+	NOP
+	JUMP _l_80
+@_l_55:
+
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 256i
+	PUSH_VAL String "ID_REC"
+	PUSH_VAL String ""
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 256i
+	PUSH_VAL String "ID_RECSEL"
+	PUSH_VAL String ""
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	+
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	NOP
+	JUMP _l_45
+@_l_80:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

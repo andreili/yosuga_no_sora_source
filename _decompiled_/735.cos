@@ -1,0 +1,20 @@
+Function StartDebugSearch(String strSearch)
+	PUSH_VAL String "\c;8888FF:---Search---\c:"
+	CALL Debug
+	NOP
+	PUSH_OBJ  40
+	PUSH_VAR strSearch
+	POP =
+	NOP
+	PUSH_OBJ  39
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer -1i
+	CALL_METHOD skip
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

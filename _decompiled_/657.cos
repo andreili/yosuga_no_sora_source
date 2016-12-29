@@ -1,0 +1,36 @@
+Function OnFlag(Integer i)
+	PUSH_VAL Integer 1i
+	PUSH_VAR i
+	<
+	PUSH_VAR i
+	PUSH_VAL Integer 512i
+	<=
+	and
+	JUMP_OK _l_29
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_24
+
+	INIT_LOCAL String num
+	PUSH_VAR num
+	PUSH_VAR i
+	POP =
+	NOP
+	PUSH_VAL String "Flag"
+	PUSH_VAR num
+	+
+	PUSH_VAL String "-ON"
+	+
+	CALL Debug
+	NOP
+	NOP
+@_l_24:
+	PUSH_OBJ  4
+	GET_FIELD flag
+	PUSH_VAR i
+	CALL_METHOD set
+	NOP
+@_l_29:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

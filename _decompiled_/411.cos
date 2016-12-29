@@ -1,0 +1,279 @@
+Function AppreciationView::recollectProc(Reference this, Reference wscmd)
+	INIT_LOCAL Integer id
+	PUSH_VAL Integer -1i
+	POP =
+	INIT_LOCAL parent aParam
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_7
+	JUMP _l_246
+@_l_7:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "&ID_RECSEL&(<0-9>*)"
+	PUSH_VAR aParam
+	CALL_METHOD IsMatchUsage
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_244
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_28
+	JUMP _l_243
+@_l_28:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_40
+	PUSH_VAL String "00_A020"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_40:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	and
+	JUMP_OK _l_52
+	PUSH_VAL String "00_A022"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_52:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	and
+	JUMP_OK _l_64
+	PUSH_VAL String "00_A025B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_64:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 3i
+	==
+	and
+	JUMP_OK _l_76
+	PUSH_VAL String "00_A026"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_76:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 4i
+	==
+	and
+	JUMP_OK _l_88
+	PUSH_VAL String "00_A032"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_88:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 1i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_100
+	PUSH_VAL String "00_B005"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_100:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 1i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	and
+	JUMP_OK _l_112
+	PUSH_VAL String "00_B021"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_112:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 1i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	and
+	JUMP_OK _l_124
+	PUSH_VAL String "00_B025"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_124:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 1i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 3i
+	==
+	and
+	JUMP_OK _l_136
+	PUSH_VAL String "00_B032"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_136:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 2i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_148
+	PUSH_VAL String "00_C019B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_148:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 2i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	and
+	JUMP_OK _l_160
+	PUSH_VAL String "00_C023"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_160:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 2i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	and
+	JUMP_OK _l_172
+	PUSH_VAL String "00_C034"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_172:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 3i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_184
+	PUSH_VAL String "00_D025B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_184:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 3i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	and
+	JUMP_OK _l_196
+	PUSH_VAL String "00_D028B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_196:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 3i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	and
+	JUMP_OK _l_208
+	PUSH_VAL String "00_D042B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_208:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 4i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_220
+	PUSH_VAL String "00_E013C"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_220:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 4i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 1i
+	==
+	and
+	JUMP_OK _l_232
+	PUSH_VAL String "00_E024B"
+	CALL startRecollect
+	NOP
+	JUMP _l_243
+@_l_232:
+	PUSH_FIELD selTag
+	PUSH_VAL Integer 4i
+	==
+	PUSH_VAR id
+	PUSH_VAL Integer 2i
+	==
+	and
+	JUMP_OK _l_243
+	PUSH_VAL String "00_E036"
+	CALL startRecollect
+	NOP
+@_l_243:
+	JUMP _l_246
+@_l_244:
+	PUSH_VAL Integer 0i
+	Return
+@_l_246:
+	PUSH_UNK
+	PUSH_VAL Integer -1i
+	CALL_METHOD FlushCommandQueue
+	NOP
+	PUSH_VAL Integer -1i
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

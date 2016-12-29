@@ -1,0 +1,73 @@
+Function NovelLogManager::add(Reference this, Reference name, Reference mess, Reference voice)
+	PUSH_FIELD num
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	INIT_LOCAL Integer i
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD name
+	CALL_METHOD GetLength
+	POP =
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD name
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD name
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR name
+	POP =
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD mess
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD mess
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR mess
+	POP =
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD voice
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD voice
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR voice
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

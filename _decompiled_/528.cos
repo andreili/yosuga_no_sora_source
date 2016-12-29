@@ -1,0 +1,82 @@
+Function EyeCatchEnter(String type, Integer fSoundKeep)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_VAR type
+	CALL_METHOD MakeUpper
+	NOP
+	CALL StopVoice
+	NOP
+	PUSH_VAR fSoundKeep
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_19
+	CALL StopEnvSe
+	NOP
+	CALL StopBgm
+	NOP
+@_l_19:
+	CALL Hide
+	NOP
+	INIT_LOCAL Integer fFlush
+	PUSH_OBJ  10
+	CALL_METHOD isKeyUpdateFlush
+	POP =
+	PUSH_VAR fFlush
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_31
+	PUSH_VAL Integer 0i
+	Return
+@_l_31:
+	PUSH_VAR type
+	PUSH_VAL String ""
+	==
+	PUSH_VAR type
+	PUSH_VAL String "NORMAL"
+	==
+	or
+	JUMP_OK _l_47
+	PUSH_VAL Integer -1i
+	CALL EyeCatch01
+	NOP
+	PUSH_VAR type
+	PUSH_VAL String "NORMAL"
+	POP =
+	NOP
+	JUMP _l_63
+@_l_47:
+	PUSH_VAR type
+	PUSH_VAL String "DATE"
+	==
+	JUMP_OK _l_55
+	PUSH_VAL Integer -1i
+	CALL EyeCatch03
+	NOP
+	JUMP _l_63
+@_l_55:
+	PUSH_VAR type
+	PUSH_VAL String "BLACKOUT"
+	==
+	JUMP_OK _l_63
+	PUSH_VAL Integer -1i
+	CALL EyeCatch03
+	NOP
+	JUMP _l_63
+@_l_63:
+	PUSH_OBJ  24
+	PUSH_VAR type
+	POP =
+	NOP
+	PUSH_OBJ  23
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

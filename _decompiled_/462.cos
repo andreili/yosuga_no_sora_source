@@ -1,0 +1,24 @@
+Function CgInfo::clear(Reference this)
+	PUSH_FIELD timeZone
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD filename
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_FIELD pt
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD effectParam
+	GET_FIELD strType
+	PUSH_VAL String "Nothing"
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,34 @@
+Function AppreciationView::destroy(Reference this)
+	PUSH_FIELD sprBase
+	CALL_METHOD DetachAllSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD sprBase
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD sprScroll
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_FIELD sprBase
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD sprTag
+	CALL_METHOD Remove
+	NOP
+	PUSH_FIELD sprThumbBase
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD sprMusic
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD sprScroll
+	CALL_METHOD Release
+	NOP
+	PUSH_FIELD optionSkin
+	CALL_METHOD DeleteContents
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

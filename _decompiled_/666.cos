@@ -1,0 +1,178 @@
+Function PlayBgm(String file, Integer fNonFade)
+	PUSH_VAR file
+	CALL_METHOD MakeUpper
+	NOP
+	CALL IsPlayBgm
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD filename
+	PUSH_VAR file
+	==
+	math_UNK2
+	JUMP_OK _l_14
+	PUSH_VAL Integer 0i
+	Return
+@_l_14:
+	CALL IsPlayBgm
+	JUMP_OK _l_19
+	PUSH_VAR fNonFade
+	CALL StopBgm
+	NOP
+@_l_19:
+	PUSH_VAL String "BGM-"
+	PUSH_VAR file
+	+
+	CALL Debug
+	NOP
+	PUSH_OBJ  12
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_33
+	PUSH_OBJ  12
+	PUSH_VAL Integer 1i
+	POP =
+	NOP
+	JUMP _l_37
+@_l_33:
+	PUSH_OBJ  12
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_37:
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD filename
+	PUSH_VAR file
+	POP =
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	CALL SetBgmInfo
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fPause
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_69
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fPlaying
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_78
+@_l_69:
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD fPlaying
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+@_l_78:
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR file
+	PUSH_VAL String ".mio"
+	+
+	PUSH_VAL Integer -1i
+	CALL_METHOD LoadSound
+	NOP
+	PUSH_VAR fNonFade
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_138
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 0d
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAL Integer 0i
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD endPos
+	PUSH_VAL Integer -1i
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD rewindPos
+	PUSH_VAL Integer 0i
+	CALL_METHOD PlayFrom
+	NOP
+
+	INIT_LOCAL struct Bezier2D bzVol
+	PUSH_VAR bzVol
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 0d
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAR bzVol
+	PUSH_VAL Integer 2000i
+	CALL_METHOD SetVolumeEnvelope
+	NOP
+	NOP
+	JUMP _l_165
+@_l_138:
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD res
+	PUSH_VAL Integer 0i
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD endPos
+	PUSH_VAL Integer -1i
+	PUSH_OBJ  13
+	PUSH_OBJ  12
+	GET_FIELD_BY_OFFSET
+	GET_FIELD rewindPos
+	PUSH_VAL Integer 0i
+	CALL_METHOD PlayFrom
+	NOP
+@_l_165:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

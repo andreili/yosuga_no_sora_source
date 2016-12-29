@@ -1,0 +1,21 @@
+Function BustupLeave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAR id
+	PUSH_VAR mx
+	PUSH_VAR my
+	PUSH_VAR fFade
+	PUSH_VAR time
+	PUSH_VAR accel
+	CALL_METHOD bustupLeave
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

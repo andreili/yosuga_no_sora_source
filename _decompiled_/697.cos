@@ -1,0 +1,31 @@
+Function ScenarioEnter()
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  4
+	GET_FIELD hitretCount
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD hitretCountTemp
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD select
+	CALL_METHOD Remove
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD selectCount
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

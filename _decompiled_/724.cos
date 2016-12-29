@@ -1,0 +1,52 @@
+Function ShowLoadEffect()
+	PUSH_OBJ  21
+	PUSH_VAL String "WIP_TLBR.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_OBJ  19
+	PUSH_OBJ  21
+	PUSH_VAL Integer 8i
+	CALL_METHOD SetAlphaImage
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendDegree
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50100i
+	PUSH_OBJ  19
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_OBJ  20
+	PUSH_VAL String "BLACK.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_OBJ  20
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer 10i
+	PUSH_OBJ  20
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer 300i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_OBJ  19
+	PUSH_VAL Integer 0i
+	CALL WaitUntilSpriteActive
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

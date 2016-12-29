@@ -1,0 +1,60 @@
+Function InitScenarioData()
+	PUSH_OBJ  4
+	GET_FIELD version
+	PUSH_VAL Integer 200i
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD familyName
+	PUSH_VAL String "春日野"
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD familyName_read
+	PUSH_VAL String "かすがの"
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD firstName
+	PUSH_VAL String "悠"
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD firstName_read
+	PUSH_VAL String "はるか"
+	POP =
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD flag
+	PUSH_VAL Integer 512i
+	CALL_METHOD create
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD flagBackup
+	PUSH_VAL Integer 512i
+	CALL_METHOD create
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD nameLog
+	PUSH_VAL Integer 50i
+	CALL_METHOD create
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD messLog
+	PUSH_VAL Integer 50i
+	CALL_METHOD create
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD seqLog
+	PUSH_VAL Integer 50i
+	CALL_METHOD create
+	NOP
+	PUSH_OBJ  4
+	GET_FIELD voiceLog
+	PUSH_VAL Integer 50i
+	CALL_METHOD create
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

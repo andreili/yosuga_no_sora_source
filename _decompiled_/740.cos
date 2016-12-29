@@ -1,0 +1,17 @@
+Function StopSe()
+	PUSH_OBJ  15
+	CALL_METHOD IsPlaying
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_11
+	PUSH_OBJ  15
+	CALL_METHOD Stop
+	NOP
+	PUSH_OBJ  15
+	CALL_METHOD Release
+	NOP
+@_l_11:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

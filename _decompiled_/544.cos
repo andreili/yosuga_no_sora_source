@@ -1,0 +1,17 @@
+Function Hide(Integer fWait)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	PUSH_VAR fWait
+	CALL_METHOD hideMessage
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

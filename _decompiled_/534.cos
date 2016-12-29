@@ -1,0 +1,29 @@
+Function Flush(String color, Integer time, String cgFile)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	INIT_LOCAL Integer fFlush
+	PUSH_OBJ  10
+	CALL_METHOD isKeyUpdateFlush
+	POP =
+	PUSH_VAR fFlush
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_16
+	PUSH_VAL Integer 0i
+	Return
+@_l_16:
+	PUSH_OBJ  10
+	PUSH_VAR color
+	PUSH_VAR time
+	PUSH_VAR cgFile
+	CALL_METHOD effectFlush
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

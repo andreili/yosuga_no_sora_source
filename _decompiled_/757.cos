@@ -1,0 +1,68 @@
+Function Vector2D::@Operate(Reference this, Integer nType, Reference v)
+	PUSH_VAR nType
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_15
+	PUSH_FIELD x
+	PUSH_VAR v
+	GET_FIELD x
+	POP +=
+	NOP
+	PUSH_FIELD y
+	PUSH_VAR v
+	GET_FIELD y
+	POP +=
+	NOP
+	JUMP _l_58
+@_l_15:
+	PUSH_VAR nType
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_30
+	PUSH_FIELD x
+	PUSH_VAR v
+	GET_FIELD x
+	POP -=
+	NOP
+	PUSH_FIELD y
+	PUSH_VAR v
+	GET_FIELD y
+	POP -=
+	NOP
+	JUMP _l_58
+@_l_30:
+	PUSH_VAR nType
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_43
+	PUSH_FIELD x
+	PUSH_VAR v
+	POP *=
+	NOP
+	PUSH_FIELD y
+	PUSH_VAR v
+	POP *=
+	NOP
+	JUMP _l_58
+@_l_43:
+	PUSH_VAR nType
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_56
+	PUSH_FIELD x
+	PUSH_VAR v
+	POP /=
+	NOP
+	PUSH_FIELD y
+	PUSH_VAR v
+	POP /=
+	NOP
+	JUMP _l_58
+@_l_56:
+	PUSH_VAL String "Vector2D 型の定義されていない演算子です。"
+	Return
+@_l_58:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

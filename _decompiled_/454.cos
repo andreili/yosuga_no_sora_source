@@ -1,0 +1,43 @@
+Function BustupManager::numPoeple(Reference this)
+	INIT_LOCAL Integer count
+	PUSH_VAL Integer 0i
+	POP =
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_6:
+	PUSH_VAR i
+	PUSH_VAL Integer 5i
+	<=
+	JUMP_OK _l_33
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 0i
+	!=
+	PUSH_FIELD info
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	GET_FIELD status
+	PUSH_VAL Integer 8i
+	!=
+	and
+	JUMP_OK _l_28
+	PUSH_VAR count
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_28:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_6
+@_l_33:
+	PUSH_VAR count
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,17 @@
+Function AdvScreen::beginAnimation()
+    If (this.fCreate == 0)
+        Return
+    EndIf
+    If (this.cg.effectParam.strType != "Nothing")
+        this.sprCg.SetEffectParameter(cg.effectParam)
+    EndIf
+    Integer i
+    i := 0
+    While (i <= 5)
+        If (bustupMan.info[i].status != 0)
+            bustupMan.spr[i].BeginAnimation(MakeRandom(-1, 27))
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+

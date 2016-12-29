@@ -1,0 +1,45 @@
+Function NovelLogManager::newPage(Reference this)
+	PUSH_FIELD index
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	PUSH_FIELD index
+	PUSH_FIELD max
+	>=
+	JUMP_OK _l_12
+	PUSH_FIELD index
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_12:
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD name
+	CALL_METHOD Remove
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD mess
+	CALL_METHOD Remove
+	NOP
+	PUSH_FIELD page
+	PUSH_FIELD index
+	GET_FIELD_BY_OFFSET
+	GET_FIELD voice
+	CALL_METHOD Remove
+	NOP
+	PUSH_FIELD num
+	PUSH_FIELD max
+	<=
+	JUMP_OK _l_38
+	PUSH_FIELD num
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_38:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

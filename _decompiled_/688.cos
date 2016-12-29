@@ -1,0 +1,30 @@
+Function ScPlaySe(String file, Integer fWait)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_VAR fWait
+	PUSH_VAL Integer 0i
+	!=
+	PUSH_OBJ  10
+	CALL_METHOD isSkip
+	PUSH_VAL Integer -1i
+	==
+	and
+	JUMP_OK _l_19
+	PUSH_VAR fWait
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_19:
+	PUSH_VAR file
+	PUSH_VAR fWait
+	CALL PlaySe
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

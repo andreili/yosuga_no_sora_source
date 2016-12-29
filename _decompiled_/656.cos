@@ -1,0 +1,38 @@
+Function OffGlobalFlag(Integer i)
+	PUSH_VAL Integer 1i
+	PUSH_VAR i
+	<
+	PUSH_VAR i
+	PUSH_VAL Integer 128i
+	<=
+	and
+	JUMP_OK _l_31
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_24
+
+	INIT_LOCAL String num
+	PUSH_VAR num
+	PUSH_VAR i
+	POP =
+	NOP
+	PUSH_VAL String "GlobalFlag"
+	PUSH_VAR num
+	+
+	PUSH_VAL String "-OFF"
+	+
+	CALL Debug
+	NOP
+	NOP
+@_l_24:
+	PUSH_OBJ  6
+	GET_FIELD globalScFlag
+	PUSH_VAR i
+	CALL_METHOD reset
+	NOP
+	CALL SaveSystemData
+	NOP
+@_l_31:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

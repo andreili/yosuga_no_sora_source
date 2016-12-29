@@ -1,0 +1,31 @@
+Function SetCg(String str, Integer x, Integer y, Integer w, Integer h)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAR str
+	PUSH_VAR x
+	PUSH_VAR y
+	PUSH_VAR w
+	PUSH_VAR h
+	CALL_METHOD setCg
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer 0i
+	CALL_METHOD bustupClear
+	NOP
+	PUSH_OBJ  10
+	PUSH_VAL Integer 400i
+	PUSH_VAL Integer 300i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL_METHOD zoom
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

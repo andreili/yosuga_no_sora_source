@@ -1,0 +1,12 @@
+Function HistoryWindow::destroy(Reference this)
+	PUSH_FIELD sprBase
+	CALL_METHOD DetachAllSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD sprBase
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

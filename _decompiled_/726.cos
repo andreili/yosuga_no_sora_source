@@ -1,0 +1,33 @@
+Function SpriteParam::SpriteParam(Reference this)
+	INIT_FIELD Integer nFlags
+	INIT_FIELD struct Point ptDstPos
+	INIT_FIELD struct Point ptRevCenter
+	INIT_FIELD Real rHorzUnit
+	PUSH_FIELD rHorzUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	INIT_FIELD Real rVertUnit
+	PUSH_FIELD rVertUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	INIT_FIELD Real rRevAngle
+	INIT_FIELD Real rCrossingAngle
+	PUSH_FIELD rCrossingAngle
+	PUSH_VAL Real 90d
+	POP =
+	NOP
+	INIT_FIELD Integer rgbDimColor
+	INIT_FIELD Integer rgbLightColor
+	PUSH_FIELD rgbLightColor
+	PUSH_VAL Integer 16777215i
+	POP =
+	NOP
+	INIT_FIELD Integer nTransparency
+	INIT_FIELD Real rZOrder
+	INIT_FIELD Integer rgbColorParam1
+	PUSH_VAL Integer 0i
+	Return this
+EndFunc
+

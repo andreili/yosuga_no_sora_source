@@ -1,0 +1,30 @@
+Function MakeRandom(Integer nLimit)
+	PUSH_VAR nLimit
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  0
+	PUSH_OBJ  0
+	PUSH_VAL Integer 9i
+	*
+	PUSH_VAL Integer 1779772371i
+	+
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_OBJ  0
+	PUSH_VAL Integer 2147483647i
+	and
+	POP =
+	PUSH_VAL Integer 8i
+	CALL_METHOD ShiftRight
+	PUSH_VAR nLimit
+	%
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

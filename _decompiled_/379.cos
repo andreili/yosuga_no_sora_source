@@ -1,0 +1,301 @@
+Function AdvScreen::loadBustup(Reference this, Reference spr, Reference info)
+	INIT_LOCAL struct SpriteParam sprParam
+	INIT_LOCAL struct ImageInfo sprInfo
+	PUSH_VAR spr
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String ".eri"
+	+
+	CALL_METHOD LoadImage
+	PUSH_VAL Integer 0i
+	!=
+	JUMP_OK _l_248
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_248
+
+	INIT_LOCAL struct Sprite sprTemp
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CA"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_29
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CA02_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_29:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CB"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_41
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CB01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_41:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CC"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_53
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CC01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_53:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CD"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_65
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CD01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_65:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CE"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_77
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CE01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_77:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CF"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_89
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CF01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_89:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CG"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_101
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CG01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_101:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CH"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_113
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CH01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_113:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CJ"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_125
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CJ01_01M.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_125:
+	PUSH_VAR info
+	GET_FIELD filename
+	PUSH_VAL String "CK"
+	CALL_METHOD Find
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_137
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CI.eri"
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_141
+@_l_137:
+	PUSH_VAR sprTemp
+	PUSH_VAL String "CZ.eri"
+	CALL_METHOD LoadImage
+	NOP
+@_l_141:
+	PUSH_VAR sprInfo
+	PUSH_VAR sprTemp
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_VAR sprTemp
+	PUSH_VAR sprParam
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 67108865i
+	PUSH_VAR sprInfo
+	GET_FIELD nImageWidth
+	PUSH_VAR sprInfo
+	GET_FIELD nImageHeight
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR sprParam
+	GET_FIELD ptDstPos
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAR sprTemp
+	PUSH_VAR sprParam
+	CALL_METHOD DrawImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBackColor
+	NOP
+	INIT_LOCAL struct DrawTextParam param
+	PUSH_VAR param
+	GET_FIELD rcArea
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAR sprInfo
+	GET_FIELD nImageWidth
+	PUSH_VAR sprInfo
+	GET_FIELD nImageHeight
+	CALL IRect
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD nFlags
+	PUSH_VAL Integer 16i
+	POP |=
+	NOP
+	PUSH_VAR param
+	GET_FIELD nTransparency
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD strFontFace
+	PUSH_VAL String "ＭＳ ゴシック"
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptCurPos
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 300i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD rgbColor
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD nLineHeight
+	PUSH_VAL Integer 26i
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD nIndentWidth
+	PUSH_VAL Integer 26i
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD nFontSize
+	PUSH_VAL Integer 26i
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAR param
+	PUSH_VAL String "仮 : "
+	PUSH_VAR info
+	GET_FIELD filename
+	+
+	CALL_METHOD DrawText
+	NOP
+	PUSH_VAL String "CG.log"
+	PUSH_VAL String "NotFound-"
+	PUSH_VAR info
+	GET_FIELD filename
+	+
+	CALL OutputLogText
+	NOP
+	NOP
+@_l_248:
+	PUSH_VAR sprInfo
+	PUSH_VAR spr
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAR sprParam
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR sprParam
+	GET_FIELD ptRevCenter
+	PUSH_VAR sprInfo
+	GET_FIELD nImageWidth
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAR sprInfo
+	GET_FIELD nImageHeight
+	PUSH_VAL Integer 50i
+	-
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR sprParam
+	GET_FIELD nTransparency
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAR sprParam
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBackColor
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

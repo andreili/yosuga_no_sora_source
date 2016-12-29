@@ -1,0 +1,54 @@
+Function AdvScreen::actionShake(Integer id)
+	Reference rTarget
+	Integer i
+	i := 0
+	While (i < bustupMan.info.GetLength())
+        If (bustupMan.info[i].id == id)
+            rTarget := bustupMan.spr[i]
+            Break
+        EndIf
+        i += 1
+    EndWhile
+    If (i == bustupMan.info.GetLength())
+        Return
+    SpriteParam param
+    rTarget.GetParameter(param)
+    Reference pt
+	pt = param.ptDstPos
+	Integer w
+	w := 25
+	Bezier2D bzCurve1
+	Bezier2D bzCurve2
+	Bezier2D bzCurve3
+	Bezier2D bzCurve4
+	bzCurve1.SetLinear(pt.x, pt.y, pt.x - w, pt.y)
+	bzCurve2.SetLinear(pt.x - w, pt.y, pt.x - w, pt.y)
+	bzCurve3.SetLinear(pt.x + w, pt.y, pt.x + w, pt.y)
+	bzCurve4.SetLinear(pt.w + w, pt.y, pt.x, pt.y)
+	bzCurve1.SetAcceleration(3.0, 0.0)
+	bzCurve2.SetAcceleration(3.0, 0.0)
+	bzCurve3.SetAcceleration(3.0, 0.0)
+	bzCurve4.SetAcceleration(3.0, 0.0)
+	Integer time
+	time := 30
+	rTarget.SetBezierCurve(
+	rTarget.BeginActivation(time)
+	rTarget.WaitUntilSpriteActive(0)
+	Integer count ; //TODO
+	i := 1
+	While (count >= 0)
+        rTarget.SetBezierCurve(bzCurve2)
+        rTarget.BeginActivation(time * 2)
+        rTarget.WaitUntilSpriteActive(0)
+        count -= 1
+        If (count >= 1)
+            rTarget.SetBezierCurve(bzCurve3)
+            rTarget.BeginActivation(time * 2)
+            rTarget.WaitUntilSpriteActive(0)
+        EndIf
+    EndWhile
+    rTarget.SetBezierCurve(bzCurve4)
+    rTarget.BeginActivation(time)
+    rTarget.WaitUntilSpriteActive(0)
+EndFunc
+

@@ -1,0 +1,62 @@
+Function PlayVoice(String file, Integer fForce)
+	INIT_LOCAL Integer ret
+	PUSH_OBJ  5
+	GET_FIELD flgPlayVoice
+	PUSH_VAL Integer 0i
+	==
+	PUSH_VAR fForce
+	PUSH_VAL Integer 0i
+	==
+	and
+	JUMP_OK _l_12
+	PUSH_VAL Integer 0i
+	Return
+@_l_12:
+	PUSH_OBJ  17
+	PUSH_VAR file
+	PUSH_VAL String ".mio"
+	+
+	CALL_METHOD LoadSound
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_41
+	PUSH_OBJ  17
+	PUSH_OBJ  5
+	GET_FIELD volVoice
+	PUSH_OBJ  5
+	GET_FIELD volVoice
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  18
+	CALL GetCurrentTime
+	POP =
+	NOP
+	PUSH_OBJ  17
+	PUSH_VAL Integer -2i
+	PUSH_VAL Integer 2i
+	CALL_METHOD Play
+	NOP
+	PUSH_VAR ret
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	JUMP _l_52
+@_l_41:
+	PUSH_VAL String "\c;FF0000:NotFound-"
+	PUSH_VAR file
+	+
+	PUSH_VAL String "\c:"
+	+
+	CALL Debug
+	NOP
+	PUSH_VAR ret
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+@_l_52:
+	PUSH_VAR ret
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,924 @@
+Function AppreciationView::setCgPalette(Reference this, Integer tagID, Integer page)
+	CALL resetThumbBase
+	NOP
+	INIT_LOCAL Integer cgNum
+	PUSH_VAL Integer 0i
+	POP =
+	PUSH_VAR tagID
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_168
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 23i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_78
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CA01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CA02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CA03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CA04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 6i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CA06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "CA05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 7i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "CA07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EA01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 110i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EA02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 120i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EA03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 130i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "EA04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 140i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "EA05"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_167
+@_l_78:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_138
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "EA06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 160i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "EA07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 170i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "EA08"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "EA09"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "EA10"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 200i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EA11"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 210i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EA12"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 220i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EA13"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 250i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EA16"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 260i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EA17"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 270i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "EA18"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_167
+@_l_138:
+	PUSH_VAR page
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_167
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "REC_SR1"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "REC_SR2"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "REC_SR3"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "REC_SR4"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "REC_SR5"
+	CALL checkPaletteRecollect
+	NOP
+@_l_167:
+	JUMP _l_867
+@_l_168:
+	PUSH_VAR tagID
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_316
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 21i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_241
+	PUSH_VAL Integer 11i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CB01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 12i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CB02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 13i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CB03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CB04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 16i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CB06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 17i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "CB07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 280i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EB01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 290i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EB02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 300i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EB03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 310i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EB04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 320i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "EB05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 330i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "EB06"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_315
+@_l_241:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_291
+	PUSH_VAL Integer 340i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "EB07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "EB08"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "EB10"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 380i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "EB11"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 390i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "EB12"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 400i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EB13"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EB16"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 440i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EB17"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 450i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EB18"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_315
+@_l_291:
+	PUSH_VAR page
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_315
+	PUSH_VAL Integer 6i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "REC_NO1"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 7i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "REC_NO2"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 8i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "REC_NO3"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 9i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "REC_NO4"
+	CALL checkPaletteRecollect
+	NOP
+@_l_315:
+	JUMP _l_867
+@_l_316:
+	PUSH_VAR tagID
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_464
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 22i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_389
+	PUSH_VAL Integer 21i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CC01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CC02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 23i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CC03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 26i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CC06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 24i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CC04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 28i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "CC08"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 25i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "CC05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 27i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "CC07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 460i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EC01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 470i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EC02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 480i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "EC03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 500i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "EC05"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_463
+@_l_389:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_444
+	PUSH_VAL Integer 510i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "EC06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 520i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "EC07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 540i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "EC09"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "EC10"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 560i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "EC11"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 570i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EC12"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EC13"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 610i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EC16"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 620i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EC17"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 630i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EC18"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_463
+@_l_444:
+	PUSH_VAR page
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_463
+	PUSH_VAL Integer 10i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "REC_AK1"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 11i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "REC_AK2"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 12i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "REC_AK3"
+	CALL checkPaletteRecollect
+	NOP
+@_l_463:
+	JUMP _l_867
+@_l_464:
+	PUSH_VAR tagID
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_612
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 22i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_537
+	PUSH_VAL Integer 31i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CD01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 32i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CD02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 33i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CD03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 34i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CD04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 37i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CD07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 35i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "CD05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 36i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "CD06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 640i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "ED01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 650i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "ED02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 660i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "ED03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 670i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "ED04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 680i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "ED05"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_611
+@_l_537:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_592
+	PUSH_VAL Integer 690i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "ED06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 700i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "ED07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 720i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "ED09"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 730i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "ED10"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 740i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "ED11"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 750i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "ED12"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 760i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "ED13"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 790i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "ED16"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "ED17"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 810i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "ED18"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_611
+@_l_592:
+	PUSH_VAR page
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_611
+	PUSH_VAL Integer 13i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "REC_KA1"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "REC_KA2"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 15i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "REC_KA3"
+	CALL checkPaletteRecollect
+	NOP
+@_l_611:
+	JUMP _l_867
+@_l_612:
+	PUSH_VAR tagID
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_745
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 19i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_685
+	PUSH_VAL Integer 41i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CE01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 42i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CE02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 43i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CE03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 44i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CE04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 820i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "EE01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 830i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EE02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 840i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EE03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 850i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EE04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 860i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EE05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 870i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "EE06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 880i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "EE07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 890i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "EE08"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_744
+@_l_685:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_725
+	PUSH_VAL Integer 910i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "EE10"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 920i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "EE11"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 930i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "EE12"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 940i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "EE13"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 970i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "EE16"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 980i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EE17"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 990i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EE18"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_744
+@_l_725:
+	PUSH_VAR page
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_744
+	PUSH_VAL Integer 16i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "REC_MT1"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 17i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "REC_MT2"
+	CALL checkPaletteRecollect
+	NOP
+	PUSH_VAL Integer 18i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "REC_MT3"
+	CALL checkPaletteRecollect
+	NOP
+@_l_744:
+	JUMP _l_867
+@_l_745:
+	PUSH_VAR tagID
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_867
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 21i
+	POP =
+	NOP
+	PUSH_VAR page
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_818
+	PUSH_VAL Integer 51i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CF01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 52i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CF02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 53i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CF03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 54i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CF04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 55i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CF05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 56i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "CF06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 61i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "CG01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 62i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "CG02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 63i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "CG03"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 71i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "CH01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 72i
+	PUSH_VAL Integer 11i
+	PUSH_VAL String "CH02"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 74i
+	PUSH_VAL Integer 12i
+	PUSH_VAL String "CH04"
+	CALL checkPaletteCg
+	NOP
+	JUMP _l_867
+@_l_818:
+	PUSH_VAR page
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_867
+	PUSH_VAL Integer 77i
+	PUSH_VAL Integer 1i
+	PUSH_VAL String "CH07"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 75i
+	PUSH_VAL Integer 2i
+	PUSH_VAL String "CH05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 76i
+	PUSH_VAL Integer 3i
+	PUSH_VAL String "CH06"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 81i
+	PUSH_VAL Integer 4i
+	PUSH_VAL String "CJ01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 91i
+	PUSH_VAL Integer 5i
+	PUSH_VAL String "CK01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 1000i
+	PUSH_VAL Integer 6i
+	PUSH_VAL String "EZ01"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 1030i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "EZ04"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 1040i
+	PUSH_VAL Integer 8i
+	PUSH_VAL String "EZ05"
+	CALL checkPaletteCg
+	NOP
+	PUSH_VAL Integer 1050i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "EZ06"
+	CALL checkPaletteCg
+	NOP
+@_l_867:
+
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+	JUMP _l_876
+@_l_872:
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+@_l_876:
+	PUSH_VAR i
+	PUSH_VAR cgNum
+	PUSH_VAL Integer 1i
+	-
+	>
+	JUMP_OK _l_884
+	NOP
+	JUMP _l_893
+@_l_884:
+
+	PUSH_FIELD cgViewMan
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct CgViewManager struct
+	POP =
+	NOP
+	NOP
+	JUMP _l_872
+@_l_893:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

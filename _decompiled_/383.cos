@@ -1,0 +1,50 @@
+Function AdvScreen::setCgRGB(Reference this, Integer r, Integer g, Integer b)
+	PUSH_VAL String "CGRGB-"
+	PUSH_VAL String ""
+	PUSH_VAR r
+	POP =
+	+
+	PUSH_VAL String ","
+	+
+	PUSH_VAL String ""
+	PUSH_VAR g
+	POP =
+	+
+	PUSH_VAL String ","
+	+
+	PUSH_VAL String ""
+	PUSH_VAR b
+	POP =
+	+
+	CALL Debug
+	NOP
+	PUSH_FIELD cg
+	GET_FIELD pt
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD colSetCgRGB
+	PUSH_VAR r
+	PUSH_VAR g
+	PUSH_VAR b
+	CALL RGB
+	POP =
+	NOP
+	PUSH_FIELD fSetCg
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD fSetCgRGB
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_FIELD fUpdate
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

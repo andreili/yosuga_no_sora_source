@@ -1,0 +1,1898 @@
+Function CheckSetupCg(String str, Reference cgInfo)
+	INIT_LOCAL Integer timeZone
+	PUSH_VAL Integer 1i
+	POP =
+	PUSH_VAR str
+	CALL_METHOD MakeUpper
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	CALL ClearEffectParameter
+	NOP
+	INIT_LOCAL String strType
+	PUSH_VAL String "Nothing"
+	POP =
+	PUSH_VAL String ""
+	PUSH_VAR str
+	==
+	JUMP_OK _l_18
+	JUMP _l_1753
+@_l_18:
+	PUSH_VAL String "BLACK"
+	PUSH_VAR str
+	==
+	JUMP_OK _l_23
+	JUMP _l_1753
+@_l_23:
+	PUSH_VAL String "WHITE"
+	PUSH_VAR str
+	==
+	JUMP_OK _l_28
+	JUMP _l_1753
+@_l_28:
+	PUSH_VAR str
+	PUSH_VAL String "EA01A"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 101i
+	CALL CheckCg
+	JUMP_OK _l_35
+	JUMP _l_1753
+@_l_35:
+	PUSH_VAR str
+	PUSH_VAL String "EA01B"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 102i
+	CALL CheckCg
+	JUMP_OK _l_42
+	JUMP _l_1753
+@_l_42:
+	PUSH_VAR str
+	PUSH_VAL String "EA01C"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 103i
+	CALL CheckCg
+	JUMP_OK _l_49
+	JUMP _l_1753
+@_l_49:
+	PUSH_VAR str
+	PUSH_VAL String "EA01D"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 104i
+	CALL CheckCg
+	JUMP_OK _l_56
+	JUMP _l_1753
+@_l_56:
+	PUSH_VAR str
+	PUSH_VAL String "EA01E"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 105i
+	CALL CheckCg
+	JUMP_OK _l_63
+	JUMP _l_1753
+@_l_63:
+	PUSH_VAR str
+	PUSH_VAL String "EA01F"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 106i
+	CALL CheckCg
+	JUMP_OK _l_70
+	JUMP _l_1753
+@_l_70:
+	PUSH_VAR str
+	PUSH_VAL String "EA01G"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 107i
+	CALL CheckCg
+	JUMP_OK _l_77
+	JUMP _l_1753
+@_l_77:
+	PUSH_VAR str
+	PUSH_VAL String "EA01H"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 108i
+	CALL CheckCg
+	JUMP_OK _l_84
+	JUMP _l_1753
+@_l_84:
+	PUSH_VAR str
+	PUSH_VAL String "EA02"
+	PUSH_VAL Integer 110i
+	PUSH_VAL Integer 111i
+	CALL CheckCg
+	JUMP_OK _l_91
+	JUMP _l_1753
+@_l_91:
+	PUSH_VAR str
+	PUSH_VAL String "EA03A"
+	PUSH_VAL Integer 120i
+	PUSH_VAL Integer 121i
+	CALL CheckCg
+	JUMP_OK _l_98
+	JUMP _l_1753
+@_l_98:
+	PUSH_VAR str
+	PUSH_VAL String "EA03B"
+	PUSH_VAL Integer 120i
+	PUSH_VAL Integer 122i
+	CALL CheckCg
+	JUMP_OK _l_105
+	JUMP _l_1753
+@_l_105:
+	PUSH_VAR str
+	PUSH_VAL String "EA04A"
+	PUSH_VAL Integer 130i
+	PUSH_VAL Integer 131i
+	CALL CheckCg
+	JUMP_OK _l_112
+	JUMP _l_1753
+@_l_112:
+	PUSH_VAR str
+	PUSH_VAL String "EA04B"
+	PUSH_VAL Integer 130i
+	PUSH_VAL Integer 132i
+	CALL CheckCg
+	JUMP_OK _l_119
+	JUMP _l_1753
+@_l_119:
+	PUSH_VAR str
+	PUSH_VAL String "EA04C"
+	PUSH_VAL Integer 130i
+	PUSH_VAL Integer 133i
+	CALL CheckCg
+	JUMP_OK _l_126
+	JUMP _l_1753
+@_l_126:
+	PUSH_VAR str
+	PUSH_VAL String "EA05"
+	PUSH_VAL Integer 140i
+	PUSH_VAL Integer 141i
+	CALL CheckCg
+	JUMP_OK _l_133
+	JUMP _l_1753
+@_l_133:
+	PUSH_VAR str
+	PUSH_VAL String "EA06A"
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 151i
+	CALL CheckCg
+	JUMP_OK _l_140
+	JUMP _l_1753
+@_l_140:
+	PUSH_VAR str
+	PUSH_VAL String "EA06B"
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 152i
+	CALL CheckCg
+	JUMP_OK _l_147
+	JUMP _l_1753
+@_l_147:
+	PUSH_VAR str
+	PUSH_VAL String "EA06C"
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 153i
+	CALL CheckCg
+	JUMP_OK _l_154
+	JUMP _l_1753
+@_l_154:
+	PUSH_VAR str
+	PUSH_VAL String "EA06D"
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 154i
+	CALL CheckCg
+	JUMP_OK _l_161
+	JUMP _l_1753
+@_l_161:
+	PUSH_VAR str
+	PUSH_VAL String "EA06E"
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 155i
+	CALL CheckCg
+	JUMP_OK _l_168
+	JUMP _l_1753
+@_l_168:
+	PUSH_VAR str
+	PUSH_VAL String "EA07"
+	PUSH_VAL Integer 160i
+	PUSH_VAL Integer 161i
+	CALL CheckCg
+	JUMP_OK _l_175
+	JUMP _l_1753
+@_l_175:
+	PUSH_VAR str
+	PUSH_VAL String "EA08A"
+	PUSH_VAL Integer 170i
+	PUSH_VAL Integer 171i
+	CALL CheckCg
+	JUMP_OK _l_182
+	JUMP _l_1753
+@_l_182:
+	PUSH_VAR str
+	PUSH_VAL String "EA08B"
+	PUSH_VAL Integer 170i
+	PUSH_VAL Integer 172i
+	CALL CheckCg
+	JUMP_OK _l_189
+	JUMP _l_1753
+@_l_189:
+	PUSH_VAR str
+	PUSH_VAL String "EA08C"
+	PUSH_VAL Integer 170i
+	PUSH_VAL Integer 173i
+	CALL CheckCg
+	JUMP_OK _l_196
+	JUMP _l_1753
+@_l_196:
+	PUSH_VAR str
+	PUSH_VAL String "EA09A"
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 181i
+	CALL CheckCg
+	JUMP_OK _l_203
+	JUMP _l_1753
+@_l_203:
+	PUSH_VAR str
+	PUSH_VAL String "EA09B"
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 182i
+	CALL CheckCg
+	JUMP_OK _l_210
+	JUMP _l_1753
+@_l_210:
+	PUSH_VAR str
+	PUSH_VAL String "EA09C"
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 183i
+	CALL CheckCg
+	JUMP_OK _l_217
+	JUMP _l_1753
+@_l_217:
+	PUSH_VAR str
+	PUSH_VAL String "EA09D"
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 184i
+	CALL CheckCg
+	JUMP_OK _l_224
+	JUMP _l_1753
+@_l_224:
+	PUSH_VAR str
+	PUSH_VAL String "EA10A"
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 191i
+	CALL CheckCg
+	JUMP_OK _l_231
+	JUMP _l_1753
+@_l_231:
+	PUSH_VAR str
+	PUSH_VAL String "EA10B"
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 192i
+	CALL CheckCg
+	JUMP_OK _l_238
+	JUMP _l_1753
+@_l_238:
+	PUSH_VAR str
+	PUSH_VAL String "EA10C"
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 193i
+	CALL CheckCg
+	JUMP_OK _l_245
+	JUMP _l_1753
+@_l_245:
+	PUSH_VAR str
+	PUSH_VAL String "EA10D"
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 194i
+	CALL CheckCg
+	JUMP_OK _l_252
+	JUMP _l_1753
+@_l_252:
+	PUSH_VAR str
+	PUSH_VAL String "EA11A"
+	PUSH_VAL Integer 200i
+	PUSH_VAL Integer 201i
+	CALL CheckCg
+	JUMP_OK _l_259
+	JUMP _l_1753
+@_l_259:
+	PUSH_VAR str
+	PUSH_VAL String "EA11B"
+	PUSH_VAL Integer 200i
+	PUSH_VAL Integer 202i
+	CALL CheckCg
+	JUMP_OK _l_266
+	JUMP _l_1753
+@_l_266:
+	PUSH_VAR str
+	PUSH_VAL String "EA11C"
+	PUSH_VAL Integer 200i
+	PUSH_VAL Integer 203i
+	CALL CheckCg
+	JUMP_OK _l_273
+	JUMP _l_1753
+@_l_273:
+	PUSH_VAR str
+	PUSH_VAL String "EA11D"
+	PUSH_VAL Integer 200i
+	PUSH_VAL Integer 204i
+	CALL CheckCg
+	JUMP_OK _l_280
+	JUMP _l_1753
+@_l_280:
+	PUSH_VAR str
+	PUSH_VAL String "EA12A"
+	PUSH_VAL Integer 210i
+	PUSH_VAL Integer 211i
+	CALL CheckCg
+	JUMP_OK _l_287
+	JUMP _l_1753
+@_l_287:
+	PUSH_VAR str
+	PUSH_VAL String "EA12B"
+	PUSH_VAL Integer 210i
+	PUSH_VAL Integer 212i
+	CALL CheckCg
+	JUMP_OK _l_294
+	JUMP _l_1753
+@_l_294:
+	PUSH_VAR str
+	PUSH_VAL String "EA12C"
+	PUSH_VAL Integer 210i
+	PUSH_VAL Integer 213i
+	CALL CheckCg
+	JUMP_OK _l_301
+	JUMP _l_1753
+@_l_301:
+	PUSH_VAR str
+	PUSH_VAL String "EA13A"
+	PUSH_VAL Integer 220i
+	PUSH_VAL Integer 221i
+	CALL CheckCg
+	JUMP_OK _l_308
+	JUMP _l_1753
+@_l_308:
+	PUSH_VAR str
+	PUSH_VAL String "EA13B"
+	PUSH_VAL Integer 220i
+	PUSH_VAL Integer 222i
+	CALL CheckCg
+	JUMP_OK _l_315
+	JUMP _l_1753
+@_l_315:
+	PUSH_VAR str
+	PUSH_VAL String "EA13C"
+	PUSH_VAL Integer 220i
+	PUSH_VAL Integer 223i
+	CALL CheckCg
+	JUMP_OK _l_322
+	JUMP _l_1753
+@_l_322:
+	PUSH_VAR str
+	PUSH_VAL String "EA14"
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 231i
+	CALL CheckCg
+	JUMP_OK _l_329
+	JUMP _l_1753
+@_l_329:
+	PUSH_VAR str
+	PUSH_VAL String "EA15"
+	PUSH_VAL Integer 240i
+	PUSH_VAL Integer 241i
+	CALL CheckCg
+	JUMP_OK _l_336
+	JUMP _l_1753
+@_l_336:
+	PUSH_VAR str
+	PUSH_VAL String "EA16A"
+	PUSH_VAL Integer 250i
+	PUSH_VAL Integer 251i
+	CALL CheckCg
+	JUMP_OK _l_343
+	JUMP _l_1753
+@_l_343:
+	PUSH_VAR str
+	PUSH_VAL String "EA16B"
+	PUSH_VAL Integer 250i
+	PUSH_VAL Integer 252i
+	CALL CheckCg
+	JUMP_OK _l_350
+	JUMP _l_1753
+@_l_350:
+	PUSH_VAR str
+	PUSH_VAL String "EA17A"
+	PUSH_VAL Integer 260i
+	PUSH_VAL Integer 261i
+	CALL CheckCg
+	JUMP_OK _l_357
+	JUMP _l_1753
+@_l_357:
+	PUSH_VAR str
+	PUSH_VAL String "EA17B"
+	PUSH_VAL Integer 260i
+	PUSH_VAL Integer 262i
+	CALL CheckCg
+	JUMP_OK _l_364
+	JUMP _l_1753
+@_l_364:
+	PUSH_VAR str
+	PUSH_VAL String "EA17C"
+	PUSH_VAL Integer 260i
+	PUSH_VAL Integer 263i
+	CALL CheckCg
+	JUMP_OK _l_371
+	JUMP _l_1753
+@_l_371:
+	PUSH_VAR str
+	PUSH_VAL String "EA18A"
+	PUSH_VAL Integer 270i
+	PUSH_VAL Integer 271i
+	CALL CheckCg
+	JUMP_OK _l_378
+	JUMP _l_1753
+@_l_378:
+	PUSH_VAR str
+	PUSH_VAL String "EA18B"
+	PUSH_VAL Integer 270i
+	PUSH_VAL Integer 272i
+	CALL CheckCg
+	JUMP_OK _l_385
+	JUMP _l_1753
+@_l_385:
+	PUSH_VAR str
+	PUSH_VAL String "EB01A"
+	PUSH_VAL Integer 280i
+	PUSH_VAL Integer 281i
+	CALL CheckCg
+	JUMP_OK _l_392
+	JUMP _l_1753
+@_l_392:
+	PUSH_VAR str
+	PUSH_VAL String "EB01B"
+	PUSH_VAL Integer 280i
+	PUSH_VAL Integer 282i
+	CALL CheckCg
+	JUMP_OK _l_399
+	JUMP _l_1753
+@_l_399:
+	PUSH_VAR str
+	PUSH_VAL String "EB02A"
+	PUSH_VAL Integer 290i
+	PUSH_VAL Integer 291i
+	CALL CheckCg
+	JUMP_OK _l_406
+	JUMP _l_1753
+@_l_406:
+	PUSH_VAR str
+	PUSH_VAL String "EB02B"
+	PUSH_VAL Integer 290i
+	PUSH_VAL Integer 292i
+	CALL CheckCg
+	JUMP_OK _l_413
+	JUMP _l_1753
+@_l_413:
+	PUSH_VAR str
+	PUSH_VAL String "EB03"
+	PUSH_VAL Integer 300i
+	PUSH_VAL Integer 301i
+	CALL CheckCg
+	JUMP_OK _l_420
+	JUMP _l_1753
+@_l_420:
+	PUSH_VAR str
+	PUSH_VAL String "EB04A"
+	PUSH_VAL Integer 310i
+	PUSH_VAL Integer 311i
+	CALL CheckCg
+	JUMP_OK _l_427
+	JUMP _l_1753
+@_l_427:
+	PUSH_VAR str
+	PUSH_VAL String "EB04B"
+	PUSH_VAL Integer 310i
+	PUSH_VAL Integer 312i
+	CALL CheckCg
+	JUMP_OK _l_434
+	JUMP _l_1753
+@_l_434:
+	PUSH_VAR str
+	PUSH_VAL String "EB04A_"
+	PUSH_VAL Integer 310i
+	PUSH_VAL Integer 313i
+	CALL CheckCg
+	JUMP_OK _l_441
+	JUMP _l_1753
+@_l_441:
+	PUSH_VAR str
+	PUSH_VAL String "EB05"
+	PUSH_VAL Integer 320i
+	PUSH_VAL Integer 321i
+	CALL CheckCg
+	JUMP_OK _l_448
+	JUMP _l_1753
+@_l_448:
+	PUSH_VAR str
+	PUSH_VAL String "EB06A"
+	PUSH_VAL Integer 330i
+	PUSH_VAL Integer 331i
+	CALL CheckCg
+	JUMP_OK _l_455
+	JUMP _l_1753
+@_l_455:
+	PUSH_VAR str
+	PUSH_VAL String "EB06B"
+	PUSH_VAL Integer 330i
+	PUSH_VAL Integer 332i
+	CALL CheckCg
+	JUMP_OK _l_462
+	JUMP _l_1753
+@_l_462:
+	PUSH_VAR str
+	PUSH_VAL String "EB07A"
+	PUSH_VAL Integer 340i
+	PUSH_VAL Integer 341i
+	CALL CheckCg
+	JUMP_OK _l_469
+	JUMP _l_1753
+@_l_469:
+	PUSH_VAR str
+	PUSH_VAL String "EB07B"
+	PUSH_VAL Integer 340i
+	PUSH_VAL Integer 342i
+	CALL CheckCg
+	JUMP_OK _l_476
+	JUMP _l_1753
+@_l_476:
+	PUSH_VAR str
+	PUSH_VAL String "EB08A"
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 351i
+	CALL CheckCg
+	JUMP_OK _l_483
+	JUMP _l_1753
+@_l_483:
+	PUSH_VAR str
+	PUSH_VAL String "EB08B"
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 352i
+	CALL CheckCg
+	JUMP_OK _l_490
+	JUMP _l_1753
+@_l_490:
+	PUSH_VAR str
+	PUSH_VAL String "EB08C"
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 353i
+	CALL CheckCg
+	JUMP_OK _l_497
+	JUMP _l_1753
+@_l_497:
+	PUSH_VAR str
+	PUSH_VAL String "EB08A_"
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 354i
+	CALL CheckCg
+	JUMP_OK _l_504
+	JUMP _l_1753
+@_l_504:
+	PUSH_VAR str
+	PUSH_VAL String "EB08B_"
+	PUSH_VAL Integer 350i
+	PUSH_VAL Integer 355i
+	CALL CheckCg
+	JUMP_OK _l_511
+	JUMP _l_1753
+@_l_511:
+	PUSH_VAR str
+	PUSH_VAL String "EB09"
+	PUSH_VAL Integer 360i
+	PUSH_VAL Integer 361i
+	CALL CheckCg
+	JUMP_OK _l_518
+	JUMP _l_1753
+@_l_518:
+	PUSH_VAR str
+	PUSH_VAL String "EB10A"
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 371i
+	CALL CheckCg
+	JUMP_OK _l_525
+	JUMP _l_1753
+@_l_525:
+	PUSH_VAR str
+	PUSH_VAL String "EB10B"
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 372i
+	CALL CheckCg
+	JUMP_OK _l_532
+	JUMP _l_1753
+@_l_532:
+	PUSH_VAR str
+	PUSH_VAL String "EB11A"
+	PUSH_VAL Integer 380i
+	PUSH_VAL Integer 381i
+	CALL CheckCg
+	JUMP_OK _l_539
+	JUMP _l_1753
+@_l_539:
+	PUSH_VAR str
+	PUSH_VAL String "EB11B"
+	PUSH_VAL Integer 380i
+	PUSH_VAL Integer 382i
+	CALL CheckCg
+	JUMP_OK _l_546
+	JUMP _l_1753
+@_l_546:
+	PUSH_VAR str
+	PUSH_VAL String "EB12A"
+	PUSH_VAL Integer 390i
+	PUSH_VAL Integer 391i
+	CALL CheckCg
+	JUMP_OK _l_553
+	JUMP _l_1753
+@_l_553:
+	PUSH_VAR str
+	PUSH_VAL String "EB12B"
+	PUSH_VAL Integer 390i
+	PUSH_VAL Integer 392i
+	CALL CheckCg
+	JUMP_OK _l_560
+	JUMP _l_1753
+@_l_560:
+	PUSH_VAR str
+	PUSH_VAL String "EB12C"
+	PUSH_VAL Integer 390i
+	PUSH_VAL Integer 393i
+	CALL CheckCg
+	JUMP_OK _l_567
+	JUMP _l_1753
+@_l_567:
+	PUSH_VAR str
+	PUSH_VAL String "EB13A"
+	PUSH_VAL Integer 400i
+	PUSH_VAL Integer 401i
+	CALL CheckCg
+	JUMP_OK _l_574
+	JUMP _l_1753
+@_l_574:
+	PUSH_VAR str
+	PUSH_VAL String "EB13B"
+	PUSH_VAL Integer 400i
+	PUSH_VAL Integer 402i
+	CALL CheckCg
+	JUMP_OK _l_581
+	JUMP _l_1753
+@_l_581:
+	PUSH_VAR str
+	PUSH_VAL String "EB14"
+	PUSH_VAL Integer 410i
+	PUSH_VAL Integer 411i
+	CALL CheckCg
+	JUMP_OK _l_588
+	JUMP _l_1753
+@_l_588:
+	PUSH_VAR str
+	PUSH_VAL String "EB15"
+	PUSH_VAL Integer 420i
+	PUSH_VAL Integer 421i
+	CALL CheckCg
+	JUMP_OK _l_595
+	JUMP _l_1753
+@_l_595:
+	PUSH_VAR str
+	PUSH_VAL String "EB16A"
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 431i
+	CALL CheckCg
+	JUMP_OK _l_602
+	JUMP _l_1753
+@_l_602:
+	PUSH_VAR str
+	PUSH_VAL String "EB16B"
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 432i
+	CALL CheckCg
+	JUMP_OK _l_609
+	JUMP _l_1753
+@_l_609:
+	PUSH_VAR str
+	PUSH_VAL String "EB16C"
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 433i
+	CALL CheckCg
+	JUMP_OK _l_616
+	JUMP _l_1753
+@_l_616:
+	PUSH_VAR str
+	PUSH_VAL String "EB17A"
+	PUSH_VAL Integer 440i
+	PUSH_VAL Integer 441i
+	CALL CheckCg
+	JUMP_OK _l_623
+	JUMP _l_1753
+@_l_623:
+	PUSH_VAR str
+	PUSH_VAL String "EB17B"
+	PUSH_VAL Integer 440i
+	PUSH_VAL Integer 442i
+	CALL CheckCg
+	JUMP_OK _l_630
+	JUMP _l_1753
+@_l_630:
+	PUSH_VAR str
+	PUSH_VAL String "EB17C"
+	PUSH_VAL Integer 440i
+	PUSH_VAL Integer 443i
+	CALL CheckCg
+	JUMP_OK _l_637
+	JUMP _l_1753
+@_l_637:
+	PUSH_VAR str
+	PUSH_VAL String "EB18"
+	PUSH_VAL Integer 450i
+	PUSH_VAL Integer 451i
+	CALL CheckCg
+	JUMP_OK _l_644
+	JUMP _l_1753
+@_l_644:
+	PUSH_VAR str
+	PUSH_VAL String "EC01A"
+	PUSH_VAL Integer 460i
+	PUSH_VAL Integer 461i
+	CALL CheckCg
+	JUMP_OK _l_651
+	JUMP _l_1753
+@_l_651:
+	PUSH_VAR str
+	PUSH_VAL String "EC01B"
+	PUSH_VAL Integer 460i
+	PUSH_VAL Integer 462i
+	CALL CheckCg
+	JUMP_OK _l_658
+	JUMP _l_1753
+@_l_658:
+	PUSH_VAR str
+	PUSH_VAL String "EC02A"
+	PUSH_VAL Integer 470i
+	PUSH_VAL Integer 471i
+	CALL CheckCg
+	JUMP_OK _l_665
+	JUMP _l_1753
+@_l_665:
+	PUSH_VAR str
+	PUSH_VAL String "EC02B"
+	PUSH_VAL Integer 470i
+	PUSH_VAL Integer 472i
+	CALL CheckCg
+	JUMP_OK _l_672
+	JUMP _l_1753
+@_l_672:
+	PUSH_VAR str
+	PUSH_VAL String "EC02C"
+	PUSH_VAL Integer 470i
+	PUSH_VAL Integer 473i
+	CALL CheckCg
+	JUMP_OK _l_679
+	JUMP _l_1753
+@_l_679:
+	PUSH_VAR str
+	PUSH_VAL String "EC03A"
+	PUSH_VAL Integer 480i
+	PUSH_VAL Integer 481i
+	CALL CheckCg
+	JUMP_OK _l_686
+	JUMP _l_1753
+@_l_686:
+	PUSH_VAR str
+	PUSH_VAL String "EC03B"
+	PUSH_VAL Integer 480i
+	PUSH_VAL Integer 482i
+	CALL CheckCg
+	JUMP_OK _l_693
+	JUMP _l_1753
+@_l_693:
+	PUSH_VAR str
+	PUSH_VAL String "EC03C"
+	PUSH_VAL Integer 480i
+	PUSH_VAL Integer 483i
+	CALL CheckCg
+	JUMP_OK _l_700
+	JUMP _l_1753
+@_l_700:
+	PUSH_VAR str
+	PUSH_VAL String "EC03D"
+	PUSH_VAL Integer 480i
+	PUSH_VAL Integer 484i
+	CALL CheckCg
+	JUMP_OK _l_707
+	JUMP _l_1753
+@_l_707:
+	PUSH_VAR str
+	PUSH_VAL String "EC04A"
+	PUSH_VAL Integer 490i
+	PUSH_VAL Integer 491i
+	CALL CheckCg
+	JUMP_OK _l_714
+	JUMP _l_1753
+@_l_714:
+	PUSH_VAR str
+	PUSH_VAL String "EC04B"
+	PUSH_VAL Integer 490i
+	PUSH_VAL Integer 492i
+	CALL CheckCg
+	JUMP_OK _l_721
+	JUMP _l_1753
+@_l_721:
+	PUSH_VAR str
+	PUSH_VAL String "EC05A"
+	PUSH_VAL Integer 500i
+	PUSH_VAL Integer 501i
+	CALL CheckCg
+	JUMP_OK _l_728
+	JUMP _l_1753
+@_l_728:
+	PUSH_VAR str
+	PUSH_VAL String "EC05B"
+	PUSH_VAL Integer 500i
+	PUSH_VAL Integer 502i
+	CALL CheckCg
+	JUMP_OK _l_735
+	JUMP _l_1753
+@_l_735:
+	PUSH_VAR str
+	PUSH_VAL String "EC06A"
+	PUSH_VAL Integer 510i
+	PUSH_VAL Integer 511i
+	CALL CheckCg
+	JUMP_OK _l_742
+	JUMP _l_1753
+@_l_742:
+	PUSH_VAR str
+	PUSH_VAL String "EC06B"
+	PUSH_VAL Integer 510i
+	PUSH_VAL Integer 512i
+	CALL CheckCg
+	JUMP_OK _l_749
+	JUMP _l_1753
+@_l_749:
+	PUSH_VAR str
+	PUSH_VAL String "EC07A"
+	PUSH_VAL Integer 520i
+	PUSH_VAL Integer 521i
+	CALL CheckCg
+	JUMP_OK _l_756
+	JUMP _l_1753
+@_l_756:
+	PUSH_VAR str
+	PUSH_VAL String "EC07B"
+	PUSH_VAL Integer 520i
+	PUSH_VAL Integer 522i
+	CALL CheckCg
+	JUMP_OK _l_763
+	JUMP _l_1753
+@_l_763:
+	PUSH_VAR str
+	PUSH_VAL String "EC07C"
+	PUSH_VAL Integer 520i
+	PUSH_VAL Integer 523i
+	CALL CheckCg
+	JUMP_OK _l_770
+	JUMP _l_1753
+@_l_770:
+	PUSH_VAR str
+	PUSH_VAL String "EC08"
+	PUSH_VAL Integer 530i
+	PUSH_VAL Integer 531i
+	CALL CheckCg
+	JUMP_OK _l_777
+	JUMP _l_1753
+@_l_777:
+	PUSH_VAR str
+	PUSH_VAL String "EC09"
+	PUSH_VAL Integer 540i
+	PUSH_VAL Integer 541i
+	CALL CheckCg
+	JUMP_OK _l_784
+	JUMP _l_1753
+@_l_784:
+	PUSH_VAR str
+	PUSH_VAL String "EC10A"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 551i
+	CALL CheckCg
+	JUMP_OK _l_791
+	JUMP _l_1753
+@_l_791:
+	PUSH_VAR str
+	PUSH_VAL String "EC10B"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 552i
+	CALL CheckCg
+	JUMP_OK _l_798
+	JUMP _l_1753
+@_l_798:
+	PUSH_VAR str
+	PUSH_VAL String "EC10C"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 553i
+	CALL CheckCg
+	JUMP_OK _l_805
+	JUMP _l_1753
+@_l_805:
+	PUSH_VAR str
+	PUSH_VAL String "EC10D"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 554i
+	CALL CheckCg
+	JUMP_OK _l_812
+	JUMP _l_1753
+@_l_812:
+	PUSH_VAR str
+	PUSH_VAL String "EC10E"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 555i
+	CALL CheckCg
+	JUMP_OK _l_819
+	JUMP _l_1753
+@_l_819:
+	PUSH_VAR str
+	PUSH_VAL String "EC10F"
+	PUSH_VAL Integer 550i
+	PUSH_VAL Integer 556i
+	CALL CheckCg
+	JUMP_OK _l_826
+	JUMP _l_1753
+@_l_826:
+	PUSH_VAR str
+	PUSH_VAL String "EC11A"
+	PUSH_VAL Integer 560i
+	PUSH_VAL Integer 561i
+	CALL CheckCg
+	JUMP_OK _l_833
+	JUMP _l_1753
+@_l_833:
+	PUSH_VAR str
+	PUSH_VAL String "EC11B"
+	PUSH_VAL Integer 560i
+	PUSH_VAL Integer 562i
+	CALL CheckCg
+	JUMP_OK _l_840
+	JUMP _l_1753
+@_l_840:
+	PUSH_VAR str
+	PUSH_VAL String "EC11C"
+	PUSH_VAL Integer 560i
+	PUSH_VAL Integer 563i
+	CALL CheckCg
+	JUMP_OK _l_847
+	JUMP _l_1753
+@_l_847:
+	PUSH_VAR str
+	PUSH_VAL String "EC12A"
+	PUSH_VAL Integer 570i
+	PUSH_VAL Integer 571i
+	CALL CheckCg
+	JUMP_OK _l_854
+	JUMP _l_1753
+@_l_854:
+	PUSH_VAR str
+	PUSH_VAL String "EC12B"
+	PUSH_VAL Integer 570i
+	PUSH_VAL Integer 572i
+	CALL CheckCg
+	JUMP_OK _l_861
+	JUMP _l_1753
+@_l_861:
+	PUSH_VAR str
+	PUSH_VAL String "EC12C"
+	PUSH_VAL Integer 570i
+	PUSH_VAL Integer 573i
+	CALL CheckCg
+	JUMP_OK _l_868
+	JUMP _l_1753
+@_l_868:
+	PUSH_VAR str
+	PUSH_VAL String "EC13A"
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 581i
+	CALL CheckCg
+	JUMP_OK _l_875
+	JUMP _l_1753
+@_l_875:
+	PUSH_VAR str
+	PUSH_VAL String "EC13B"
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 582i
+	CALL CheckCg
+	JUMP_OK _l_882
+	JUMP _l_1753
+@_l_882:
+	PUSH_VAR str
+	PUSH_VAL String "EC13C"
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 583i
+	CALL CheckCg
+	JUMP_OK _l_889
+	JUMP _l_1753
+@_l_889:
+	PUSH_VAR str
+	PUSH_VAL String "EC13D"
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 584i
+	CALL CheckCg
+	JUMP_OK _l_896
+	JUMP _l_1753
+@_l_896:
+	PUSH_VAR str
+	PUSH_VAL String "EC13E"
+	PUSH_VAL Integer 580i
+	PUSH_VAL Integer 584i
+	CALL CheckCg
+	JUMP_OK _l_903
+	JUMP _l_1753
+@_l_903:
+	PUSH_VAR str
+	PUSH_VAL String "EC14"
+	PUSH_VAL Integer 590i
+	PUSH_VAL Integer 591i
+	CALL CheckCg
+	JUMP_OK _l_910
+	JUMP _l_1753
+@_l_910:
+	PUSH_VAR str
+	PUSH_VAL String "EC15"
+	PUSH_VAL Integer 600i
+	PUSH_VAL Integer 601i
+	CALL CheckCg
+	JUMP_OK _l_917
+	JUMP _l_1753
+@_l_917:
+	PUSH_VAR str
+	PUSH_VAL String "EC16A"
+	PUSH_VAL Integer 610i
+	PUSH_VAL Integer 611i
+	CALL CheckCg
+	JUMP_OK _l_924
+	JUMP _l_1753
+@_l_924:
+	PUSH_VAR str
+	PUSH_VAL String "EC16B"
+	PUSH_VAL Integer 610i
+	PUSH_VAL Integer 612i
+	CALL CheckCg
+	JUMP_OK _l_931
+	JUMP _l_1753
+@_l_931:
+	PUSH_VAR str
+	PUSH_VAL String "EC16C"
+	PUSH_VAL Integer 610i
+	PUSH_VAL Integer 613i
+	CALL CheckCg
+	JUMP_OK _l_938
+	JUMP _l_1753
+@_l_938:
+	PUSH_VAR str
+	PUSH_VAL String "EC16D"
+	PUSH_VAL Integer 610i
+	PUSH_VAL Integer 614i
+	CALL CheckCg
+	JUMP_OK _l_945
+	JUMP _l_1753
+@_l_945:
+	PUSH_VAR str
+	PUSH_VAL String "EC17A"
+	PUSH_VAL Integer 620i
+	PUSH_VAL Integer 621i
+	CALL CheckCg
+	JUMP_OK _l_952
+	JUMP _l_1753
+@_l_952:
+	PUSH_VAR str
+	PUSH_VAL String "EC17B"
+	PUSH_VAL Integer 620i
+	PUSH_VAL Integer 622i
+	CALL CheckCg
+	JUMP_OK _l_959
+	JUMP _l_1753
+@_l_959:
+	PUSH_VAR str
+	PUSH_VAL String "EC17C"
+	PUSH_VAL Integer 620i
+	PUSH_VAL Integer 623i
+	CALL CheckCg
+	JUMP_OK _l_966
+	JUMP _l_1753
+@_l_966:
+	PUSH_VAR str
+	PUSH_VAL String "EC18"
+	PUSH_VAL Integer 630i
+	PUSH_VAL Integer 631i
+	CALL CheckCg
+	JUMP_OK _l_973
+	JUMP _l_1753
+@_l_973:
+	PUSH_VAR str
+	PUSH_VAL String "ED01A"
+	PUSH_VAL Integer 640i
+	PUSH_VAL Integer 641i
+	CALL CheckCg
+	JUMP_OK _l_980
+	JUMP _l_1753
+@_l_980:
+	PUSH_VAR str
+	PUSH_VAL String "ED01B"
+	PUSH_VAL Integer 640i
+	PUSH_VAL Integer 642i
+	CALL CheckCg
+	JUMP_OK _l_987
+	JUMP _l_1753
+@_l_987:
+	PUSH_VAR str
+	PUSH_VAL String "ED01C"
+	PUSH_VAL Integer 640i
+	PUSH_VAL Integer 643i
+	CALL CheckCg
+	JUMP_OK _l_994
+	JUMP _l_1753
+@_l_994:
+	PUSH_VAR str
+	PUSH_VAL String "ED02A"
+	PUSH_VAL Integer 650i
+	PUSH_VAL Integer 651i
+	CALL CheckCg
+	JUMP_OK _l_1001
+	JUMP _l_1753
+@_l_1001:
+	PUSH_VAR str
+	PUSH_VAL String "ED02B"
+	PUSH_VAL Integer 650i
+	PUSH_VAL Integer 652i
+	CALL CheckCg
+	JUMP_OK _l_1008
+	JUMP _l_1753
+@_l_1008:
+	PUSH_VAR str
+	PUSH_VAL String "ED03A"
+	PUSH_VAL Integer 660i
+	PUSH_VAL Integer 661i
+	CALL CheckCg
+	JUMP_OK _l_1015
+	JUMP _l_1753
+@_l_1015:
+	PUSH_VAR str
+	PUSH_VAL String "ED03B"
+	PUSH_VAL Integer 660i
+	PUSH_VAL Integer 662i
+	CALL CheckCg
+	JUMP_OK _l_1022
+	JUMP _l_1753
+@_l_1022:
+	PUSH_VAR str
+	PUSH_VAL String "ED03C"
+	PUSH_VAL Integer 660i
+	PUSH_VAL Integer 663i
+	CALL CheckCg
+	JUMP_OK _l_1029
+	JUMP _l_1753
+@_l_1029:
+	PUSH_VAR str
+	PUSH_VAL String "ED04"
+	PUSH_VAL Integer 670i
+	PUSH_VAL Integer 671i
+	CALL CheckCg
+	JUMP_OK _l_1036
+	JUMP _l_1753
+@_l_1036:
+	PUSH_VAR str
+	PUSH_VAL String "ED05"
+	PUSH_VAL Integer 680i
+	PUSH_VAL Integer 681i
+	CALL CheckCg
+	JUMP_OK _l_1043
+	JUMP _l_1753
+@_l_1043:
+	PUSH_VAR str
+	PUSH_VAL String "ED06A"
+	PUSH_VAL Integer 690i
+	PUSH_VAL Integer 691i
+	CALL CheckCg
+	JUMP_OK _l_1050
+	JUMP _l_1753
+@_l_1050:
+	PUSH_VAR str
+	PUSH_VAL String "ED06B"
+	PUSH_VAL Integer 690i
+	PUSH_VAL Integer 692i
+	CALL CheckCg
+	JUMP_OK _l_1057
+	JUMP _l_1753
+@_l_1057:
+	PUSH_VAR str
+	PUSH_VAL String "ED06C"
+	PUSH_VAL Integer 690i
+	PUSH_VAL Integer 693i
+	CALL CheckCg
+	JUMP_OK _l_1064
+	JUMP _l_1753
+@_l_1064:
+	PUSH_VAR str
+	PUSH_VAL String "ED07A"
+	PUSH_VAL Integer 700i
+	PUSH_VAL Integer 701i
+	CALL CheckCg
+	JUMP_OK _l_1071
+	JUMP _l_1753
+@_l_1071:
+	PUSH_VAR str
+	PUSH_VAL String "ED07B"
+	PUSH_VAL Integer 700i
+	PUSH_VAL Integer 702i
+	CALL CheckCg
+	JUMP_OK _l_1078
+	JUMP _l_1753
+@_l_1078:
+	PUSH_VAR str
+	PUSH_VAL String "ED08"
+	PUSH_VAL Integer 710i
+	PUSH_VAL Integer 711i
+	CALL CheckCg
+	JUMP_OK _l_1085
+	JUMP _l_1753
+@_l_1085:
+	PUSH_VAR str
+	PUSH_VAL String "ED09"
+	PUSH_VAL Integer 720i
+	PUSH_VAL Integer 721i
+	CALL CheckCg
+	JUMP_OK _l_1092
+	JUMP _l_1753
+@_l_1092:
+	PUSH_VAR str
+	PUSH_VAL String "ED10A"
+	PUSH_VAL Integer 730i
+	PUSH_VAL Integer 731i
+	CALL CheckCg
+	JUMP_OK _l_1099
+	JUMP _l_1753
+@_l_1099:
+	PUSH_VAR str
+	PUSH_VAL String "ED10B"
+	PUSH_VAL Integer 730i
+	PUSH_VAL Integer 732i
+	CALL CheckCg
+	JUMP_OK _l_1106
+	JUMP _l_1753
+@_l_1106:
+	PUSH_VAR str
+	PUSH_VAL String "ED10C"
+	PUSH_VAL Integer 730i
+	PUSH_VAL Integer 733i
+	CALL CheckCg
+	JUMP_OK _l_1113
+	JUMP _l_1753
+@_l_1113:
+	PUSH_VAR str
+	PUSH_VAL String "ED11A"
+	PUSH_VAL Integer 740i
+	PUSH_VAL Integer 741i
+	CALL CheckCg
+	JUMP_OK _l_1120
+	JUMP _l_1753
+@_l_1120:
+	PUSH_VAR str
+	PUSH_VAL String "ED11B"
+	PUSH_VAL Integer 740i
+	PUSH_VAL Integer 742i
+	CALL CheckCg
+	JUMP_OK _l_1127
+	JUMP _l_1753
+@_l_1127:
+	PUSH_VAR str
+	PUSH_VAL String "ED11C"
+	PUSH_VAL Integer 740i
+	PUSH_VAL Integer 743i
+	CALL CheckCg
+	JUMP_OK _l_1134
+	JUMP _l_1753
+@_l_1134:
+	PUSH_VAR str
+	PUSH_VAL String "ED11D"
+	PUSH_VAL Integer 740i
+	PUSH_VAL Integer 744i
+	CALL CheckCg
+	JUMP_OK _l_1141
+	JUMP _l_1753
+@_l_1141:
+	PUSH_VAR str
+	PUSH_VAL String "ED12A"
+	PUSH_VAL Integer 750i
+	PUSH_VAL Integer 751i
+	CALL CheckCg
+	JUMP_OK _l_1148
+	JUMP _l_1753
+@_l_1148:
+	PUSH_VAR str
+	PUSH_VAL String "ED12B"
+	PUSH_VAL Integer 750i
+	PUSH_VAL Integer 752i
+	CALL CheckCg
+	JUMP_OK _l_1155
+	JUMP _l_1753
+@_l_1155:
+	PUSH_VAR str
+	PUSH_VAL String "ED12C"
+	PUSH_VAL Integer 750i
+	PUSH_VAL Integer 753i
+	CALL CheckCg
+	JUMP_OK _l_1162
+	JUMP _l_1753
+@_l_1162:
+	PUSH_VAR str
+	PUSH_VAL String "ED13A"
+	PUSH_VAL Integer 760i
+	PUSH_VAL Integer 761i
+	CALL CheckCg
+	JUMP_OK _l_1169
+	JUMP _l_1753
+@_l_1169:
+	PUSH_VAR str
+	PUSH_VAL String "ED13B"
+	PUSH_VAL Integer 760i
+	PUSH_VAL Integer 762i
+	CALL CheckCg
+	JUMP_OK _l_1176
+	JUMP _l_1753
+@_l_1176:
+	PUSH_VAR str
+	PUSH_VAL String "ED14"
+	PUSH_VAL Integer 770i
+	PUSH_VAL Integer 771i
+	CALL CheckCg
+	JUMP_OK _l_1183
+	JUMP _l_1753
+@_l_1183:
+	PUSH_VAR str
+	PUSH_VAL String "ED15"
+	PUSH_VAL Integer 780i
+	PUSH_VAL Integer 781i
+	CALL CheckCg
+	JUMP_OK _l_1190
+	JUMP _l_1753
+@_l_1190:
+	PUSH_VAR str
+	PUSH_VAL String "ED16A"
+	PUSH_VAL Integer 790i
+	PUSH_VAL Integer 791i
+	CALL CheckCg
+	JUMP_OK _l_1197
+	JUMP _l_1753
+@_l_1197:
+	PUSH_VAR str
+	PUSH_VAL String "ED16B"
+	PUSH_VAL Integer 790i
+	PUSH_VAL Integer 792i
+	CALL CheckCg
+	JUMP_OK _l_1204
+	JUMP _l_1753
+@_l_1204:
+	PUSH_VAR str
+	PUSH_VAL String "ED16C"
+	PUSH_VAL Integer 790i
+	PUSH_VAL Integer 793i
+	CALL CheckCg
+	JUMP_OK _l_1211
+	JUMP _l_1753
+@_l_1211:
+	PUSH_VAR str
+	PUSH_VAL String "ED17A"
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 801i
+	CALL CheckCg
+	JUMP_OK _l_1218
+	JUMP _l_1753
+@_l_1218:
+	PUSH_VAR str
+	PUSH_VAL String "ED17B"
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 802i
+	CALL CheckCg
+	JUMP_OK _l_1225
+	JUMP _l_1753
+@_l_1225:
+	PUSH_VAR str
+	PUSH_VAL String "ED17C"
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 803i
+	CALL CheckCg
+	JUMP_OK _l_1232
+	JUMP _l_1753
+@_l_1232:
+	PUSH_VAR str
+	PUSH_VAL String "ED18A"
+	PUSH_VAL Integer 810i
+	PUSH_VAL Integer 811i
+	CALL CheckCg
+	JUMP_OK _l_1239
+	JUMP _l_1753
+@_l_1239:
+	PUSH_VAR str
+	PUSH_VAL String "ED18B"
+	PUSH_VAL Integer 810i
+	PUSH_VAL Integer 812i
+	CALL CheckCg
+	JUMP_OK _l_1246
+	JUMP _l_1753
+@_l_1246:
+	PUSH_VAR str
+	PUSH_VAL String "ED18C"
+	PUSH_VAL Integer 810i
+	PUSH_VAL Integer 813i
+	CALL CheckCg
+	JUMP_OK _l_1253
+	JUMP _l_1753
+@_l_1253:
+	PUSH_VAR str
+	PUSH_VAL String "EE01A"
+	PUSH_VAL Integer 820i
+	PUSH_VAL Integer 821i
+	CALL CheckCg
+	JUMP_OK _l_1260
+	JUMP _l_1753
+@_l_1260:
+	PUSH_VAR str
+	PUSH_VAL String "EE01B"
+	PUSH_VAL Integer 820i
+	PUSH_VAL Integer 822i
+	CALL CheckCg
+	JUMP_OK _l_1267
+	JUMP _l_1753
+@_l_1267:
+	PUSH_VAR str
+	PUSH_VAL String "EE01C"
+	PUSH_VAL Integer 820i
+	PUSH_VAL Integer 823i
+	CALL CheckCg
+	JUMP_OK _l_1274
+	JUMP _l_1753
+@_l_1274:
+	PUSH_VAR str
+	PUSH_VAL String "EE01D"
+	PUSH_VAL Integer 820i
+	PUSH_VAL Integer 824i
+	CALL CheckCg
+	JUMP_OK _l_1281
+	JUMP _l_1753
+@_l_1281:
+	PUSH_VAR str
+	PUSH_VAL String "EE02A"
+	PUSH_VAL Integer 830i
+	PUSH_VAL Integer 831i
+	CALL CheckCg
+	JUMP_OK _l_1288
+	JUMP _l_1753
+@_l_1288:
+	PUSH_VAR str
+	PUSH_VAL String "EE02B"
+	PUSH_VAL Integer 830i
+	PUSH_VAL Integer 832i
+	CALL CheckCg
+	JUMP_OK _l_1295
+	JUMP _l_1753
+@_l_1295:
+	PUSH_VAR str
+	PUSH_VAL String "EE02C"
+	PUSH_VAL Integer 830i
+	PUSH_VAL Integer 833i
+	CALL CheckCg
+	JUMP_OK _l_1302
+	JUMP _l_1753
+@_l_1302:
+	PUSH_VAR str
+	PUSH_VAL String "EE02D"
+	PUSH_VAL Integer 830i
+	PUSH_VAL Integer 834i
+	CALL CheckCg
+	JUMP_OK _l_1309
+	JUMP _l_1753
+@_l_1309:
+	PUSH_VAR str
+	PUSH_VAL String "EE03A"
+	PUSH_VAL Integer 840i
+	PUSH_VAL Integer 841i
+	CALL CheckCg
+	JUMP_OK _l_1316
+	JUMP _l_1753
+@_l_1316:
+	PUSH_VAR str
+	PUSH_VAL String "EE03B"
+	PUSH_VAL Integer 840i
+	PUSH_VAL Integer 842i
+	CALL CheckCg
+	JUMP_OK _l_1323
+	JUMP _l_1753
+@_l_1323:
+	PUSH_VAR str
+	PUSH_VAL String "EE04A"
+	PUSH_VAL Integer 850i
+	PUSH_VAL Integer 851i
+	CALL CheckCg
+	JUMP_OK _l_1330
+	JUMP _l_1753
+@_l_1330:
+	PUSH_VAR str
+	PUSH_VAL String "EE04B"
+	PUSH_VAL Integer 850i
+	PUSH_VAL Integer 852i
+	CALL CheckCg
+	JUMP_OK _l_1337
+	JUMP _l_1753
+@_l_1337:
+	PUSH_VAR str
+	PUSH_VAL String "EE04C"
+	PUSH_VAL Integer 850i
+	PUSH_VAL Integer 853i
+	CALL CheckCg
+	JUMP_OK _l_1344
+	JUMP _l_1753
+@_l_1344:
+	PUSH_VAR str
+	PUSH_VAL String "EE05A"
+	PUSH_VAL Integer 860i
+	PUSH_VAL Integer 861i
+	CALL CheckCg
+	JUMP_OK _l_1351
+	JUMP _l_1753
+@_l_1351:
+	PUSH_VAR str
+	PUSH_VAL String "EE05B"
+	PUSH_VAL Integer 860i
+	PUSH_VAL Integer 862i
+	CALL CheckCg
+	JUMP_OK _l_1358
+	JUMP _l_1753
+@_l_1358:
+	PUSH_VAR str
+	PUSH_VAL String "EE06A"
+	PUSH_VAL Integer 870i
+	PUSH_VAL Integer 871i
+	CALL CheckCg
+	JUMP_OK _l_1365
+	JUMP _l_1753
+@_l_1365:
+	PUSH_VAR str
+	PUSH_VAL String "EE06B"
+	PUSH_VAL Integer 870i
+	PUSH_VAL Integer 872i
+	CALL CheckCg
+	JUMP_OK _l_1372
+	JUMP _l_1753
+@_l_1372:
+	PUSH_VAR str
+	PUSH_VAL String "EE07A"
+	PUSH_VAL Integer 880i
+	PUSH_VAL Integer 881i
+	CALL CheckCg
+	JUMP_OK _l_1379
+	JUMP _l_1753
+@_l_1379:
+	PUSH_VAR str
+	PUSH_VAL String "EE07B"
+	PUSH_VAL Integer 880i
+	PUSH_VAL Integer 882i
+	CALL CheckCg
+	JUMP_OK _l_1386
+	JUMP _l_1753
+@_l_1386:
+	PUSH_VAR str
+	PUSH_VAL String "EE08A"
+	PUSH_VAL Integer 890i
+	PUSH_VAL Integer 891i
+	CALL CheckCg
+	JUMP_OK _l_1393
+	JUMP _l_1753
+@_l_1393:
+	PUSH_VAR str
+	PUSH_VAL String "EE08B"
+	PUSH_VAL Integer 890i
+	PUSH_VAL Integer 892i
+	CALL CheckCg
+	JUMP_OK _l_1400
+	JUMP _l_1753
+@_l_1400:
+	PUSH_VAR str
+	PUSH_VAL String "EE09"
+	PUSH_VAL Integer 900i
+	PUSH_VAL Integer 901i
+	CALL CheckCg
+	JUMP_OK _l_1407
+	JUMP _l_1753
+@_l_1407:
+	PUSH_VAR str
+	PUSH_VAL String "EE10A"
+	PUSH_VAL Integer 910i
+	PUSH_VAL Integer 911i
+	CALL CheckCg
+	JUMP_OK _l_1414
+	JUMP _l_1753
+@_l_1414:
+	PUSH_VAR str
+	PUSH_VAL String "EE10B"
+	PUSH_VAL Integer 910i
+	PUSH_VAL Integer 912i
+	CALL CheckCg
+	JUMP_OK _l_1421
+	JUMP _l_1753
+@_l_1421:
+	PUSH_VAR str
+	PUSH_VAL String "EE10C"
+	PUSH_VAL Integer 910i
+	PUSH_VAL Integer 913i
+	CALL CheckCg
+	JUMP_OK _l_1428
+	JUMP _l_1753
+@_l_1428:
+	PUSH_VAR str
+	PUSH_VAL String "EE10D"
+	PUSH_VAL Integer 910i
+	PUSH_VAL Integer 914i
+	CALL CheckCg
+	JUMP_OK _l_1435
+	JUMP _l_1753
+@_l_1435:
+	PUSH_VAR str
+	PUSH_VAL String "EE11A"
+	PUSH_VAL Integer 920i
+	PUSH_VAL Integer 921i
+	CALL CheckCg
+	JUMP_OK _l_1442
+	JUMP _l_1753
+@_l_1442:
+	PUSH_VAR str
+	PUSH_VAL String "EE11B"
+	PUSH_VAL Integer 920i
+	PUSH_VAL Integer 922i
+	CALL CheckCg
+	JUMP_OK _l_1449
+	JUMP _l_1753
+@_l_1449:
+	PUSH_VAR str
+	PUSH_VAL String "EE11C"
+	PUSH_VAL Integer 920i
+	PUSH_VAL Integer 923i
+	CALL CheckCg
+	JUMP_OK _l_1456
+	JUMP _l_1753
+@_l_1456:
+	PUSH_VAR str
+	PUSH_VAL String "EE12A"
+	PUSH_VAL Integer 930i
+	PUSH_VAL Integer 931i
+	CALL CheckCg
+	JUMP_OK _l_1463
+	JUMP _l_1753
+@_l_1463:
+	PUSH_VAR str
+	PUSH_VAL String "EE12B"
+	PUSH_VAL Integer 930i
+	PUSH_VAL Integer 932i
+	CALL CheckCg
+	JUMP_OK _l_1470
+	JUMP _l_1753
+@_l_1470:
+	PUSH_VAR str
+	PUSH_VAL String "EE12C"
+	PUSH_VAL Integer 930i
+	PUSH_VAL Integer 933i
+	CALL CheckCg
+	JUMP_OK _l_1477
+	JUMP _l_1753
+@_l_1477:
+	PUSH_VAR str
+	PUSH_VAL String "EE12D"
+	PUSH_VAL Integer 930i
+	PUSH_VAL Integer 934i
+	CALL CheckCg
+	JUMP_OK _l_1484
+	JUMP _l_1753
+@_l_1484:
+	PUSH_VAR str
+	PUSH_VAL String "EE13A"
+	PUSH_VAL Integer 940i
+	PUSH_VAL Integer 941i
+	CALL CheckCg
+	JUMP_OK _l_1491
+	JUMP _l_1753
+@_l_1491:
+	PUSH_VAR str
+	PUSH_VAL String "EE13B"
+	PUSH_VAL Integer 940i
+	PUSH_VAL Integer 942i
+	CALL CheckCg
+	JUMP_OK _l_1498
+	JUMP _l_1753
+@_l_1498:
+	PUSH_VAR str
+	PUSH_VAL String "EE13C"
+	PUSH_VAL Integer 940i
+	PUSH_VAL Integer 943i
+	CALL CheckCg
+	JUMP_OK _l_1505
+	JUMP _l_1753
+@_l_1505:
+	PUSH_VAR str
+	PUSH_VAL String "EE14"
+	PUSH_VAL Integer 950i
+	PUSH_VAL Integer 951i
+	CALL CheckCg
+	JUMP_OK _l_1512
+	JUMP _l_1753
+@_l_1512:
+	PUSH_VAR str
+	PUSH_VAL String "EE15"
+	PUSH_VAL Integer 960i
+	PUSH_VAL Integer 961i
+	CALL CheckCg
+	JUMP_OK _l_1519
+	JUMP _l_1753
+@_l_1519:
+	PUSH_VAR str
+	PUSH_VAL String "EE16A"
+	PUSH_VAL Integer 970i
+	PUSH_VAL Integer 971i
+	CALL CheckCg
+	JUMP_OK _l_1526
+	JUMP _l_1753
+@_l_1526:
+	PUSH_VAR str
+	PUSH_VAL String "EE16B"
+	PUSH_VAL Integer 970i
+	PUSH_VAL Integer 972i
+	CALL CheckCg
+	JUMP_OK _l_1533
+	JUMP _l_1753
+@_l_1533:
+	PUSH_VAR str
+	PUSH_VAL String "EE17A"
+	PUSH_VAL Integer 980i
+	PUSH_VAL Integer 981i
+	CALL CheckCg
+	JUMP_OK _l_1540
+	JUMP _l_1753
+@_l_1540:
+	PUSH_VAR str
+	PUSH_VAL String "EE17B"
+	PUSH_VAL Integer 980i
+	PUSH_VAL Integer 982i
+	CALL CheckCg
+	JUMP_OK _l_1547
+	JUMP _l_1753
+@_l_1547:
+	PUSH_VAR str
+	PUSH_VAL String "EE18"
+	PUSH_VAL Integer 990i
+	PUSH_VAL Integer 991i
+	CALL CheckCg
+	JUMP_OK _l_1554
+	JUMP _l_1753
+@_l_1554:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01A"
+	PUSH_VAL Integer 1000i
+	PUSH_VAL Integer 1001i
+	CALL CheckCg
+	JUMP_OK _l_1595
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD strType
+	PUSH_VAL String "TileImage"
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD nInterval
+	PUSH_VAL Integer 100i
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD nDegreeStep
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD sizeView
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL ISize
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD ptSpeed
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	JUMP _l_1753
+@_l_1595:
+	PUSH_VAR str
+	PUSH_VAL String "EZ01B"
+	PUSH_VAL Integer 1000i
+	PUSH_VAL Integer 1002i
+	CALL CheckCg
+	JUMP_OK _l_1636
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD strType
+	PUSH_VAL String "TileImage"
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD nInterval
+	PUSH_VAL Integer 100i
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD nDegreeStep
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD sizeView
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 600i
+	CALL ISize
+	POP =
+	NOP
+	PUSH_VAR cgInfo
+	GET_FIELD effectParam
+	GET_FIELD ptSpeed
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	JUMP _l_1753
+@_l_1636:
+	PUSH_VAR str
+	PUSH_VAL String "EZ02"
+	PUSH_VAL Integer 1010i
+	PUSH_VAL Integer 1011i
+	CALL CheckCg
+	JUMP_OK _l_1643
+	JUMP _l_1753
+@_l_1643:
+	PUSH_VAR str
+	PUSH_VAL String "EZ03"
+	PUSH_VAL Integer 1020i
+	PUSH_VAL Integer 1021i
+	CALL CheckCg
+	JUMP_OK _l_1650
+	JUMP _l_1753
+@_l_1650:
+	PUSH_VAR str
+	PUSH_VAL String "EZ04A"
+	PUSH_VAL Integer 1030i
+	PUSH_VAL Integer 1031i
+	CALL CheckCg
+	JUMP_OK _l_1657
+	JUMP _l_1753
+@_l_1657:
+	PUSH_VAR str
+	PUSH_VAL String "EZ04B"
+	PUSH_VAL Integer 1030i
+	PUSH_VAL Integer 1032i
+	CALL CheckCg
+	JUMP_OK _l_1664
+	JUMP _l_1753
+@_l_1664:
+	PUSH_VAR str
+	PUSH_VAL String "EZ05A"
+	PUSH_VAL Integer 1040i
+	PUSH_VAL Integer 1041i
+	CALL CheckCg
+	

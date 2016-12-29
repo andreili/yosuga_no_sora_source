@@ -1,0 +1,130 @@
+Function AdvScreen::effectFlush(Reference this, String color, Integer time, String cgFile)
+	INIT_LOCAL struct Sprite spr
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_4
+	JUMP _l_90
+@_l_4:
+	PUSH_VAR color
+	PUSH_VAL String "BLACK"
+	==
+	JUMP_OK _l_20
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+	JUMP _l_90
+@_l_20:
+	PUSH_VAR color
+	PUSH_VAL String "WHITE"
+	==
+	JUMP_OK _l_36
+	PUSH_VAR spr
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 255i
+	CALL RGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+	JUMP _l_90
+@_l_36:
+	PUSH_VAR color
+	PUSH_VAL String "RED"
+	==
+	JUMP_OK _l_52
+	PUSH_VAR spr
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+	JUMP _l_90
+@_l_52:
+	PUSH_VAR color
+	PUSH_VAL String "GREEN"
+	==
+	JUMP_OK _l_68
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 0i
+	CALL RGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+	JUMP _l_90
+@_l_68:
+	PUSH_VAR color
+	PUSH_VAL String "BLUE"
+	==
+	JUMP_OK _l_84
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 255i
+	CALL RGB
+	PUSH_OBJ  2
+	GET_FIELD w
+	PUSH_OBJ  2
+	GET_FIELD h
+	CALL CreateRGBImage
+	NOP
+	JUMP _l_90
+@_l_84:
+	PUSH_VAR spr
+	PUSH_VAR color
+	PUSH_VAL String ".eri"
+	+
+	CALL_METHOD LoadImage
+	NOP
+@_l_90:
+	PUSH_UNK
+	PUSH_VAL Integer 50900i
+	PUSH_VAR spr
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAL Integer -1i
+	CALL update
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAR time
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	CALL WaitUntilSpriteActive
+	NOP
+	PUSH_UNK
+	PUSH_VAR spr
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

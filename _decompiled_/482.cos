@@ -1,0 +1,25 @@
+Function ClearWscmd(Reference wscmd)
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_VAR wscmd
+	GET_FIELD strFullID
+	PUSH_VAL String ""
+	POP =
+	NOP
+	PUSH_VAR wscmd
+	GET_FIELD nNotification
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR wscmd
+	GET_FIELD nParameter
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

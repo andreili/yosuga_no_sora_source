@@ -1,0 +1,60 @@
+Function AppreciationView::checkPaletteRecollect(Reference this, Integer flag, Integer id, String spriteID)
+	PUSH_VAR flag
+	CALL ChkRecollectFlag
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_35
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_REC"
+	PUSH_VAL String ""
+	PUSH_VAR id
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_RECSEL"
+	PUSH_VAL String ""
+	PUSH_VAR id
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL String "ID_REC"
+	PUSH_VAL String ""
+	PUSH_VAR id
+	POP =
+	+
+	PUSH_VAL String "ID_"
+	PUSH_VAR spriteID
+	+
+	CALL_METHOD SetSpriteImage
+	NOP
+	JUMP _l_53
+@_l_35:
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_REC"
+	PUSH_VAL String ""
+	PUSH_VAR id
+	POP =
+	+
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAL String "ID_REC"
+	PUSH_VAL String ""
+	PUSH_VAR id
+	POP =
+	+
+	PUSH_VAL String "ID_FRM_0735"
+	CALL_METHOD SetSpriteImage
+	NOP
+@_l_53:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

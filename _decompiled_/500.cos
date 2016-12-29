@@ -1,0 +1,28 @@
+Function CreateRGBImage(Reference spr, Integer col, Integer width, Integer height)
+	PUSH_VAR spr
+	CALL_METHOD Release
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 1i
+	PUSH_VAR width
+	PUSH_VAR height
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Reference ref
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBackColor
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAR width
+	PUSH_VAR height
+	CALL IRect
+	PUSH_VAR col
+	CALL_METHOD FillRect
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,17 @@
+Function SurfaceAttribute::SurfaceAttribute(Reference this)
+	INIT_FIELD Integer nShadingFlags
+	INIT_FIELD Integer rgbColorMul
+	PUSH_FIELD rgbColorMul
+	PUSH_VAL Integer 16777215i
+	POP =
+	NOP
+	INIT_FIELD Integer rgbColorAdd
+	INIT_FIELD Integer nAmbient
+	INIT_FIELD Integer nDiffusion
+	INIT_FIELD Integer nSpecular
+	INIT_FIELD Integer nTransparency
+	INIT_FIELD Integer nDeepness
+	PUSH_VAL Integer 0i
+	Return this
+EndFunc
+

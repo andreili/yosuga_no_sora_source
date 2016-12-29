@@ -1,0 +1,19 @@
+Function Font(Integer size, String face)
+	CALL IsLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_OBJ  10
+	PUSH_VAR size
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAR face
+	CALL_METHOD font
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

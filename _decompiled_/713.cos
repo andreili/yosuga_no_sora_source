@@ -1,0 +1,15 @@
+Function SetVoiceVolume(Real vol)
+	PUSH_OBJ  17
+	PUSH_VAR vol
+	PUSH_VAR vol
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volVoice
+	PUSH_VAR vol
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

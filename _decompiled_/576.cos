@@ -1,0 +1,16 @@
+Function IsHitSprite(Reference spr, Integer x, Integer y)
+	INIT_LOCAL struct Rect rect
+	PUSH_VAR rect
+	PUSH_VAR spr
+	CALL_METHOD GetRectangle
+	POP =
+	NOP
+	PUSH_VAR rect
+	PUSH_VAR x
+	PUSH_VAR y
+	CALL IsHitRect
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

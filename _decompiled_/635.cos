@@ -1,0 +1,18 @@
+Function MessageFrame::transparencyBase(Reference this, Integer trans)
+	PUSH_FIELD isCreate
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_FIELD sprBase
+	PUSH_FIELD viewType
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR trans
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

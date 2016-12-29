@@ -1,0 +1,71 @@
+Function VoicePlayIndicatorProc()
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_62
+
+	INIT_LOCAL Integer total
+	INIT_LOCAL Integer pos
+	CALL IsPlayVoice
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_48
+	PUSH_VAR total
+	PUSH_VAR pos
+	CALL GetVoicePlayingPosition
+	NOP
+	PUSH_OBJ  29
+	CALL_METHOD IsVisible
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_28
+	PUSH_OBJ  29
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_OBJ  30
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+@_l_28:
+	PUSH_VAR total
+	PUSH_VAL Integer 10000i
+	POP +=
+	NOP
+	PUSH_OBJ  30
+	PUSH_OBJ  33
+	PUSH_VAL Integer 7i
+	+
+	PUSH_VAL Real 190d
+	PUSH_VAL Real 0d
+	PUSH_VAR pos
+	POP =
+	PUSH_VAR total
+	/
+	*
+	+
+	PUSH_OBJ  34
+	CALL_METHOD MovePosition
+	NOP
+	JUMP _l_61
+@_l_48:
+	PUSH_OBJ  29
+	CALL_METHOD IsVisible
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_61
+	PUSH_OBJ  29
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_OBJ  30
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetVisible
+	NOP
+@_l_61:
+	NOP
+@_l_62:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

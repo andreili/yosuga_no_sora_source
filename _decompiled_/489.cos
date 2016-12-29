@@ -1,0 +1,158 @@
+Function ConfigWindow::destroy(Reference this)
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_WINDOW"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_12
+	PUSH_OBJ  5
+	GET_FIELD screenType
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	JUMP _l_17
+@_l_12:
+	PUSH_OBJ  5
+	GET_FIELD screenType
+	PUSH_VAL Integer 1i
+	POP =
+	NOP
+@_l_17:
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_CHECK_BGM"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_VOL_BGM"
+	CALL_METHOD GetHorzScrollPos
+	PUSH_VAL Real 256d
+	/
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlaySe
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_CHECK_SE"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volSe
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_VOL_SE"
+	CALL_METHOD GetHorzScrollPos
+	PUSH_VAL Real 256d
+	/
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlaySysSe
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_CHECK_SYSTEM"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volSysSe
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_VOL_SYSTEM"
+	CALL_METHOD GetHorzScrollPos
+	PUSH_VAL Real 256d
+	/
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlayVoice
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_CHECK_VOICE"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD volVoice
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_VOL_VOICE"
+	CALL_METHOD GetHorzScrollPos
+	PUSH_VAL Real 256d
+	/
+	POP =
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_NORMAL"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_93
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	JUMP _l_98
+@_l_93:
+	PUSH_OBJ  5
+	GET_FIELD screenEffect
+	PUSH_VAL Integer 1i
+	POP =
+	NOP
+@_l_98:
+	PUSH_OBJ  5
+	GET_FIELD windowDepth
+	PUSH_VAL Integer 256i
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_WINDOW_DEPTH"
+	CALL_METHOD GetHorzScrollPos
+	-
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD messageSpeed
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_MESSAGE_SPEED"
+	CALL_METHOD GetHorzScrollPos
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD readSkip
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_READED"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD voiceStopOnClick
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_CLICK_PLAY"
+	CALL_METHOD IsButtonChecked
+	logic_unk3
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD lockSkip
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_STATIC"
+	CALL_METHOD IsButtonChecked
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD automodeSpeed
+	PUSH_FIELD sprBase
+	PUSH_VAL String "ID_AUTOMODE_SPEED"
+	CALL_METHOD GetHorzScrollPos
+	POP =
+	NOP
+	CALL SaveConfigData
+	NOP
+	PUSH_UNK
+	PUSH_FIELD sprBase
+	CALL_METHOD DetachSprite
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,1602 @@
+Function StaffRollView::run(Reference this, Integer type)
+	PUSH_FIELD fExit
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_FIELD layer
+	PUSH_VAL Integer 25000i
+	PUSH_VAL Integer 10i
+	-
+	POP =
+	NOP
+	PUSH_OBJ  5
+	GET_FIELD flgPlayBgm
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_30
+	PUSH_FIELD sound
+	PUSH_VAL String "BGM02.mio"
+	CALL_METHOD LoadSound
+	NOP
+	PUSH_FIELD sound
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	PUSH_OBJ  5
+	GET_FIELD volBgm
+	CALL_METHOD SetVolume
+	NOP
+	PUSH_FIELD sound
+	PUSH_VAL Integer -2i
+	CALL_METHOD Play
+	NOP
+@_l_30:
+	PUSH_FIELD beginTime
+	CALL GetCurrentTime
+	POP =
+	NOP
+	PUSH_VAL Integer -1i
+	CALL Hide
+	NOP
+	INIT_LOCAL struct Sprite advScreen
+	PUSH_OBJ  10
+	PUSH_VAR advScreen
+	CALL_METHOD copyAdvScreen
+	NOP
+	INIT_LOCAL struct Sprite spr
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_57
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0612"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer -1i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_112
+@_l_57:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_71
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0612"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer -1i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_112
+@_l_71:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_85
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0612"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer 330i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_112
+@_l_85:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_99
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0612"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer -1i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_112
+@_l_99:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_112
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0612"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer -1i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_112:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAL String "FRM_0801"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_145
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAR advScreen
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 265i
+	PUSH_VAL Integer 251i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_228
+@_l_145:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_166
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAR advScreen
+	PUSH_VAL Integer 154i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 154i
+	PUSH_VAL Integer 389i
+	PUSH_VAL Integer 237i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_228
+@_l_166:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_187
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAR advScreen
+	PUSH_VAL Integer 154i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 154i
+	PUSH_VAL Integer 398i
+	PUSH_VAL Integer 310i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_228
+@_l_187:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_208
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAR advScreen
+	PUSH_VAL Integer 169i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 169i
+	PUSH_VAL Integer 419i
+	PUSH_VAL Integer 232i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_228
+@_l_208:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_228
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 14i
+	PUSH_VAL Integer 9i
+	PUSH_VAR advScreen
+	PUSH_VAL Integer 122i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 122i
+	PUSH_VAL Integer 329i
+	PUSH_VAL Integer 249i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_228:
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0802"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_263
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 360i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_346
+@_l_263:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_284
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 216i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_346
+@_l_284:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_305
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 364i
+	PUSH_VAL Integer 197i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_346
+@_l_305:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_326
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 61i
+	PUSH_VAL Integer 273i
+	PUSH_VAL Integer -100i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_346
+@_l_326:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_346
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 22i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE01a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 361i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_346:
+	CALL DestroyAdvScreen
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 35i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0803"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0804"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 100i
+	-
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_392
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA06a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 485i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 111i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_475
+@_l_392:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_413
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB08a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 269i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_475
+@_l_413:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_434
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC02a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 238i
+	PUSH_VAL Integer 732i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_475
+@_l_434:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_455
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED06a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 138i
+	PUSH_VAL Integer 65i
+	PUSH_VAL Integer 218i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_475
+@_l_455:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_475
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 48i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE05a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 110i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_475:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 60i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0805"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0806"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_519
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA05"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 203i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_610
+@_l_519:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_542
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB07b"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 188i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_610
+@_l_542:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_565
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC05a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 527i
+	PUSH_VAL Integer 143i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_610
+@_l_565:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_588
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 180i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_610
+@_l_588:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_610
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 73i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE02a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 133i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 140i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_610:
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 86i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0807"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0808"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_652
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA07"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 183i
+	PUSH_VAL Integer 361i
+	PUSH_VAL Integer 295i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_735
+@_l_652:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_673
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB02a"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 41i
+	PUSH_VAL Integer 223i
+	PUSH_VAL Integer 151i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_735
+@_l_673:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_694
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC03b"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 280i
+	PUSH_VAL Integer 770i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_735
+@_l_694:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_715
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED07a"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 130i
+	PUSH_VAL Integer 611i
+	PUSH_VAL Integer 40i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_735
+@_l_715:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_735
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 99i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE10a"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_735:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 112i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0809"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0810"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_782
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA12a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 140i
+	PUSH_VAL Integer 69i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_865
+@_l_782:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_803
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB05"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_865
+@_l_803:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_824
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC06a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 89i
+	PUSH_VAL Integer 444i
+	PUSH_VAL Integer -100i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_865
+@_l_824:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_845
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED09"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_865
+@_l_845:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_865
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 125i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE04c"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 673i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_865:
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 138i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0811"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0812"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 100i
+	-
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_909
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA10a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 700i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_992
+@_l_909:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_930
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB10a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 23i
+	PUSH_VAL Integer 171i
+	PUSH_VAL Integer 171i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_992
+@_l_930:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_951
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EZ06a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 275i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_992
+@_l_951:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_972
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED10a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 160i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_992
+@_l_972:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_992
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 151i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE06a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 50i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_992:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 164i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0813"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0814"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_1036
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA13a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 49i
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 50i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1127
+@_l_1036:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_1059
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB04a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 10i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1127
+@_l_1059:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_1082
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC09"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 173i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1127
+@_l_1082:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_1105
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED04"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 148i
+	PUSH_VAL Integer 412i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1127
+@_l_1105:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_1127
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 177i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE12a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 230i
+	CALL IPoint
+	PUSH_VAL Integer 45i
+	PUSH_VAL Integer 379i
+	PUSH_VAL Integer 266i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_1127:
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 190i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0815"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0816"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_1169
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA02"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 171i
+	PUSH_VAL Integer 418i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1252
+@_l_1169:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_1190
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB03"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 168i
+	PUSH_VAL Integer 413i
+	PUSH_VAL Integer 229i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1252
+@_l_1190:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_1211
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC10a"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1252
+@_l_1211:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_1232
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED05"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 182i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1252
+@_l_1232:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_1252
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 203i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE03a"
+	PUSH_VAL Integer 131i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_1252:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 216i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0817"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0818"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	PUSH_VAL Integer 100i
+	-
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_1299
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EA03a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 278i
+	PUSH_VAL Integer 195i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1382
+@_l_1299:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_1320
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EB16a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 59i
+	PUSH_VAL Integer 211i
+	PUSH_VAL Integer 261i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1382
+@_l_1320:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_1341
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EC13a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 627i
+	PUSH_VAL Integer 134i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1382
+@_l_1341:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_1362
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "ED16a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 568i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1382
+@_l_1362:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_1382
+	PUSH_VAL Integer 5i
+	PUSH_VAL Integer 229i
+	PUSH_VAL Integer 27i
+	PUSH_VAL String "EE07a"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 100i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 75i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 30i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_1382:
+	PUSH_VAL Integer 4i
+	PUSH_VAL Integer 242i
+	PUSH_VAL Integer 14i
+	PUSH_VAL String "FRM_0819"
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 370i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 10i
+	PUSH_VAL String "FRM_0820"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 100i
+	-
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set_
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_1426
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 17i
+	PUSH_VAL String "EA04a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 109i
+	PUSH_VAL Integer 392i
+	PUSH_VAL Integer 290i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1509
+@_l_1426:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_1447
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 17i
+	PUSH_VAL String "EB06a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 110i
+	PUSH_VAL Integer 359i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1509
+@_l_1447:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_1468
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 17i
+	PUSH_VAL String "EC07a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 150i
+	PUSH_VAL Integer 442i
+	PUSH_VAL Integer 302i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1509
+@_l_1468:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_1489
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 17i
+	PUSH_VAL String "ED03a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 239i
+	PUSH_VAL Integer 733i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	JUMP _l_1509
+@_l_1489:
+	PUSH_VAR type
+	PUSH_VAL Integer 6i
+	==
+	JUMP_OK _l_1509
+	PUSH_VAL Integer 3i
+	PUSH_VAL Integer 255i
+	PUSH_VAL Integer 17i
+	PUSH_VAL String "EE08a"
+	PUSH_VAL Integer 100i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	PUSH_VAL Integer 132i
+	PUSH_VAL Integer 115i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+@_l_1509:
+	PUSH_VAL Integer 2i
+	PUSH_VAL Integer 265i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "FRM_0821"
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 272i
+	PUSH_VAL Integer 7i
+	PUSH_VAL String "FRM_0602"
+	PUSH_VAL Integer -1i
+	PUSH_VAL Integer -1i
+	CALL IPoint
+	CALL set
+	NOP
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 280i
+	CALL set
+	NOP
+	PUSH_FIELD sound
+	CALL_METHOD Stop
+	NOP
+	CALL SetupAdvScreen
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,29 @@
+Function Flag::clear(Reference this)
+	INIT_LOCAL Integer size
+	PUSH_FIELD flag
+	CALL_METHOD GetLength
+	POP =
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_7:
+	PUSH_VAR i
+	PUSH_VAR size
+	<=
+	JUMP_OK _l_22
+	PUSH_FIELD flag
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	POP =
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_7
+@_l_22:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

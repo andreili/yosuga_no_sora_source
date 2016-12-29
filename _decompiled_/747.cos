@@ -1,0 +1,738 @@
+Function StaffRollView::set(Reference this, Integer type, Integer start, Integer life, Reference res, Reference ptStart, Reference ptEnd, Integer pos, Reference ptCenter, Integer fSetOnly)
+	PUSH_FIELD fExit
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_6
+	PUSH_VAL Integer 0i
+	Return
+@_l_6:
+	PUSH_FIELD task
+	PUSH_FIELD task
+	CALL_METHOD GetLength
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct StaffRollSpriteTask struct
+	POP =
+	NOP
+	INIT_LOCAL Reference rTask
+	PUSH_FIELD task
+	PUSH_FIELD task
+	CALL_METHOD GetLength
+	PUSH_VAL Integer 1i
+	-
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAR rTask
+	GET_FIELD type
+	PUSH_VAR type
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD beginTime
+	PUSH_VAR start
+	PUSH_VAL Integer 1000i
+	*
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD lifeTime
+	PUSH_VAR rTask
+	GET_FIELD beginTime
+	PUSH_VAR life
+	PUSH_VAL Integer 1000i
+	*
+	+
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD status
+	PUSH_VAL Integer 1i
+	POP =
+	NOP
+	INIT_LOCAL struct ImageInfo info
+	PUSH_VAR res
+	CALL_METHOD GetType
+	PUSH_VAL String "String"
+	==
+	JUMP_OK _l_67
+	PUSH_VAR rTask
+	GET_FIELD file
+	PUSH_VAR res
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR res
+	PUSH_VAL String ".eri"
+	+
+	CALL_METHOD LoadImage
+	NOP
+	JUMP _l_77
+@_l_67:
+	PUSH_VAR res
+	CALL_METHOD GetType
+	PUSH_VAL String "Sprite"
+	==
+	JUMP_OK _l_77
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR res
+	POP =
+	NOP
+@_l_77:
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR info
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_VAR ptStart
+	CALL_METHOD GetType
+	PUSH_VAL String "Point"
+	==
+	JUMP_OK _l_104
+	PUSH_VAR rTask
+	GET_FIELD ptStart
+	PUSH_VAR ptStart
+	POP =
+	NOP
+	JUMP _l_111
+@_l_104:
+	PUSH_VAR rTask
+	GET_FIELD ptStart
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+@_l_111:
+	PUSH_VAR ptEnd
+	CALL_METHOD GetType
+	PUSH_VAL String "Point"
+	==
+	JUMP_OK _l_122
+	PUSH_VAR rTask
+	GET_FIELD ptEnd
+	PUSH_VAR ptEnd
+	POP =
+	NOP
+	JUMP _l_128
+@_l_122:
+	PUSH_VAR rTask
+	GET_FIELD ptEnd
+	PUSH_VAR rTask
+	GET_FIELD ptStart
+	POP =
+	NOP
+@_l_128:
+	INIT_LOCAL struct Bezier2D bzMov
+	PUSH_VAR bzMov
+	PUSH_VAR rTask
+	GET_FIELD ptStart
+	GET_FIELD x
+	PUSH_VAR rTask
+	GET_FIELD ptStart
+	GET_FIELD y
+	PUSH_VAR rTask
+	GET_FIELD ptEnd
+	GET_FIELD x
+	PUSH_VAR rTask
+	GET_FIELD ptEnd
+	GET_FIELD y
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMov
+	PUSH_VAL Real 3d
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_249
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 67108865i
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_174
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 2i
+	/
+	POP =
+	NOP
+@_l_174:
+	PUSH_VAR ptStart
+	GET_FIELD y
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_186
+	PUSH_VAR ptStart
+	GET_FIELD y
+	PUSH_VAL Integer 600i
+	PUSH_VAL Integer 2i
+	/
+	POP =
+	NOP
+@_l_186:
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	PUSH_VAL Integer 2i
+	/
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAR ptStart
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD layer
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	NOP
+	JUMP _l_588
+@_l_249:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_318
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer 306i
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	-
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAL Integer 600i
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	-
+	PUSH_VAL Integer 2i
+	/
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 306i
+	PUSH_VAL Integer 600i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAR ptStart
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR bzMov
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD layer
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	JUMP _l_588
+@_l_318:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_419
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	PUSH_VAR ptCenter
+	GET_FIELD x
+	PUSH_VAR pos
+	-
+	PUSH_VAR ptCenter
+	GET_FIELD y
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	PUSH_VAR ptCenter
+	GET_FIELD x
+	PUSH_VAR ptCenter
+	GET_FIELD y
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bzCgMag
+	PUSH_VAR param
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Reference ref
+	PUSH_VAL Reference ref
+	PUSH_VAR param
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 67108865i
+	PUSH_VAL Integer 494i
+	PUSH_VAL Integer 600i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAR ptStart
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR bzMov
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD layer
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	NOP
+	JUMP _l_588
+@_l_419:
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_488
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer 800i
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	-
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAL Integer 230i
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	-
+	PUSH_VAL Integer 2i
+	/
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 1i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 230i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAR ptStart
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR bzMov
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD layer
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	JUMP _l_588
+@_l_488:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_588
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	PUSH_VAR ptCenter
+	GET_FIELD x
+	PUSH_VAR ptCenter
+	GET_FIELD y
+	PUSH_VAR pos
+	-
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	PUSH_VAR ptCenter
+	GET_FIELD x
+	PUSH_VAR ptCenter
+	GET_FIELD y
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	INIT_LOCAL struct Bezier2D bzCgMag
+	PUSH_VAR param
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Reference ref
+	PUSH_VAL Reference ref
+	PUSH_VAR param
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 67108865i
+	PUSH_VAL Integer 800i
+	PUSH_VAL Integer 370i
+	CALL_METHOD CreateSprite
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR ptStart
+	GET_FIELD x
+	PUSH_VAR ptStart
+	GET_FIELD y
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAR bzMov
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 0i
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_FIELD layer
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	NOP
+@_l_588:
+	PUSH_FIELD layer
+	PUSH_VAL Integer 1i
+	POP -=
+	NOP
+	PUSH_VAR fSetOnly
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_598
+	PUSH_VAL Integer 0i
+	Return
+@_l_598:
+	INIT_LOCAL Integer nowTime
+	CALL GetCurrentTime
+	POP =
+@_l_601:
+	PUSH_VAR param
+	PUSH_FIELD beginTime
+	-
+	PUSH_VAR rTask
+	GET_FIELD beginTime
+	<
+	JUMP_OK _l_639
+	PUSH_VAL Integer 30i
+	CALL Sleep
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 4i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	PUSH_UNK
+	PUSH_VAL Integer 5i
+	CALL_METHOD GetJoyButtonPushed
+	PUSH_VAL Integer 0i
+	>
+	or
+	JUMP_OK _l_629
+	PUSH_FIELD fExit
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+@_l_629:
+	PUSH_VAR param
+	CALL loopProc
+	NOP
+	CALL destroyProc
+	NOP
+	PUSH_VAR param
+	CALL GetCurrentTime
+	POP =
+	NOP
+	JUMP _l_601
+@_l_639:
+	CALL GetCurrentTime
+	CALL loopProc
+	NOP
+	CALL destroyProc
+	NOP
+	PUSH_VAR type
+	PUSH_VAL Integer 1i
+	==
+	JUMP_OK _l_654
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_703
+@_l_654:
+	PUSH_VAR type
+	PUSH_VAL Integer 2i
+	==
+	JUMP_OK _l_664
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_703
+@_l_664:
+	PUSH_VAR type
+	PUSH_VAL Integer 3i
+	==
+	JUMP_OK _l_679
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer 50000i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_703
+@_l_679:
+	PUSH_VAR type
+	PUSH_VAL Integer 4i
+	==
+	JUMP_OK _l_689
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	JUMP _l_703
+@_l_689:
+	PUSH_VAR type
+	PUSH_VAL Integer 5i
+	==
+	JUMP_OK _l_703
+	PUSH_VAR rTask
+	GET_FIELD sprBase
+	PUSH_VAL Integer 500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR rTask
+	GET_FIELD sprPic
+	PUSH_VAL Integer 50000i
+	CALL_METHOD BeginActivation
+	NOP
+@_l_703:
+	PUSH_VAR rTask
+	GET_FIELD status
+	PUSH_VAL Integer 2i
+	POP =
+	NOP
+	CALL destroyProc
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

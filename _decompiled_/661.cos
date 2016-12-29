@@ -1,0 +1,28 @@
+Function OpeningMovie()
+	CALL Hide
+	NOP
+	PUSH_VAL String "BLACK"
+	CALL SetCg
+	NOP
+	PUSH_VAL String ""
+	PUSH_VAL Integer 1000i
+	CALL Transition
+	NOP
+	CALL Update
+	NOP
+	CALL DestroyAdvScreen
+	NOP
+	PUSH_VAL String "opening.mei"
+	CALL PlayMovie
+	NOP
+	CALL SetupAdvScreen
+	NOP
+	PUSH_OBJ  6
+	GET_FIELD viewOpeningMovie
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

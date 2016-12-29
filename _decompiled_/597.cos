@@ -1,0 +1,272 @@
+Function LoadSaveWindow::create(Reference this, Integer fLoad)
+	PUSH_FIELD fLoad
+	PUSH_VAR fLoad
+	POP =
+	NOP
+	PUSH_VAR fLoad
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_29
+	PUSH_UNK
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_PAGE_LOAD"
+	CALL_METHOD CreateFormPage
+	NOP
+	PUSH_OBJ  6
+	GET_FIELD fQSave
+	PUSH_VAL Integer 0i
+	==
+	JUMP_OK _l_28
+	PUSH_FIELD sprFrame
+	PUSH_VAL Integer 0i
+	PUSH_VAL String "ID_QSAVE"
+	CALL_METHOD Enable
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_VAL Integer 256i
+	PUSH_VAL String "ID_QSAVE"
+	CALL_METHOD SetTransparency
+	NOP
+@_l_28:
+	JUMP _l_34
+@_l_29:
+	PUSH_UNK
+	PUSH_FIELD sprFrame
+	PUSH_VAL String "ID_PAGE_SAVE"
+	CALL_METHOD CreateFormPage
+	NOP
+@_l_34:
+	INIT_LOCAL struct ImageInfo info
+	PUSH_VAR info
+	PUSH_FIELD sprFrame
+	CALL_METHOD GetInfo
+	POP =
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_VAL Integer 60i
+	PUSH_VAL Integer 9i
+	-
+	PUSH_VAL Integer 3i
+	/
+	PUSH_VAL String "ID_SCROLL"
+	CALL_METHOD SetVertScrollRange
+	NOP
+	PUSH_FIELD sprFrame
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 67108865i
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	CALL_METHOD CreateSprite
+	NOP
+	INIT_LOCAL struct SpriteParam param
+	PUSH_FIELD sprBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	PUSH_VAL Integer 400i
+	PUSH_VAL Integer 300i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	PUSH_VAR info
+	GET_FIELD nImageWidth
+	PUSH_VAL Integer 2i
+	/
+	PUSH_VAR info
+	GET_FIELD nImageHeight
+	PUSH_VAL Integer 2i
+	/
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 50i
+	PUSH_FIELD sprFrame
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50240i
+	PUSH_FIELD sprBase
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD rcThumbMask
+	PUSH_VAL String "FRM_0510_.eri"
+	CALL_METHOD LoadImage
+	NOP
+	INIT_LOCAL Integer i
+	PUSH_VAL Integer 0i
+	POP =
+@_l_115:
+	PUSH_VAR i
+	PUSH_VAL Integer 9i
+	<=
+	JUMP_OK _l_203
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_FIELD rcThumbMask
+	PUSH_VAL Integer 1i
+	CALL_METHOD SetAlphaImage
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String ""
+	PUSH_VAL String "<basic_flag hit_transparency="true"/>"
+	CALL_METHOD SendCommand
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAR i
+	PUSH_VAL Integer 3i
+	%
+	PUSH_VAL Integer 224i
+	*
+	PUSH_VAL Integer 95i
+	+
+	PUSH_VAR i
+	PUSH_VAL Integer 3i
+	/
+	PUSH_VAL Integer 174i
+	*
+	PUSH_VAL Integer 34i
+	+
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 128i
+	CALL_METHOD SetBlendDegree
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprBase
+	PUSH_VAL Integer 30i
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_FIELD sprThumb
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_FIELD sprThumb
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_FIELD sprThumbBase
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 50i
+	PUSH_FIELD sprThumb
+	PUSH_VAR i
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	PUSH_VAR i
+	PUSH_VAL Integer 1i
+	POP +=
+	NOP
+	JUMP _l_115
+@_l_203:
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_212
+	PUSH_VAL Integer 0i
+	CALL setPage
+	NOP
+	JUMP _l_258
+@_l_212:
+	PUSH_VAL Integer 0i
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	<
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	PUSH_VAL Integer 2i
+	<
+	and
+	JUMP_OK _l_226
+	PUSH_VAL Integer 0i
+	CALL setPage
+	NOP
+	JUMP _l_258
+@_l_226:
+	PUSH_VAL Integer 60i
+	PUSH_VAL Integer 3i
+	-
+	PUSH_VAL Integer 1i
+	-
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	<
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	PUSH_VAL Integer 60i
+	PUSH_VAL Integer 1i
+	-
+	<
+	and
+	JUMP_OK _l_250
+	PUSH_VAL Integer 60i
+	PUSH_VAL Integer 9i
+	-
+	PUSH_VAL Integer 3i
+	/
+	CALL setPage
+	NOP
+	JUMP _l_258
+@_l_250:
+	PUSH_OBJ  6
+	GET_FIELD newBookmarkIndex
+	PUSH_VAL Integer 3i
+	/
+	PUSH_VAL Integer 1i
+	-
+	CALL setPage
+	NOP
+@_l_258:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

@@ -1,0 +1,177 @@
+Function AppreciationView::cgProc(Reference this, Reference wscmd)
+	INIT_LOCAL Integer id
+	PUSH_VAL Integer -1i
+	POP =
+	INIT_LOCAL parent aParam
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_7
+	JUMP _l_143
+@_l_7:
+	PUSH_VAR wscmd
+	GET_FIELD strFullID
+	PUSH_VAL String "&ID_PAGE_TAG&(<0-9>*)&\\ID_TAG&"
+	PUSH_VAR aParam
+	CALL_METHOD IsMatchUsage
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_78
+
+	INIT_LOCAL Integer tag
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	POP =
+	PUSH_FIELD sprTag
+	PUSH_VAR tag
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_PAGE1"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_38
+	PUSH_VAR tag
+	PUSH_VAL Integer 0i
+	CALL setPage
+	NOP
+	JUMP _l_76
+@_l_38:
+	PUSH_FIELD sprTag
+	PUSH_VAR tag
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_PAGE2"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_51
+	PUSH_VAR tag
+	PUSH_VAL Integer 1i
+	CALL setPage
+	NOP
+	JUMP _l_76
+@_l_51:
+	PUSH_FIELD sprTag
+	PUSH_VAR tag
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_PAGE3"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_64
+	PUSH_VAR tag
+	PUSH_VAL Integer 2i
+	CALL setPage
+	NOP
+	JUMP _l_76
+@_l_64:
+	PUSH_FIELD sprTag
+	PUSH_VAR tag
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "ID_REC"
+	CALL_METHOD IsButtonChecked
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_76
+	PUSH_VAR tag
+	PUSH_VAL Integer 3i
+	CALL setPage
+	NOP
+@_l_76:
+	NOP
+	JUMP _l_143
+@_l_78:
+	PUSH_VAR wscmd
+	GET_FIELD strFullID
+	PUSH_VAL String "&ID_PAGE_TAG&(<0-9>*)&\\ID_PAGE&(<0-9>*)"
+	PUSH_VAR aParam
+	CALL_METHOD IsMatchUsage
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_103
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 1i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	CALL setPage
+	NOP
+	JUMP _l_143
+@_l_103:
+	PUSH_VAR wscmd
+	GET_FIELD strFullID
+	PUSH_VAL String "&ID_PAGE_TAG&(<0-9>*)&\\ID_REC&"
+	PUSH_VAR aParam
+	CALL_METHOD IsMatchUsage
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_122
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	PUSH_VAL Integer 3i
+	CALL setPage
+	NOP
+	JUMP _l_143
+@_l_122:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "&ID_CGSEL&(<0-9>*)"
+	PUSH_VAR aParam
+	CALL_METHOD IsMatchUsage
+	PUSH_VAL String ""
+	==
+	JUMP_OK _l_141
+	PUSH_VAR id
+	PUSH_VAL Integer 0i
+	PUSH_VAR aParam
+	PUSH_VAL Integer 0i
+	GET_FIELD_BY_OFFSET
+	POP =
+	PUSH_VAL Integer 1i
+	-
+	POP =
+	NOP
+	JUMP _l_143
+@_l_141:
+	PUSH_VAL Integer 0i
+	Return
+@_l_143:
+	PUSH_VAR id
+	PUSH_VAL Integer -1i
+	!=
+	JUMP_OK _l_155
+	PUSH_FIELD selTag
+	PUSH_FIELD selPage
+	PUSH_VAL Integer 12i
+	*
+	PUSH_VAR id
+	+
+	CALL showCgLoop
+	NOP
+@_l_155:
+	PUSH_UNK
+	PUSH_VAL Integer -1i
+	CALL_METHOD FlushCommandQueue
+	NOP
+	PUSH_VAL Integer -1i
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

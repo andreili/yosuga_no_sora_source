@@ -1,0 +1,244 @@
+Function AppreciationView::playerProc(Reference this, Reference wscmd)
+	PUSH_VAL Integer 0i
+	JUMP_OK _l_3
+	JUMP _l_208
+@_l_3:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_STOP"
+	==
+	JUMP_OK _l_17
+	CALL IsPlayBgm
+	JUMP_OK _l_16
+	CALL stopBgm
+	NOP
+	PUSH_FIELD selPlayBgm
+	PUSH_VAL Integer -1i
+	POP =
+	NOP
+@_l_16:
+	JUMP _l_208
+@_l_17:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM1"
+	==
+	JUMP_OK _l_26
+	PUSH_VAL Integer 0i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_26:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM2"
+	==
+	JUMP_OK _l_35
+	PUSH_VAL Integer 1i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_35:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM3"
+	==
+	JUMP_OK _l_44
+	PUSH_VAL Integer 2i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_44:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM4"
+	==
+	JUMP_OK _l_53
+	PUSH_VAL Integer 3i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_53:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM5"
+	==
+	JUMP_OK _l_62
+	PUSH_VAL Integer 4i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_62:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM6"
+	==
+	JUMP_OK _l_71
+	PUSH_VAL Integer 5i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_71:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM7"
+	==
+	JUMP_OK _l_80
+	PUSH_VAL Integer 6i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_80:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM8"
+	==
+	JUMP_OK _l_89
+	PUSH_VAL Integer 7i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_89:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM9"
+	==
+	JUMP_OK _l_98
+	PUSH_VAL Integer 8i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_98:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM10"
+	==
+	JUMP_OK _l_107
+	PUSH_VAL Integer 9i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_107:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM11"
+	==
+	JUMP_OK _l_116
+	PUSH_VAL Integer 10i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_116:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM12"
+	==
+	JUMP_OK _l_125
+	PUSH_VAL Integer 11i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_125:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM13"
+	==
+	JUMP_OK _l_134
+	PUSH_VAL Integer 12i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_134:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM14"
+	==
+	JUMP_OK _l_143
+	PUSH_VAL Integer 13i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_143:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM15"
+	==
+	JUMP_OK _l_152
+	PUSH_VAL Integer 14i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_152:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM16"
+	==
+	JUMP_OK _l_161
+	PUSH_VAL Integer 15i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_161:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM17"
+	==
+	JUMP_OK _l_170
+	PUSH_VAL Integer 16i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_170:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM18"
+	==
+	JUMP_OK _l_179
+	PUSH_VAL Integer 17i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_179:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM19"
+	==
+	JUMP_OK _l_188
+	PUSH_VAL Integer 18i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_188:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM20"
+	==
+	JUMP_OK _l_197
+	PUSH_VAL Integer 19i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_197:
+	PUSH_VAR wscmd
+	GET_FIELD strID
+	PUSH_VAL String "ID_BGM21"
+	==
+	JUMP_OK _l_206
+	PUSH_VAL Integer 20i
+	CALL playBgm
+	NOP
+	JUMP _l_208
+@_l_206:
+	PUSH_VAL Integer 0i
+	Return
+@_l_208:
+	PUSH_UNK
+	PUSH_VAL Integer -1i
+	CALL_METHOD FlushCommandQueue
+	NOP
+	PUSH_VAL Integer -1i
+	Return
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

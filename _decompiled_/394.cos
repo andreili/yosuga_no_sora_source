@@ -1,0 +1,18 @@
+Function AdvScreen::waitUpdate(Reference this)
+	PUSH_FIELD fUpdating
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_12
+	PUSH_FIELD sprTemp
+	PUSH_VAL String "transBase"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+	CALL flushUpdate
+	NOP
+@_l_12:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+

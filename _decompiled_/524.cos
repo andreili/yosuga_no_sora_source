@@ -1,0 +1,189 @@
+Function EyeCatch04(Integer fEnter)
+	INIT_LOCAL Reference spr
+	PUSH_VAR spr
+	PUSH_OBJ  25
+	POP =
+	NOP
+	PUSH_VAR fEnter
+	PUSH_VAL Integer -1i
+	==
+	JUMP_OK _l_117
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL struct Sprite struct
+	POP =
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL String "title.eri"
+	CALL_METHOD LoadImage
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 430i
+	PUSH_VAL Integer 510i
+	CALL_METHOD MovePosition
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetTransparency
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL_METHOD SetVisible
+	NOP
+	PUSH_UNK
+	PUSH_VAL Integer 50800i
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	CALL_METHOD AddSprite
+	NOP
+	INIT_LOCAL struct Bezier2D bzMag
+	PUSH_VAR bzMag
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 1d
+	PUSH_VAL Real 0d
+	PUSH_VAL Real 0d
+	CALL_METHOD SetLinear
+	NOP
+	PUSH_VAR bzMag
+	PUSH_VAL Real 3d
+	PUSH_VAL Real 0d
+	CALL_METHOD SetAcceleration
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Reference ref
+	PUSH_VAL Reference ref
+	PUSH_VAR bzMag
+	CALL_METHOD SetBezierCurve
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1500i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+	PUSH_VAL Integer 3000i
+	CALL ScWait
+	NOP
+	NOP
+	JUMP _l_182
+@_l_117:
+
+	INIT_LOCAL struct SpriteParam param
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD GetParameter
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptDstPos
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD ptRevCenter
+	PUSH_VAL Integer 0i
+	PUSH_VAL Integer 0i
+	CALL IPoint
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD rVertUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	PUSH_VAR param
+	GET_FIELD rHorzUnit
+	PUSH_VAL Real 1d
+	POP =
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAR param
+	CALL_METHOD SetParameter
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Integer 0i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_OBJ  10
+	GET_FIELD sprAdvBase
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 256i
+	CALL_METHOD SetBlendingEnvelope
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer 1000i
+	CALL_METHOD BeginActivation
+	NOP
+	PUSH_VAR spr
+	PUSH_VAL String "Logo"
+	GET_FIELD_BY_OFFSET
+	PUSH_VAL Integer -1i
+	CALL WaitUntilSpriteActive
+	NOP
+	NOP
+@_l_182:
+	PUSH_VAL Integer 0i
+	Return
+EndFunc
+
