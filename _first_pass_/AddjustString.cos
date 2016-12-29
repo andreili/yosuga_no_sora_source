@@ -1,1 +1,19 @@
-畆据楴湯䄠摤番瑳瑓楲杮匨牴湩⁧牳Ᵽ䤠瑮来牥渠浵਩䤉瑮来牥氠湥瑧੨氉湥瑧⁨㴺猠捲䜮瑥敌杮桴⤨ऊ晉⠠敬杮桴㰠渠浵਩††††敒畴湲猠捲 †䔠摮晉ऊ瑓楲杮琠浥ੰ䤉瑮来牥椠ऊ⁩㴺〠ऊ桗汩⁥⠨⁩‫畮⥭㰠‽敬杮桴਩††††整灭⬠‽牳⹣楍摤敬椨‬畮⥭⬠∠湜ਢ††††⁩㴫渠浵ऊ湅坤楨敬 †䤠⁦椨㰠‽敬杮桴਩††††整灭⬠‽牳⹣楍摤敬椨‬畮⥭ †䔠摮晉 †删瑥牵⁮整灭䔊摮畆据ਊ
+﻿Function AddjustString(String src, Integer num)
+	Integer length
+	length := src.GetLength()
+	If (length < num)
+		Return src
+	EndIf
+	String temp
+	Integer i
+	i := 0
+	While (i + num <= length)
+		temp += src.Middle(i, num) + "\n"
+		i += num
+	EndWhile
+	If (i <= length)
+		temp += src.Middle(i, num)
+	EndIf
+	Return temp
+EndFunc
+

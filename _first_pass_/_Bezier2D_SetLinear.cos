@@ -1,1 +1,13 @@
-믯䚿湵瑣潩८敂楺牥䐲㨺敓䱴湩慥⡲删慥⁬へ‬敒污礠ⰰ删慥⁬ㅸ‬敒污礠‱ഩऊ敖瑣牯䐲瘉敄瑬ൡऊ䑶汥慴砮㨠‽砨‱‭へ  ⸳രऊ䑶汥慴礮㨠‽礨‱‭べ  ⸳രऊ慰敲瑮せ⹝⁸㴺砠രऊ慰敲瑮せ⹝⁹㴺礠രऊ慰敲瑮ㅛ⹝⁸㴺砠‰‫䑶汥慴砮਍瀉牡湥孴崱礮㨠‽べ⬠瘠敄瑬⹡൹ऊ慰敲瑮㉛⹝⁸㴺砠‱‭䑶汥慴砮਍瀉牡湥孴崲礮㨠‽ㅹⴠ瘠敄瑬⹡൹ऊ慰敲瑮㍛⹝⁸㴺砠റऊ慰敲瑮㍛⹝⁹㴺礠റ䔊摮畆据਍
+﻿Function	Bezier2D::SetLinear( Real x0, Real y0, Real x1, Real y1 )
+	Vector2D	vDelta
+	vDelta.x := (x1 - x0) / 3.0
+	vDelta.y := (y1 - y0) / 3.0
+	parent[0].x := x0
+	parent[0].y := y0
+	parent[1].x := x0 + vDelta.x
+	parent[1].y := y0 + vDelta.y
+	parent[2].x := x1 - vDelta.x
+	parent[2].y := y1 - vDelta.y
+	parent[3].x := x1
+	parent[3].y := y1
+EndFunc
