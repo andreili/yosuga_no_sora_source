@@ -1,79 +1,32 @@
-Function AdvScreen::startSelect(Reference this)
-	INIT_LOCAL Integer ret
-	PUSH_VAL Integer 0i
-	POP =
-	CALL IsLoad
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_41
-	PUSH_OBJ  4
-	GET_FIELD hitretCountTemp
-	PUSH_OBJ  4
-	GET_FIELD hitretCount
-	<=
-	JUMP_OK _l_39
-	PUSH_OBJ  4
-	GET_FIELD hitretCountTemp
-	PUSH_VAL Integer 1i
-	POP +=
-	NOP
-	PUSH_FIELD msgInfo
-	CALL_METHOD clear
-	NOP
-	PUSH_FIELD selectResult
-	PUSH_OBJ  4
-	GET_FIELD select
-	PUSH_OBJ  4
-	GET_FIELD selectCount
-	GET_FIELD_BY_OFFSET
-	POP =
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD selectCount
-	PUSH_VAL Integer 1i
-	POP +=
-	NOP
-	PUSH_FIELD selectItem
-	CALL_METHOD Remove
-	NOP
-	PUSH_VAR ret
-	Return
-@_l_39:
-	CALL LeaveLoad
-	NOP
-@_l_41:
-	CALL enterSelect
-	NOP
-	INIT_LOCAL struct SpriteParam param
-	PUSH_FIELD msgFrame
-	GET_FIELD msprMess
-	PUSH_VAR param
-	CALL_METHOD GetParameter
-	NOP
-	INIT_LOCAL struct Point curPos
-	PUSH_VAR curPos
-	PUSH_FIELD msgFrame
-	GET_FIELD msprMess
-	CALL_METHOD GetCursorPos
-	POP =
-	NOP
-	CALL setupSelectItem
-	NOP
-	CALL showSelectItem
-	NOP
-	INIT_LOCAL Integer i
-	PUSH_VAL Integer 0i
-	POP =
-	INIT_LOCAL Integer select
-	PUSH_VAL Integer 0i
-	POP =
-	INIT_LOCAL struct WndSpriteCmd wscmd
-	PUSH_VAL Integer -1i
-	CALL FlushCommandQueue
-	NOP
-	CALL FlushJoyButton
-	NOP
-	INIT_LOCAL Integer nInput
+Function AdvScreen::startSelect()
+	Integer ret
+	ret := 0
+	If (IsLoad() == -1)
+		If ({PUSH_OBJ  4}.hitretCountTemp <= ({PUSH_OBJ  4}.hitretCount))
+			{PUSH_OBJ  4}.hitretCountTemp += 1
+			this.msgInfo.clear()
+			this.selectResult := {PUSH_OBJ  4}.select[{PUSH_OBJ  4}.selectCount]
+			{PUSH_OBJ  4}.selectCount += 1
+			this.selectItem.Remove()
+			Return ret
+		EndIf
+		LeaveLoad()
+	EndIf
+	enterSelect()
+	SpriteParam param
+	this.msgFrame.msprMess.GetParameter(param)
+	Point curPos
+	curPos := this.msgFrame.msprMess.GetCursorPos()
+	setupSelectItem()
+	showSelectItem()
+	Integer i
+	i := 0
+	Integer select
+	select := 0
+	WndSpriteCmd wscmd
+	FlushCommandQueue(-1)
+	FlushJoyButton()
+	Integer nInput
 @_l_73:
 	PUSH_VAL Integer -1i
 	JUMP_OK _l_493
@@ -124,11 +77,11 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 @_l_118:
 	PUSH_VAR i
-	PUSH_FIELD selectItem
+	this.selectItem
 	CALL_METHOD GetLength
 	<=
 	JUMP_OK _l_144
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	PUSH_VAR pt
@@ -205,14 +158,14 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 
 	INIT_LOCAL Integer isShow
-	PUSH_FIELD msgFrame
+	this.msgFrame
 	CALL_METHOD isShow
 	POP =
 	PUSH_VAR pt
 	PUSH_VAL Integer -1i
 	==
 	JUMP_OK _l_206
-	PUSH_FIELD msgFrame
+	this.msgFrame
 	PUSH_VAL Integer 0i
 	PUSH_VAL Integer -1i
 	CALL_METHOD hide
@@ -226,7 +179,7 @@ Function AdvScreen::startSelect(Reference this)
 	PUSH_VAL Integer -1i
 	==
 	JUMP_OK _l_219
-	PUSH_FIELD msgFrame
+	this.msgFrame
 	PUSH_VAL Integer 0i
 	PUSH_VAL Integer -1i
 	CALL_METHOD show
@@ -355,7 +308,7 @@ Function AdvScreen::startSelect(Reference this)
 	JUMP_OK _l_340
 	CALL QuickSave
 	NOP
-	PUSH_FIELD msgFrame
+	this.msgFrame
 	PUSH_VAL Integer -1i
 	CALL_METHOD enableQLoad
 	NOP
@@ -540,7 +493,7 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 @_l_508:
 	PUSH_VAR i
-	PUSH_FIELD selectItem
+	this.selectItem
 	CALL_METHOD GetLength
 	<=
 	JUMP_OK _l_549
@@ -550,7 +503,7 @@ Function AdvScreen::startSelect(Reference this)
 	+
 	!=
 	JUMP_OK _l_526
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	PUSH_VAL Integer 256i
@@ -558,20 +511,20 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 	JUMP _l_544
 @_l_526:
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	PUSH_VAL Integer 256i
 	CALL_METHOD SetBlendingEnvelope
 	NOP
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	PUSH_VAL Integer 500i
 	CALL_METHOD BeginActivation
 	NOP
 	PUSH_VAR pt
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	POP =
@@ -596,11 +549,11 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 @_l_559:
 	PUSH_VAR i
-	PUSH_FIELD selectItem
+	this.selectItem
 	CALL_METHOD GetLength
 	<=
 	JUMP_OK _l_575
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	PUSH_VAL Integer 256i
@@ -621,12 +574,12 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 @_l_582:
 	PUSH_VAR i
-	PUSH_FIELD selectItem
+	this.selectItem
 	CALL_METHOD GetLength
 	<=
 	JUMP_OK _l_598
 	PUSH_UNK
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	PUSH_VAR i
 	GET_FIELD_BY_OFFSET
 	CALL_METHOD DetachSprite
@@ -637,20 +590,20 @@ Function AdvScreen::startSelect(Reference this)
 	NOP
 	JUMP _l_582
 @_l_598:
-	PUSH_FIELD sprSelect
+	this.sprSelect
 	CALL_METHOD Remove
 	NOP
 	PUSH_UNK
 	CALL_METHOD Unlock
 	NOP
-	PUSH_FIELD selectItem
+	this.selectItem
 	CALL_METHOD Remove
 	NOP
 	CALL IsLoad
 	PUSH_VAL Integer 0i
 	==
 	JUMP_OK _l_625
-	PUSH_FIELD selectResult
+	this.selectResult
 	PUSH_VAR select
 	POP =
 	NOP
