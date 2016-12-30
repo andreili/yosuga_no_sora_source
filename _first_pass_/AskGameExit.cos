@@ -1,0 +1,8 @@
+Function AskGameExit()
+	If (Confirm("ゲームを終了します", -1))
+        screen.Lock()
+        CALL_UNK @CATCH
+        Return
+    EndIf
+EndFunc
+

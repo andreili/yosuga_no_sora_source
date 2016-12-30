@@ -1,0 +1,72 @@
+Function BustupManager::adjustPosition()
+	Array id_rel
+	Integer num
+	num := numPoeple
+	Integer i
+	i := 0
+	Integer cnt
+	cnt := 0
+	While (i <= 5)
+        If ((this.info[i].id != -1) && (this.info[i].status != 8) && (this.info.fPosFix == 0))
+            id_rel[cnt] := BustupInfo
+            id_rel[cnt].id := this.info[i].id
+            id_rel[cnt].relation := this.info[i].relation
+            cnt += 1
+        EndIf
+        i += 1
+    EndWhile
+	BustupInfo temp
+	Integer m
+	Integer n
+	m := 0
+	While (m <= ( cnt - 1))
+        JUMP_OK _l_118
+        n := m + 1
+        While (n <= cnt)
+            If (id_rel[m].relation > id_rel[n].relation)
+                id_rel.Swap(m, n)
+            EndIf
+            n += 1
+        EndWhile
+        m += 1
+    EndWhile
+	parent pos
+	If (cnt == 1)
+        pos += 6
+    ElseIf (cnt == 2)
+        pos += 4
+        pos += 8
+    ElseIf (cnt == 3)
+        pos += 3
+        pos += 6
+        pos += 9
+    ElseIf (cnt == 4)
+        pos += 3
+        pos += 5
+        pos += 7
+        pos += 9
+    ElseIf (cnt == 5)
+        pos += 2
+        pos += 4
+        pos += 6
+        pos += 8
+        pos += 10
+    EndIf
+    i := 0
+    While (i <= cnt)
+        m := 0
+        While (m <= 5)
+            If (id_rel[i].id == this.info[m].id)
+                If (this.info[m].pos <= 0)
+                    this.info[m].pos := {logic_unk1}this.info[m].pos
+                Else
+                    this.info[m].pos := pos[i]
+                EndIf
+                Break
+            EndIf
+            m += 1
+        EndWhile
+        i += 1
+    EndWhile
+EndFunc
+

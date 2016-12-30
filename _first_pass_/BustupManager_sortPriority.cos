@@ -1,0 +1,31 @@
+Function BustupManager::sortPriority(Integer fDescend)
+	Integer i
+	Integer j
+	If (fDescend == -1)
+        i := 0
+        While (i <= 5)
+            j := i + 1
+            While (j <= 5)
+                If (this.info[i].priority <= this.info[j].priority)
+                    swap(i, j)
+                EndIf
+                j += 1
+            EndWhile
+            i += 1
+        EndWhile
+    Else
+        i := 0
+        While (i < 5)
+            JUMP_OK _l_91
+            j := i + 1
+            While (j <= 5)
+                If (this.info[i].priority > this.info[j].priority)
+                    swap(i, j)
+                EndIf
+                j += 1
+            EndWhile
+            i += 1
+        EndWhile
+    EndIf
+EndFunc
+

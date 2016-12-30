@@ -1,0 +1,33 @@
+Function BustupManager::down(Integer id, Integer mv, Integer time, Integer accel)
+	Integer i
+	i := 0
+    While (i <= 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 16
+            Integer iMv
+            Integer iTime
+            Integer iAccel
+            If (mv == 0)
+                iMv := 50
+                iAccel := 3
+            ElseIf (mv == -1)
+                iMv := {logic_unk1}(this.info[i].localPosition.y - this.info[i].basePosition.y)
+                iAccel := 3
+            Else
+                iMv := mv
+                iAccel := accel
+            EndIf
+            If (time == 0)
+                iTime := 1000
+            ElseIf (time == -1)
+                iTime := 0
+            Else
+                iTime := time
+            EndIf
+            this.info.downParam.set(IPoint(0, iMv), iTime, iAccel, 0)
+            Break;
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+

@@ -1,0 +1,19 @@
+Function BustupManager::move(Integer id, Integer pos)
+	Integer i
+	i := 0
+    While (i <= 5)
+        If (this.info[i].id == id)
+            If (this.info[i].pos != pos)
+                this.info[i].status := 4
+            EndIf
+            If (pos == 0)
+                this.info[i].fPosFix := 0
+            Else
+                this.info[i].fPosFix := -1
+            EndIf
+            this.info[i].pos := pos
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+

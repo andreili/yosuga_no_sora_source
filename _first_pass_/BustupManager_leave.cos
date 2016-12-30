@@ -1,0 +1,15 @@
+Function BustupManager::leave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+	Integer i
+	i := 0
+@_l_3:
+	While (i <= 5)
+        JUMP_OK _l_38
+        If (this.info[i].id == id)
+            JUMP_OK _l_33
+            this.info[i].status := 128
+            this.info[i].leaveParam.set(IPoint(mx, my), time, accel, fFade)
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+

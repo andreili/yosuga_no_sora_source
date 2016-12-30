@@ -1,0 +1,11 @@
+Function BustupManager::shake(Integer id, Integer mh, Integer count)
+	Integer i
+	i := 0
+	While (i <= 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 64
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+

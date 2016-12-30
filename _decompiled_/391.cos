@@ -1,845 +1,607 @@
-Function AdvScreen::hitret(Reference this, Integer id, Integer fVoiceWait)
-	INIT_LOCAL Integer ret
-	PUSH_VAL Integer 0i
-	POP =
-	INIT_LOCAL Integer fFlush
-	CALL isSkip
-	PUSH_UNK
-	PUSH_VAL Integer 6i
-	CALL_METHOD IsJoyButtonPushing
-	or
-	POP =
-	INIT_LOCAL Integer fLoadEnd
-	PUSH_VAL Integer 0i
-	POP =
-	CALL IsLoad
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_40
-	PUSH_OBJ  4
-	GET_FIELD hitretCountTemp
-	PUSH_OBJ  4
-	GET_FIELD hitretCount
-	<=
-	JUMP_OK _l_33
-	PUSH_OBJ  4
-	GET_FIELD hitretCountTemp
-	PUSH_VAL Integer 1i
-	POP +=
-	NOP
-	PUSH_FIELD msgInfo
-	CALL_METHOD clear
-	NOP
-	PUSH_VAR ret
-	Return
-@_l_33:
-	CALL LeaveLoad
-	NOP
-	PUSH_VAR fLoadEnd
-	PUSH_VAL Integer -1i
-	POP =
-	NOP
-	JUMP _l_48
-@_l_40:
-	CALL isUpdate
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_48
-	PUSH_OBJ  10
-	PUSH_VAR fFlush
-	CALL_METHOD update
-	NOP
-@_l_48:
-	INIT_LOCAL Integer fPlayVoice
-	PUSH_VAL Integer 0i
-	POP =
-	INIT_LOCAL Integer fVoiceFind
-	PUSH_VAL Integer -1i
-	POP =
-	PUSH_VAL struct File struct
-	PUSH_FIELD msgInfo
-	GET_FIELD voice
-	PUSH_VAL String ".mio"
-	+
-	CALL_METHOD IsExisting
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_67
-	PUSH_VAR fVoiceFind
-	PUSH_VAL Integer 0i
-	POP =
-	NOP
-@_l_67:
-	PUSH_VAR fLoadEnd
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_195
-	PUSH_FIELD msgFrame
-	CALL_METHOD clearPage
-	NOP
-	PUSH_FIELD msgFrame
-	CALL_METHOD isShow
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_82
-	PUSH_FIELD msgFrame
-	CALL_METHOD show
-	NOP
-@_l_82:
-
-	INIT_LOCAL String showName
-	INIT_LOCAL String trueName
-	PUSH_FIELD msgInfo
-	GET_FIELD name
-	PUSH_VAR showName
-	PUSH_VAR trueName
-	CALL CheckTrueName
-	NOP
-	PUSH_VAR trueName
-	CALL CheckPlayVoice
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_111
-	PUSH_FIELD msgInfo
-	GET_FIELD voice
-	PUSH_VAL String ""
-	!=
-	PUSH_VAR fFlush
-	PUSH_VAL Integer 0i
-	==
-	and
-	JUMP_OK _l_111
-	PUSH_VAR fPlayVoice
-	PUSH_FIELD msgInfo
-	GET_FIELD voice
-	CALL playVoice
-	POP =
-	NOP
-@_l_111:
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	PUSH_VAL String "／"
-	PUSH_VAL String "
-"
-	CALL_METHOD Replace
-	POP =
-	NOP
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	PUSH_VAL String "　"
-	PUSH_VAL String "  "
-	CALL_METHOD Replace
-	POP =
-	NOP
-	INIT_LOCAL String message
-	PUSH_VAR message
-	PUSH_FIELD msgSequence
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	+
-	POP =
-	NOP
-	PUSH_FIELD msgFrame
-	PUSH_VAR showName
-	PUSH_VAR message
-	PUSH_VAR fFlush
-	CALL_METHOD output
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD nameLog
-	PUSH_FIELD msgInfo
-	GET_FIELD name
-	CALL_METHOD add
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD messLog
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	CALL_METHOD add
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD seqLog
-	PUSH_FIELD msgSequence
-	CALL_METHOD add
-	NOP
-	PUSH_FIELD reqFont
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_172
-	PUSH_FIELD msgSequence
-	CALL CreateMessageEscapeSequence
-	POP =
-	NOP
-	PUSH_FIELD reqFont
-	PUSH_VAL Integer 0i
-	POP =
-	NOP
-@_l_172:
-	PUSH_VAR fVoiceFind
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_186
-	PUSH_FIELD msgFrame
-	CALL_METHOD showVoice
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD voiceLog
-	PUSH_FIELD msgInfo
-	GET_FIELD voice
-	CALL_METHOD add
-	NOP
-	JUMP _l_194
-@_l_186:
-	PUSH_FIELD msgFrame
-	CALL_METHOD hideVoice
-	NOP
-	PUSH_OBJ  4
-	GET_FIELD voiceLog
-	PUSH_VAL String ""
-	CALL_METHOD add
-	NOP
-@_l_194:
-	NOP
-@_l_195:
-	PUSH_OBJ  6
-	GET_FIELD readFlag
-	PUSH_VAR id
-	CALL_METHOD check
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_231
-	PUSH_OBJ  6
-	GET_FIELD readFlag
-	PUSH_VAR id
-	CALL_METHOD set
-	NOP
-	PUSH_OBJ  5
-	GET_FIELD readSkip
-	PUSH_VAL Integer -1i
-	==
-	CALL isSkip
-	PUSH_VAL Integer -1i
-	==
-	and
-	JUMP_OK _l_231
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_228
-	CALL IsDebugSearch
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_227
-	PUSH_VAL Integer 0i
-	CALL skip
-	NOP
-@_l_227:
-	JUMP _l_231
-@_l_228:
-	PUSH_VAL Integer 0i
-	CALL skip
-	NOP
-@_l_231:
-	INIT_LOCAL Integer nowTime
-	CALL GetCurrentTime
-	POP =
-	INIT_LOCAL struct WndSpriteCmd wscmd
-	PUSH_VAL Integer -1i
-	CALL FlushCommandQueue
-	NOP
-	CALL isSkip
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_266
-	PUSH_UNK
-	PUSH_VAL Integer 4i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	PUSH_UNK
-	PUSH_VAL Integer 5i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_265
-	PUSH_VAL Integer 0i
-	CALL skip
-	NOP
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_263
-	CALL EndDebugSearch
-	NOP
-@_l_263:
-	CALL FlushJoyButton
-	NOP
-@_l_265:
-	JUMP _l_268
-@_l_266:
-	CALL FlushJoyButton
-	NOP
-@_l_268:
-	INIT_LOCAL Integer nInput
-	INIT_LOCAL Integer fLoop
-	CALL isSkip
-	PUSH_VAL Integer 0i
-	==
-	POP =
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_298
-	CALL IsDebugSearch
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_298
-	PUSH_FIELD msgInfo
-	GET_FIELD message
-	CALL GetDebugSearchString
-	CALL_METHOD Find
-	PUSH_VAL Integer -1i
-	!=
-	JUMP_OK _l_298
-	PUSH_VAR nowTime
-	PUSH_VAL Integer -1i
-	POP =
-	NOP
-	PUSH_VAL Integer 0i
-	CALL skip
-	NOP
-	CALL EndDebugSearch
-	NOP
-@_l_298:
-	PUSH_VAR nowTime
-	PUSH_VAL Integer -1i
-	==
+Function AdvScreen::hitret(Integer id, Integer fVoiceWait)
+	Integer ret
+    ret := 0
+	Integer fFlush
+	fFlush := (isSkip() || ({PUSH_UNK}.IsJoyButtonPushing(6)))
+    Integer fLoadEnd
+    fLoadEnd := 0
+    If (IsLoad() == -1)
+        If ({PUSH_OBJ  4}hitretCountTemp <= {PUSH_OBJ  4}.hitretCount)
+            {PUSH_OBJ  4}hitretCountTemp += 1
+            this.msgInfo.clear()
+            Return ret
+        EndIf
+        LeaveLoad()
+        fLoadEnd := -1
+    ElseIf (isUpdate() == -1)
+        {PUSH_OBJ  10}.update(fFlush)
+    EndIf
+    Integer fPlayVoice
+    fPlayVoice := 0
+    Integer fVoiceFind
+    fVoiceFind := -1
+    If (File.IsExisting(this.msgInfo.voice + ".mio") == 0)
+        fVoiceFind := 0
+    EndIf
+	If (fLoadEnd == 0)
+        this.msgFrame.clearPage()
+        If (this.msgFrame.isShow() == 0)
+            this.msgFrame.show()
+        EndIf
+        String showName
+        String trueName
+        CheckTrueName(this.msgInfo.name, showName, trueName)
+        If (CheckPlayVoice(trueName) == -1)
+            If ((this.msgInfo.voice != "") && (fFlush == 0))
+                fPlayVoice := this.msgInfo.voice.playVoice()
+            EndIf
+        EndIf
+        this.msgInfo.messagethis.msgInfo.message.Replace("／", "\n")
+        this.msgInfo.message := this.msgInfo.message.Replace("　", "  ")
+        String message
+        message := this.msgSequence + this.msgInfo.message
+        this.msgFrame.output(showName, message, fFlush)
+        {PUSH_OBJ  4}.nameLog.add(this.msgInfo.name)
+        {PUSH_OBJ  4}.messLog.add(this.msgInfo.message)
+        {PUSH_OBJ  4}.seqLog.add(this.msgSequence)
+        If (this.reqFont == -1)
+            this.msgSequence := CreateMessageEscapeSequence()
+            this.reqFont := 0
+        EndIf
+        If (fVoiceFind == -1)
+            this.msgFrame.showVoice()
+            {PUSH_OBJ  4}.voiceLog.add(this.msgInfo.voice
+        Else
+            this.msgFrame.hideVoice()
+            {PUSH_OBJ  4}.voiceLog.add("")
+        EndIf
+    EndIf
+	If ({PUSH_OBJ  6}.readFlag.check(id) == 0)
+        JUMP_OK _l_231
+        {PUSH_OBJ  6}.readFlag.set(id)
+        If (({PUSH_OBJ  5}.readSkip == -1) && (isSkip() == -1)
+            If (0 == -1)
+                If (IsDebugSearch() == 0)
+                    skip(0)
+                EndIf
+                JUMP _l_231
+            Else
+                skip(0)
+            EndIf
+        EndIf
+    EndIf
+	Integer nowTime
+	nowTime := GetCurrentTime()
+	WndSpriteCmd wscmd
+	FlushCommandQueue(-1)
+	If (isSkip() == -1)
+        If (({PUSH_UNK}.GetJoyButtonPushed(4) > 0) || ({PUSH_UNK}.GetJoyButtonPushed(5) > 0))
+            skip(0)
+            if (0 == -1)
+                EndDebugSearch()
+            EndIf
+            FlushJoyButton()
+        EndIf
+    Else
+        FlushJoyButton()
+    EndIf
+	Integer nInput
+	Integer fLoop
+	fLoop := (isSkip() == 0)
+	If (0 == -1)
+        If (IsDebugSearch() == -1)
+            If (GetDebugSearchString(this.msgInfo.message).Find() != -1)
+                nowTime := -1
+                skip(0)
+                EndDebugSearch()
+            EndIf
+        EndIf
+    EndIf
+	If (nowTime == -1)
 	JUMP_OK _l_785
-	PUSH_VAR message
-	PUSH_VAR trueName
-	PUSH_VAL Integer 33i
-	CALL GetCommand
-	POP =
-	NOP
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_332
-	CALL IsDebugJump
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_327
-	CALL LeaveDebugJump
-	NOP
-	CALL GetDebugJumpScenario
-	CALL Change
-	NOP
-	PUSH_VAR ret
-	PUSH_VAL Integer 40i
-	POP =
-	NOP
-	JUMP _l_785
-	JUMP _l_332
-@_l_327:
-	CALL IsDebugSearch
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_332
-	JUMP _l_785
-@_l_332:
-	PUSH_VAL Integer 0i
-	JUMP_OK _l_335
-	JUMP _l_767
-@_l_335:
-	PUSH_UNK
-	PUSH_VAL Integer 4i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	PUSH_UNK
-	PUSH_VAL Integer 1i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_360
-	PUSH_FIELD msgFrame
-	CALL_METHOD isPending
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_358
-	PUSH_FIELD msgFrame
-	CALL_METHOD flush
-	NOP
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_359
-@_l_358:
-	JUMP _l_785
-@_l_359:
-	JUMP _l_767
-@_l_360:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_CLOSE"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 5i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 8i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_414
-	CALL isAutoMode
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_408
+        message := GetCommand(trueName, 33)
+        If (0 == -1)
+            If (IsDebugJump() == -1)
+                LeaveDebugJump()
+                Change(GetDebugJumpScenario())
+                ret := 40
+                JUMP _l_785
+                JUMP _l_332
+            Else
+                If (IsDebugSearch() == -1)
+                    JUMP _l_785
+                EndIf
+            EndIf
+        EndIf
+    @_l_332:
+        PUSH_VAL Integer 0i
+        JUMP_OK _l_335
+        JUMP _l_767
+    @_l_335:
+        PUSH_UNK
+        PUSH_VAL Integer 4i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        PUSH_UNK
+        PUSH_VAL Integer 1i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_360
+        this.msgFrame
+        CALL_METHOD isPending
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_358
+        this.msgFrame
+        CALL_METHOD flush
+        NOP
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_359
+    @_l_358:
+        JUMP _l_785
+    @_l_359:
+        JUMP _l_767
+    @_l_360:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_CLOSE"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 5i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 8i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_414
+        CALL isAutoMode
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_408
 
-	INIT_LOCAL Integer isShow
-	PUSH_FIELD msgFrame
-	CALL_METHOD isShow
-	POP =
-	PUSH_VAR wscmd
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_395
-	PUSH_FIELD msgFrame
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	CALL_METHOD hide
-	NOP
-@_l_395:
-	CALL TestHitret
-	NOP
-	PUSH_VAR wscmd
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_406
-	PUSH_FIELD msgFrame
-	PUSH_VAL Integer 0i
-	PUSH_VAL Integer -1i
-	CALL_METHOD show
-	NOP
-@_l_406:
-	NOP
-	JUMP _l_411
-@_l_408:
-	PUSH_VAL Integer 0i
-	CALL autoMode
-	NOP
-@_l_411:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_414:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_SKIP"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 28i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 7i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_436
-	PUSH_VAL Integer -1i
-	CALL skip
-	NOP
-	JUMP _l_785
-	JUMP _l_767
-@_l_436:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_AUTO"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 27i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 14i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_474
-	CALL isAutoMode
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_461
-	PUSH_VAL Integer 0i
-	CALL autoMode
-	NOP
-	JUMP _l_471
-@_l_461:
-	PUSH_VAL Integer -1i
-	CALL autoMode
-	NOP
-	PUSH_FIELD msgFrame
-	CALL_METHOD hideBlink
-	NOP
-	PUSH_VAR showName
-	CALL GetCurrentTime
-	POP =
-	NOP
-@_l_471:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_474:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_QLOAD"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 23i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 17i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_516
-	CALL IsRecollectMode
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_513
-	PUSH_OBJ  6
-	GET_FIELD fQSave
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_513
-	PUSH_VAL String "クイックロードします"
-	PUSH_VAL Integer -1i
-	CALL Confirm
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_513
-	CALL QuickLoad
-	NOP
-	PUSH_VAR ret
-	PUSH_VAL Integer 40i
-	POP =
-	NOP
-	JUMP _l_785
-@_l_513:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_516:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_QSAVE"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 22i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 9i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_546
-	CALL IsRecollectMode
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_543
-	CALL QuickSave
-	NOP
-	PUSH_FIELD msgFrame
-	PUSH_VAL Integer -1i
-	CALL_METHOD enableQLoad
-	NOP
-@_l_543:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_546:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_CONFIG"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 26i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 13i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_579
-	PUSH_VAR ret
-	CALL callConfig
-	POP =
-	NOP
-	PUSH_VAR ret
-	PUSH_VAL Integer 30i
-	==
-	PUSH_VAR ret
-	PUSH_VAL Integer 20i
-	==
-	or
-	JUMP_OK _l_576
-	JUMP _l_785
-@_l_576:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_579:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_HISTORY"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 10i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 29i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 0i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_607
-	CALL callHistory
-	NOP
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_607:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_LOAD"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 25i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 11i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_648
-	CALL IsRecollectMode
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_645
+        INIT_LOCAL Integer isShow
+        this.msgFrame
+        CALL_METHOD isShow
+        POP =
+        PUSH_VAR wscmd
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_395
+        this.msgFrame
+        PUSH_VAL Integer 0i
+        PUSH_VAL Integer -1i
+        CALL_METHOD hide
+        NOP
+    @_l_395:
+        CALL TestHitret
+        NOP
+        PUSH_VAR wscmd
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_406
+        this.msgFrame
+        PUSH_VAL Integer 0i
+        PUSH_VAL Integer -1i
+        CALL_METHOD show
+        NOP
+    @_l_406:
+        NOP
+        JUMP _l_411
+    @_l_408:
+        PUSH_VAL Integer 0i
+        CALL autoMode
+        NOP
+    @_l_411:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_414:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_SKIP"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 28i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 7i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_436
+        PUSH_VAL Integer -1i
+        CALL skip
+        NOP
+        JUMP _l_785
+        JUMP _l_767
+    @_l_436:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_AUTO"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 27i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 14i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_474
+        CALL isAutoMode
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_461
+        PUSH_VAL Integer 0i
+        CALL autoMode
+        NOP
+        JUMP _l_471
+    @_l_461:
+        PUSH_VAL Integer -1i
+        CALL autoMode
+        NOP
+        this.msgFrame
+        CALL_METHOD hideBlink
+        NOP
+        PUSH_VAR showName
+        CALL GetCurrentTime
+        POP =
+        NOP
+    @_l_471:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_474:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_QLOAD"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 23i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 17i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_516
+        CALL IsRecollectMode
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_513
+        PUSH_OBJ  6
+        GET_FIELD fQSave
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_513
+        PUSH_VAL String "クイックロードします"
+        PUSH_VAL Integer -1i
+        CALL Confirm
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_513
+        CALL QuickLoad
+        NOP
+        PUSH_VAR ret
+        PUSH_VAL Integer 40i
+        POP =
+        NOP
+        JUMP _l_785
+    @_l_513:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_516:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_QSAVE"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 22i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 9i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_546
+        CALL IsRecollectMode
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_543
+        CALL QuickSave
+        NOP
+        this.msgFrame
+        PUSH_VAL Integer -1i
+        CALL_METHOD enableQLoad
+        NOP
+    @_l_543:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_546:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_CONFIG"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 26i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 13i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_579
+        PUSH_VAR ret
+        CALL callConfig
+        POP =
+        NOP
+        PUSH_VAR ret
+        PUSH_VAL Integer 30i
+        ==
+        PUSH_VAR ret
+        PUSH_VAL Integer 20i
+        ==
+        or
+        JUMP_OK _l_576
+        JUMP _l_785
+    @_l_576:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_579:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_HISTORY"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 10i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 29i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 0i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_607
+        CALL callHistory
+        NOP
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_607:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_LOAD"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 25i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 11i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_648
+        CALL IsRecollectMode
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_645
 
-	INIT_LOCAL parent arrayHideSpr
-	INIT_LOCAL parent arrayShowSpr
-	PUSH_VAR ret
-	PUSH_VAL Integer -1i
-	PUSH_VAR wscmd
-	PUSH_VAR nInput
-	CALL callLoadSave
-	POP =
-	NOP
-	PUSH_VAR ret
-	PUSH_VAL Integer 40i
-	==
-	JUMP_OK _l_644
-	NOP
-	JUMP _l_785
-@_l_644:
-	NOP
-@_l_645:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_648:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_SAVE"
-	==
-	PUSH_UNK
-	PUSH_VAL Integer 24i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	PUSH_UNK
-	PUSH_VAL Integer 12i
-	CALL_METHOD GetJoyButtonPushed
-	PUSH_VAL Integer 0i
-	>
-	or
-	JUMP_OK _l_689
-	CALL IsRecollectMode
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_686
+        INIT_LOCAL parent arrayHideSpr
+        INIT_LOCAL parent arrayShowSpr
+        PUSH_VAR ret
+        PUSH_VAL Integer -1i
+        PUSH_VAR wscmd
+        PUSH_VAR nInput
+        CALL callLoadSave
+        POP =
+        NOP
+        PUSH_VAR ret
+        PUSH_VAL Integer 40i
+        ==
+        JUMP_OK _l_644
+        NOP
+        JUMP _l_785
+    @_l_644:
+        NOP
+    @_l_645:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_648:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_SAVE"
+        ==
+        PUSH_UNK
+        PUSH_VAL Integer 24i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        PUSH_UNK
+        PUSH_VAL Integer 12i
+        CALL_METHOD GetJoyButtonPushed
+        PUSH_VAL Integer 0i
+        >
+        or
+        JUMP_OK _l_689
+        CALL IsRecollectMode
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_686
 
-	INIT_LOCAL parent arrayHideSpr
-	INIT_LOCAL parent arrayShowSpr
-	PUSH_VAR ret
-	PUSH_VAL Integer 0i
-	PUSH_VAR wscmd
-	PUSH_VAR nInput
-	CALL callLoadSave
-	POP =
-	NOP
-	PUSH_VAR ret
-	PUSH_VAL Integer 40i
-	==
-	JUMP_OK _l_685
-	NOP
-	JUMP _l_785
-@_l_685:
-	NOP
-@_l_686:
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_689:
-	PUSH_VAR trueName
-	GET_FIELD strID
-	PUSH_VAL String "ID_VOICE"
-	==
-	JUMP_OK _l_704
-	PUSH_OBJ  4
-	GET_FIELD voiceLog
-	PUSH_VAL Integer 0i
-	CALL_METHOD get
-	PUSH_VAL Integer -1i
-	CALL PlayVoice
-	NOP
-	CALL FlushJoyButton
-	NOP
-	JUMP _l_767
-@_l_704:
-	PUSH_UNK
-	PUSH_VAL Integer 6i
-	CALL_METHOD IsJoyButtonPushing
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_712
-	JUMP _l_785
-	JUMP _l_767
-@_l_712:
-	CALL isAutoMode
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_751
-	PUSH_FIELD msgFrame
-	CALL_METHOD isPending
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_722
-	JUMP _l_750
-@_l_722:
-	PUSH_VAR fPlayVoice
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_735
-	CALL IsPlayVoice
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_734
-	PUSH_VAR nowTime
-	PUSH_VAL Integer 0i
-	POP =
-	NOP
-@_l_734:
-	JUMP _l_750
-@_l_735:
-	CALL GetCurrentTime
-	PUSH_VAR showName
-	-
-	PUSH_VAL Integer 500i
-	PUSH_OBJ  5
-	GET_FIELD automodeSpeed
-	PUSH_VAL Integer 1000i
-	*
-	+
-	>
-	JUMP_OK _l_750
-	PUSH_VAR nowTime
-	PUSH_VAL Integer 0i
-	POP =
-	NOP
-@_l_750:
-	JUMP _l_767
-@_l_751:
-	PUSH_VAR fVoiceWait
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_767
-	PUSH_VAR fPlayVoice
-	PUSH_VAL Integer -1i
-	==
-	JUMP_OK _l_767
-	CALL IsPlayVoice
-	PUSH_VAL Integer 0i
-	==
-	JUMP_OK _l_767
-	PUSH_VAR nowTime
-	PUSH_VAL Integer 0i
-	POP =
-	NOP
-@_l_767:
-	PUSH_FIELD msgFrame
-	CALL_METHOD isShowBlink
-	PUSH_VAL Integer 0i
-	==
-	PUSH_FIELD msgFrame
-	CALL_METHOD isPending
-	PUSH_VAL Integer 0i
-	==
-	and
-	CALL isAutoMode
-	PUSH_VAL Integer 0i
-	==
-	and
-	JUMP_OK _l_784
-	PUSH_FIELD msgFrame
-	CALL_METHOD showBlink
-	NOP
-@_l_784:
-	JUMP _l_298
+        INIT_LOCAL parent arrayHideSpr
+        INIT_LOCAL parent arrayShowSpr
+        PUSH_VAR ret
+        PUSH_VAL Integer 0i
+        PUSH_VAR wscmd
+        PUSH_VAR nInput
+        CALL callLoadSave
+        POP =
+        NOP
+        PUSH_VAR ret
+        PUSH_VAL Integer 40i
+        ==
+        JUMP_OK _l_685
+        NOP
+        JUMP _l_785
+    @_l_685:
+        NOP
+    @_l_686:
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_689:
+        PUSH_VAR trueName
+        GET_FIELD strID
+        PUSH_VAL String "ID_VOICE"
+        ==
+        JUMP_OK _l_704
+        PUSH_OBJ  4
+        GET_FIELD voiceLog
+        PUSH_VAL Integer 0i
+        CALL_METHOD get
+        PUSH_VAL Integer -1i
+        CALL PlayVoice
+        NOP
+        CALL FlushJoyButton
+        NOP
+        JUMP _l_767
+    @_l_704:
+        PUSH_UNK
+        PUSH_VAL Integer 6i
+        CALL_METHOD IsJoyButtonPushing
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_712
+        JUMP _l_785
+        JUMP _l_767
+    @_l_712:
+        CALL isAutoMode
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_751
+        this.msgFrame
+        CALL_METHOD isPending
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_722
+        JUMP _l_750
+    @_l_722:
+        PUSH_VAR fPlayVoice
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_735
+        CALL IsPlayVoice
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_734
+        PUSH_VAR nowTime
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+    @_l_734:
+        JUMP _l_750
+    @_l_735:
+        CALL GetCurrentTime
+        PUSH_VAR showName
+        -
+        PUSH_VAL Integer 500i
+        PUSH_OBJ  5
+        GET_FIELD automodeSpeed
+        PUSH_VAL Integer 1000i
+        *
+        +
+        >
+        JUMP_OK _l_750
+        PUSH_VAR nowTime
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+    @_l_750:
+        JUMP _l_767
+    @_l_751:
+        PUSH_VAR fVoiceWait
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_767
+        PUSH_VAR fPlayVoice
+        PUSH_VAL Integer -1i
+        ==
+        JUMP_OK _l_767
+        CALL IsPlayVoice
+        PUSH_VAL Integer 0i
+        ==
+        JUMP_OK _l_767
+        PUSH_VAR nowTime
+        PUSH_VAL Integer 0i
+        POP =
+        NOP
+    @_l_767:
+        this.msgFrame
+        CALL_METHOD isShowBlink
+        PUSH_VAL Integer 0i
+        ==
+        this.msgFrame
+        CALL_METHOD isPending
+        PUSH_VAL Integer 0i
+        ==
+        and
+        CALL isAutoMode
+        PUSH_VAL Integer 0i
+        ==
+        and
+        JUMP_OK _l_784
+        this.msgFrame
+        CALL_METHOD showBlink
+        NOP
+    @_l_784:
+        JUMP _l_298
 @_l_785:
 	PUSH_VAR ret
 	PUSH_VAL Integer 30i
@@ -849,11 +611,11 @@ Function AdvScreen::hitret(Reference this, Integer id, Integer fVoiceWait)
 	!=
 	and
 	JUMP_OK _l_796
-	PUSH_FIELD msgFrame
+	this.msgFrame
 	CALL_METHOD hideBlink
 	NOP
 @_l_796:
-	PUSH_FIELD msgInfo
+	this.msgInfo
 	GET_FIELD voice
 	PUSH_VAL String ""
 	!=
@@ -866,7 +628,7 @@ Function AdvScreen::hitret(Reference this, Integer id, Integer fVoiceWait)
 	CALL StopVoice
 	NOP
 @_l_808:
-	PUSH_FIELD msgInfo
+	this.msgInfo
 	CALL_METHOD clear
 	NOP
 	CALL IsLoad

@@ -1,0 +1,15 @@
+Function ChangeDisplay(Integer fFullscreen)
+	If (fFullscreen == -1)
+        JUMP_OK _l_18
+        If (0 == -1)
+            screen.ChangeDisplaySize(800, 600)
+        EndIf
+        screen.ChangeCooperationLevel(3)
+    Else
+        screen.ChangeCooperationLevel(0)
+        If (0 == -1)
+            screen.ChangeDisplaySize(1024, 600)
+        EndIf
+    EndIf
+EndFunc
+

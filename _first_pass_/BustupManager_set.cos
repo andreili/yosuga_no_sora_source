@@ -1,0 +1,61 @@
+Function BustupManager::set(String str, Integer pos, Integer priority, Integer timezone)
+	BustupInfo info
+	info := CheckSetupBustup(str, timezone)
+	Integer i
+	i := 0
+    While (i <= max)
+        If (this.info[i].id == id)
+            If ((this.info[i].status == 16) || (this.info[i].status == 64))
+            Else
+                this.info[i].status := 4
+            EndIf
+            this.info[i].basename := info.basename
+            this.info[i].filename := info.filename
+            If (pos > 0)
+                this.info[i].pos := pos
+                this.info[i].fPosFix := -1
+            ElseIf (pos <= 0)
+                this.info[i].pos := pos
+                this.info[i].fPosFix := 0
+            EndIf
+            this.info[i].relation := relation
+            If (priority == 0)
+            Else
+                this.info[i].priority := priority
+            EndIf
+            this.info[i].basePosition := info.basePosition
+            Break
+        EndIf
+        i += i
+    EndWhile
+	If (i == this.max)
+        i := 0
+        While (i <= this.max)
+            If (this.info[i].status == 0)
+                this.info[i].status := 1
+                this.info[i].id := info.id
+                this.info[i].basename := info.basename
+                this.info[i].filename := info.filename
+                if (pos > 0)
+                    this.info[i].pos := pos
+                    this.info[i].fPosFix := -1
+                ElseIf (pos < 0)
+                    this.info[i].pos := pos
+                    this.info[i].fPosFix := 0
+                EndIf
+                this.info[i].relation := info.relation
+                If (priority == 0)
+                    this.info[i].priority := info.priority
+                Else
+                    this.info[i].priority := priority
+                EndIf
+                this.info[i].basePosition := info.basePosition
+                this.info[i].localPosition := this.info[i].basePosition
+                Break
+            EndIf
+            i += 1
+        EndWhile
+    EndIf
+	Return
+EndFunc
+

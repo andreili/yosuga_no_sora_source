@@ -1,0 +1,12 @@
+Function BustupManager::adjustSprPosition(Integer id)
+	Integer num
+	num := numPoeple()
+	Integer pos
+	pos := this.info[id].pos
+	ImageInfo info
+	info := this.spr[id].GetInfo()
+	this.info[id].basePosition.x := {PUSH_OBJ  9}.pos
+	this.info[id].localPosition.x := this.info[id].basePosition.x
+	this.spr[id](this.info[id].localPosition.x, this.info[id].localPosition.y)
+EndFunc
+

@@ -1,0 +1,17 @@
+Function AppreciationView::checkHitCg(Integer id)
+	Integer length
+	length := this.cgViewMan[id].thumbInfo.GetLength()
+	Integer i
+	i := 0
+	While (i <= length)
+        If (this.cgViewMan[id].thumbInfo[i].flag.CheckCgFlag())
+            Break
+        EndIf
+        i += 1
+    EndWhile
+    If (i == length)
+        Return -1
+    EndIf
+    Return 0
+EndFunc
+
