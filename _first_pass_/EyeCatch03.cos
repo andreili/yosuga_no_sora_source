@@ -1,0 +1,34 @@
+Function EyeCatch03(Integer fEnter)
+	Reference spr
+	spr := {PUSH_OBJ  25}
+	NOP
+	If (fEnter == -1)
+		spr["Black"] := Sprite
+		spr["Black"].CreateSprite(1, 800, 600)
+		spr["Black"].FillRect(IRect(0, 0, 800, 600), RGB(0, 0, 0))
+		spr["Black"].SetTransparency(256)
+		spr["Black"].SetVisible(-1)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 510)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		{PUSH_UNK}.AddSprite(50800, spr["Black"])
+		{PUSH_UNK}.AddSprite(50800 - 1, spr["Logo"])
+		spr["Black"].SetBlendingEnvelope(0)
+		spr["Black"].BeginActivation(1500)
+		ScWait(2000)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1500)
+		ScWait(2500)
+	Else
+		spr["Black"].SetBlendingEnvelope(256)
+		spr["Black"].BeginActivation(1500)
+		spr["Logo"].SetBlendingEnvelope(256)
+		spr["Logo"].BeginActivation(3000)
+		ScWait(3500)
+		{PUSH_VAR}.DetachSprite(spr["Black"])
+		{PUSH_VAR}.DetachSprite(spr["Logo"])
+	EndIf
+EndFunc
+

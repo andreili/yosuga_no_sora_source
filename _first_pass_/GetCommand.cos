@@ -1,0 +1,19 @@
+Function GetCommand(Reference wscmd, Integer timeout)
+	{PUSH_OBJ  10}.updateProc()
+	BgmCheckCallback()
+	EnvSeCheckCallback()
+	If (0 == -1)
+		VoicePlayIndicatorProc()
+	EndIf
+	ClearWscmd(wscmd)
+	Integer res
+	res := GetCommand(wscmd, timeout, -1)
+	If (wscmd.strID == "ID_APP_EXIT")
+		AskGameExit()
+		{PUSH_UNK}.FlushCommandQueue(-1)
+	ElseIf (0 == -1)
+		DebugProc(wscmd)
+	EndIf
+	Return res
+EndFunc
+

@@ -1,0 +1,8 @@
+Function Flag::check(Integer id)
+	Integer index
+	index := id / 32
+	Integer shift
+	shift := id % 32
+	Return (this.flag[index].TestBit(shift) == -1)
+EndFunc
+

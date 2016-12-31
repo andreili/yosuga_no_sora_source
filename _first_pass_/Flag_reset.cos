@@ -1,0 +1,8 @@
+Function Flag::reset(Integer id)
+	Integer index
+	index := id / 32
+	Integer shift
+	shift := id % 32
+	this.flag[index].ResetBit(shift)
+EndFunc
+
