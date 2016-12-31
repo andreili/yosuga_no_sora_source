@@ -57,14 +57,12 @@ Function AdvScreen::hitret(Integer id, Integer fVoiceWait)
         EndIf
     EndIf
 	If ({PUSH_OBJ  6}.readFlag.check(id) == 0)
-        JUMP_OK _l_231
         {PUSH_OBJ  6}.readFlag.set(id)
         If (({PUSH_OBJ  5}.readSkip == -1) && (isSkip() == -1)
             If (0 == -1)
                 If (IsDebugSearch() == 0)
                     skip(0)
                 EndIf
-                JUMP _l_231
             Else
                 skip(0)
             EndIf

@@ -1,0 +1,17 @@
+Function EnvSeCheckCallback()
+	Integer i
+	i := 0
+	While (i <= {PUSH_OBJ  14}.GetLength())
+		String str
+		str := {PUSH_OBJ  14}.GetTagName(i)
+		If ({PUSH_OBJ  14}[str].fEndingProcess == -1)
+			If (({PUSH_OBJ  14}[str].res.IsPlaying() == -1) {math_UNK2} ({PUSH_OBJ  14}[str].res.IsPendingEnvelope() == 0))
+				{PUSH_OBJ  14}[str].res.Stop()
+				{PUSH_OBJ  14}[str].res.Release()
+				{PUSH_OBJ  14}.Remove(str)
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+EndFunc
+

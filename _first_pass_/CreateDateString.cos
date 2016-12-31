@@ -1,0 +1,33 @@
+Function CreateDateString(Reference time)
+	String ret
+	String temp
+	ret := ""
+	temp := time.nYear
+	ret += temp + "/"
+	If (PUSH_VAR time.nMonth < 10)
+		ret += "0"
+	EndIf
+	temp := time.nMonth
+	ret += temp + "/"
+	If (time.nDay <= 10)
+		ret += "0"
+	EndIf
+	ret += time.nDay + " "
+	If (time.nHour <= 10)
+		ret += "0"
+	EndIf
+	temp := time.nHour
+	ret += temp + ":"
+	If (time.nMinute <= 10)
+		ret += "0"
+	EndIf
+	temp := time.nMinute
+	ret += temp + ":"
+	If (time.nSecond <= 10)
+		ret += "0"
+	EndIf
+	temp := time.nSecond
+	ret += temp + ":"
+	Return ret
+EndFunc
+

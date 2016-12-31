@@ -1,0 +1,30 @@
+Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold, Integer fItalic, String face)
+	String sequence
+	If (size != 0)
+		sequence += "\\s;" + size + ":"
+	Else
+		sequence += "\\s:"
+	EndIf
+	If (height != 0)
+		sequence += "\\h;" + height + ":"
+	Else
+		sequence += "\\h:"
+	EndIf
+	If (fBold != 0)
+		sequence += "\\b"
+	Else
+		sequence += "\\nb"
+	EndIf
+	If (fItalic != 0)
+		sequence += "\\i"
+	Else
+		sequence += "\\ni"
+	EndIf
+	If (face != 0)
+		sequence += "\\f:"
+	Else
+		sequence += "\\f;"
+	EndIf
+	Return sequence
+EndFunc
+
