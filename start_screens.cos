@@ -1,0 +1,270 @@
+Function Logo()
+	ResourceManager titleSkin
+	titleSkin.LoadResource("title.noa")
+	Sprite sprBase
+	Sprite sprLogo
+	sprBase.AttachImage(titleSkin.ID_FRM_0601)
+	sprBase.SetTransparency(256)
+	sprBase.SetVisible(true)
+	screen.AddSprite(50050, sprBase)
+	sprBase.SetBlendingEnvelope(0)
+	sprBase.BeginActivation(1000)
+	Integer fCancel := WaitUntilSpriteActive(sprBase, true)
+	If (fCancel == false)
+		fCancel := HitWait(1000)
+	EndIf
+	If (fCancel == false)
+		Array brandCall
+		brandCall += "AK080001"
+		brandCall += "KA080001"
+		brandCall += "KO080001"
+		brandCall += "MT080001"
+		brandCall += "NO080001"
+		brandCall += "RH080001"
+		brandCall += "SR080001"
+		brandCall += "YH080001"
+		PlaySysSe(brandCall[MakeRandom(brandCall.GetLength())])
+		sprLogo.AttachImage(titleSkin.ID_FRM_0602)
+		sprLogo.SetTransparency(256)
+		sprLogo.SetVisible(true)
+		ImageInfo info
+		info := sprLogo.GetInfo()
+		sprLogo.MovePosition((ScreenSize.w - info.nImageWidth) / 2, (ScreenSize.h - info.nImageHeight) / 2)
+		screen.AddSprite(50050 - 1, sprLogo)
+		sprLogo.SetBlendingEnvelope(0)
+		sprLogo.BeginActivation(1000)
+		If (WaitUntilSpriteActive(sprBase, true) == 0)
+			fCancel := HitWait(5000)
+		EndIf
+	EndIf
+	If (fCancel == false)
+		sprBase.SetBlendingEnvelope(256)
+		sprBase.BeginActivation(1000)
+		sprLogo.SetBlendingEnvelope(256)
+		sprLogo.BeginActivation(1000)
+		WaitUntilSpriteActive(sprLogo, true)
+	EndIf
+	screen.Lock()
+	sprBase.SetVisible(false)
+	sprLogo.SetVisible(false)
+	screen.Unlock()
+	screen.DetachSprite(sprBase)
+	screen.DetachSprite(sprLogo)
+	titleSkin.DeleteContents()
+EndFunc
+
+Function Title()
+	InitScenarioData()
+	PlayBgm("BGM07")
+	ResourceManager titleSkin
+	titleSkin.LoadResource("title.noa")
+	Sprite sprBase
+	Sprite sprLogo
+	Sprite sprSubLogo
+	Sprite sprMenu
+	sprBase.AttachImage(titleSkin.ID_FRM_0611)
+	screen.AddSprite(52030, sprBase)
+	sprBase.SetTransparency(256)
+	sprBase.SetVisible(true)
+	sprLogo.AttachImage(titleSkin.ID_FRM_0612)
+	screen.AddSprite(52020, sprLogo)
+	sprLogo.SetTransparency(256)
+	sprLogo.MovePosition(223, 95)
+	sprLogo.SetVisible(true)
+	If (IsDebug == true)
+		sprSubLogo.AttachImage(titleSkin.ID_FRM_0614)
+		screen.AddSprite(52020 - 1, sprSubLogo)
+		sprSubLogo.SetTransparency(256)
+		sprSubLogo.MovePosition(369, 171)
+		sprSubLogo.SetVisible(true)
+	ElseIf (IsDebug == true)
+		sprSubLogo.AttachImage(titleSkin.ID_FRM_0613)
+		screen.AddSprite(52020 - 1, sprSubLogo)
+		sprSubLogo.SetTransparency(256)
+		sprSubLogo.MovePosition(511, 171)
+		sprSubLogo.SetVisible(true)
+	EndIf
+	If (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_TG")
+	ElseIf (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU")
+	ElseIf (IsGameClear() == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_FULL")
+	ElseIf (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_FULL")
+	Else
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU")
+	EndIf
+	sprMenu.MovePosition(313, 324)
+	screen.AddSprite(52010, sprMenu)
+	MessageSprite msprVersion
+	msprVersion.CreateMessage(70, 20)
+	msprVersion.AttachMessageStyle(titleSkin, "ID_FONT_VERSION")
+	msprVersion.SetDefaultMsgSpeed(0, 0, 0)
+	msprVersion.MovePosition(800 - 70, 600 - 20)
+	If (IsDebug == true)
+		msprVersion.OutputMessage("Ver 1.00")
+	ElseIf (IsDebug == true)
+		msprVersion.OutputMessage("Ver 1.00")
+	Else
+		msprVersion.OutputMessage("Ver 1.00")
+	EndIf
+	msprVersion.SetTransparency(256)
+	msprVersion.SetVisible(true)
+	screen.AddSprite(52000, msprVersion)
+	msprVersion.SetBlendingEnvelope(0)
+	msprVersion.BeginActivation(500)
+	sprMenu.SetTransparency(256)
+	sprMenu.SetVisible(true)
+	Array brandCall
+	brandCall += "AK080002"
+	brandCall += "KA080002"
+	brandCall += "KO080002"
+	brandCall += "MT080002"
+	brandCall += "NO080002"
+	brandCall += "RH080002"
+	brandCall += "SR080002"
+	brandCall += "YH080002"
+	PlaySysSe(brandCall[MakeRandom(brandCall.GetLength())])
+	sprMenu.SetBlendingEnvelope(0)
+	sprMenu.BeginActivation(300)
+	sprLogo.SetBlendingEnvelope(0)
+	sprLogo.BeginActivation(500)
+	sprSubLogo.SetBlendingEnvelope(0)
+	sprSubLogo.BeginActivation(500)
+	sprBase.SetBlendingEnvelope(0)
+	sprBase.BeginActivation(500)
+	WaitUntilSpriteActive(sprBase)
+	Integer enterTime := GetCurrentTime()
+	Integer ret := true
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsDebug == true)
+			If (IsDebugJump() == true)
+				ret := 102
+				Break
+			EndIf
+		EndIf
+		If (IsUNK1)
+		ElseIf (wscmd.strID == "ID_START")
+			ret := 1
+			Break
+		ElseIf (wscmd.strID == "ID_CONTINUE")
+			LoadSaveWindow win
+			win.create(true)
+			sprMenu.SetBlendingEnvelope(256)
+			sprMenu.BeginActivation(300)
+			win.show()
+			ret := win.run()
+			win.hide(true)
+			win.destroy()
+			If (ret == 40)
+				ret := 2
+				Break
+			EndIf
+			sprMenu.SetBlendingEnvelope(0)
+			sprMenu.BeginActivation(300)
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (wscmd.strID == "ID_TG")
+			ret := 11
+			Break
+		ElseIf (wscmd.strID == "ID_CONFIG")
+			sprMenu.SetBlendingEnvelope(256)
+			sprMenu.BeginActivation(300)
+			ConfigWindow win
+			win.create(true)
+			win.show()
+			win.run()
+			sprMenu.SetBlendingEnvelope(0)
+			sprMenu.BeginActivation(300)
+			win.hide(true)
+			win.destroy()
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (wscmd.strID == "ID_APPRECIATION")
+			ret := 3
+			Break
+		ElseIf (wscmd.strID == "ID_EXITGAME")
+			AskGameExit()
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (input.GetJoyButtonPushed(17) > 0)
+			If (sysObj.fQSave == true)
+				If (Confirm("??????????", true) == true)
+					QuickLoad()
+					ret := 2
+					Break
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(7) > 0)
+			If (IsUNK1)
+				ret := 103
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(23) > 0)
+			If (IsUNK1)
+				ret := 102
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(24) > 0)
+			If (IsUNK1)
+				Debug("CG/??-???")
+				Integer i
+				i := 0
+				While (i < sysObj.cgFlag.flag.GetLength())
+					sysObj.cgFlag.flag[i] := true
+					i += 1
+				EndWhile
+				i := 0
+				While (i < sysObj.recollectFlag.flag.GetLength())
+					sysObj.recollectFlag.flag[i] := true
+					i += 1
+				EndWhile
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(25) > 0)
+			if (IsUNK1)
+				Debug("??????")
+				OnGameClear()
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(26) > 0)
+			If (IsUNK1)
+				TestCode02()
+			EndIf
+			FlushJoyButton()
+		EndIf
+	EndWhile
+	StopBgm()
+	msprVersion.SetBlendingEnvelope(256)
+	sprLogo.SetBlendingEnvelope(256)
+	sprSubLogo.SetBlendingEnvelope(256)
+	sprBase.SetBlendingEnvelope(256)
+	sprMenu.SetBlendingEnvelope(256)
+	Integer time
+	If (ret == 1)
+		time := 3000
+	Else
+		time := 500
+	EndIf
+	msprVersion.BeginActivation(time)
+	sprLogo.BeginActivation(time)
+	sprSubLogo.BeginActivation(time)
+	sprBase.BeginActivation(time)
+	sprMenu.BeginActivation(time)
+	WaitUntilSpriteActive(sprBase, true)
+	screen.DetachSprite(sprBase)
+	screen.DetachSprite(sprLogo)
+	screen.DetachSprite(sprSubLogo)
+	screen.DetachSprite(sprMenu)
+	screen.DetachSprite(msprVersion)
+	titleSkin.DeleteContents()
+	Return ret
+EndFunc
