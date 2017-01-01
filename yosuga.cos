@@ -1,53 +1,16 @@
 Include	"cotopha.cos"
 Include	"structs.cos"
+Include "vars.cos"
 
-Integer 		nRandomSeed			; 0
-Integer 		hitretResult		; 1
-Size    		ScreenSize			; 2
-Integer 		BookmarkIndex		; 3
-ScenarioObject  scObj				; 4
-ConfigDataBase  cnfObj				; 5
-SystemObject    sysObj				; 6
-Integer 		inputFilterType		; 7
-Integer 		flgRecollectMode	; 8
-Array  			BUSTUP_XPOS			; 9
-AdvScreen       adv					; 10
-String  		kinsoku				; 11
-Integer 		bgmIndex			; 12
-Array			bgm					; 13
-Array		    envSe				; 14	type!
-Resource        se					; 15
-Resource        sysSe				; 16
-Resource        voice				; 17
-Integer 		playVoiceTime		; 18
-Sprite  		sprLoadEffectBase	; 19
-Sprite  		sprLoadEffect		; 20
-Resource        resLoadEffectAlpha	; 20
-Integer 		fConfirm			; 21
-Integer 		fEyeCatchEnter		; 22
-String  		eyeCatchType		; 23
-Array    		sprEyeCatch			; 24	type!
-ResourceManager debugSkin			; 25
-Sprite  		debugFrame			; 26
-Sprite  		debugBase			; 27
-Sprite  		sprVoicePlayingBar	; 28
-Sprite  		sprVoicePlayingTrim	; 29
-MessageSprite   debugMes			; 30
-LogManager      debugLog			; 31
-Integer 		DEBUG_VOICECHECK_X	; 32
-Integer 		DEBUG_VOICECHECK_Y	; 33
-Integer			isCreateDebugWindow	; 34
-String			DebugJumpScenario	; 35
-Integer			DebugJumpEnter		; 36
-Integer			fDebugSearch		; 37
-String			rDebugSearch		; 38
-
-Constant		IsDebug := false
-
-Data	input 		: InputFilter
-Data	inputE		: InputFilter
-Data	screen		: Window
-Data	frameSkin	: ResourceManager
+Function main()
+	Initialize()
+	Try
+		Starting()
+	Catch()
+		screen.DetachAllSprite()
+	EndTry
+	Postprocessing()
+EndFunc
 
 Function Initialize()
 	Time time
@@ -88,16 +51,6 @@ Function Initialize()
 		CreateDebugWindow()
 		ShowDebugWindow()
 	EndIf
-EndFunc
-
-Function main()
-	Initialize()
-	Try
-		Starting()
-	Catch()
-		screen.DetachAllSprite()
-	EndTry
-	Postprocessing()
 EndFunc
 
 Function InitRandom(Integer seed)	; OK
@@ -152,6 +105,545 @@ Function ChangeDisplay(Integer fFullscreen)
 EndFunc
 
 Function LoadInputFilter()
-	screen.LoadInputFilter("input.xml")
+	input.LoadInputFilter("input.xml")
+EndFunc
+
+Function OpenInputFilter()
+	input.OpenFilter(1)
+	FlushInputQueue()
+EndFunc
+
+Function CreateDebugWindow()
+	If (isCreateDebugWindow == true)
+		Return
+	EndIf
+	debugSkin.LoadResource("debug.noa")
+	debugLog.create(16)
+	Integer width := 224
+	debugSkin.CreateFormPage(debugFrame, "ID_PAGE_DEBUG")
+	debugBase.CreateSprite(1, width, ScreenSize.h)
+	debugFrame.SetFocus("ID_EDIT")
+	debugMes.CreateMessage(width, 16 * 16 + 4)
+	debugMes.AttachMessageStyle(debugSkin, "ID_FONT_INFO")
+	debugFrame.SetTransparency(128)
+	Size size
+	size := screen.GetDisplaySize()	;TODO
+	debugFrame.MovePosition(ScreenSize.w, 300)
+	debugBase.MovePosition(ScreenSize.w, 0)
+	debugMes.MovePosition(ScreenSize.w + 4, 4)
+	If (IsDebug == true)
+		sprVoicePlayingBar.AttachImage(debugSkin.ID_SELECT3)
+		sprVoicePlayingBar.MovePosition(DEBUG_VOICECHECK_X, DEBUG_VOICECHECK_Y)
+		sprVoicePlayingTrim.AttachImage(debugSkin.ID_TRIM)
+		sprVoicePlayingTrim.MovePosition(DEBUG_VOICECHECK_X + 7, DEBUG_VOICECHECK_Y)
+	EndIf
+	If (IsDebug == true)
+		screen.AddSprite(3, sprVoicePlayingTrim)
+		screen.AddSprite(5, sprVoicePlayingBar)
+	EndIf
+	screen.AddSprite(5, debugFrame)
+	screen.AddSprite(10, debugMes)
+	screen.AddSprite(15, debugBase)
+	isCreateDebugWindow := true
+EndFunc
+
+Function ShowDebugWindow()
+	If (isCreateDebugWindow == false)
+		Return
+	EndIf
+	debugFrame.SetVisible(true)
+	debugBase.SetVisible(true)
+	debugMes.SetVisible(true)
+EndFunc
+
+Function Starting()
+	Integer ret := 5
+	While (true)
+		If (ret == 4)
+			Break
+		ElseIf (ret == 5)
+			Logo()
+			ret := 6
+		ElseIf (ret == 6)
+			ret := Title()
+		ElseIf (ret == 1)
+			ScenarioLoop("00_Z000")
+			ret := 5
+		ElseIf (ret == 2)
+			ScenarioLoop(scObj.scenarioCall)
+			ret := 5
+		ElseIf (ret == 3)
+			Appreciation()
+			PlayBgm("BGM_01")
+			ret := 6
+		ElseIf (ret == 101)
+			ScenarioLoop("VOICETEST")
+		ElseIf (ret == 10)
+			StopBgm()
+			PlayMovie("opening.mei")
+			ret := 6
+		ElseIf (ret == 102)
+			LeaveDebugJump()
+			ScenarioLoop(GetDebugJumpScenario())
+			ret := 5
+		ElseIf (ret == 103)
+			ScenarioLoop("s003")
+			ret := 6
+		ElseIf (ret == 11)
+			ScenarioLoop("tg01")
+			ret := 5
+		Else
+			Break
+		EndIf
+	EndWhile
+EndFunc
+
+Function Postprocessing()
+	If (isCreateDebugWindow == true)
+		File file
+		file.Open("_exit.log", 5)
+		file.DumpObject(scObj)
+		file.Close()
+	EndIf
+	SaveSystemData()
+	SaveConfigData()
+EndFunc
+
+Function InitSystemData()
+	sysObj.readFlag.create(48000)
+	sysObj.cgFlag.create(4096)
+	sysObj.recollectFlag.create(32)
+	sysObj.globalScFlag.create(128)
+	sysObj.fQSave := 0
+	Integer i := 0
+	While (i < 60)
+		sysObj.bookmark[i] := Bookmark
+		sysObj.bookmark[i].init()
+		i += 1
+	EndWhile
+	sysObj.newBookmarkIndex := true
+	sysObj.viewOpeningMovie := 0
+	sysObj.gameClear := 0
+EndFunc
+
+Function SaveSystemData()
+	SaveObject("system.dat", sysObj)
+EndFunc
+
+Function LoadObject(String path, Reference object)
+	File file
+	If (file.Open(path))
+		Return 1
+	EndIf
+	Return (file.LoadObject(object))
+EndFunc
+
+Function InitConfigData()
+	cnfObj.screenType := 0
+	cnfObj.flgPlayBgm := true
+	cnfObj.volBgm := 0.0
+	cnfObj.flgPlayVoice := true
+	cnfObj.volVoice := 1.0
+	cnfObj.flgPlaySe := true
+	cnfObj.volSe := 1.0
+	cnfObj.flgPlaySysSe := true
+	cnfObj.volSysSe := 1.0
+	cnfObj.voiceDetails[0] := true
+	cnfObj.voiceDetails[1] := true
+	cnfObj.voiceDetails[2] := true
+	cnfObj.voiceDetails[3] := true
+	cnfObj.voiceDetails[4] := true
+	cnfObj.voiceDetails[5] := true
+	cnfObj.voiceDetails[6] := true
+	cnfObj.voiceDetails[7] := true
+	cnfObj.voiceDetails[8] := true
+	cnfObj.screenEffect := 0
+	cnfObj.updateHideMess := true
+	cnfObj.windowDepth := 128
+	cnfObj.messageSpeed := 15
+	cnfObj.readSkip := true
+	cnfObj.lockSkip := false
+	cnfObj.voiceStopOnClick := false
+	cnfObj.automodeSpeed := 4
+	cnfObj.automodeRemove := false
+EndFunc
+
+Function SaveConfigData()
+	SaveObject("config.dat", cnfObj)
+EndFunc
+
+Function FlushInputQueue()
+	If (inputFilterType == 0)
+		input.FlushInputQueue(256)
+	Else
+		inputE.FlushInputQueue(256)
+	EndIf
+EndFunc
+
+Function Logo()
+	ResourceManager titleSkin
+	titleSkin.LoadResource("title.noa")
+	Sprite sprBase
+	Sprite sprLogo
+	sprBase.AttachImage(titleSkin.ID_FRM_0601)
+	sprBase.SetTransparency(256)
+	sprBase.SetVisible(true)
+	screen.AddSprite(50050, sprBase)
+	sprBase.SetBlendingEnvelope(0)
+	sprBase.BeginActivation(1000)
+	Integer fCancel := WaitUntilSpriteActive(sprBase, true)
+	If (fCancel == false)
+		fCancel := HitWait(1000)
+	EndIf
+	If (fCancel == false)
+		Array brandCall
+		brandCall += "AK080001"
+		brandCall += "KA080001"
+		brandCall += "KO080001"
+		brandCall += "MT080001"
+		brandCall += "NO080001"
+		brandCall += "RH080001"
+		brandCall += "SR080001"
+		brandCall += "YH080001"
+		PlaySysSe(brandCall[MakeRandom(brandCall.GetLength())])
+		sprLogo.AttachImage(titleSkin.ID_FRM_0602)
+		sprLogo.SetTransparency(256)
+		sprLogo.SetVisible(true)
+		ImageInfo info
+		info := sprLogo.GetInfo()
+		sprLogo.MovePosition((ScreenSize.w - info.nImageWidth) / 2, (ScreenSize.h - info.nImageHeight) / 2)
+		screen.AddSprite(50050 - 1, sprLogo)
+		sprLogo.SetBlendingEnvelope(0)
+		sprLogo.BeginActivation(1000)
+		If (WaitUntilSpriteActive(sprBase, true) == 0)
+			fCancel := HitWait(5000)
+		EndIf
+	EndIf
+	If (fCancel == false)
+		sprBase.SetBlendingEnvelope(256)
+		sprBase.BeginActivation(1000)
+		sprLogo.SetBlendingEnvelope(256)
+		sprLogo.BeginActivation(1000)
+		WaitUntilSpriteActive(sprLogo, true)
+	EndIf
+	screen.Lock()
+	sprBase.SetVisible(false)
+	sprLogo.SetVisible(false)
+	screen.Unlock()
+	screen.DetachSprite(sprBase)
+	screen.DetachSprite(sprLogo)
+	titleSkin.DeleteContents()
+EndFunc
+
+Function Title()
+	InitScenarioData()
+	PlayBgm("BGM07")
+	ResourceManager titleSkin
+	titleSkin.LoadResource("title.noa")
+	Sprite sprBase
+	Sprite sprLogo
+	Sprite sprSubLogo
+	Sprite sprMenu
+	sprBase.AttachImage(titleSkin.ID_FRM_0611)
+	screen.AddSprite(52030, sprBase)
+	sprBase.SetTransparency(256)
+	sprBase.SetVisible(true)
+	sprLogo.AttachImage(titleSkin.ID_FRM_0612)
+	screen.AddSprite(52020, sprLogo)
+	sprLogo.SetTransparency(256)
+	sprLogo.MovePosition(223, 95)
+	sprLogo.SetVisible(true)
+	If (IsDebug == true)
+		sprSubLogo.AttachImage(titleSkin.ID_FRM_0614)
+		screen.AddSprite(52020 - 1, sprSubLogo)
+		sprSubLogo.SetTransparency(256)
+		sprSubLogo.MovePosition(369, 171)
+		sprSubLogo.SetVisible(true)
+	ElseIf (IsDebug == true)
+		sprSubLogo.AttachImage(titleSkin.ID_FRM_0613)
+		screen.AddSprite(52020 - 1, sprSubLogo)
+		sprSubLogo.SetTransparency(256)
+		sprSubLogo.MovePosition(511, 171)
+		sprSubLogo.SetVisible(true)
+	EndIf
+	If (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_TG")
+	ElseIf (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU")
+	ElseIf (IsGameClear() == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_FULL")
+	ElseIf (IsDebug == true)
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU_FULL")
+	Else
+		titleSkin.CreateFormPage(sprMenu, "ID_PAGE_MENU")
+	EndIf
+	sprMenu.MovePosition(313, 324)
+	screen.AddSprite(52010, sprMenu)
+	MessageSprite msprVersion
+	msprVersion.CreateMessage(70, 20)
+	msprVersion.AttachMessageStyle(titleSkin, "ID_FONT_VERSION")
+	msprVersion.SetDefaultMsgSpeed(0, 0, 0)
+	msprVersion.MovePosition(800 - 70, 600 - 20)
+	If (IsDebug == true)
+		msprVersion.OutputMessage("Ver 1.00")
+	ElseIf (IsDebug == true)
+		msprVersion.OutputMessage("Ver 1.00")
+	Else
+		msprVersion.OutputMessage("Ver 1.00")
+	EndIf
+	msprVersion.SetTransparency(256)
+	msprVersion.SetVisible(true)
+	screen.AddSprite(52000, msprVersion)
+	msprVersion.SetBlendingEnvelope(0)
+	msprVersion.BeginActivation(500)
+	sprMenu.SetTransparency(256)
+	sprMenu.SetVisible(true)
+	Array brandCall
+	brandCall += "AK080002"
+	brandCall += "KA080002"
+	brandCall += "KO080002"
+	brandCall += "MT080002"
+	brandCall += "NO080002"
+	brandCall += "RH080002"
+	brandCall += "SR080002"
+	brandCall += "YH080002"
+	PlaySysSe(brandCall[MakeRandom(brandCall.GetLength())])
+	sprMenu.SetBlendingEnvelope(0)
+	sprMenu.BeginActivation(300)
+	sprLogo.SetBlendingEnvelope(0)
+	sprLogo.BeginActivation(500)
+	sprSubLogo.SetBlendingEnvelope(0)
+	sprSubLogo.BeginActivation(500)
+	sprBase.SetBlendingEnvelope(0)
+	sprBase.BeginActivation(500)
+	WaitUntilSpriteActive(sprBase)
+	Integer enterTime := GetCurrentTime()
+	Integer ret := true
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsDebug == true)
+			If (IsDebugJump() == true)
+				ret := 102
+				Break
+			EndIf
+		EndIf
+		If (IsUNK1)
+		ElseIf (wscmd.strID == "ID_START")
+			ret := 1
+			Break
+		ElseIf (wscmd.strID == "ID_CONTINUE")
+			LoadSaveWindow win
+			win.create(true)
+			sprMenu.SetBlendingEnvelope(256)
+			sprMenu.BeginActivation(300)
+			win.show()
+			ret := win.run()
+			win.hide(true)
+			win.destroy()
+			If (ret == 40)
+				ret := 2
+				Break
+			EndIf
+			sprMenu.SetBlendingEnvelope(0)
+			sprMenu.BeginActivation(300)
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (wscmd.strID == "ID_TG")
+			ret := 11
+			Break
+		ElseIf (wscmd.strID == "ID_CONFIG")
+			sprMenu.SetBlendingEnvelope(256)
+			sprMenu.BeginActivation(300)
+			ConfigWindow win
+			win.create(true)
+			win.show()
+			win.run()
+			sprMenu.SetBlendingEnvelope(0)
+			sprMenu.BeginActivation(300)
+			win.hide(true)
+			win.destroy()
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (wscmd.strID == "ID_APPRECIATION")
+			ret := 3
+			Break
+		ElseIf (wscmd.strID == "ID_EXITGAME")
+			AskGameExit()
+			screen.FlushCommandQueue(true)
+			enterTime := GetCurrentTime()
+		ElseIf (input.GetJoyButtonPushed(17) > 0)
+			If (sysObj.fQSave == true)
+				If (Confirm("クイックロードします", true) == true)
+					QuickLoad()
+					ret := 2
+					Break
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(7) > 0)
+			If (IsUNK1)
+				ret := 103
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(23) > 0)
+			If (IsUNK1)
+				ret := 102
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(24) > 0)
+			If (IsUNK1)
+				Debug("CG/回想-全閲覧")
+				Integer i
+				i := 0
+				While (i < sysObj.cgFlag.flag.GetLength())
+					sysObj.cgFlag.flag[i] := true
+					i += 1
+				EndWhile
+				i := 0
+				While (i < sysObj.recollectFlag.flag.GetLength())
+					sysObj.recollectFlag.flag[i] := true
+					i += 1
+				EndWhile
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(25) > 0)
+			if (IsUNK1)
+				Debug("ゲームクリア")
+				OnGameClear()
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(26) > 0)
+			If (IsUNK1)
+				TestCode02()
+			EndIf
+			FlushJoyButton()
+		EndIf
+	EndWhile
+	StopBgm()
+	msprVersion.SetBlendingEnvelope(256)
+	sprLogo.SetBlendingEnvelope(256)
+	sprSubLogo.SetBlendingEnvelope(256)
+	sprBase.SetBlendingEnvelope(256)
+	sprMenu.SetBlendingEnvelope(256)
+	Integer time
+	If (ret == 1)
+		time := 3000
+	Else
+		time := 500
+	EndIf
+	msprVersion.BeginActivation(time)
+	sprLogo.BeginActivation(time)
+	sprSubLogo.BeginActivation(time)
+	sprBase.BeginActivation(time)
+	sprMenu.BeginActivation(time)
+	WaitUntilSpriteActive(sprBase, true)
+	screen.DetachSprite(sprBase)
+	screen.DetachSprite(sprLogo)
+	screen.DetachSprite(sprSubLogo)
+	screen.DetachSprite(sprMenu)
+	screen.DetachSprite(msprVersion)
+	titleSkin.DeleteContents()
+	Return ret
+EndFunc
+
+Function ScenarioLoop(String func)
+	StopBgm()
+	SetupAdvScreen()
+	Change(func)
+	adv.setToneFilter("NORMAL")
+	adv.setCg("BLACK")
+	While (scObj.scenarioCall != "EXIT_SCENARIO")
+		If (IsDebug == true)
+			Debug("\\c;8888FF:Jump-" + scObj.scenarioCall + "\\c:")
+		EndIf
+		String tempCall
+		tempCall := "sc" + scObj.scenarioCall
+		tempCall := tempCall.Replace("-", "_")
+		If (tempCall.Call() == true)
+			Break
+		EndIf
+	EndWhile
+	adv.setToneFilter("NORMAL")
+	adv.hideMessage()
+	adv.setCg("BLACK")
+	adv.bustupClear()
+	adv.update(false, true)
+	StopVoice()
+	StopSe()
+	StopEnvSe()
+	StopBgm(false)
+	DestroyAdvScreen()
+EndFunc
+
+Function Appreciation()
+	StopBgm()
+	EnterRecollectMode()
+	AppreciationView view
+	view.create(0, 0, true)
+	view.run()
+	view.destroy()
+	LeaveRecollectMode()
+EndFunc
+
+Function PlayBgm(String file, Integer fNonFade)
+	file.MakeUpper()
+	If (IsPlayBgm() && (bgm[bgmIndex].filename == file))
+		Return
+	EndIf
+	If (IsPlayBgm())
+		StopBgm(fNonFade)
+	Endif
+	Debug("BGM-" + file)
+	If (bgmIndex == 0)
+		bgmIndex := 1
+	Else
+		bgmIndex := 0
+	EndIf
+	bgm[bgmIndex].filename := file
+	SetBgmInfo(bgm[bgmIndex])
+	bgm[bgmIndex].fPause := 0
+	If (cnfObj.flgPlayBgm == true)
+		bgm[bgmIndex].fPlaying := true
+	Else
+		bgm[bgmIndex].fPlaying := false
+		Return
+	EndIf
+	bgm[bgmIndex].res.LoadSound(file + ".mio", true)
+	If (fNonFade == false)
+		bgm[bgmIndex].res.SetVolume(0.0, 0.0)
+		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+		Bezier2D bzVol
+		bzVol.SetLinear(0.0, 0.0, cnfObj.volBgm, cnfObj.volBgm)
+		bgm[bgmIndex].res.SetVolumeEnvelope(bzVol, 2000)
+	Else
+		bgm[bgmIndex].res.SetVolume(cnfObj.volBgm, cnfObj.volBgm)
+		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+	EndIf
+EndFunc
+
+Function StopBgm(Integer fNonFade, Integer fConfigStop)
+	Debug("BGM-STOP")
+	If (fNonFade == false)
+		Bezier2D bzVol
+		Real leftVol
+		Real rightVol
+		bgm[bgmIndex].res.GetVolume(leftVol, rightVol)
+		bzVol.SetLinear(leftVol, rightVol, 0.0, 0.0)
+		bgm[bgmIndex].res.SetVolumeEnvelope(bzVol, 3000)
+		bgm[bgmIndex].fEndingProcess := true
+	EndIf
+	If (fNonFade != false)
+		bgm[bgmIndex].res.Stop()
+		bgm[bgmIndex].res.Release()
+	EndIf
+	bgm[bgmIndex].fPlaying := 0
+	If (fConfigStop == false)
+		bgm[bgmIndex].filename := ""
+	EndIf
 EndFunc
 

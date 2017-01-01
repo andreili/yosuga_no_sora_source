@@ -90,6 +90,12 @@ Structure ConfigDataBase
 	Integer automodeRemove
 EndStruct
 
+Structure Bookmark
+	Integer fSave
+	String comment
+	Time time
+EndStruct
+
 Structure SystemObject
 	Flag readFlag
 	Flag cgFlag
@@ -209,6 +215,46 @@ Structure AdvScreen
 			this.fToneFilter := false
 			this.typeToneFilter := "NORMAL"
 			this.fEscMenu := false
+		EndIf
+	End
+EndStruct
+
+Structure LoadSaveWindow
+	Sprite sprBase
+	Sprite sprFrame
+	Array sprThumb
+	Array sprThumbBase
+	Resource rcThumbMask
+	Integer fLoad
+EndStruct
+
+Structure ConfigWindow
+	Sprite sprBase
+EndStruct
+
+Structure AppreciationView
+	ResourceManager optionSkin
+	Sprite sprBase
+	Sprite sprBack
+	Sprite sprTitle
+	Array sprTag
+	Sprite sprThumbBase
+	Sprite sprMusic
+	Sprite sprScroll
+	Integer selTag
+	Integer selPage
+	Array cgViewMan
+	Integer selPlayBgm
+	Integer isPlayBgm
+	Integer fScroll
+	Real scrollT
+	Integer cnfPlayBgm
+	Begin
+		If (InitFields)
+			this.selTag := true
+			this.selPage := true
+			this.selPlayBgm := true
+			this.isPlayBgm := true
 		EndIf
 	End
 EndStruct
