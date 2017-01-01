@@ -1,0 +1,29 @@
+Function LoadSystemData()
+	If (File.IsExisting("system.dat"))
+		LoadObject("system.dat", sysObj)
+	Else
+		InitSystemData()
+		SaveSystemData()
+	EndIf
+EndFunc
+
+Function InitSystemData()
+	sysObj.readFlag.create(48000)
+	sysObj.cgFlag.create(4096)
+	sysObj.recollectFlag.create(32)
+	sysObj.globalScFlag.create(128)
+	sysObj.fQSave := 0
+	Integer i := 0
+	While (i < 60)
+		sysObj.bookmark[i] := Bookmark
+		sysObj.bookmark[i].init()
+		i += 1
+	EndWhile
+	sysObj.newBookmarkIndex := true
+	sysObj.viewOpeningMovie := 0
+	sysObj.gameClear := 0
+EndFunc
+
+Function SaveSystemData()
+	SaveObject("system.dat", sysObj)
+EndFunc
