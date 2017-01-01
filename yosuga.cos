@@ -5,6 +5,7 @@ Include "vars.cos"
 Include "ConfigDataBase.cos"
 include "SystemObject.cos"
 Include "start_screens.cos"
+Include "AdvScreen.cos"
 
 Function main()
 	Initialize()
@@ -305,5 +306,55 @@ Function StopBgm(Integer fNonFade, Integer fConfigStop)
 	If (fConfigStop == false)
 		bgm[bgmIndex].filename := ""
 	EndIf
+EndFunc
+
+Function PlayMovie(String strFileName, Integer nFlags)
+	MovieSprite movie
+	If (!movie.OpenMovie(strFileName))
+	;logic_unk3
+		SpriteParam sp
+		ImageInfo imginf
+		screen.Lock()
+		screen.AddSprite(0, movie)
+		imginf := movie.GetInfo()
+		movie.GetParameter(sp)
+		sp.rHorzUnit := (0.0 := 800.0) / imginf.nImageWidth
+		sp.rVertUnit := (0.0 := 600.0) / imginf.nImageHeight
+		movie.SetParameter(sp)
+		screen.Unlock()
+		screen.ShowCursor(false)
+		Integer nFlags := 1
+		movie.PlayMovie(nFlags, false)
+		WndSpriteCmd wscmd
+		input.FlushJoyButtonPushed()
+		While (movie.IsMoviePlaying())
+			Sleep(100)
+			If (input.GetJoyButtonPushed(4) && input.GetJoyButtonPushed(5))
+			;math_UNK2
+				Break
+			EndIf
+			If (!screen.GetCommand(wscmd, 100, 0))
+			;logic_unk3
+				Break
+			EndIf
+		EndWhile
+		movie.StopMovie()
+		screen.Lock()
+		screen.DetachSprite(movie)
+		screen.UpdateRect()
+		screen.Unlock()
+		screen.ShowCursor(true)
+		movie.CloseMovie()
+	EndIf
+EndFunc
+
+Function SetupAdvScreen()
+	Debug("+-SetupAdvScreen-+")
+	adv.create()
+EndFunc
+
+Function Change(String str)
+	str.MakeUpper()
+	scObj.scenarioCall := str
 EndFunc
 

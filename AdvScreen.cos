@@ -1,0 +1,268 @@
+Function AdvScreen::setToneFilter(String type)
+	type.MakeUpper()
+	If (this.typeToneFilter != type)
+		If (type == "")
+			type := "NORMAL"
+		EndIf
+		If (this.toneFilter[type].GetType() == "ToneFilter")
+			this.typeToneFilter := type
+		EndIf
+		Debug("Tone-" + this.typeToneFilter)
+		this.reqToneFilter := true
+		this.fUpdate := true
+	EndIf
+EndFunc
+
+Function AdvScreen::actionJump(Integer id)
+	Reference rTarget
+	Integer i
+	i := 0
+	While (i < (this.bustupMan.info.GetLength()))
+        If (this.bustupMan.info[i].id == id)
+            rTarget := this.bustupMan.spr[i]
+			Break
+        EndIf
+        i += 1
+    EndWhile
+    If (i == (this.bustupMan.info.GetLength()))
+        Return
+    EndIf
+	SpriteParam param
+	rTarget.GetParameter(param)
+	Reference pt
+	pt := param.ptDstPos
+	Bezier2D bzCurve1
+	Bezier2D bzCurve2
+	bzCurve1.SetLinear(pt.x, pt.y, pt.x, pt.y - 25)
+	bzCurve2.SetLinear(pt.x, pt.y - 25, pt.x, pt.y)
+	bzCurve1.SetAcceleration(3.0, 0.0)
+	bzCurve2.SetAcceleration(3.0, 0.0)
+	rTarget.SetBezierCurve(bzCurve1)
+	rTarget.BeginActivation(200)
+	WaitUntilSpriteActive(rTarget, 0)
+	rTarget.SetBezierCurve(bzCurve2)
+	rTarget.BeginActivation(200)
+	WaitUntilSpriteActive(rTarget, 0)
+EndFunc
+
+Function AdvScreen::actionShake(Integer id)
+	Reference rTarget
+	Integer i
+	i := 0
+	While (i < this.bustupMan.info.GetLength())
+        If (this.bustupMan.info[i].id == id)
+            rTarget := this.bustupMan.spr[i]
+            Break
+        EndIf
+        i += 1
+    EndWhile
+    If (i == this.bustupMan.info.GetLength())
+        Return
+	EndIf
+    SpriteParam param
+    rTarget.GetParameter(param)
+    Reference pt
+	pt := param.ptDstPos
+	Integer w := 25
+	Bezier2D bzCurve1
+	Bezier2D bzCurve2
+	Bezier2D bzCurve3
+	Bezier2D bzCurve4
+	bzCurve1.SetLinear(pt.x, pt.y, pt.x - w, pt.y)
+	bzCurve2.SetLinear(pt.x - w, pt.y, pt.x + w, pt.y)
+	bzCurve3.SetLinear(pt.x + w, pt.y, pt.x - w, pt.y)
+	bzCurve4.SetLinear(pt.w + w, pt.y, pt.x, pt.y)
+	bzCurve1.SetAcceleration(3.0, 0.0)
+	bzCurve2.SetAcceleration(3.0, 0.0)
+	bzCurve3.SetAcceleration(3.0, 0.0)
+	bzCurve4.SetAcceleration(3.0, 0.0)
+	Integer time := 30
+	rTarget.SetBezierCurve(bzCurve1)
+	rTarget.BeginActivation(time)
+	WaitUntilSpriteActive(rTarget, 0)
+	Integer count := 1
+	While (count >= 0)
+        rTarget.SetBezierCurve(bzCurve2)
+        rTarget.BeginActivation(time * 2)
+        WaitUntilSpriteActive(rTarget, 0)
+        count -= 1
+        If (count >= 0)
+            rTarget.SetBezierCurve(bzCurve3)
+            rTarget.BeginActivation(time * 2)
+            WaitUntilSpriteActive(rTarget, 0)
+        EndIf
+    EndWhile
+    rTarget.SetBezierCurve(bzCurve4)
+    rTarget.BeginActivation(time)
+    WaitUntilSpriteActive(rTarget, 0)
+EndFunc
+
+Function AdvScreen::addjustMessage(Reference mess)
+	addjustMessage_think(mess)
+	mess := mess.Left(mess.GetLength() - 1)
+EndFunc
+
+Function AdvScreen::addjustMessage_(Reference mess)
+	String temp
+	Integer num := 19
+	Integer index := 0
+	While (mess.Char(index) == 10)
+        index += 1
+    EndWhile
+    temp := mess.Middle(0, index)
+    If (this.talkType == 0)
+        While (index < mess.GetLength())
+            temp += mess.Middle(index, num) + "\n"
+            index += num
+        EndWhile
+    Else
+        temp += mess.Middle(index, num) + "\n"
+        index += num
+        While (index < mess.GetLength())
+            temp += " " + mess.Middle(index, num - 1) + " \n"
+            index += num
+        EndWhile
+    EndIf
+    mess := mess.Replace("^", "\n")
+    mess := temp
+EndFunc
+
+Function AdvScreen::addjustMessage_talk(Reference mess)
+	String temp
+	String char
+	char := "^"
+	Integer fTop := -1
+	Integer num := 28
+	Integer index := 0
+    While (mess.Char(index) == 10)
+        index += 1
+    EndWhile
+    temp := mess.Middle(0, index)
+	Integer length := mess.GetLength() - index
+    While (index < mess.GetLength())
+        Integer i := 0
+        Integer fRet := 0
+        Integer num_
+        If (fTop == -1)
+            num_ := num
+        Else
+            num_ := num - 1
+        EndIf
+        While (i < num_)
+            If (mess.Char(index + i) == char.Char(0))
+                If (fTop == -1)
+                    temp += mess.Middle(index, i + 1)
+                Else
+                    temp += " " + mess.Middle(index, i + 1)
+                EndIf
+                fRet := -1
+                i += 1
+                Break
+            EndIf
+			i += 1
+        EndWhile
+        If ((i == num_) & (fRet == 0))
+            Integer fKinsoku := 0
+            Integer iKin := 0
+            While (iKin < kinsoku.GetLength()) ; //TODO
+                If (mess.Char(index + i) == kinsoku.Char(iKin))    ; //TODO
+                    fKinsoku := -1
+                    Break
+                EndIf
+                iKin += 1
+            EndWhile
+            If (fTop == -1)
+                if (fKinsoku == 0)
+                    temp += mess.Middle(index, i) + "\n"
+                Else
+                    temp += mess.Middle(index, i + 1) + "\n"
+                    i += 1
+                EndIf
+            Else
+                If (fKinsoku == 0)
+                    temp += " " + mess.Middle(index, i) + "\n"
+                Else
+                    temp += " " + mess.Middle(index, i + 1) + "\n"
+                    i += 1
+				EndIf
+            EndIf
+        EndIf
+        If (fTop == -1)
+            fTop := 0
+        EndIf
+        index += i
+    EndWhile
+    temp := temp.Replace("^", "\n")
+    mess := temp
+EndFunc
+
+Function AdvScreen::addjustMessage_think(Reference mess)
+	String temp
+	String char
+	char :=  "^"
+	Integer num := 28
+	Integer index := 0
+    While (mess.Char(index) == 10)
+        index += 1
+    EndWhile
+    temp := mess.Middle(0, index)
+	Integer length := mess.GetLength() - index
+    While (index < mess.GetLength())
+        Integer i := 0
+        Integer fRet := 0
+        While (i < num)
+            If (mess.Char(index + i) == char.Char(0))
+                temp += mess.Middle(index, i + 1)
+                fRet := -1
+                i += 1
+                Break
+            EndIf
+            i += 1
+        EndWhile
+        If ((i == num) & (fRet == 0))
+            Integer fKinsoku := 0
+            Integer iKin := 0
+            While (iKin < kinsoku.GetLength()) ; //TODO
+                If (mess.Char(index + i) == kinsoku.Char(iKin)) ; //TODO
+                    fKinsoku := -1
+                    Break
+				EndIf
+                iKin += 1
+            EndWhile
+            If (fKinsoku == 0)
+                temp += mess.Middle(index, i) + "\n"
+            Else
+                temp += mess.Middle(index, i + 1) + "\n"
+                i += 1
+            EndIf
+        EndIf
+        index += i
+    EndWhile
+    temp := temp.Replace("^", "\n")
+    mess := temp
+EndFunc
+
+Function AdvScreen::addSelect(String str, Integer flag)
+	this.selectItem += str
+EndFunc
+
+Function AdvScreen::autoMode(Integer f)
+    this.fAutoMode := f
+    this.msgFrame.autoMode(f)
+EndFunc
+
+Function AdvScreen::beginAnimation()
+    If (this.fCreate == 0)
+        Return
+    EndIf
+    If (this.cg.effectParam.strType != "Nothing")
+        this.sprCg.SetEffectParameter(this.cg.effectParam)
+    EndIf
+    Integer i := 0
+    While (i < 5)
+        If (this.bustupMan.info[i].status != 0)
+            this.bustupMan.spr[i].BeginAnimation(MakeRandom(-1, 27))
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
