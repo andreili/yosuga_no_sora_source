@@ -2,6 +2,7 @@ Include	"cotopha.cos"
 Include	"structs.cos"
 Include "vars.cos"
 
+Include "ConfigDataBase.cos"
 include "SystemObject.cos"
 
 Function main()
@@ -72,15 +73,6 @@ Function InitScenarioData()
 	scObj.seqLog.create(512)
 	scObj.voiceLog.create(512)
 	Return
-EndFunc
-
-Function LoadConfigData()
-	If (File.IsExisting("config.dat"))
-		LoadObject("config.dat", cnfObj)
-	Else
-		InitConfigData()
-		SaveConfigData()
-	EndIf
 EndFunc
 
 Function ChangeDisplay(Integer fFullscreen)
@@ -208,40 +200,6 @@ Function LoadObject(String path, Reference object)
 		Return 1
 	EndIf
 	Return (file.LoadObject(object))
-EndFunc
-
-Function InitConfigData()
-	cnfObj.screenType := 0
-	cnfObj.flgPlayBgm := true
-	cnfObj.volBgm := 0.0
-	cnfObj.flgPlayVoice := true
-	cnfObj.volVoice := 1.0
-	cnfObj.flgPlaySe := true
-	cnfObj.volSe := 1.0
-	cnfObj.flgPlaySysSe := true
-	cnfObj.volSysSe := 1.0
-	cnfObj.voiceDetails[0] := true
-	cnfObj.voiceDetails[1] := true
-	cnfObj.voiceDetails[2] := true
-	cnfObj.voiceDetails[3] := true
-	cnfObj.voiceDetails[4] := true
-	cnfObj.voiceDetails[5] := true
-	cnfObj.voiceDetails[6] := true
-	cnfObj.voiceDetails[7] := true
-	cnfObj.voiceDetails[8] := true
-	cnfObj.screenEffect := 0
-	cnfObj.updateHideMess := true
-	cnfObj.windowDepth := 128
-	cnfObj.messageSpeed := 15
-	cnfObj.readSkip := true
-	cnfObj.lockSkip := false
-	cnfObj.voiceStopOnClick := false
-	cnfObj.automodeSpeed := 4
-	cnfObj.automodeRemove := false
-EndFunc
-
-Function SaveConfigData()
-	SaveObject("config.dat", cnfObj)
 EndFunc
 
 Function FlushInputQueue()
