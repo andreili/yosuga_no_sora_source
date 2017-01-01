@@ -3,9 +3,9 @@
 ;	àÍî ìIÇ»íËêî
 ; ----------------------------------------------------------------------------
 
-@IF	@IsDefined("__COTOPHA_CH__") == 0
+;@IF	@IsDefined("__COTOPHA_CH__") == 0
 
-Constant	__COTOPHA_CH__ := -1
+;Constant	__COTOPHA_CH__ := -1
 
 Constant	NULL := 0
 Constant	true := -1, false := 0
@@ -557,5 +557,5 @@ Constant	GLS_USE_MMX_PENTIUM	:= 0002H,
 			GLS_USE_XMM_SSE2	:= 0010H
 
 
-@ENDIF
+;@ENDIF
 
