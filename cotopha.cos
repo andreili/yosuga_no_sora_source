@@ -1,0 +1,593 @@
+
+; ----------------------------------------------------------------------------
+;					詞葉☆標準スクリプトライブラリ
+; ----------------------------------------------------------------------------
+
+
+Include	"cotopha.ch"
+
+
+; ----------------------------------------------------------------------------
+;	構造体の実装
+; ----------------------------------------------------------------------------
+
+; 座標
+Structure	Point
+	Integer	x
+	Integer	y
+EndStruct
+
+; サイズ
+Structure	Size
+	Integer	w
+	Integer	h
+EndStruct
+
+; 矩形
+Structure	Rect
+	Integer	left
+	Integer	top
+	Integer	right
+	Integer	bottom
+EndStruct
+
+; スプライト情報
+Structure	SpriteParam
+	Integer		nFlags					; 描画フラグ
+	Point		ptDstPos				; 出力基準座標
+	Point		ptRevCenter				; 回転中心座標
+	Real		rHorzUnit := 1.0		; ｘ軸拡大率
+	Real		rVertUnit := 1.0		; ｙ軸拡大率
+	Real		rRevAngle				; 回転角度 [deg]
+	Real		rCrossingAngle := 90.0	; ｘｙ軸交差角 [deg]
+	Integer		rgbDimColor				; α描画色
+	Integer		rgbLightColor := 00FFFFFFH
+	Integer		nTransparency			; 透明度
+	Real		rZOrder					; ｚ値
+	Integer		rgbColorParam1			; 色パラメータ
+EndStruct
+
+; 画像リソース情報
+Structure	ImageInfo
+	Integer	nFormatType
+	Integer	nImageWidth
+	Integer	nImageHeight
+	Integer	nBitsPerPixel	; 通常 32 固定
+	Integer	nFrameCount		; 静止画の場合 1
+	Integer	xHotSpot
+	Integer	yHotSpot
+	Integer	nResourceBytes
+EndStruct
+
+; 音声リソース情報
+Structure	SoundInfo
+	Integer	nSampleCount
+	Integer	nSamplesPerSec
+	Integer	nChannelCount
+	Integer	nBitsPerSample
+	Integer	nRewoundPosition
+	Integer	nResourceBytes
+EndStruct
+
+; スキンコマンド
+Structure	WndSpriteCmd
+	String	strID			; アイテム識別子
+	String	strFullID
+	Integer	nNotification	; 通知コード
+	Integer	nParameter		; パラメータ
+EndStruct
+
+;  2次元ベクトル
+Structure	Vector2D
+	Real	x
+	Real	y
+EndStruct
+
+; 3 次元ベクトル
+Structure	Vector
+	Real	x
+	Real	y
+	Real	z
+EndStruct
+
+; 入力イベント
+Structure	InputEvent
+	Integer	idType		; デバイスタイプ
+	Integer	iDevNum		; デバイス番号（ジョイスティックのみ）
+	Integer	iKeyNum		; 仮想キーコード／仮想ジョイスティックボタン
+	String	strCommand	; コマンドID
+EndStruct
+
+; ベジェ曲線
+Structure	Bezier1D	: Array
+	parent[0] := Real
+	parent[1] := Real
+	parent[2] := Real
+	parent[3] := Real
+EndStruct
+
+Structure	Bezier2D	: Array
+	parent[0] := Vector2D
+	parent[1] := Vector2D
+	parent[2] := Vector2D
+	parent[3] := Vector2D
+EndStruct
+
+Structure	Bezier3D	: Array
+	parent[0] := Vector
+	parent[1] := Vector
+	parent[2] := Vector
+	parent[3] := Vector
+EndStruct
+
+; 表面属性
+Structure	SurfaceAttribute
+	Integer		nShadingFlags
+	Integer		rgbColorMul := 0FFFFFFH
+	Integer		rgbColorAdd
+	Integer		nAmbient
+	Integer		nDiffusion
+	Integer		nSpecular
+	Integer		nTransparency
+	Integer		nDeepness
+EndStruct
+
+; 色情報
+Structure	E3DColor
+	Integer	rgbMul := 0FFFFFFH
+	Integer	rgbAdd
+EndStruct
+
+; 光源
+Structure	LightEntry
+	Integer		nLightType
+	Integer		rgbColor
+	Real		rBrightness
+	Vector		vecLight
+EndStruct
+
+; 時刻
+Structure	Time
+	Integer	nYear
+	Integer	nMonth
+	Integer	nDay
+	Integer	nWeek
+	Integer	nHour
+	Integer	nMinute
+	Integer	nSecond
+EndStruct
+
+; メモリステータス
+Structure	MemoryStatus
+	Integer	nTotalPhys
+	Integer	nAvailPhys
+	Integer	nTotalVirtual
+	Integer	nAvailVirtual
+EndStruct
+
+; エフェクトパラメータ
+Structure	EffectParam
+	String	strType
+	Integer	nFlags
+	Integer	nInterval, nDegreeStep
+	Integer	nShakingWidth, nMeshSize, nMeshDivision, nFrequency
+	Size	sizeView
+	Point	ptSpeed
+	Integer	nAlphaRange, nMilliSecPerDegree
+	Point	ptSmashPoint
+	Real	rSmashDelay, rSmashPower, rRandomPower, rDeceleration
+	Vector	vVelocity, vGravity, vRevSpeed, vRevRandom
+EndStruct
+
+; パーティクルパラメータ
+Structure	ParticleFlick
+	Real	rAmplitude			; 揺らぎ幅 [pixel]
+	Real	rAmplitudeRange		; 揺らぎ幅（乱数） [pixel]
+	Real	rFrequency			; 揺らぎ周期 [ms]
+	Real	rFrequencyRange		; 揺らぎ周期（乱数） [ms]
+EndStruct
+
+Structure	ParticleParam
+	Integer		nFlags				; フラグ
+	Integer		nDuration			; 寿命 [ms]
+	Integer		nAnimationSpeed := 100H	; アニメーション速度比 x100H
+									;（アニメ画像パーティクル用）
+	Integer		nFadein				; フェードイン時間 [ms]
+	Integer		nFadeout			; フェードアウト時間 [ms]
+	Integer		nFadeTransparency	; フェードアウト透明度
+	Real		rFadeZoom := 1.0	; フェードアウト時の拡大比率
+	Real		rGenWidth			; 発生幅 [pixel]
+	Real		rGenHeight
+	Real		rGenAngle			; 発生角 [deg]
+	Real		rGenAngleRange		; 発生角の幅（乱数） [deg]
+	Real		rGenVelocity		; （中心から遠ざかる）初速 [pixel/sec]
+	Real		rGenVelocityRange	; 初速の幅（乱数） [pixel/sec]
+	Real		rShrink				; 初速減速率 [/sec]
+	Real		rRevSpeed			; 回転速度 [deg/sec]
+	Real		rRevSpeedRange		; 回転速度の幅（乱数）[deg/sec]
+	Real		rZoom := 1.0			; 拡大率
+	Real		rZoomRange			; 拡大率の幅（乱数）]
+	Array		pfFlickness			; 揺らぎ
+	Vector2D	vGenSpeed			; 初速ベクトル [pixel/sec]
+	Real		rGenSpeedRange		; 初速の幅（乱数）[pixel/sec]
+	Vector2D	vStream				; 流速 [pixel/sec]
+	Vector2D	vGravity			; 重力加速度 [pixel/sec/sec]
+
+	this.pfFlickness[0] := ParticleFlick
+	this.pfFlickness[1] := ParticleFlick
+EndStruct
+
+
+Structure	ParticleParam3D
+	Integer		nFlags				; フラグ
+	Integer		nDuration			; 寿命 [ms]
+	Integer		nAnimationSpeed := 100H		; アニメーション速度比 x100H
+									;（アニメ画像パーティクル用）
+	Integer		nFadein				; フェードイン時間 [ms]
+	Integer		nFadeout			; フェードアウト時間 [ms]
+	Integer		nFadeTransparency	; フェードアウト透明度
+	Real		rFadeZoom := 1.0	; フェードアウト時の拡大比率
+	Vector		vGenWidth			; 発生幅
+	Vector		vGenAngle			; 発生角 [deg]
+	Real		rGenAngleRange		; 発生角の幅（乱数） [deg]
+	Real		rGenVelocity		; （中心から遠ざかる）初速 [pixel/sec]
+	Real		rGenVelocityRange	; 初速の幅（乱数） [pixel/sec]
+	Real		rShrink				; 初速減速率 [/sec]
+	Vector		vRevBaseAxis		; 回転軸
+	Real		rRevSpeed			; 回転速度 [deg/sec]
+	Real		rRevSpeedRange		; 回転速度の幅（乱数）[deg/sec]
+	Vector		vRevRevAxis			; 回転軸を回転させる基底（ランダム用）
+	Real		rRevRevRange		; 回転軸の回転幅（乱数）[deg]
+	Real		rZoom := 1.0			; 拡大率
+	Real		rZoomRange			; 拡大率の幅（乱数）
+	Array		pfFlickness			; 揺らぎ
+	Vector		vGenSpeed			; 初速ベクトル [pixel/sec]
+	Real		rGenSpeedRange		; 初速の幅（乱数）[pixel/sec]
+	Vector		vStream				; 流速 [pixel/sec]
+	Vector		vGravity			; 重力加速度 [pixel/sec/sec]
+
+	this.pfFlickness[0] := ParticleFlick
+	this.pfFlickness[1] := ParticleFlick
+EndStruct
+
+
+
+; ----------------------------------------------------------------------------
+;	算術関数
+; ----------------------------------------------------------------------------
+
+Function	fabs( Real x )
+	Return	x.Abs()
+EndFunc
+
+Function	log( Real x )
+	Return	x.Log()
+EndFunc
+
+Function	log10( Real x )
+	Return	x.Log( 10.0 )
+EndFunc
+
+Function	pow( Real x, Real y )
+	Return	x.Power( y )
+EndFunc
+
+Function	sqrt( Real x )
+	Return	x.Sqrt()
+EndFunc
+
+Function	sin( Real x )
+	Return	x.Sin()
+EndFunc
+
+Function	cos( Real x )
+	Return	x.Cos()
+EndFunc
+
+Function	tan( Real x )
+	Return	x.Tan()
+EndFunc
+
+Function	asin( Real x )
+	Return	x.ASin()
+EndFunc
+
+Function	acos( Real x )
+	Return	x.ACos()
+EndFunc
+
+Function	atan( Real x )
+	Return	x.ATan()
+EndFunc
+
+Function	atan2( Real x, Real y )
+	Return	x.ATan( y )
+EndFunc
+
+
+; ----------------------------------------------------------------------------
+;	構造体即値構築
+; ----------------------------------------------------------------------------
+
+Function	IPoint( Integer x, Integer y )
+	Point	point
+	point.x := x
+	point.y := y
+	Return	point
+EndFunc
+
+Function	ISize( Integer w, Integer h )
+	Size	size
+	size.w := w
+	size.h := h
+	Return	size
+EndFunc
+
+Function	IRect( Integer left, Integer top, Integer right, Integer bottom )
+	Rect	rect
+	rect.left := left
+	rect.top := top
+	rect.right := right
+	rect.bottom := bottom
+	Return	rect
+EndFunc
+
+Function	IVector2D( Real x, Real y )
+	Vector2D	v
+	v.x := x
+	v.y := y
+	Return	v
+EndFunc
+
+Function	IVector( Real x, Real y, Real z )
+	Vector	v
+	v.x := x
+	v.y := y
+	v.z := z
+	Return	v
+EndFunc
+
+
+; ----------------------------------------------------------------------------
+;	ベクトル操作
+; ----------------------------------------------------------------------------
+
+Function	Vector2D::@Operate( Integer nType, Reference v )
+	If	nType == csotAdd
+		this.x += v.x
+		this.y += v.y
+	ElseIf	nType == csotSub
+		this.x -= v.x
+		this.y -= v.y
+	ElseIf	nType == csotMul
+		this.x *= v
+		this.y *= v
+	ElseIf	nType == csotDiv
+		this.x /= v
+		this.y /= v
+	Else
+		Return	"Vector2D 型の定義されていない演算子です。"
+	EndIf
+EndFunc
+
+Function	Vector2D::Revolve( Real r )
+	Vector2D	v
+	Real	rad
+	rad := r * 3.141592653 / 180
+	v.x := this.x * rad.Cos() - this.y * rad.Sin()
+	v.y := this.x * rad.Sin() + this.y * rad.Cos()
+	Return	v
+EndFunc
+
+Function	Vector2D::Abs( )
+	Return	(this.x * this.x + this.y * this.y).Sqrt( )
+EndFunc
+
+Function	Vector2D::RoundTo1( )
+	Real	r
+	r := Abs( )
+	this.x /= r
+	this.y /= r
+	Return	this
+EndFunc
+
+
+Function	Vector::@Operate( Integer nType, Reference v )
+	If	nType == csotAdd
+		this.x += v.x
+		this.y += v.y
+		this.z += v.z
+	ElseIf	nType == csotSub
+		this.x -= v.x
+		this.y -= v.y
+		this.z -= v.z
+	ElseIf	nType == csotMul
+		this.x *= v
+		this.y *= v
+		this.z *= v
+	ElseIf	nType == csotDiv
+		this.x /= v
+		this.y /= v
+		this.z /= v
+	Else
+		Return	"Vector 型の定義されていない演算子です。"
+	EndIf
+EndFunc
+
+Function	Vector::Abs( )
+	Return	(this.x * this.x + this.y * this.y + this.z * this.z).Sqrt( )
+EndFunc
+
+Function	Vector::RoundTo1( )
+	Real	r
+	r := Abs( )
+	this.x /= r
+	this.y /= r
+	this.z /= r
+	Return	this
+EndFunc
+
+
+; ----------------------------------------------------------------------------
+;	ベジェ曲線操作
+; ----------------------------------------------------------------------------
+
+Function	BezierR64::SetLinear( Real r0, Real r1 )
+	Real	rDelta
+	rDelta := (r1 - r0) / 3.0
+	this.cp[0] := r0
+	this.cp[1] := r0 + rDelta
+	this.cp[2] := r1 - rDelta
+	this.cp[3] := r1
+EndFunc
+
+Function	BezierR64::SetAcceleration( Real a0, Real a1 )
+	this.cp[1] := (this.cp[1] - this.cp[0]) * a0 + this.cp[0]
+	this.cp[2] := (this.cp[2] - this.cp[3]) * a1 + this.cp[3]
+EndFunc
+
+Function	BezierR64::pt( Real t )
+	Array	f
+	f[0] := 1.0		; 6 / (6 * 1)
+	f[1] := 3.0		; 6 / (2 * 1)
+	f[2] := 3.0		; 6 / (1 * 2)
+	f[3] := 1.0		; 6 / (1 * 6)
+	;
+	Real	r := 0.0
+	Integer	i := 0
+	Repeat
+		Real	b
+		b := f[3] * t.Power(i) * Real(1.0 - t).Power(3 - i)
+		r += this.cp[i] * b
+		i += 1
+	Until	i >= 4
+	;
+	Return	r
+EndFunc
+
+Function	Bezier1D::SetLinear( Real r0, Real r1 )
+	Real	rDelta
+	rDelta := (r1 - r0) / 3.0
+	parent[0] := r0
+	parent[1] := r0 + rDelta
+	parent[2] := r1 - rDelta
+	parent[3] := r1
+EndFunc
+
+Function	Bezier1D::SetAcceleration( Real a0, Real a1 )
+	parent[1] := (parent[1] - parent[0]) * a0 + parent[0]
+	parent[2] := (parent[2] - parent[3]) * a1 + parent[3]
+EndFunc
+
+Function	Bezier1D::pt( Real t )
+	Array	f
+	f[0] := 1.0		; 6 / (6 * 1)
+	f[1] := 3.0		; 6 / (2 * 1)
+	f[2] := 3.0		; 6 / (1 * 2)
+	f[3] := 1.0		; 6 / (1 * 6)
+	;
+	Real	r := 0.0
+	Integer	i := 0
+	Repeat
+		Real	b
+		b := f[i] * t.Power(i) * Real(1.0 - t).Power(3 - i)
+		r += parent[i] * b
+		i += 1
+	Until	i >= 4
+	;
+	Return	r
+EndFunc
+
+
+Function	Bezier2D::SetLinear( Real x0, Real y0, Real x1, Real y1 )
+	Vector2D	vDelta
+	vDelta.x := (x1 - x0) / 3.0
+	vDelta.y := (y1 - y0) / 3.0
+	parent[0].x := x0
+	parent[0].y := y0
+	parent[1].x := x0 + vDelta.x
+	parent[1].y := y0 + vDelta.y
+	parent[2].x := x1 - vDelta.x
+	parent[2].y := y1 - vDelta.y
+	parent[3].x := x1
+	parent[3].y := y1
+EndFunc
+
+Function	Bezier2D::SetAcceleration( Real a0, Real a1 )
+	parent[1] := (parent[1] - parent[0]) * a0 + parent[0]
+	parent[2] := (parent[2] - parent[3]) * a1 + parent[3]
+EndFunc
+
+Function	Bezier2D::SetCurve( Real r0, Real r1 )
+	parent[1] := (parent[1] - parent[0]).Revolve( r0 ) + parent[0]
+	parent[2] := (parent[2] - parent[3]).Revolve( r1 ) + parent[3]
+EndFunc
+
+Function	Bezier2D::pt( Real t )
+	Array	f
+	f[0] := 1.0		; 6 / (6 * 1)
+	f[1] := 3.0		; 6 / (2 * 1)
+	f[2] := 3.0		; 6 / (1 * 2)
+	f[3] := 1.0		; 6 / (1 * 6)
+	;
+	Vector2D	v
+	Integer	i := 0
+	Repeat
+		Real	b
+		b := f[i] * t.Power(i) * Real(1.0 - t).Power(3 - i)
+		v.x += parent[i].x * b
+		v.y += parent[i].y * b
+		i += 1
+	Until	i >= 4
+	;
+	Return	v
+EndFunc
+
+
+Function	Bezier3D::SetLinear(
+			Real x0, Real y0, Real z0, Real x1, Real y1, Real z1 )
+	Vector	vDelta
+	vDelta.x := (x1 - x0) / 3.0
+	vDelta.y := (y1 - y0) / 3.0
+	vDelta.z := (z1 - z0) / 3.0
+	parent[0].x := x0
+	parent[0].y := y0
+	parent[0].z := z0
+	parent[1].x := x0 + vDelta.x
+	parent[1].y := y0 + vDelta.y
+	parent[1].z := z0 + vDelta.z
+	parent[2].x := x1 - vDelta.x
+	parent[2].y := y1 - vDelta.y
+	parent[2].z := z1 - vDelta.z
+	parent[3].x := x1
+	parent[3].y := y1
+	parent[3].z := z1
+EndFunc
+
+Function	Bezier3D::SetAcceleration( Real a0, Real a1 )
+	parent[1] := (parent[1] - parent[0]) * a0 + parent[0]
+	parent[2] := (parent[2] - parent[3]) * a1 + parent[3]
+EndFunc
+
+Function	Bezier3D::pt( Real t )
+	Array	f
+	f[0] := 1.0		; 6 / (6 * 1)
+	f[1] := 3.0		; 6 / (2 * 1)
+	f[2] := 3.0		; 6 / (1 * 2)
+	f[3] := 1.0		; 6 / (1 * 6)
+	;
+	Vector	v
+	Integer	i := 0
+	Repeat
+		Real	b
+		b := f[i] * t.Power(i) * Real(1.0 - t).Power(3 - i)
+		v.x += parent[i].x * b
+		v.y += parent[i].y * b
+		v.z += parent[i].z * b
+		i += 1
+	Until	i >= 4
+	;
+	Return	v
+EndFunc
+
+

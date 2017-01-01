@@ -1,0 +1,214 @@
+Constant		InitFields := true
+
+Structure Flag
+	Array flag
+EndStruct
+
+Structure	LogManager
+	Integer max
+	Integer index
+	Integer num
+	Array   log
+EndStruct
+
+Structure CgInfo
+	Integer timeZone
+	String filename
+	Point pt
+	EffectParam effectParam
+EndStruct
+
+Structure ZoomParam
+	Point pt
+	Size size
+	Integer time
+	Integer accel
+	Begin
+		If (InitFields)
+			this.pt.x := 0
+			this.pt.y := 0
+			this.size.x := 800
+			this.size.y := 600
+			this.time := 0
+			this.accel := 0
+		EndIf
+	End
+EndStruct
+
+Structure ScenarioObject
+	Integer version
+	String scenarioCall
+	String sceneTitle
+	String familyName
+	String familyName_read
+	String firstName
+	String firstName_read
+	Flag flag
+	Flag flagBackup
+	LogManager nameLog
+	LogManager messLog
+	LogManager seqLog
+	LogManager voiceLog
+	CgInfo cg
+	Integer fCgRGB
+	Integer colSetCgRGB
+	Array bustup
+	String playBgm
+	Integer fPauseBgm
+	Array playEnvSe
+	Integer isLoad
+	Integer hitretCount
+	Integer hitretCountTemp
+	Array select
+	Integer selectCount
+	Integer viewType
+	Integer fToneFilter
+	String toneFilter
+	Integer fZoom
+	ZoomParam zoomParam
+EndStruct
+
+Structure ConfigDataBase
+	Integer screenType
+	Integer flgPlayBgm
+	Real volBgm
+	Integer flgPlayVoice
+	Real volVoice
+	Integer flgPlaySe
+	Real volSe
+	Integer flgPlaySysSe
+	Real volSysSe
+	Array voiceDetails
+	Integer screenEffect
+	Integer updateHideMess
+	Integer windowDepth
+	Integer messageSpeed
+	Integer readSkip
+	Integer lockSkip
+	Integer voiceStopOnClick
+	Integer automodeSpeed
+	Integer automodeRemove
+EndStruct
+
+Structure SystemObject
+	Flag readFlag
+	Flag cgFlag
+	Flag recollectFlag
+	Flag globalScFlag
+	Integer fQSave
+	Array bookmark
+	Integer newBookmarkIndex
+	Integer viewOpeningMovie
+	Integer gameClear
+EndStruct
+
+Structure MessageFrame
+	Integer isCreate
+	Integer isShow
+	Sprite sprParent
+	Sprite sprFrame
+	Array sprBase
+	Sprite sprMenu
+	Sprite sprClose
+	Sprite sprVoice
+	MessageSprite msprName
+	MessageSprite msprMess
+	Point posBlink
+	Sprite sprBlinkHit
+	Point pos
+	String preName
+	Integer isShowBlinkHit
+	Integer viewType
+	Begin
+		If (InitFields)
+			this.isCreate := false
+			this.isShow := false
+			this.isShowBlinkHit := false
+			this.viewType := false
+		EndIf
+	End
+EndStruct
+
+Structure MessageInfo
+	String name
+	String message
+	String voice
+EndStruct
+
+Structure BustupManager
+	Integer max
+	Array info
+	Array spr
+EndStruct
+
+Structure MoveParam
+	Point pt
+	Integer time
+	Integer accel
+	Integer fFade
+EndStruct
+
+Structure TransitionInfo
+	String type
+	Integer time
+EndStruct
+
+Structure AdvScreen
+	Integer fCreate
+	MessageFrame msgFrame
+	MessageInfo msgInfo
+	Integer reqFont
+	String msgSequence
+	Sprite sprAdvBase
+	SuperSprite sprCg
+	Sprite sprBustupParent
+	CgInfo cg
+	BustupManager bustupMan
+	Integer fUpdate
+	Integer fSetCg
+	Integer fSetCgRGB
+	Integer fSetBustup
+	Integer reqZoom
+	Integer fScroll
+	Integer colSetCgRGB
+	MoveParam scrlParam
+	Integer fZoom
+	ZoomParam zoomParam
+	Integer reqToneFilter
+	String typeToneFilter
+	Integer fTransition
+	TransitionInfo transInfo
+	ToneFilter toneFilter
+	Integer fUpdating
+	Array sprTemp
+	Resource sprAlpha
+	Integer selectResult
+	Integer fSelect
+	Array selectItem
+	Array sprSelect
+	Integer talkType
+	Integer fSkip
+	Integer fAutoMode
+	Integer fZoom
+	Integer fToneFilter
+	Integer fEscMenu
+	Integer fKeyUpdateFlush
+	Begin
+		If (InitFields)
+			this.fCreate := false
+			this.fUpdating := false
+			this.reqFont := false
+			this.msgSequence := CreateMessageEscapeSequence()
+			this.fSetCg := false
+			this.fSetCgRGB := false
+			this.fSetBustup := false
+			this.fScroll := false
+			this.fZoom := false
+			this.reqToneFilter := false
+			this.reqZoom := false
+			this.fToneFilter := false
+			this.typeToneFilter := "NORMAL"
+			this.fEscMenu := false
+		EndIf
+	End
+EndStruct

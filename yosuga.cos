@@ -1,0 +1,157 @@
+Include	"cotopha.cos"
+Include	"structs.cos"
+
+Integer 		nRandomSeed			; 0
+Integer 		hitretResult		; 1
+Size    		ScreenSize			; 2
+Integer 		BookmarkIndex		; 3
+ScenarioObject  scObj				; 4
+ConfigDataBase  cnfObj				; 5
+SystemObject    sysObj				; 6
+Integer 		inputFilterType		; 7
+Integer 		flgRecollectMode	; 8
+Array  			BUSTUP_XPOS			; 9
+AdvScreen       adv					; 10
+String  		kinsoku				; 11
+Integer 		bgmIndex			; 12
+Array			bgm					; 13
+Array		    envSe				; 14	type!
+Resource        se					; 15
+Resource        sysSe				; 16
+Resource        voice				; 17
+Integer 		playVoiceTime		; 18
+Sprite  		sprLoadEffectBase	; 19
+Sprite  		sprLoadEffect		; 20
+Resource        resLoadEffectAlpha	; 20
+Integer 		fConfirm			; 21
+Integer 		fEyeCatchEnter		; 22
+String  		eyeCatchType		; 23
+Array    		sprEyeCatch			; 24	type!
+ResourceManager debugSkin			; 25
+Sprite  		debugFrame			; 26
+Sprite  		debugBase			; 27
+Sprite  		sprVoicePlayingBar	; 28
+Sprite  		sprVoicePlayingTrim	; 29
+MessageSprite   debugMes			; 30
+LogManager      debugLog			; 31
+Integer 		DEBUG_VOICECHECK_X	; 32
+Integer 		DEBUG_VOICECHECK_Y	; 33
+Integer			isCreateDebugWindow	; 34
+String			DebugJumpScenario	; 35
+Integer			DebugJumpEnter		; 36
+Integer			fDebugSearch		; 37
+String			rDebugSearch		; 38
+
+Constant		IsDebug := false
+
+Data	input 		: InputFilter
+Data	inputE		: InputFilter
+Data	screen		: Window
+Data	frameSkin	: ResourceManager
+
+Function Initialize()
+	Time time
+	time := GetLocalTime()
+	InitRandom(time.nMinute * time.nSecond * GetCurrentTime())
+	frameSkin.LoadResource("frame.noa")
+	InitScenarioData()
+	LoadSystemData()
+	LoadConfigData()
+	If (0 == 0)
+		screen.CreateDisplay(Reference, levelWindow)
+	Else
+		screen.CreateDisplay(Reference, levelWindow, 1024, 600)
+	EndIf
+	Integer optionalFlag := 0
+	optionalFlag |= 2
+	optionalFlag |= 16
+	optionalFlag |= 64
+	optionalFlag |= 128
+	screen.SetOptionalFuncFlag(optionalFlag)
+	Sleep(100)
+	If (cnfObj.screenType == 0)
+	Else
+		ChangeDisplay(true)
+	EndIf
+	LoadInputFilter()
+	OpenInputFilter()
+	screen.ShowCursor(true)
+	ScreenSize.w := 800
+	ScreenSize.h := 600
+	Real totalVolume := 0.0
+	Resource rs
+	rs.SetTotalVolume(0, totalVolume)
+	rs.SetTotalVolume(1, totalVolume)
+	rs.SetTotalVolume(2, totalVolume)
+	rs.SetTotalVolume(3, totalVolume)
+	If (IsDebug)
+		CreateDebugWindow()
+		ShowDebugWindow()
+	EndIf
+EndFunc
+
+Function main()
+	Initialize()
+	Try
+		Starting()
+	Catch()
+		screen.DetachAllSprite()
+	EndTry
+	Postprocessing()
+EndFunc
+
+Function InitRandom(Integer seed)	; OK
+	nRandomSeed := seed
+EndFunc
+
+Function InitScenarioData()
+	scObj.version := 200
+	scObj.familyName := "ètì˙ñÏ"
+	scObj.familyName_read := "Ç©Ç∑Ç™ÇÃ"
+	scObj.firstName := "óI"
+	scObj.firstName_read := "ÇÕÇÈÇ©"
+	scObj.flag.create(512)
+	scObj.flagBackup.create(512)
+	scObj.nameLog.create(512)
+	scObj.messLog.create(512)
+	scObj.seqLog.create(512)
+	scObj.voiceLog.create(512)
+	Return
+EndFunc
+
+Function LoadSystemData()
+	If (File.IsExisting("system.dat"))
+		LoadObject("system.dat", sysObj)
+	Else
+		InitSystemData()
+		SaveSystemData()
+	EndIf
+EndFunc
+
+Function LoadConfigData()
+	If (File.IsExisting("config.dat"))
+		LoadObject("config.dat", cnfObj)
+	Else
+		InitConfigData()
+		SaveConfigData()
+	EndIf
+EndFunc
+
+Function ChangeDisplay(Integer fFullscreen)
+	If (fFullscreen == -1)
+        If (0 == -1)
+            screen.ChangeDisplaySize(800, 600)
+        EndIf
+        screen.ChangeCooperationLevel(levelFullScreen)
+    Else
+        screen.ChangeCooperationLevel(levelWindow)
+        If (0 == -1)
+            screen.ChangeDisplaySize(1024, 600)
+        EndIf
+    EndIf
+EndFunc
+
+Function LoadInputFilter()
+	screen.LoadInputFilter("input.xml")
+EndFunc
+
