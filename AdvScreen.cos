@@ -12,7 +12,7 @@ BUSTUP_XPOS += 560
 BUSTUP_XPOS += 640
 BUSTUP_XPOS += 720
 BUSTUP_XPOS += 800
-kinsoku := "„ÄÅ„ÄÇ„Äç„Äè„ÉΩ„Éæ„Éº„Ç°„Ç£„Ç•„Çß„Ç©„ÉÉ„É£„É•„Éß„ÉÆ„Éµ„É∂„ÅÅ„ÅÉ„ÅÖ„Åá„Åâ„Å£„ÇÉ„ÇÖ„Çá„Çé„ÄÖÔºÅÔºü"
+kinsoku := "ÅAÅBÅvÅxÅRÅSÅ[É@ÉBÉDÉFÉHÉbÉÉÉÖÉáÉéÉïÉñÇüÇ°Ç£Ç•ÇßÇ¡Ç·Ç„ÇÂÇÏÅXÅIÅH"
 
 Function AdvScreen::setToneFilter(String type)
 	type.MakeUpper()
@@ -631,4 +631,644 @@ Function AdvScreen::effectQuake(Integer w, Integer h, Integer fWhole, Integer co
 		spr.SetVisible(0)
 		this.sprAdvBase.DetachSprite(spr)
 	EndIf
+EndFunc
+
+Function AdvScreen::enableKeyUpdateFlush(Integer f)
+	this.fKeyUpdateFlush := f
+EndFunc
+
+Function AdvScreen::enterSelect()
+	this.fSelect := true
+EndFunc
+
+Function AdvScreen::flushUpdate()
+	if (this.fUpdating == true)
+        screen.Lock()
+        this.sprTemp["transBase"].DetachAllSprite()
+        this.sprTemp["transBase"].SetVisible(0)
+        this.sprTemp["dummyCg"].SetVisible(0)
+        this.sprTemp["transBase"].DetachSprite(this.sprTemp["dummyCg"])
+        screen.DetachSprite(this.sprTemp["transBase"])
+        this.sprTemp["transBase"].Release()
+        this.sprTemp["dummyCg"].Release()
+        this.sprTemp.RemoveAll()
+        this.sprAlpha.Release()
+        screen.Unlock()
+        this.fUpdating := 0
+    EndIf
+    If (this.sprAdvBase.IsActivation() == true)
+        this.sprAdvBase.FlushActivation()
+    EndIf
+EndFunc
+
+Function AdvScreen::font(Integer size, Integer fBold, Integer fItalic, String face)
+	this.msgSequence := CreateMessageEscapeSequence(size, size + 2, fBold, fItalic, face)
+	this.reqFont := true
+EndFunc
+
+Function AdvScreen::getMessageView()
+	Return this.msgFrame.getView()
+EndFunc
+
+Function AdvScreen::getSelectResult()
+	Return this.selectResult
+EndFunc
+
+Function AdvScreen::getToneFilter()
+	Return this.typeToneFilter
+EndFunc
+
+Function AdvScreen::getZoomParam()
+	Return this.zoomParam
+EndFunc
+
+Function AdvScreen::hideMessage(Integer fFlush, Integer fWait)
+	If (isSelect() == true)
+        transparencySelect(256)
+    EndIf
+	this.msgFrame.hide(fFlush, fWait)
+EndFunc
+
+Function AdvScreen::hideSelectItem()
+	screen.Lock()
+	Integer i := 0
+	If (cnfObj.screenEffect == 0)
+        While (i < this.selectItem.GetLength())
+            this.sprSelect[i].SetBlendingEnvelope(256)
+            this.sprSelect[i].BeginActivation(300)
+            i += 1
+        EndWhile
+    Else
+		While (i < this.selectItem.GetLength())
+			this.sprSelect[i].SetTransparency(256)
+			i += 1
+		EndWhile
+	EndIf
+	screen.Unlock()
+EndFunc
+
+Function AdvScreen::isAutoMode()
+	Return this.fAutoMode
+EndFunc
+
+Function AdvScreen::isCreate()
+	Return this.fCreate
+EndFunc
+
+Function AdvScreen::isKeyUpdateFlush()
+	If (this.fKeyUpdateFlush == true)
+        Return isSkip() | input.IsJoyButtonPushing(6)
+    EndIf
+    Return 0
+EndFunc
+
+Function AdvScreen::isSelect()
+	Return this.fSelect
+EndFunc
+
+Function AdvScreen::isShowMessage()
+	Return this.msgFrame.isShow()
+EndFunc
+
+Function AdvScreen::isSkip()
+	Return this.fSkip
+EndFunc
+
+Function AdvScreen::isToneFilter()
+	Return this.fToneFilter
+EndFunc
+
+Function AdvScreen::isUpdate()
+	Return this.fUpdate
+EndFunc
+
+Function AdvScreen::isZoom()
+	Return this.fZoom
+EndFunc
+
+Function AdvScreen::leaveSelect()
+	this.fSelect := 0
+EndFunc
+
+Function AdvScreen::loadBustup(Reference spr, Reference info)
+	SpriteParam sprParam
+	ImageInfo sprInfo
+	If (spr.LoadImage(info.filename + ".eri") != 0)
+		If (0 == true)
+			Sprite sprTemp
+			If (info.filename.Find("CA") != true)
+				sprTemp.LoadImage("CA02_01M.eri")
+			ElseIf (info.filename.Find("CB") != true)
+				sprTemp.LoadImage("CB01_01M.eri")
+			ElseIf (info.filename.Find("CC") != true)
+				sprTemp.LoadImage("CC01_01M.eri")
+			ElseIf (info.filename.Find("CD") != true)
+				sprTemp.LoadImage("CD01_01M.eri")
+			ElseIf (info.filename.Find("CE") != true)
+				sprTemp.LoadImage("CE01_01M.eri")
+			ElseIf (info.filename.Find("CF") != true)
+				sprTemp.LoadImage("CF01_01M.eri")
+			ElseIf (info.filename.Find("CG") != true)
+				sprTemp.LoadImage("CG01_01M.eri")
+			ElseIf (info.filename.Find("CH") != true)
+				sprTemp.LoadImage("CH01_01M.eri")
+			ElseIf (info.filename.Find("CJ") != true)
+				sprTemp.LoadImage("CJ01_01M.eri")
+			ElseIf (info.filename.Find("CK") != true)
+				sprTemp.LoadImage("CI.eri")
+			Else
+				sprTemp.LoadImage("CZ.eri")
+			EndIf
+			sprInfo := sprTemp.GetInfo()
+			sprTemp.GetParameter(sprParam)
+			spr.CreateSprite(67108865, sprInfo.nImageWidth, sprInfo.nImageHeight)
+			sprParam.ptDstPos := IPoint(0, 0)
+			spr.DrawImage(sprTemp, sprParam)
+			spr.SetBackColor(0, 0)
+			
+			DrawTextParam param
+			param.rcArea := IRect(0, 0, sprInfo.nImageWidth, sprInfo.nImageHeight)
+			param.nFlags |= 16
+			param.nTransparency := 0
+			param.strFontFace := "ÇlÇr ÉSÉVÉbÉN"
+			param.ptCurPos := IPoint(0, 300)
+			param.rgbColor := RGB(255, 0, 0)
+			param.nLineHeight :=26
+			param.nIndentWidth := 26
+			param.nFontSize := 26
+			spr.DrawText(param, "âº : " + info.filename)
+			OutputLogText("CG.log", "NotFound-" + info.filename)
+		EndIf
+	EndIf
+	sprInfo := spr.GetInfo()
+	spr.GetParameter(sprParam)
+	sprParam.ptRevCenter := IPoint(sprInfo.nImageWidth / 2, sprInfo.nImageHeight - 50)
+	sprParam.nTransparency := 0
+	spr.SetParameter(sprParam)
+	spr.SetBackColor(0, 0)
+EndFunc
+
+Function AdvScreen::loadCg(Reference spr, String filename)
+	If (spr.LoadImage(filename + ".eri") != 0)
+		If (0 == true)
+			SpriteParam sprParam
+			Sprite sprTemp
+			If(File.IsExisting(filename.Left(3) + ".eri"))
+				sprTemp.LoadImage(filename.Left(3) + ".eri")
+			ElseIf (File.IsExisting(filename.Left(4) + ".eri"))
+				sprTemp.LoadImage(filename.Left(4) + ".eri")
+			ElseIf (filename.Char(0) == 66)
+				sprTemp.LoadImage("dummyBg.eri")
+			Else
+				sprTemp.LoadImage("dummyEv.eri")
+			EndIf
+			sprTemp.GetParameter(sprParam)
+			spr.CreateSprite(1, ScreenSize.w, ScreenSize.h)
+			sprParam.ptDstPos := IPoint(0, 0)
+			spr.DrawImage(sprTemp, sprParam)
+			spr.SetBackColor(0, 0)
+			
+			DrawTextParam param
+			param.rcArea := IRect(0, 0, ScreenSize.w, ScreenSize.h)
+			param.ptCurPos := IPoint(32, 16)
+			param.rgbColor := RGB(255, 0, 0)
+			param.nTransparency := 0
+			param.nLineHeight := 50
+			param.nIndentWidth := 50
+			param.nFontSize := 48
+			param.strFontFace := "ÇlÇr ÉSÉVÉbÉN"
+			spr.DrawText(param, "âº : " + filename)
+			OutputLogText("CG.log", "NotFound-" + filename)
+		EndIf
+	EndIf
+	spr.SetBackColor(0, 0)
+EndFunc
+
+Function AdvScreen::mess(String str)
+	this.msgInfo.message += str
+EndFunc
+
+Function AdvScreen::messageView(Integer type)
+	this.msgFrame.view(type)
+EndFunc
+
+Function AdvScreen::name(String str, String voice)
+	this.msgInfo.name := str
+	this.msgInfo.voice := voice
+	If ((str == "") | (str == "êSÇÃê∫") | (str == "åÍÇË"))
+        this.talkType := 0
+    Else
+        this.talkType := 1
+    EndIf
+EndFunc
+
+Function AdvScreen::playVoice(Reference file)
+	Integer ret
+	ret := PlayVoice(file)
+	Return ret
+EndFunc
+
+Function AdvScreen::scroll(Integer x, Integer y, Integer time, Integer accel, Integer fWait)
+	If (this.fSetCg == 0)
+		If (this.sprCg.IsActivation() == true)
+			this.sprCg.FlushActivation()
+		EndIf
+		SpriteParam param
+		this.sprCg.GetParameter(param)
+		Bezier2D bz
+		bz.SetLinear(param.ptDstPos.x, param.ptDstPos.y, -x, -y)
+		bz.SetAcceleration(accel, 0)
+		this.sprCg.SetBezierCurve(bz)
+		Integer fFlush := (cnfObj.screenEffect == 1)
+		fFlush |= (isSkip() | input.IsJoyButtonPushing(6))
+		If (fFlush == true)
+			this.sprCg.BeginActivation(0)
+		Else
+			this.sprCg.BeginActivation(time)
+		EndIf
+		If (fWait != 0)
+			WaitUntilSpriteActive(this.sprCg, true)
+		EndIf
+		this.cg.pt := IPoint(x, y)
+	Else
+		this.fUpdate := true
+		this.fScroll := true
+		this.scrlParam.set(IPoint(-x, -y), time, accel)
+	EndIf
+EndFunc
+
+Function AdvScreen::setBustup(String str, Integer pos, Integer priority)
+	Debug("Char-" + str)
+	this.bustupMan.set(str, pos, priority, this.cg.timeZone)
+	this.fSetBustup := true
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::setCg(String str, Integer x, Integer y, Integer w, Integer h)
+	Debug("CG-" + str)
+	CheckSetupCg(str, this.cg)
+	this.cg.pt := IPoint(x, y)
+	this.fSetCg := true
+	this.fSetCgRGB := 0
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::setCgRGB(Integer r, Integer g, Integer b)
+	Debug("CGRGB-" + ("" := r) + "," + ("" := g) + "," + ("" := b))
+	this.cg.pt := IPoint(0, 0)
+	this.colSetCgRGB := RGB(r, g, b)
+	this.fSetCg := true
+	this.fSetCgRGB := true
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::setTransition(String type, Integer time)
+	this.fTransition := true
+	this.transInfo.type := type
+	this.transInfo.time := time
+EndFunc
+
+Function AdvScreen::setupSelectItem()
+	Integer i
+	i := 0
+	While(i < this.sprSelect.GetLength())
+		screen.DetachSprite(this.sprSelect[i])
+		i += 1
+	EndWhile
+	this.sprSelect.Remove()
+	Point curPos
+	curPos := this.msgFrame.msprMess.GetCursorPos()
+	Integer start_y := 264 - (52 * this.selectItem.GetLength()) / 2
+	SpriteParam param
+	i := 0
+	While (i < this.selectItem.GetLength())
+		this.sprSelect[i] := Sprite
+		frameSkin.CreateFormPage(this.sprSelect[i], "ID_PAGE_ADVSELECT")
+		this.sprSelect[i].GetParameter(param)
+		param.ptRevCenter := IPoint(375, 24)
+		this.sprSelect[i].SetParameter(param)
+		this.sprSelect[i].MovePosition(400, start_y + 52 * i)
+		this.sprSelect[i].SetSpriteText("ID_TEXT", this.selectItem[i])
+		this.sprSelect[i].SetTransparency(256)
+		this.sprSelect[i].SetVisible(true)
+		screen.AddSprite(50600, this.sprSelect[i])
+		i += 1
+	EndWhile
+EndFunc
+
+Function AdvScreen::showMessage(Integer fFlush, Integer fHide)
+	If (isSelect() == true)
+		transparencySelect(0)
+	EndIf
+	this.msgFrame.show(fFlush, fHide)
+EndFunc
+
+Function AdvScreen::showSelectItem()
+	Bezier2D bzMag
+	bzMag.SetLinear(0.0, 0.0, 1.0, 1.0)
+	bzMag.SetAcceleration(3.0, 0.0)
+	screen.Lock()
+	Integer i := 0
+	If (frameSkin.screenEffect == 0)
+		While (i < this.selectItem.GetLength())
+			this.sprSelect[i].SetBlendingEnvelope(0)
+			this.sprSelect[i].SetBezierCurve(Reference, Reference, bzMag)
+			this.sprSelect[i].BeginActivation(300)
+			i += 1
+		EndWhile
+	Else
+		While (i < this.selectItem.GetLength())
+			this.sprSelect[i].SetTransparency(0)
+			i += 1
+		EndWhile
+	EndIf
+	screen.Unlock()
+EndFunc
+
+Function AdvScreen::skip(Integer f)
+	this.fSkip := f
+	this.msgFrame.skip(f)
+EndFunc
+
+Function AdvScreen::startSelect()
+	Integer ret := 0
+	If (IsLoad() == true)
+		If (scObj.hitretCountTemp < (scObj.hitretCount))
+			scObj.hitretCountTemp += 1
+			this.msgInfo.clear()
+			this.selectResult := scObj.select[scObj.selectCount]
+			scObj.selectCount += 1
+			this.selectItem.Remove()
+			Return ret
+		EndIf
+		LeaveLoad()
+	EndIf
+	enterSelect()
+	SpriteParam param
+	this.msgFrame.msprMess.GetParameter(param)
+	Point curPos
+	curPos := this.msgFrame.msprMess.GetCursorPos()
+	setupSelectItem()
+	showSelectItem()
+	Integer i := 0
+	Integer select := 0
+	WndSpriteCmd wscmd
+	FlushCommandQueue(true)
+	FlushJoyButton()
+	Integer nInput
+	While (true)
+		nInput := GetCommand(wscmd, 33)
+		If (0 == true)
+			If (IsDebugJump() == true)
+				LeaveDebugJump()
+				Change(GetDebugJumpScenario())
+				ret := 40
+				Break
+			EndIf
+		EndIf
+		If (0)
+			Continue
+		EndIf
+		If (wscmd.strID == "ID_SELECT")
+			Point pt
+			pt := input.GetCursorPos()
+			i := 0
+			While (i < this.selectItem.GetLength())
+				If (IsHitSprite(this.sprSelect[i], pt.x, pt.y))
+					select := i + 1
+					Break
+				EndIf
+				i += 1
+			EndWhile
+			Break
+		ElseIf (input.GetJoyButtonPushed(4) > 0)
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_CLOSE") | (input.GetJoyButtonPushed(5) > 0) | (input.GetJoyButtonPushed(8) > 0))
+			If(isAutoMode() == true)
+				autoMode(0)
+			ElseIf (isSkip() == true)
+				skip(0)
+			Else
+				hideSelectItem()
+				Integer isShow := this.msgFrame.isShow()
+				If (isShow == true)
+					this.msgFrame.hide(0, true)
+				EndIf
+				TestHitret()
+				showSelectItem()
+				If (isShow == true)
+					this.msgFrame.show(0, true)
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_SKIP") | (input.GetJoyButtonPushed(28) > 0) | (input.GetJoyButtonPushed(7) > 0))
+			skip(true)
+			FlushCommandQueue(true)
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_AUTO") | (input.GetJoyButtonPushed(27) > 0) | (input.GetJoyButtonPushed(14) > 0))
+			autoMode(true)
+			FlushCommandQueue(true)
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_QLOAD") | (input.GetJoyButtonPushed(23) > 0) | (input.GetJoyButtonPushed(17) > 0))
+			If (sysObj.fQSave == true)
+				If (Confirm("ÉNÉCÉbÉNÉçÅ[ÉhÇµÇ‹Ç∑", true) == true)
+					QuickLoad()
+					ret := 40
+					Break
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_QSAVE") | (input.GetJoyButtonPushed(22) > 0) | (input.GetJoyButtonPushed(9) > 0))
+			If (IsRecollectMode() == 0)
+				QuickSave()
+				this.msgFrame.enableQLoad(true)
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_CONFIG") | (input.GetJoyButtonPushed(26) > 0) | (input.GetJoyButtonPushed(13) > 0))
+			ret := callConfig()
+			If ((ret == 30) | (ret == 20))
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_HISTORY") | (input.GetJoyButtonPushed(10) > 0) | (input.GetJoyButtonPushed(29) > 0) | (input.GetJoyButtonPushed(0) > 0))
+			callHistory()
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_LOAD") | (input.GetJoyButtonPushed(25) > 0) | (input.GetJoyButtonPushed(11) > 0))
+			Array arrayHideSpr
+			Array arrayShowSpr
+			ret := callLoadSave(true, arrayHideSpr, arrayShowSpr)
+			If (ret == 40)
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_SAVE") | (input.GetJoyButtonPushed(24) > 0) | (input.GetJoyButtonPushed(12) > 0))
+			Array arrayHideSpr
+			Array arrayShowSpr
+			ret := callLoadSave(0, arrayHideSpr, arrayShowSpr)
+			If (ret == 40)
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf (wscmd.strID == "ID_VOICE")
+			PlayVoice(scObj.voiceLog.get(0), true)
+			FlushJoyButton()
+		EndIf
+	EndWhile
+	If (select != 0)
+        If (cnfObj.screenEffect == 0)
+            Reference rTarget
+            i := 0
+            While (i < this.selectItem.GetLength())
+                If (select != (i + 1))
+                    this.sprSelect[i].SetTransparency(256)
+                Else
+                    this.sprSelect[i].SetBlendingEnvelope(256)
+                    this.sprSelect[i].BeginActivation(500)
+                    rTarget := this.sprSelect[i]
+                EndIf
+                i += 1
+            EndWhile
+            WaitUntilSpriteActive(rTarget, 0)
+        Else
+            i := 0
+            While (i < this.selectItem.GetLength())
+                this.sprSelect[i].SetTransparency(256)
+                i += 1
+            EndWhile
+        EndIf
+    EndIf
+    screen.Lock()
+    i := 0
+	While (i < this.selectItem.GetLength())
+        screen.DetachSprite(this.sprSelect[i])
+        i += 1
+    EndWhile
+	this.sprSelect.Remove()
+	screen.Unlock()
+	this.selectItem.Remove()
+	If (IsLoad() == 0)
+        this.selectResult := select
+        scObj.hitretCount += 1
+        scObj.select += select
+    EndIf
+	If ((isSkip() == true) && (cnfObj.lockSkip == 0))
+        skip(0)
+	EndIf
+    leaveSelect()
+    Return ret
+EndFunc
+
+Function AdvScreen::transparencySelect(Integer trans, Integer fFlush)
+	If (cnfObj.screenEffect != 0)
+		fFlush:= true
+	EndIf
+	Integer i := 0
+	If (fFlush == 0)
+		While (i < this.selectItem.GetLength())
+			this.sprSelect[i].SetBlendingEnvelope(trans)
+			this.sprSelect[i].BeginActivation(300)
+			i += 1
+		EndWhile
+	Else
+		While (i < this.selectItem.GetLength())
+			this.sprSelect[i].SetTransparency(trans)
+			i += 1
+		EndWhile
+	EndIf
+EndFunc
+
+Function AdvScreen::updateProc()
+	If (this.fCreate == true)
+		If (this.fUpdating == true)
+			If (this.sprTemp["transBase"].IsActivation() == 0)
+				flushUpdate()
+			EndIf
+		EndIf
+		ImageInfo info
+		For i:=0 To (5 - 1)
+			info := this.bustupMan.spr[i].GetInfo()
+			If ((this.bustupMan.info[i].status == 0) & (this.bustupMan.spr[i].IsActivation() == 0) & (info.nResourceBytes != 0))
+				this.bustupMan.spr[i].SetVisible(0)
+				this.bustupMan.spr[i].Release()
+			EndIf
+		Next
+	EndIf
+EndFunc
+
+Function AdvScreen::waitScroll()
+	If (this.sprCg.IsActivation() == true)
+		If (isSkip() | input.IsJoyButtonPushing(6))
+			this.sprCg.FlushActivation()
+		Else
+			WaitUntilSpriteActive(this.sprCg, true)
+		EndIf
+	EndIf
+EndFunc
+
+Function AdvScreen::waitUpdate()
+	If (this.fUpdating == true)
+		WaitUntilSpriteActive(this.sprTemp["transBase"], true)
+		flushUpdate()
+	EndIf
+EndFunc
+
+Function AdvScreen::zoom(Integer cx, Integer cy, Integer w, Integer h, Integer time, Integer accel)
+	this.zoomParam.set(cx, cy, w, h, time, accel)
+	If ((this.fZoom == 0) & (this.zoomParam.isZoom == 0))
+		Return
+	EndIf
+	if (this.fUpdate == 0)
+		screen.Lock()
+		SpriteParam param
+		this.sprAdvBase.GetParameter(param)
+		Bezier2D bzMov
+		Bezier2D bzMag
+		If (this.zoomParam.isZoom() == true)
+			Real magH
+			Real magV
+			magH := this.zoomParam.horzUnit()
+			magV := this.zoomParam.vertUnit()
+			bzMov.SetLinear(param.ptDstPos.x, param.ptDstPos.y, -(cx - (w / 2)) * magH, -(cy - (h / 2)) * magV)
+			bzMag.SetLinear(param.rHorzUnit, param.rVertUnit, magH, magV)
+			this.fZoom := true
+		Else
+			bzMov.SetLinear(param.ptDstPos.x, param.ptDstPos.y, param.ptRevCenter.x, param.ptRevCenter.y)
+			bzMag.SetLinear(param.rHorzUnit, param.rVertUnit, 1.0, 1.0)
+			this.fZoom := false
+		EndIf
+		bzMov.SetAcceleration(accel, 0.0)
+		bzMag.SetAcceleration(accel, 0.0)
+		this.sprAdvBase.SetBezierCurve(bzMov, Reference, bzMag)
+		this.sprAdvBase.BeginActivation(time)
+		If ((cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (adv.isKeyUpdateFlush() == true))
+			this.sprAdvBase.FlushActivation()
+		EndIf
+		screen.Unlock()
+		this.sprAdvBase.GetParameter(param)
+	Else
+		If (this.zoomParam.isZoom() == 0)
+			this.fZoom := 0
+		EndIf
+		this.reqZoom := true
+	EndIf
+EndFunc
+
+Function AdvScreen::endAnimation()
+	If (this.fCreate == 0)
+		Return
+	EndIf
+	If (this.cg.effectParam.strType != "Nothing")
+		EffectParam param
+		param := this.cg.effectParam
+		param.strType := "Nothing"
+		this.sprCg.SetEffectParameter(param)
+	EndIf
+	Integer i := 0
+	While (i < 5)
+		If (this.bustupMan.info[i].status != 0)
+			this.bustupMan.spr[i].BeginAnimation(true, 0)
+			this.bustupMan.spr[i].EndAnimation()
+		EndIf
+		i += 1
+	EndWhile
 EndFunc

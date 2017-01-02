@@ -20,6 +20,7 @@ DeclareType LoadSaveWindow
 DeclareType ConfigWindow
 DeclareType AppreciationView
 DeclareType HistoryWindow
+DeclareType DrawTextParam
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
@@ -66,7 +67,7 @@ ExternDef 		rDebugSearch		; 39
 Constant		IsDebug := false
 Constant		IsUNK1	:= false
 
-ExternDef 	input
-ExternDef 	inputE
-ExternDef 	screen
-ExternDef 	frameSkin
+DeclareDef  	input
+DeclareDef  	inputE
+DeclareDef  	screen
+DeclareDef  	frameSkin
