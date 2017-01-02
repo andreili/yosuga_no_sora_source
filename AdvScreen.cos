@@ -1253,6 +1253,234 @@ Function AdvScreen::zoom(Integer cx, Integer cy, Integer w, Integer h, Integer t
 	EndIf
 EndFunc
 
+Function AdvScreen::hitret(Integer id, Integer fVoiceWait)
+	Integer ret := 0
+	Integer fFlush := isSkip() | input.IsJoyButtonPushing(6)
+	Integer fLoadEnd := 0
+	If (IsLoad() == true)
+		If (scObj.hitretCountTemp < scObj.hitretCount)
+			scObj.hitretCountTemp += 1
+			this.msgInfo.clear()
+			Return ret
+		EndIf
+		LeaveLoad()
+		fLoadEnd := true
+	Else
+		If (isUpdate() == true)
+			adv.update(fFlush)
+		EndIf
+	EndIf
+	Integer fPlayVoice := 0
+	Integer fVoiceFind := true
+	If (File.IsExisting(this.msgInfo.voice + ".mio") == false)
+		fVoiceFind := false
+	EndIf
+	If (fLoadEnd == false)
+		this.msgFrame.clearPage()
+		if (this.msgFrame.isShow() == false)
+			this.msgFrame.show()
+		EndIf
+		String showName
+		String trueName
+		CheckTrueName(this.msgInfo.name, showName, trueName)
+		If (CheckPlayVoice(trueName) == true)
+			If ((this.msgInfo.voice != "") & (fFlush == false))
+				fPlayVoice := playVoice(this.msgInfo.voice)
+			EndIf
+		EndIf
+		this.msgInfo.message := this.msgInfo.message.Replace("／", "\n")
+		this.msgInfo.message := this.msgInfo.message.Replace("　", "  ")
+		String message
+		message := this.msgSequence + this.msgInfo.message
+		this.msgFrame.output(showName, message, fFlush)
+		scObj.nameLog.add(this.msgInfo.name)
+		scObj.messLog.add(this.msgInfo.message)
+		scObj.seqLog.add(this.msgSequence)
+		If (this.reqFont == true)
+			this.msgSequence := CreateMessageEscapeSequence()
+			this.reqFont := false
+		EndIf
+		If (fVoiceFind == true)
+			this.msgFrame.showVoice()
+			scObj.voiceLog.add(this.msgInfo.voice)
+		Else
+			this.msgFrame.hideVoice()
+			scObj.voiceLog.add("")
+		EndIf
+	EndIf
+	If (sysObj.readFlag.check(id) == false)
+		sysObj.readFlag.set(id)
+		If ((cnfObj.readSkip == true) & (isSkip() == true))
+			If (IsDebug == true)
+				If (IsDebugSearch() == false)
+					skip(0)
+				EndIf
+			Else
+				skip(0)
+			EndIf
+		EndIf
+	EndIf
+	Integer nowTime := GetCurrentTime()
+	WndSpriteCmd wscmd
+	FlushCommandQueue(true)
+	If (isSkip() == true)
+		If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(5) > 0))
+			skip(false)
+			If (IsDebug == true)
+				EndDebugSearch()
+			EndIf
+			FlushJoyButton()
+		EndIf
+	Else
+		FlushJoyButton()
+	EndIf
+	Integer nInput
+	Integer fLoop := (isSkip() == false)
+	If (IsDebug == true)
+		If (IsDebugSearch() == true)
+			If (this.msgInfo.message.Find(GetDebugSearchString()) != true)
+				fLoop := true
+				skip(false)
+				EndDebugSearch()
+			EndIf
+		EndIf
+	EndIf
+	While (fLoop == true)
+		nInput := GetCommand(wscmd, 33)
+		If (IsDebug == true)
+			If (IsDebugJump() == true)
+				LeaveDebugJump()
+				Change(GetDebugJumpScenario())
+				ret := 40
+				Break
+			Else
+				If (IsDebugSearch() == true)
+					Break
+				EndIf
+			EndIf
+		EndIf
+		If (IsUNK1)
+			Continue
+		EndIf
+		If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(1) > 0))
+			If (this.msgFrame.isPending() == true)
+				this.msgFrame.flush()
+				FlushJoyButton()
+			Else
+				Break
+			EndIf
+		ElseIf ((wscmd.strID == "ID_CLOSE") | (input.GetJoyButtonPushed(5) > 0) | (input.GetJoyButtonPushed(8) > 0))
+			If (isAutoMode() == false)
+				Integer isShow := this.msgFrame.isShow()
+				If (isShow == true)
+					this.msgFrame.hide(false, true)
+				EndIf
+				TestHitret()
+				If (isShow == true)
+					this.msgFrame.show(false, true)
+				EndIf
+			Else
+				autoMode(false)
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_SKIP") | (input.GetJoyButtonPushed(28) > 0) | (input.GetJoyButtonPushed(7) > 0))
+			skip(true)
+			Break
+		ElseIf ((wscmd.strID == "ID_AUTO") | (input.GetJoyButtonPushed(27) > 0) | (input.GetJoyButtonPushed(14) > 0))
+			If (isAutoMode() == true)
+				autoMode(false)
+			Else
+				autoMode(true)
+				this.msgFrame.hideBlink()
+				nowTime := GetCurrentTime()
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_QLOAD") | (input.GetJoyButtonPushed(23) > 0) | (input.GetJoyButtonPushed(17) > 0))
+			If (IsRecollectMode() == false)
+				If (sysObj.fQSave == true)
+					If (Confirm("クイックロードします", true) == true)
+						QuickLoad()
+						ret := 40
+						Break
+					EndIf
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_QSAVE") | (input.GetJoyButtonPushed(22) > 0) | (input.GetJoyButtonPushed(9) > 0))
+			If (IsRecollectMode() == false)
+				QuickSave()
+				this. msgFrame.enableQLoad(true)
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_CONFIG") | (input.GetJoyButtonPushed(26) > 0) | (input.GetJoyButtonPushed(13) > 0))
+			ret := callConfig()
+			If ((ret == 30) | (ret == 20))
+				Break
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_HISTORY") | (input.GetJoyButtonPushed(10) > 0) | (input.GetJoyButtonPushed(29) > 0) | (input.GetJoyButtonPushed(0) > 0))
+			callHistory()
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_LOAD") | (input.GetJoyButtonPushed(25) > 0) | (input.GetJoyButtonPushed(11) > 0))
+			If (IsRecollectMode() == false)
+				Array arrayHideSpr
+				Array arrayShowSpr
+				ret := callLoadSave(true, arrayHideSpr, arrayShowSpr)
+				If (ret == 40)
+					Break
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf ((wscmd.strID == "ID_SAVE") | (input.GetJoyButtonPushed(24) > 0) | (input.GetJoyButtonPushed(12) > 0))
+			If (IsRecollectMode() == false)
+				Array arrayHideSpr
+				Array arrayShowSpr
+				ret := callLoadSave(false, arrayHideSpr, arrayShowSpr)
+				If (ret == 40)
+					Break
+				EndIf
+			Endif
+			FlushJoyButton()
+		ElseIf (wscmd.strID == "ID_VOICE")
+			PlayVoice(scObj.voiceLog.get(0), true)
+			FlushJoyButton()
+		ElseIf (input.IsJoyButtonPushing(6) == true)
+			Break
+		ElseIf (isAutoMode() == true)
+			If (this. msgFrame.isPending() == true)
+			ElseIf (fPlayVoice == true)
+				If (IsPlayVoice() == false)
+					fLoop := 0
+				EndIf
+			Else
+				If ((GetCurrentTime() - nowTime) > (500 + cnfObj.automodeSpeed * 1000))
+					fLoop := 0
+				EndIf
+			EndIf
+		ElseIf (fVoiceWait == true)
+			If (fPlayVoice == true)
+				If (IsPlayVoice() == false)
+					fLoop := 0
+				Endif
+			EndIf
+		EndIf
+		If ((this.msgFrame.isShowBlink() == false) & (this.msgFrame.isPending() == false) & (isAutoMode() == false))
+			this.msgFrame.showBlink()
+		Endif
+	EndWhile
+	If ((ret != 30) & (ret !=20))
+		this.msgFrame.hideBlink()
+	EndIf
+	If ((this.msgInfo.voice != "") &(cnfObj.voiceStopOnClick == true))
+		StopVoice()
+	EndIf
+	this.msgInfo.clear()
+	If (IsLoad() == false)
+		scObj.hitretCount += 1
+	EndIf
+	Return ret
+EndFunc
+
 Function AdvScreen::endAnimation()
 	If (this.fCreate == 0)
 		Return
