@@ -1,3 +1,5 @@
+Include	"cotopha.ch"
+
 Constant		InitFields := true
 
 Structure Flag
@@ -257,4 +259,14 @@ Structure AppreciationView
 			this.isPlayBgm := true
 		EndIf
 	End
+EndStruct
+
+Structure HistoryWindow
+	Sprite sprBase
+	Sprite sprFrame
+	Array sprVoice
+	MessageSprite msprMessage
+	Integer index
+	Integer indexRange
+	Integer pagePointer
 EndStruct

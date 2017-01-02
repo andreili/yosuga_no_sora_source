@@ -1,11 +1,4 @@
-Include	"cotopha.cos"
-Include	"structs.cos"
-Include "vars.cos"
-
-Include "ConfigDataBase.cos"
-include "SystemObject.cos"
-Include "start_screens.cos"
-Include "AdvScreen.cos"
+Include	"yosuga.ch"
 
 Function main()
 	Initialize()
@@ -78,14 +71,14 @@ Function InitScenarioData()
 EndFunc
 
 Function ChangeDisplay(Integer fFullscreen)
-	If (fFullscreen == -1)
-        If (0 == -1)
+	If (fFullscreen == true)
+        If (0 == true)
             screen.ChangeDisplaySize(800, 600)
         EndIf
         screen.ChangeCooperationLevel(levelFullScreen)
     Else
         screen.ChangeCooperationLevel(levelWindow)
-        If (0 == -1)
+        If (0 == true)
             screen.ChangeDisplaySize(1024, 600)
         EndIf
     EndIf
@@ -239,16 +232,6 @@ Function ScenarioLoop(String func)
 	StopEnvSe()
 	StopBgm(false)
 	DestroyAdvScreen()
-EndFunc
-
-Function Appreciation()
-	StopBgm()
-	EnterRecollectMode()
-	AppreciationView view
-	view.create(0, 0, true)
-	view.run()
-	view.destroy()
-	LeaveRecollectMode()
 EndFunc
 
 Function PlayBgm(String file, Integer fNonFade)

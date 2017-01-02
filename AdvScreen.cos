@@ -1,3 +1,19 @@
+Include	"yosuga.ch"
+
+BUSTUP_XPOS += 0
+BUSTUP_XPOS += 0
+BUSTUP_XPOS += 80
+BUSTUP_XPOS += 160
+BUSTUP_XPOS += 240
+BUSTUP_XPOS += 320
+BUSTUP_XPOS += 400
+BUSTUP_XPOS += 480
+BUSTUP_XPOS += 560
+BUSTUP_XPOS += 640
+BUSTUP_XPOS += 720
+BUSTUP_XPOS += 800
+kinsoku := "、。」』ヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎ々！？"
+
 Function AdvScreen::setToneFilter(String type)
 	type.MakeUpper()
 	If (this.typeToneFilter != type)
@@ -131,7 +147,7 @@ Function AdvScreen::addjustMessage_talk(Reference mess)
 	String temp
 	String char
 	char := "�^"
-	Integer fTop := -1
+	Integer fTop := true
 	Integer num := 28
 	Integer index := 0
     While (mess.Char(index) == 10)
@@ -143,19 +159,19 @@ Function AdvScreen::addjustMessage_talk(Reference mess)
         Integer i := 0
         Integer fRet := 0
         Integer num_
-        If (fTop == -1)
+        If (fTop == true)
             num_ := num
         Else
             num_ := num - 1
         EndIf
         While (i < num_)
             If (mess.Char(index + i) == char.Char(0))
-                If (fTop == -1)
+                If (fTop == true)
                     temp += mess.Middle(index, i + 1)
                 Else
                     temp += " " + mess.Middle(index, i + 1)
                 EndIf
-                fRet := -1
+                fRet := true
                 i += 1
                 Break
             EndIf
@@ -166,12 +182,12 @@ Function AdvScreen::addjustMessage_talk(Reference mess)
             Integer iKin := 0
             While (iKin < kinsoku.GetLength()) ; //TODO
                 If (mess.Char(index + i) == kinsoku.Char(iKin))    ; //TODO
-                    fKinsoku := -1
+                    fKinsoku := true
                     Break
                 EndIf
                 iKin += 1
             EndWhile
-            If (fTop == -1)
+            If (fTop == true)
                 if (fKinsoku == 0)
                     temp += mess.Middle(index, i) + "\n"
                 Else
@@ -187,7 +203,7 @@ Function AdvScreen::addjustMessage_talk(Reference mess)
 				EndIf
             EndIf
         EndIf
-        If (fTop == -1)
+        If (fTop == true)
             fTop := 0
         EndIf
         index += i
@@ -213,7 +229,7 @@ Function AdvScreen::addjustMessage_think(Reference mess)
         While (i < num)
             If (mess.Char(index + i) == char.Char(0))
                 temp += mess.Middle(index, i + 1)
-                fRet := -1
+                fRet := true
                 i += 1
                 Break
             EndIf
@@ -224,7 +240,7 @@ Function AdvScreen::addjustMessage_think(Reference mess)
             Integer iKin := 0
             While (iKin < kinsoku.GetLength()) ; //TODO
                 If (mess.Char(index + i) == kinsoku.Char(iKin)) ; //TODO
-                    fKinsoku := -1
+                    fKinsoku := true
                     Break
 				EndIf
                 iKin += 1
@@ -261,8 +277,358 @@ Function AdvScreen::beginAnimation()
     Integer i := 0
     While (i < 5)
         If (this.bustupMan.info[i].status != 0)
-            this.bustupMan.spr[i].BeginAnimation(MakeRandom(-1, 27))
+            this.bustupMan.spr[i].BeginAnimation(MakeRandom(true, 27))
         EndIf
         i += 1
     EndWhile
+EndFunc
+
+Function AdvScreen::bustupClear(Integer id)
+    Debug("CharClear-" + ("" := id))
+    this.bustupMan.clear(id)
+    this.fSetBustup := true
+    this.fUpdate := true
+EndFunc
+
+Function AdvScreen::bustupDown(Integer id, Integer mv, Integer time, Integer accel)
+    this.bustupMan.down(id, mv, time, accel)
+    this.fUpdate := true
+EndFunc
+
+Function AdvScreen::bustupJump(Integer id)
+	this.bustupMan.jump(id)
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::bustupLeave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+    Debug("CharLeave-" + ("" := id))
+	this.bustupMan.leave(id, mx, my, fFade, time, accel)
+	this.fSetBustup := true
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::bustupMove(Integer id, Integer pos)
+	this.bustupMan.move(id, pos)
+	this.fSetBustup := true
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::bustupShake(Integer id)
+	this.bustupMan.shake(id)
+	this.fUpdate := true
+EndFunc
+
+Function AdvScreen::callConfig()
+	this.msgFrame.enable(0)
+	ConfigWindow win
+	win.create()
+	win.show()
+	If (isSelect() == true)
+        transparencySelect(256)
+    EndIf
+	Integer ret := win.run()
+	If (isSelect() == true)
+        transparencySelect(0)
+    EndIf
+	win.hide(true)
+	win.destroy()
+	this.msgFrame.enable(true)
+	Return ret
+EndFunc
+
+Function AdvScreen::callESCMenu()
+	this.fEscMenu := true
+	Integer ret
+	this.escWindow.create()
+	this.escWindow.show()
+	ret := this.escWindow.run()
+	this.escWindow.hide(true)
+	this.escWindow.destroy()
+	this.fEscMenu := 0
+	Return ret
+EndFunc
+
+Function AdvScreen::callHistory()
+	If (scObj.nameLog.num() <= 1) ;//TODO
+        Return 0
+    EndIf
+    If (isSelect() == true)
+        this.transparencySelect(256)
+	Else
+        this.msgFrame.hideBlink()
+    EndIf
+	HistoryWindow win
+	win.create()
+	win.show()
+	hideMessage()
+	win.run()
+	if (isSelect() == true)
+        this.transparencySelect(0)
+    Else
+        this.msgFrame.showBlink()
+    EndIf
+	showMessage()
+	win.hide(true)
+	win.destroy()
+EndFunc
+
+Function AdvScreen::callLoadSave(Integer fLoad, Reference arrayHideSpr, Reference arrayShowSpr)
+	Integer index := arrayShowSpr.GetLength()
+	arrayShowSpr[index] := Reference
+	arrayShowSpr[index] := this.msgFrame.sprParent
+	index += 1
+	If (isSelect() == true)
+        Integer i := 0
+        While (i < this.selectItem.GetLength())
+            arrayShowSpr[index] := Reference
+            arrayShowSpr[index] := this.sprSelect[i]
+            index += 1
+            i += 1
+        EndWhile
+    EndIf
+    this.msgFrame.enable(false)
+	LoadSaveWindow win
+	win.create(fLoad)
+	win.show()
+	this.msgFrame.hide()
+	If (isSelect() == true)
+        transparencySelect(256)
+    EndIf
+    Integer ret := win.run(arrayHideSpr, arrayShowSpr)
+	If (isSelect() == true)
+        transparencySelect(false)
+    EndIf
+	this.msgFrame.show()
+	win.hide(true) 
+	win.destroy()
+	this.msgFrame.enable(true)
+	Return ret
+EndFunc
+
+Function AdvScreen::changeStyle(Integer style)
+	If (this.fCreate == 0)
+        Return
+    EndIf
+	screen.Lock()
+	this.msgFrame.changeStyle(style)
+	If (isSelect() == true)
+        this.msgFrame.output("", "\n", true)
+        setupSelectItem()
+        transparencySelect(0, true)
+    EndIf
+	screen.Unlock()
+EndFunc
+
+Function AdvScreen::clearMessage()
+	this.msgFrame.clear()
+EndFunc
+
+Function AdvScreen::copyAdvScreen(Reference spr)
+	spr.Release()
+	spr.CreateSprite(67108865, ScreenSize.w, ScreenSize.h)
+	screen.Lock()
+	Integer fHide
+	If (adv.msgFrame.isShow() == true)
+        adv.msgFrame.hide(true)
+        fHide := true
+    EndIf
+	Integer i := 0
+    While (i < 5)
+        Reference info := this.bustupMan.info[i]
+        If (info.status == 128)
+            this.bustupMan.spr[i].SetVisible(0)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Refresh()
+	SpriteParam param
+	this.sprAdvBase.GetParameter(param)
+	param.nFlags |= 16
+	spr.DrawImage(this.sprAdvBase, param)
+	If (fHide == true)
+        adv.msgFrame.show(true)
+	EndIf
+    i := 0
+    While (i < 5)
+        Reference info := this.bustupMan.info[i]
+        If (info.status == 128)
+            this.bustupMan.spr[i].SetVisible(true)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Unlock()
+EndFunc
+
+Function AdvScreen::copyBustup(Integer id, Reference sprDst)
+	screen.Lock()
+	this.sprCg.SetVisible(0)
+	Integer i := 0
+    While (i < 5)
+        Reference info := this.bustupMan.info[i]
+        If (i != id)
+            this.bustupMan.spr[i].SetVisible(0)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Refresh()
+	ImageInfo info
+	info := this.bustupMan.spr[id].GetInfo()
+	sprDst.Release()
+	
+	sprDst.CreateSprite(67108865, info.nImageWidth, info.nImageHeight)
+	SpriteParam param
+	this.bustupMan.spr[id].GetParameter(param)
+	Rect rect
+	rect := IRect(info.ptDstPos.x - (info.nImageWidth / 2), info.ptDstPos.y - info.nImageHeight + 50, info.ptDstPos.x + info.nImageWidth, info.ptDstPos.y + info.nImageHeight)
+	this.sprAdvBase.GetParameter(info)
+	sprDst.DrawImage(this.sprAdvBase, info, 0, rect)
+	this.sprCg.SetVisible(true)
+	i := 0
+    While (i < 5)
+        Reference info := this.bustupMan.info[i]
+        If (i != id)
+            this.bustupMan.spr[i].SetVisible(true)
+        EndIf
+        i += 1
+    EndWhile
+	screen.Unlock()
+EndFunc
+
+Function AdvScreen::create()
+	If (this.fCreate == false)
+        this.sprAdvBase.CreateSprite(67108865, ScreenSize.w, ScreenSize.h)
+        screen.AddSprite(51000, this.sprAdvBase)
+        this.sprAdvBase.SetVisible(true)
+        this.sprBustupParent.CreateSprite(67108865, ScreenSize.w, ScreenSize.h)
+        this.sprAdvBase.AddSprite(40, this.sprBustupParent)
+        this.sprBustupParent.SetVisible(true)
+        this.msgFrame.create()
+        this.cg.clear()
+        this.bustupMan.create(5)
+        Integer i := 0
+        While (i < 5)
+            this.bustupMan.info[i].clear()
+            i += 1
+        EndWhile
+        createToneFilter()
+        this.sprAdvBase.AttachToneFilter(this.toneFilter["NORMAL"])
+        zoom(400, 300, 800, 600)
+        this.fKeyUpdateFlush := true
+        this.fUpdate := false
+        this.fSelect := false
+        this.selectItem.Remove()
+        this.fSkip := false
+        this.fAutoMode := false
+        this.fCreate := true
+	EndIf
+EndFunc
+
+Function AdvScreen::createToneFilter()
+	this.toneFilter["NORMAL"] := ToneFilter
+	this.toneFilter["NORMAL"].SetGeneralTone(0, 0, 0, 0, 0, 0, 0, 0, 1 | 2)
+	this.toneFilter["NEGATIVE"] := ToneFilter
+	this.toneFilter["NEGATIVE"].SetGeneralTone(512, 1, 512, 1, 512, 1, 0, 0, 2)
+	this.toneFilter["MONOCHROME"] := ToneFilter
+    this.toneFilter["MONOCHROME"].SetGeneralTone(0, 1, 0, 1, -256, 1, 0, 0, 4 | 2)
+	this.toneFilter["MONO_NEGATIVE"] := ToneFilter
+	this.toneFilter["MONO_NEGATIVE"].SetGeneralTone(0, 1, 0, 1, 512, 1, 0, 0, 4 | 2)
+	this.toneFilter["SEPIA"] := ToneFilter
+	this.toneFilter["SEPIA"].SetGeneralTone(298 - 256, 0, 180 - 256, 0, 266 - 256, 0,0, 0, 4 | 2)
+	this.toneFilter["LOSE"] := ToneFilter
+	this.toneFilter["LOSE"].SetGeneralTone(137 - 256, 1, 386 - 256, 1, 256 - 256, 0, 0, 0, 4 | 2)
+EndFunc
+
+Function AdvScreen::destroy()
+    If (this.fCreate == true)
+        flushUpdate()
+        screen.DetachSprite(this.sprAdvBase)
+        If (this.sprTemp["transBase"].GetType() == "Sprite")
+            screen.DetachSprite(this.sprTemp["transBase"])
+            this.sprTemp.Remove()
+        EndIf
+        this.sprAdvBase.DetachAllSprite()
+        this.sprAdvBase.Release()
+        this.sprCg.Release()
+        this.sprBustupParent.DetachAllSprite()
+        this.sprBustupParent.Release()
+        this.msgFrame.destroy()
+        this.fCreate := 0
+    EndIf
+EndFunc
+
+Function AdvScreen::effectFlush(String color, Integer time, String cgFile)
+	Sprite spr
+	If (IsUNK1)
+	Else
+		If (color == "BLACK")
+			CreateRGBImage(spr, RGB(0, 0, 0), ScreenSize.w, ScreenSize.h)
+		ElseIf (color == "WHITE")
+			CreateRGBImage(spr, RGB(255, 255, 255), ScreenSize.w, ScreenSize.h)
+		ElseIf (color == "RED")
+			CreateRGBImage(spr, RGB(255, 0, 0), ScreenSize.w, ScreenSize.h)
+		ElseIf (color == "GREEN")
+			CreateRGBImage(spr, RGB(0, 255, 0), ScreenSize.w, ScreenSize.h)
+		ElseIf (color == "BLUE")
+			CreateRGBImage(spr, RGB(0, 0, 255), ScreenSize.w, ScreenSize.h)
+		Else
+			spr.LoadImage(color + ".eri")
+		EndIf
+	EndIf
+	screen.AddSprite(50900, spr)
+	spr.SetVisible(true)
+	update(true)
+	spr.SetBlendingEnvelope(256)
+	spr.BeginActivation(time)
+	WaitUntilSpriteActive(spr, 0)
+	screen.DetachSprite(spr)
+EndFunc
+
+Function AdvScreen::effectQuake(Integer w, Integer h, Integer fWhole, Integer count, Integer time)
+	Reference rTarget
+	Sprite spr
+	If (fWhole == 0)
+		spr := this.sprCg
+		spr.SetTransparency(98)
+		spr.SetVisible(true)
+		this.sprAdvBase.AddSprite(50, spr)
+		rTarget := spr
+	Else
+		rTarget := this.sprAdvBase
+	EndIf
+	SpriteParam param
+	rTarget.GetParameter(param)
+	Reference pt
+	pt := param.ptDstPos
+	Bezier2D bzCurve1
+	Bezier2D bzCurve2
+	Bezier2D bzCurve3
+	Bezier2D bzCurve4
+	bzCurve1.SetLinear(pt.x + 0, pt.y + 0, pt.x - w, pt.y - h)
+	bzCurve2.SetLinear(pt.x - w, pt.y - h, pt.x + w, pt.y + h)
+	bzCurve3.SetLinear(pt.x + w, pt.y + h, pt.x - w, pt.y - h)
+	bzCurve4.SetLinear(pt.x + w, pt.y + h, pt.x + 0, pt.y + 0)
+	If (time == 0)
+		time := 30
+	EndIf
+	rTarget.SetBezierCurve(bzCurve1)
+	rTarget.BeginActivation(time)
+	WaitUntilSpriteActive(rTarget, 0)
+	While (count >= 0)
+		rTarget.SetBezierCurve(bzCurve2)
+		rTarget.BeginActivation(time * 2)
+		WaitUntilSpriteActive(rTarget, 0)
+		count -= 1
+		If (count >= 0)
+			rTarget.SetBezierCurve(bzCurve3)
+			rTarget.BeginActivation(time * 2)
+			WaitUntilSpriteActive(rTarget, 0)
+		EndIf
+	EndWhile
+	rTarget.SetBezierCurve(bzCurve4)
+	rTarget.BeginActivation(time)
+	WaitUntilSpriteActive(rTarget, 0)
+	If (fWhole == 0)
+		spr.SetVisible(0)
+		this.sprAdvBase.DetachSprite(spr)
+	EndIf
 EndFunc
