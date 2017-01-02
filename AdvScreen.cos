@@ -1481,6 +1481,237 @@ Function AdvScreen::hitret(Integer id, Integer fVoiceWait)
 	Return ret
 EndFunc
 
+Function AdvScreen::update(Integer fFlush, Integer fWait)
+	If (this.fUpdate == false)
+		Return
+	EndIf
+	this.fUpdate := 0
+	If (this.fUpdating == true)
+		flushUpdate()
+	EndIf
+	If (this.transInfo.type == "NONE")
+		fFlush := true
+	ElseIf (cnfObj.screenEffect == 1)
+		fFlush := true
+	EndIf
+	Integer activationWait := 500
+	If ((this.fTransition == true) & (this.transInfo.time != 0))
+		activationWait := this.transInfo.time
+	EndIf
+	Integer i := 0
+	If (fFlush == false)
+		this.sprTemp["transBase"] := Sprite
+		this.sprTemp["dummyCg"] := Sprite
+		copyAdvScreen(this.sprTemp["dummyCg"])
+		this.sprTemp["dummyCg"].SetVisible(true)
+	EndIf
+	this.bustupMan.adjustPosition()
+	screen.Lock()
+	If (this.sprAdvBase.IsActivation())
+		this.sprAdvBase.FlushActivation()
+	EndIf
+	If (this.fSetCg == true)
+		this.sprAdvBase.DetachSprite(this.sprCg)
+		If (this.sprCg.IsActivation())
+			this.sprCg.FlushActivation()
+		EndIf
+		If (this.fSetCgRGB == false)
+			loadCg(this.sprCg, this.cg.filename)
+		Else
+			CreateRGBImage(this.sprCg, this.colSetCgRGB, ScreenSize.w, ScreenSize.h)
+		EndIf
+		this.sprCg.SetEffectParameter(this.cg.effectParam)
+		this.sprCg.MovePosition(-this.cg.pt.x, -this.cg.pt.y)
+		this.sprCg.SetBackColor(0, 0)
+		this.sprCg.SetVisible(true)
+		this.sprAdvBase.AddSprite(60, this.sprCg)
+		fWait := true
+	EndIf
+	If (this.fSetBustup == true)
+		i := 0
+		While (i < 5)
+			Reference info := this.bustupMan.info[i]
+			If (info.status != 2)
+				this.sprBustupParent.DetachSprite(this.bustupMan.spr[i])
+				this.bustupMan.spr[i].Release()
+			EndIf
+			i += 1
+		EndWhile
+		i := 0
+		While (i < 5)
+			If (this.bustupMan.spr[i].IsActivation() == true)
+				this.bustupMan.spr[i].FlushActivation()
+			EndIf
+			If (this.bustupMan.info[i].status == 2)
+			ElseIf ((this.bustupMan.info[i].status != 0) & (this.bustupMan.info[i].status != 8))
+				loadBustup(this.bustupMan.spr[i], this.bustupMan.info[i])
+				this.sprBustupParent.AddSprite(this.bustupMan.info[i].priority, this.bustupMan.spr[i])
+				this.bustupMan.spr[i].SetVisible(true)
+			EndIf
+			this.bustupMan.adjustSprPosition(i)
+			If ((this.bustupMan.info[i].status == 1) | (this.bustupMan.info[i].status == 4))
+				this.bustupMan.info[i].status := 2
+			ElseIf (this.bustupMan.info[i].status == 8)
+				this.bustupMan.info[i].clear()
+			EndIf
+			i += 1
+		EndWhile
+	EndIf
+	If (cnfObj.screenEffect == 1)
+		endAnimation()
+	EndIf
+	If (this.reqToneFilter == true)
+		this.sprAdvBase.AttachToneFilter(this.toneFilter[this.typeToneFilter])
+		If (this.typeToneFilter == "NORMAL")
+			this.fToneFilter := false
+		Else
+			this.fToneFilter := true
+		EndIf
+	EndIf
+	this.reqToneFilter := false
+	If (this.reqZoom == true)
+		SpriteParam param
+		this.sprAdvBase.GetParameter(param)
+		If (this.zoomParam.isZoom() == false)
+			param.ptDstPos := IPoint(0, 0)
+			param.ptRevCenter := IPoint(0, 0)
+			param.rHorzUnit := 1.0
+			param.rVertUnit := 1.0
+			this.fZoom := false
+		Else
+			param.ptDstPos := IPoint((-(this.zoomParam.pt.x - this.zoomParam.size.w / 2)) * this.zoomParam.horzUnit(), (-(this.zoomParam.pt.y - this.zoomParam.size.h / 2)) * this.zoomParam.vertUnit())
+			param.rHorzUnit := this.zoomParam.horzUnit()
+			param.rVertUnit := this.zoomParam.vertUnit()
+			this.fZoom := true
+		EndIf
+		this.sprAdvBase.SetParameter(param)
+		this.reqZoom := false
+	EndIf
+	if (this.fScroll == true)
+		If (fFlush == true)
+			this.sprCg.MovePosition(this.scrlParam.pt.x, this.scrlParam.pt.y)
+		EndIf
+		this.cg.pt := IPoint(-this.scrlParam.pt.x, -this.scrlParam.pt.y)
+	EndIf
+	If (fFlush == false)
+		i := 0
+		While (i < 5)
+			Reference info := this.bustupMan.info[i]
+			If (this.bustupMan.info[i].status == 16)
+				SpriteParam param
+				this.bustupMan.spr[i].GetParameter(param)
+				Bezier2D bz
+				bz.SetLinear(info.localPosition.x, info.localPosition.y, info.localPosition.x, info.localPosition.y + info.downParam.pt.y)
+				info.localPosition := IPoint(info.localPosition.x, info.localPosition.y + info.downParam.pt.y)
+				bz.SetAcceleration(info.downParam.accel, 0)
+				this.bustupMan.spr[i].SetBezierCurve(bz)
+			ElseIf(this.bustupMan.info[i].status == 128)
+				SpriteParam param
+				this.bustupMan.spr[i].GetParameter(param)
+				Bezier2D bz
+				bz.SetLinear(info.localPosition.x, info.localPosition.y, info.localPosition.x + info.leaveParam.pt.x, info.localPosition.y + info.leaveParam.pt.y)
+				info.localPosition := IPoint(info.localPosition.x + info.leaveParam.pt.x, info.localPosition.y + info.leaveParam.pt.y)
+				bz.SetAcceleration(info.leaveParam.accel, 0)
+				this.bustupMan.spr[i].SetBezierCurve(bz)
+				Sprite spr
+				this.sprAdvBase.DetachSprite(this.bustupMan.spr[i])
+				copyBustup(i, this.bustupMan.spr[i])
+				this.sprBustupParent.DetachSprite(this.bustupMan.spr[i])
+				screen.AddSprite(50940, this.bustupMan.spr[i])
+				If (info.leaveParam.fFade != false)
+					this.bustupMan.spr[i].SetBlendingEnvelope(256)
+				EndIf
+			EndIf
+			i += 1
+		EndWhile
+	Else
+		i := 0
+		While (i < 5)
+			Reference info := this.bustupMan.info[i]
+			If (this.bustupMan.info[i].status == 16)
+				info.localPosition := IPoint(info.localPosition.x, info.localPosition.y + info.downParam.pt.y)
+				this.bustupMan.spr[i].MovePosition(info.localPosition.x, info.localPosition.y)
+			ElseIf (this.bustupMan.info[i].status == 128)
+				info.localPosition := IPoint(info.localPosition.x + info.leaveParam.pt.x, info.localPosition.y + info.leaveParam.pt.y)
+				this.bustupMan.spr[i].MovePosition(info.localPosition.x, info.localPosition.y)
+				If (info.leaveParam.fFade != false)
+					this.bustupMan.spr[i].SetTransparency(256)
+				Endif
+			EndIf
+			i += 1
+		EndWhile
+	EndIf
+	If (fFlush == false)
+		Integer type := 0
+		If ((this.fTransition == true) & (this.transInfo.type != ""))
+			this.sprAlpha.LoadImage(this.transInfo.type + ".eri")
+			this.sprTemp["transBase"].SetAlphaImage(this.sprAlpha, 8)
+			this.sprTemp["transBase"].SetBlendDegree(0)
+			type := 1
+		Else
+			this.sprTemp["transBase"].CreateSprite(1, ScreenSize.w, ScreenSize.h)
+			this.sprTemp["transBase"].SetTransparency(0)
+		EndIf
+		this.sprTemp["transBase"].SetBackColor(0, 0)
+		this.sprTemp["transBase"].SetVisible(true)
+		this.sprTemp["transBase"].AddSprite(10, this.sprTemp["dummyCg"])
+		screen.AddSprite(50950, this.sprTemp["transBase"])
+		If ((this.fScroll == true) & (fFlush == false))
+			If (this.sprCg.IsActivation() == true)
+				this.sprCg.FlushActivation()
+			EndIf
+			SpriteParam param
+			this.sprCg.GetParameter(param)
+			Bezier2D bz
+			bz.SetLinear(param.ptDstPos.x, param.ptDstPos.y, this.scrlParam.pt.x, this.scrlParam.pt.y)
+			bz.SetAcceleration(this.scrlParam.accel, 0)
+			this.sprCg.SetBezierCurve(bz)
+		EndIf
+		screen.Unlock()
+		this.sprTemp["transBase"].SetBlendingEnvelope(256)
+		this.sprTemp["transBase"].BeginActivation(activationWait)
+		If (this.fScroll == true)
+			this.sprCg.BeginActivation(this.scrlParam.time)
+		EndIf
+		this.fUpdating := true
+		If (fWait == true)
+			WaitUntilSpriteActive(this.sprTemp["transBase"], true)
+			flushUpdate()
+		EndIf
+	Else
+		screen.Unlock()
+	EndIf
+	i := 0
+	While (i < 5)
+		If (this.bustupMan.info[i].status == 16)
+			this.bustupMan.spr[i].BeginActivation(this.bustupMan.info[i].downParam.time)
+			this.bustupMan.info[i].status := 2
+		ElseIf (this.bustupMan.info[i].status == 128)
+			this.bustupMan.spr[i].BeginActivation(this.bustupMan.info[i].leaveParam.time)
+			this.bustupMan.info[i].clear()
+		ElseIf (this.bustupMan.info[i].status == 32)
+			If (fFlush == false)
+				actionJump(this.bustupMan.info[i].id)
+			EndIf
+			this.bustupMan.info[i].status := 2
+		ElseIf (this.bustupMan.info[i].status == 64)
+			If (fFlush == false)
+				actionShake(this.bustupMan.info[i].id)
+			EndIf
+			this.bustupMan.info[i].status := 2
+		EndIf
+		i += 1
+	EndWhile
+	If (IsEyeCatch() == true)
+		EyeCatchLeave()
+	EndIf
+	this.fTransition := 0
+	this.transInfo.clear()
+	this.fSetCg := 0
+	this.fSetBustup := 0
+	this.fScroll := 0
+EndFunc
+
 Function AdvScreen::endAnimation()
 	If (this.fCreate == 0)
 		Return
