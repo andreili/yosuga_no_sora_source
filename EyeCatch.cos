@@ -1,0 +1,199 @@
+Include	"yosuga.ch"
+
+Function EyeCatch01(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["AlphaT"] := Resource
+		spr["AlphaT"].LoadImage("EyeCatchT.eri")
+		spr["AlphaB"] := Resource
+		spr["AlphaB"].LoadImage("EyeCatchB.eri")
+		spr["T"] := Sprite
+		spr["T"].SetAlphaImage(spr["AlphaT"], 1)
+		spr["T"].SetBlendDegree(256)
+		spr["T"].MovePosition(0, 0)
+		spr["T"].SetVisible(-1)
+		spr["B"] := Sprite
+		spr["B"].SetAlphaImage(spr["AlphaB"], 1)
+		spr["B"].SetBlendDegree(256)
+		spr["B"].MovePosition(0, 500)
+		spr["B"].SetVisible(-1)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 10)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		spr["BlackT"] := Sprite
+		spr["BlackT"].CreateSprite(1, 800, 100)
+		spr["BlackT"].FillRect(IRect(0, 0, 800, 100), RGB(0, 0, 0))
+		spr["BlackT"].SetVisible(-1)
+		spr["BlackB"] := Sprite
+		spr["BlackB"].CreateSprite(1, 800, 100)
+		spr["BlackB"].FillRect(IRect(0, 0, 800, 100), RGB(0, 0, 0))
+		spr["BlackB"].SetVisible(-1)
+		spr["T"].AddSprite(10, spr["BlackT"])
+		spr["B"].AddSprite(10, spr["BlackB"])
+		screen.AddSprite(50800, spr["T"])
+		screen.AddSprite(50800, spr["B"])
+		spr["B"].AddSprite(5, spr["Logo"])
+		spr["T"].SetBlendingEnvelope(0)
+		spr["B"].SetBlendingEnvelope(0)
+		spr["T"].BeginActivation(1500)
+		spr["B"].BeginActivation(1500)
+		BustupClear()
+		Update()
+		ScWait(1500)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1000)
+		ScWait(2500)
+	Else
+		spr["T"].SetBlendingEnvelope(256)
+		spr["T"].BeginActivation(1000)
+		spr["B"].SetBlendingEnvelope(256)
+		spr["B"].BeginActivation(1000)
+		ScWait(1500)
+		screen.DetachSprite(spr["T"])
+		screen.DetachSprite(spr["B"])
+		screen.DetachSprite(spr["Logo"])
+	EndIf
+EndFunc
+
+Function EyeCatch02(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["EyeCatch"] := Sprite
+		spr["EyeCatch"].LoadImage("Eye001.eri")
+		spr["EyeCatch"].SetTransparency(256)
+		spr["EyeCatch"].SetVisible(-1)
+		screen.AddSprite(50800, spr["EyeCatch"])
+		spr["EyeCatch"].SetBlendingEnvelope(0)
+		spr["EyeCatch"].BeginActivation(1500)
+		ScWait(3000)
+	Else
+		spr["EyeCatch"].SetBlendingEnvelope(256)
+		spr["EyeCatch"].BeginActivation(1500)
+		ScWait(2000)
+		screen.DetachSprite(spr["EyeCatch"])
+	EndIf
+EndFunc
+
+Function EyeCatch03(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["Black"] := Sprite
+		spr["Black"].CreateSprite(1, 800, 600)
+		spr["Black"].FillRect(IRect(0, 0, 800, 600), RGB(0, 0, 0))
+		spr["Black"].SetTransparency(256)
+		spr["Black"].SetVisible(-1)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 510)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		screen.AddSprite(50800, spr["Black"])
+		screen.AddSprite(50800 - 1, spr["Logo"])
+		spr["Black"].SetBlendingEnvelope(0)
+		spr["Black"].BeginActivation(1500)
+		ScWait(2000)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1500)
+		ScWait(2500)
+	Else
+		spr["Black"].SetBlendingEnvelope(256)
+		spr["Black"].BeginActivation(1500)
+		spr["Logo"].SetBlendingEnvelope(256)
+		spr["Logo"].BeginActivation(3000)
+		ScWait(3500)
+		screen.DetachSprite(spr["Black"])
+		screen.DetachSprite(spr["Logo"])
+	EndIf
+EndFunc
+
+Function EyeCatch04(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		SpriteParam param
+		adv.sprAdvBase.GetParameter(param)
+		adv.sprAdvBase.SetParameter(param)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 510)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		screen.AddSprite(50800, spr["Logo"])
+		Bezier2D bzMag
+		bzMag.SetLinear(1.0, 1.0, 0.0, 0.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		adv.sprAdvBase.SetBezierCurve(Reference, Reference, bzMag)
+		adv.sprAdvBase.SetBlendingEnvelope(256)
+		adv.sprAdvBase.BeginActivation(1000)
+		WaitUntilSpriteActive(adv.sprAdvBase, -1)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1500)
+		WaitUntilSpriteActive(spr["Logo"], -1)
+		ScWait(3000)
+	Else
+		SpriteParam param
+		adv.sprAdvBase.GetParameter(param)
+		param.ptDstPos := IPoint(0, 0)
+		param.ptRevCenter := IPoint(0, 0)
+		param.rVertUnit := 1.0
+		param.rHorzUnit := 1.0
+		adv.sprAdvBase.SetParameter(param)
+		adv.sprAdvBase.SetBlendingEnvelope(0)
+		adv.sprAdvBase.BeginActivation(1000)
+		spr["Logo"].SetBlendingEnvelope(256)
+		spr["Logo"].BeginActivation(1000)
+		WaitUntilSpriteActive(spr["Logo"], -1)
+	EndIf
+EndFunc
+
+Function EyeCatch99(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+	EndIf
+EndFunc
+
+Function EyeCatchEnter(String type, Integer fSoundKeep)
+	If (IsLoad () == -1)
+		Return
+	EndIf
+	type.MakeUpper()
+	StopVoice()
+	If (fSoundKeep == 0)
+		StopEnvSe()
+		StopBgm()
+	EndIf
+	Hide()
+	Integer fFlush := adv.isKeyUpdateFlush()
+	If (fFlush == -1)
+		Return
+	EndIf
+	If ((type == "") | (type == "NORMAL"))
+		EyeCatch01(-1)
+		type := "NORMAL"
+	ElseIf (type == "DATE")
+		EyeCatch03(-1)
+	ElseIf (type == "BLACKOUT")
+		EyeCatch03(-1)
+	EndIf
+	sprEyeCatch := type
+	eyeCatchType := -1
+EndFunc
+
+Function EyeCatchLeave()
+	If (sprEyeCatch == "NORMAL")
+		EyeCatch01(0)
+	ElseIf (sprEyeCatch == "DATE")
+		EyeCatch03(0)
+	ElseIf (sprEyeCatch == "BLACKOUT")
+		EyeCatch03(0)
+	EndIf
+	eyeCatchs.RemoveAll()
+	eyeCatchType := 0
+EndFunc
+

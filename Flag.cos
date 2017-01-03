@@ -1,0 +1,45 @@
+Include	"yosuga.ch"
+
+Function Flag::check(Integer id)
+	Integer index := id / 32
+	Integer shift := id % 32
+	Return (this.flag[index].TestBit(shift) == -1)
+EndFunc
+
+Function Flag::clear()
+	Integer size := this.flag.GetLength()
+	Integer i := 0
+	While (i < size)
+		this.flag[i] := 0
+		i += 1
+	EndWhile
+EndFunc
+
+Function Flag::create(Integer size)
+	this.flag.Remove()
+	Integer flagsize := size / 32
+	Integer flagsize_ := size % 32
+	Integer i := 0
+	While (i < flagsize)
+		this.flag[i] := 0
+		this.flag[i] := 0
+		i += 1
+	EndWhile
+	If (flagsize_ != 0)
+		this.flag[i] := 0
+		this.flag[i] := 0
+	EndIf
+EndFunc
+
+Function Flag::reset(Integer id)
+	Integer index := id / 32
+	Integer shift := id % 32
+	Return this.flag[index].ResetBit(shift)
+EndFunc
+
+Function Flag::set(Integer id)
+	Integer index := id / 32
+	Integer shift := id % 32
+	Return this.flag[index].SetBit(shift)
+EndFunc
+

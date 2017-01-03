@@ -1,0 +1,42 @@
+Include	"yosuga.ch"
+
+Function ConfigWindow::apply()
+	If (cnfObj.screenType == 0)
+		this.sprBase.CheckButton("ID_WINDOW", -1)
+	Else
+		this.sprBase.CheckButton("ID_FULLSCREEN", -1)
+	EndIf
+	this.sprBase.CheckButton("ID_CHECK_BGM", cnfObj.flgPlayBgm)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volBgm, "ID_VOL_BGM")
+	this.sprBase.CheckButton("ID_CHECK_SE", cnfObj.flgPlaySe)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volSe, "ID_VOL_SE")
+	this.sprBase.CheckButton("ID_CHECK_SYSTEM", cnfObj.flgPlaySysSe)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volSysSe, "ID_VOL_SYSTEM")
+	this.sprBase.CheckButton("ID_CHECK_VOICE", cnfObj.flgPlayVoice)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volVoice, "ID_VOL_VOICE")
+	If (cnfObj.screenEffect == 0)
+		this.sprBase.CheckButton("ID_NORMAL", -1)
+	ElseIf (cnfObj.screenEffect == 1)
+		this.sprBase.CheckButton("ID_NONE", -1)
+	EndIf
+	this.sprBase.SetHorzScrollPos(256 - cnfObj.windowDepth, "ID_WINDOW_DEPTH")
+	adv.msgFrame.transparencyBase(cnfObj.windowDepth)
+	this.sprBase.SetHorzScrollPos(cnfObj.messageSpeed, "ID_MESSAGE_SPEED")
+	If (cnfObj.readSkip == -1)
+		this.sprBase.CheckButton("ID_READED", -1)
+	Else
+		this.sprBase.CheckButton("ID_ALL", -1)
+	EndIf
+	If (cnfObj.voiceStopOnClick == -1)
+		this.sprBase.CheckButton("ID_CLICK_STOP", -1)
+	Else
+		this.sprBase.CheckButton("ID_CLICK_PLAY", -1)
+	EndIf
+	If (cnfObj.lockSkip == -1)
+		this.sprBase.CheckButton("ID_STATIC", -1)
+	Else
+		this.sprBase.CheckButton("ID_REMOVE", -1)
+	EndIf
+	this.sprBase.SetHorzScrollPos(cnfObj.automodeSpeed, "ID_AUTOMODE_SPEED")
+EndFunc
+

@@ -1,0 +1,36 @@
+Include	"yosuga.ch"
+
+Function LoadInputFilter()
+	input.LoadInputFilter("input.xml")
+EndFunc
+
+Function OpenInputFilter()
+	input.OpenFilter(1)
+	FlushInputQueue()
+EndFunc
+
+Function CloseInputFilter()
+	input.CloseFilter()
+EndFunc
+
+Function DestoryInputFilter()
+	input.CloseFilter()
+	input.DeleteInputFilter()
+EndFunc
+
+Function FlushInputQueue()
+	If (inputFilterType == 0)
+		input.FlushInputQueue(256)
+	Else
+		inputE.FlushInputQueue(256)
+	EndIf
+EndFunc
+
+Function FlushJoyButton()
+	If (inputFilterType == 0)
+		input.FlushJoyButtonPushed()
+	Else
+		inputE.FlushJoyButtonPushed()
+	EndIf
+EndFunc
+

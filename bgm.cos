@@ -24,3 +24,88 @@ Function BgmRelease()
 	bgm[1].res.Release()
 EndFunc
 
+Function PlayBgm(String file, Integer fNonFade)
+	file.MakeUpper()
+	If (IsPlayBgm() && (bgm[bgmIndex].filename == file))
+		Return
+	EndIf
+	If (IsPlayBgm())
+		StopBgm(fNonFade)
+	Endif
+	Debug("BGM-" + file)
+	If (bgmIndex == 0)
+		bgmIndex := 1
+	Else
+		bgmIndex := 0
+	EndIf
+	bgm[bgmIndex].filename := file
+	SetBgmInfo(bgm[bgmIndex])
+	bgm[bgmIndex].fPause := 0
+	If (cnfObj.flgPlayBgm == true)
+		bgm[bgmIndex].fPlaying := true
+	Else
+		bgm[bgmIndex].fPlaying := false
+		Return
+	EndIf
+	bgm[bgmIndex].res.LoadSound(file + ".mio", true)
+	If (fNonFade == false)
+		bgm[bgmIndex].res.SetVolume(0.0, 0.0)
+		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+		Bezier2D bzVol
+		bzVol.SetLinear(0.0, 0.0, cnfObj.volBgm, cnfObj.volBgm)
+		bgm[bgmIndex].res.SetVolumeEnvelope(bzVol, 2000)
+	Else
+		bgm[bgmIndex].res.SetVolume(cnfObj.volBgm, cnfObj.volBgm)
+		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+	EndIf
+EndFunc
+
+Function StopBgm(Integer fNonFade, Integer fConfigStop)
+	Debug("BGM-STOP")
+	If (fNonFade == false)
+		Bezier2D bzVol
+		Real leftVol
+		Real rightVol
+		bgm[bgmIndex].res.GetVolume(leftVol, rightVol)
+		bzVol.SetLinear(leftVol, rightVol, 0.0, 0.0)
+		bgm[bgmIndex].res.SetVolumeEnvelope(bzVol, 3000)
+		bgm[bgmIndex].fEndingProcess := true
+	EndIf
+	If (fNonFade != false)
+		bgm[bgmIndex].res.Stop()
+		bgm[bgmIndex].res.Release()
+	EndIf
+	bgm[bgmIndex].fPlaying := 0
+	If (fConfigStop == false)
+		bgm[bgmIndex].filename := ""
+	EndIf
+EndFunc
+
+Function EnvSeCheckCallback()
+	Integer i := 0
+	While (i < envSe.GetLength())
+		String str
+		str := envSe.GetTagName(i)
+		If (envSe[str].fEndingProcess == -1)
+			If ((envSe[str].res.IsPlaying() == -1) && (envSe[str].res.IsPendingEnvelope() == 0))
+				envSe[str].res.Stop()
+				envSe[str].res.Release()
+				envSe.Remove(str)
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+EndFunc
+
+Function EnvSeRelease()
+	Integer i := 0
+	While (i < envSe.GetLength())
+		String str
+		str := envSe.GetTagName(i)
+		envSe[str].res.Stop()
+		envSe[str].res.Release()
+		i += 1
+	EndWhile
+	envSe.RemoveAll()
+EndFunc
+

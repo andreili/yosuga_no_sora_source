@@ -1,0 +1,78 @@
+Include	"yosuga.ch"
+
+Function CreateDebugWindow()
+	If (isCreateDebugWindow == true)
+		Return
+	EndIf
+	debugSkin.LoadResource("debug.noa")
+	debugLog.create(16)
+	Integer width := 224
+	debugSkin.CreateFormPage(debugFrame, "ID_PAGE_DEBUG")
+	debugBase.CreateSprite(1, width, ScreenSize.h)
+	debugFrame.SetFocus("ID_EDIT")
+	debugMes.CreateMessage(width, 16 * 16 + 4)
+	debugMes.AttachMessageStyle(debugSkin, "ID_FONT_INFO")
+	debugFrame.SetTransparency(128)
+	Size size
+	size := screen.GetDisplaySize()	;TODO
+	debugFrame.MovePosition(ScreenSize.w, 300)
+	debugBase.MovePosition(ScreenSize.w, 0)
+	debugMes.MovePosition(ScreenSize.w + 4, 4)
+	If (IsDebug == true)
+		sprVoicePlayingBar.AttachImage(debugSkin.ID_SELECT3)
+		sprVoicePlayingBar.MovePosition(DEBUG_VOICECHECK_X, DEBUG_VOICECHECK_Y)
+		sprVoicePlayingTrim.AttachImage(debugSkin.ID_TRIM)
+		sprVoicePlayingTrim.MovePosition(DEBUG_VOICECHECK_X + 7, DEBUG_VOICECHECK_Y)
+	EndIf
+	If (IsDebug == true)
+		screen.AddSprite(3, sprVoicePlayingTrim)
+		screen.AddSprite(5, sprVoicePlayingBar)
+	EndIf
+	screen.AddSprite(5, debugFrame)
+	screen.AddSprite(10, debugMes)
+	screen.AddSprite(15, debugBase)
+	isCreateDebugWindow := true
+EndFunc
+
+Function DestroyDebugWindow()
+	If (isCreateDebugWindow == 0)
+		Return
+	EndIf
+	isCreateDebugWindow := 0
+EndFunc
+
+Function ShowDebugWindow()
+	If (isCreateDebugWindow == false)
+		Return
+	EndIf
+	debugFrame.SetVisible(true)
+	debugBase.SetVisible(true)
+	debugMes.SetVisible(true)
+EndFunc
+
+Function Debug(String str)
+	if (isCreateDebugWindow == 0)
+		Return
+	EndIf
+	If (str == "")
+		Return
+	EndIf
+	screen.Lock()
+	debugMes.ClearMessage()
+	debugLog.add(str)
+	Integer i := debugLog.num() - 1
+	While (i >= 0)
+		debugMes.OutputMessage(debugLog.get(i) + "\n")
+		i -= 1
+	EndWhile
+	screen.Unlock()
+EndFunc
+
+Function EndDebugSearch()
+	rDebugSearch := 0
+EndFunc
+
+Function EnterDebugJump()
+	fDebugSearch := -1
+EndFunc
+
