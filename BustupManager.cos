@@ -327,3 +327,14 @@ Function BustupManager::swap(Integer n, Integer m)
 	this.info[m] := temp
 EndFunc
 
+Function BustupInfo::clear()
+	this.status := 0
+	this.id := true
+	this.pos := 0
+	this.fPosFix := 0
+	this.basePosition := IPoint(0, 0)
+	this.localPosition := IPoint(0, 0)
+	this.priority := 0
+	this.filename := ""
+EndFunc
+

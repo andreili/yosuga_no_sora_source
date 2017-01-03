@@ -23,6 +23,7 @@ DeclareType HistoryWindow
 DeclareType DrawTextParam
 DeclareType BustupViewInfo
 DeclareType CgViewInfo
+DeclareType BustupInfo
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
