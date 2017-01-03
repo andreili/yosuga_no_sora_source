@@ -338,3 +338,183 @@ Function BustupInfo::clear()
 	this.filename := ""
 EndFunc
 
+Function CheckSetupBustup(String str, Integer timezone)
+	Integer id := true
+	BustupInfo info
+	str.MakeUpper()
+	info.basename := str
+	Integer fFileNotFound := false
+	If ("" == str)
+	ElseIf (str.Find("CA") != true)
+		id := 4
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 1))
+		ElseIf (CheckBu(str, "02_", 2))
+		ElseIf (CheckBu(str, "03_", 3))
+		ElseIf (CheckBu(str, "04_", 4))
+		ElseIf (CheckBu(str, "05_", 5))
+		ElseIf (CheckBu(str, "06_", 6))
+		ElseIf (CheckBu(str, "07_", 7))
+		ElseIf (CheckBu(str, "EZ01CA"))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CB") != true)
+		id := 3
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 11))
+		ElseIf (CheckBu(str, "02_", 12))
+		ElseIf (CheckBu(str, "03_", 13))
+		ElseIf (CheckBu(str, "04_", 14))
+		ElseIf (CheckBu(str, "05_", 15))
+		ElseIf (CheckBu(str, "06_", 16))
+		ElseIf (CheckBu(str, "07_", 17))
+		ElseIf (CheckBu(str, "EZ01CB"))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CC") != true)
+		id := 2
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 21))
+		ElseIf (CheckBu(str, "02_", 22))
+		ElseIf (CheckBu(str, "03_", 23))
+		ElseIf (CheckBu(str, "04_", 24))
+		ElseIf (CheckBu(str, "05_", 25))
+		ElseIf (CheckBu(str, "06_", 26))
+		ElseIf (CheckBu(str, "07_", 27))
+		ElseIf (CheckBu(str, "08_", 28))
+		ElseIf (CheckBu(str, "EZ01CC"))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CD") != true)
+		id := 5
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 31))
+		ElseIf (CheckBu(str, "02_", 32))
+		ElseIf (CheckBu(str, "03_", 33))
+		ElseIf (CheckBu(str, "04_", 34))
+		ElseIf (CheckBu(str, "05_", 35))
+		ElseIf (CheckBu(str, "06_", 36))
+		ElseIf (CheckBu(str, "07_", 37))
+		ElseIf (CheckBu(str, "EZ01CD"))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CE") != true)
+		id := 6
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 41))
+		ElseIf (CheckBu(str, "02_", 42))
+		ElseIf (CheckBu(str, "03_", 43))
+		ElseIf (CheckBu(str, "04_", 44))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CF") != true)
+		id := 7
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 51))
+		ElseIf (CheckBu(str, "02_", 52))
+		ElseIf (CheckBu(str, "03_", 53))
+		ElseIf (CheckBu(str, "04_", 54))
+		ElseIf (CheckBu(str, "05_", 55))
+		ElseIf (CheckBu(str, "06_", 56))
+		ElseIf (CheckBu(str, "EZ01CF"))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CG") != true)
+		id := 8
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 61))
+		ElseIf (CheckBu(str, "02_", 62))
+		ElseIf (CheckBu(str, "03_", 63))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CH") != true)
+		id := 9
+		If (IsUNK1)
+		ElseIf (CheckBu(str, "01_", 71))
+		ElseIf (CheckBu(str, "02_", 72))
+		ElseIf (CheckBu(str, "03_", 73))
+		ElseIf (CheckBu(str, "04_", 74))
+		ElseIf (CheckBu(str, "05_", 75))
+		ElseIf (CheckBu(str, "06_", 76))
+		ElseIf (CheckBu(str, "07_", 77))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CI") != true)
+		id := 12
+	ElseIf (str.Find("CJ") != true)
+		id := 10
+		If (CheckBu(str, "01_", 81))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CK") != true)
+		id := 11
+		If (CheckBu(str, "01_", 91))
+		Else
+			fFileNotFound := true
+		EndIf
+	ElseIf (str.Find("CL") != true)
+		id := 99
+	Else
+		fFileNotFound := true
+	EndIf
+	If ((IsDebug) & (fFileNotFound))
+		Debug("BUSTUP指定が不正です。")
+		String filename
+		filename := scObj.scenarioCall.Replace("sc", "")
+		OutputLogText("CgCheckLog.log", "BU指定が不正です - " + filename + ":[" + str + "]\n")
+	EndIf
+	If (IsUNK1)
+		SetTimezomeBustup(str, timezone)
+	EndIf
+	info.basePosition.y := 600
+	info.id := id
+	info.filename := str
+	If (IsUNK1)
+	ElseIf (2 == id)
+		info.relation := 10
+		info.priority := 52
+	ElseIf (3 == id)
+		info.relation := 50
+		info.priority := 55
+	ElseIf (4 == id)
+		info.relation := 70
+		info.priority := 51
+	ElseIf (5 == id)
+		info.relation := 20
+		info.priority := 56
+	ElseIf (6 == id)
+		info.relation := 60
+		info.priority := 54
+	ElseIf (7 == id)
+		info.relation := 40
+		info.priority := 58
+	ElseIf (8 == id)
+		info.relation := 80
+		info.priority := 57
+	ElseIf (9 == id)
+		info.relation := 30
+		info.priority := 53
+	ElseIf (10 == id)
+		info.relation := 90
+		info.priority := 60
+	ElseIf (11 == id)
+		info.relation := 15
+		info.priority := 59
+	EndIf
+	If (str.Find("S") != true)
+		info.priority += 20
+	ElseIf(str.Find("L") != -1)
+		info.priority -= 20
+	EndIf
+	Return info
+EndFunc
+

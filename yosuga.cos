@@ -544,3 +544,440 @@ Function ChkRecollectFlag(Integer i)
     Return 0
 EndFunc
 
+Function ClearEffectParameter(Reference param)
+	param.strType := "Nothing"
+	param.nFlags := 0
+	param.nInterval := 0
+	param.nDegreeStep := 0
+	param.nShakingWidth := 0
+	param.nMeshSize := 0
+	param.nFrequency := 0
+	param.sizeView := ISize(0, 0)
+	param.ptSpeed := IPoint(0, 0)
+	param.nAlphaRange := 0
+	param.nMilliSecPerDegree := 0
+	param.ptSmashPoint := IPoint(0, 0)
+	param.rSmashPower := 0.0
+	param.rRandomPower := 0.0
+	param.rDeceleration := 0.0
+	param.vVelocity := IVector(0, 0, 0)
+	param.vGravity := IVector(0, 0, 0)
+	param.vRevSpeed := IVector(0, 0, 0)
+	param.vRevRandom := IVector(0, 0, 0)
+EndFunc
+
+Function ClearWscmd(Reference wscmd)
+	wscmd.strID := ""
+	wscmd.strFullID := ""
+	wscmd.nNotification := 0
+	wscmd.nParameter := 0
+EndFunc
+
+Function CloseInputFilter()
+	input.CloseFilter()
+EndFunc
+
+Function ConfigWindow::apply()
+	If (cnfObj.screenType == 0)
+		this.sprBase.CheckButton("ID_WINDOW", -1)
+	Else
+		this.sprBase.CheckButton("ID_FULLSCREEN", -1)
+	EndIf
+	this.sprBase.CheckButton("ID_CHECK_BGM", cnfObj.flgPlayBgm)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volBgm, "ID_VOL_BGM")
+	this.sprBase.CheckButton("ID_CHECK_SE", cnfObj.flgPlaySe)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volSe, "ID_VOL_SE")
+	this.sprBase.CheckButton("ID_CHECK_SYSTEM", cnfObj.flgPlaySysSe)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volSysSe, "ID_VOL_SYSTEM")
+	this.sprBase.CheckButton("ID_CHECK_VOICE", cnfObj.flgPlayVoice)
+	this.sprBase.SetHorzScrollPos(256 * cnfObj.volVoice, "ID_VOL_VOICE")
+	If (cnfObj.screenEffect == 0)
+		this.sprBase.CheckButton("ID_NORMAL", -1)
+	ElseIf (cnfObj.screenEffect == 1)
+		this.sprBase.CheckButton("ID_NONE", -1)
+	EndIf
+	this.sprBase.SetHorzScrollPos(256 - cnfObj.windowDepth, "ID_WINDOW_DEPTH")
+	adv.msgFrame.transparencyBase(cnfObj.windowDepth)
+	this.sprBase.SetHorzScrollPos(cnfObj.messageSpeed, "ID_MESSAGE_SPEED")
+	If (cnfObj.readSkip == -1)
+		this.sprBase.CheckButton("ID_READED", -1)
+	Else
+		this.sprBase.CheckButton("ID_ALL", -1)
+	EndIf
+	If (cnfObj.voiceStopOnClick == -1)
+		this.sprBase.CheckButton("ID_CLICK_STOP", -1)
+	Else
+		this.sprBase.CheckButton("ID_CLICK_PLAY", -1)
+	EndIf
+	If (cnfObj.lockSkip == -1)
+		this.sprBase.CheckButton("ID_STATIC", -1)
+	Else
+		this.sprBase.CheckButton("ID_REMOVE", -1)
+	EndIf
+	this.sprBase.SetHorzScrollPos(cnfObj.automodeSpeed, "ID_AUTOMODE_SPEED")
+EndFunc
+
+Function CreateDateString(Reference time)
+	String ret
+	String temp
+	ret := ""
+	temp := time.nYear
+	ret += temp + "/"
+	If (time.nMonth < 10)
+		ret += "0"
+	EndIf
+	temp := time.nMonth
+	ret += temp + "/"
+	If (time.nDay < 10)
+		ret += "0"
+	EndIf
+	ret += ("" := time.nDay) + " "
+	If (time.nHour < 10)
+		ret += "0"
+	EndIf
+	temp := time.nHour
+	ret += temp + ":"
+	If (time.nMinute < 10)
+		ret += "0"
+	EndIf
+	temp := time.nMinute
+	ret += temp + ":"
+	If (time.nSecond < 10)
+		ret += "0"
+	EndIf
+	temp := time.nSecond
+	ret += temp
+	Return ret
+EndFunc
+
+Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold, Integer fItalic, String face)
+	String sequence
+	If (size != 0)
+		sequence += "\\s;" + ("" := size) + ":"
+	Else
+		sequence += "\\s:"
+	EndIf
+	If (height != 0)
+		sequence += "\\h;" + ("" := height) + ":"
+	Else
+		sequence += "\\h:"
+	EndIf
+	If (fBold != 0)
+		sequence += "\\b"
+	Else
+		sequence += "\\nb"
+	EndIf
+	If (fItalic != 0)
+		sequence += "\\i"
+	Else
+		sequence += "\\ni"
+	EndIf
+	If (face == "")
+		sequence += "\\f:"
+	Else
+		sequence += "\\f;" + face + ":"
+	EndIf
+	Return sequence
+EndFunc
+
+Function CreateRGBImage(Reference spr, Integer col, Integer width, Integer height)
+	spr.Release()
+	spr.CreateSprite(1, width, height)
+	spr.SetBackColor(Reference, 0)
+	spr.FillRect(IRect(0, 0, width, height), col)
+EndFunc
+
+Function Debug(String str)
+	if (isCreateDebugWindow == 0)
+		Return
+	EndIf
+	If (str == "")
+		Return
+	EndIf
+	screen.Lock()
+	debugMes.ClearMessage()
+	debugLog.add(str)
+	Integer i := debugLog.num() - 1
+	While (i >= 0)
+		debugMes.OutputMessage(debugLog.get(i) + "\n")
+		i -= 1
+	EndWhile
+	screen.Unlock()
+EndFunc
+
+Function DestoryInputFilter()
+	input.CloseFilter()
+	input.DeleteInputFilter()
+EndFunc
+
+Function DestroyAdvScreen()
+	Debug("+-DestroyAdvScreen-+")
+	adv.destroy()
+EndFunc
+
+Function DestroyDebugWindow()
+	If (isCreateDebugWindow == 0)
+		Return
+	EndIf
+	isCreateDebugWindow := 0
+EndFunc
+
+Function Down(Integer id, Integer mv, Integer time, Integer accel)
+	If (IsLoad() == -1)
+		Return
+	EndIf
+	adv.bustupDown(id, mv, time, accel)
+EndFunc
+
+Function DumpContext(String path)
+	File file
+	If (file.Open(path, 5))
+		Return 1
+	EndIf
+	Return file.DumpContext()
+EndFunc
+
+Function EndDebugSearch()
+	rDebugSearch := 0
+EndFunc
+
+Function EnterDebugJump()
+	fDebugSearch := -1
+EndFunc
+
+Function EnterLoad()
+	scObj.isLoad := -1
+	scObj.hitretCountTemp := 0
+	scObj.selectCount := 0
+	adv.msgInfo.clear()
+EndFunc
+
+Function EnterRecollectMode()
+	flgRecollectMode := -1
+EndFunc
+
+Function EnvSeCheckCallback()
+	Integer i := 0
+	While (i < envSe.GetLength())
+		String str
+		str := envSe.GetTagName(i)
+		If (envSe[str].fEndingProcess == -1)
+			If ((envSe[str].res.IsPlaying() == -1) && (envSe[str].res.IsPendingEnvelope() == 0))
+				envSe[str].res.Stop()
+				envSe[str].res.Release()
+				envSe.Remove(str)
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+EndFunc
+
+Function EnvSeRelease()
+	Integer i := 0
+	While (i < envSe.GetLength())
+		String str
+		str := envSe.GetTagName(i)
+		envSe[str].res.Stop()
+		envSe[str].res.Release()
+		i += 1
+	EndWhile
+	envSe.RemoveAll()
+EndFunc
+
+Function EyeCatch01(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["AlphaT"] := Resource
+		spr["AlphaT"].LoadImage("EyeCatchT.eri")
+		spr["AlphaB"] := Resource
+		spr["AlphaB"].LoadImage("EyeCatchB.eri")
+		spr["T"] := Sprite
+		spr["T"].SetAlphaImage(spr["AlphaT"], 1)
+		spr["T"].SetBlendDegree(256)
+		spr["T"].MovePosition(0, 0)
+		spr["T"].SetVisible(-1)
+		spr["B"] := Sprite
+		spr["B"].SetAlphaImage(spr["AlphaB"], 1)
+		spr["B"].SetBlendDegree(256)
+		spr["B"].MovePosition(0, 500)
+		spr["B"].SetVisible(-1)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 10)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		spr["BlackT"] := Sprite
+		spr["BlackT"].CreateSprite(1, 800, 100)
+		spr["BlackT"].FillRect(IRect(0, 0, 800, 100), RGB(0, 0, 0))
+		spr["BlackT"].SetVisible(-1)
+		spr["BlackB"] := Sprite
+		spr["BlackB"].CreateSprite(1, 800, 100)
+		spr["BlackB"].FillRect(IRect(0, 0, 800, 100), RGB(0, 0, 0))
+		spr["BlackB"].SetVisible(-1)
+		spr["T"].AddSprite(10, spr["BlackT"])
+		spr["B"].AddSprite(10, spr["BlackB"])
+		screen.AddSprite(50800, spr["T"])
+		screen.AddSprite(50800, spr["B"])
+		spr["B"].AddSprite(5, spr["Logo"])
+		spr["T"].SetBlendingEnvelope(0)
+		spr["B"].SetBlendingEnvelope(0)
+		spr["T"].BeginActivation(1500)
+		spr["B"].BeginActivation(1500)
+		BustupClear()
+		Update()
+		ScWait(1500)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1000)
+		ScWait(2500)
+	Else
+		spr["T"].SetBlendingEnvelope(256)
+		spr["T"].BeginActivation(1000)
+		spr["B"].SetBlendingEnvelope(256)
+		spr["B"].BeginActivation(1000)
+		ScWait(1500)
+		screen.DetachSprite(spr["T"])
+		screen.DetachSprite(spr["B"])
+		screen.DetachSprite(spr["Logo"])
+	EndIf
+EndFunc
+
+Function EyeCatch02(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["EyeCatch"] := Sprite
+		spr["EyeCatch"].LoadImage("Eye001.eri")
+		spr["EyeCatch"].SetTransparency(256)
+		spr["EyeCatch"].SetVisible(-1)
+		screen.AddSprite(50800, spr["EyeCatch"])
+		spr["EyeCatch"].SetBlendingEnvelope(0)
+		spr["EyeCatch"].BeginActivation(1500)
+		ScWait(3000)
+	Else
+		spr["EyeCatch"].SetBlendingEnvelope(256)
+		spr["EyeCatch"].BeginActivation(1500)
+		ScWait(2000)
+		screen.DetachSprite(spr["EyeCatch"])
+	EndIf
+EndFunc
+
+Function EyeCatch03(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		spr["Black"] := Sprite
+		spr["Black"].CreateSprite(1, 800, 600)
+		spr["Black"].FillRect(IRect(0, 0, 800, 600), RGB(0, 0, 0))
+		spr["Black"].SetTransparency(256)
+		spr["Black"].SetVisible(-1)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 510)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		screen.AddSprite(50800, spr["Black"])
+		screen.AddSprite(50800 - 1, spr["Logo"])
+		spr["Black"].SetBlendingEnvelope(0)
+		spr["Black"].BeginActivation(1500)
+		ScWait(2000)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1500)
+		ScWait(2500)
+	Else
+		spr["Black"].SetBlendingEnvelope(256)
+		spr["Black"].BeginActivation(1500)
+		spr["Logo"].SetBlendingEnvelope(256)
+		spr["Logo"].BeginActivation(3000)
+		ScWait(3500)
+		screen.DetachSprite(spr["Black"])
+		screen.DetachSprite(spr["Logo"])
+	EndIf
+EndFunc
+
+Function EyeCatch04(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+		SpriteParam param
+		adv.sprAdvBase.GetParameter(param)
+		adv.sprAdvBase.SetParameter(param)
+		spr["Logo"] := Sprite
+		spr["Logo"].LoadImage("title.eri")
+		spr["Logo"].MovePosition(430, 510)
+		spr["Logo"].SetTransparency(256)
+		spr["Logo"].SetVisible(-1)
+		screen.AddSprite(50800, spr["Logo"])
+		Bezier2D bzMag
+		bzMag.SetLinear(1.0, 1.0, 0.0, 0.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		adv.sprAdvBase.SetBezierCurve(Reference, Reference, bzMag)
+		adv.sprAdvBase.SetBlendingEnvelope(256)
+		adv.sprAdvBase.BeginActivation(1000)
+		WaitUntilSpriteActive(adv.sprAdvBase, -1)
+		spr["Logo"].SetBlendingEnvelope(0)
+		spr["Logo"].BeginActivation(1500)
+		WaitUntilSpriteActive(spr["Logo"], -1)
+		ScWait(3000)
+	Else
+		SpriteParam param
+		adv.sprAdvBase.GetParameter(param)
+		param.ptDstPos := IPoint(0, 0)
+		param.ptRevCenter := IPoint(0, 0)
+		param.rVertUnit := 1.0
+		param.rHorzUnit := 1.0
+		adv.sprAdvBase.SetParameter(param)
+		adv.sprAdvBase.SetBlendingEnvelope(0)
+		adv.sprAdvBase.BeginActivation(1000)
+		spr["Logo"].SetBlendingEnvelope(256)
+		spr["Logo"].BeginActivation(1000)
+		WaitUntilSpriteActive(spr["Logo"], -1)
+	EndIf
+EndFunc
+
+Function EyeCatch99(Integer fEnter)
+	Reference spr
+	spr := eyeCatchs
+	If (fEnter == -1)
+	EndIf
+EndFunc
+
+Function EyeCatchEnter(String type, Integer fSoundKeep)
+	If (IsLoad () == -1)
+		Return
+	EndIf
+	type.MakeUpper()
+	StopVoice()
+	If (fSoundKeep == 0)
+		StopEnvSe()
+		StopBgm()
+	EndIf
+	Hide()
+	Integer fFlush := adv.isKeyUpdateFlush()
+	If (fFlush == -1)
+		Return
+	EndIf
+	If ((type == "") | (type == "NORMAL"))
+		EyeCatch01(-1)
+		type := "NORMAL"
+	ElseIf (type == "DATE")
+		EyeCatch03(-1)
+	ElseIf (type == "BLACKOUT")
+		EyeCatch03(-1)
+	EndIf
+	sprEyeCatch := type
+	eyeCatchType := -1
+EndFunc
+
+Function EyeCatchLeave()
+	If (sprEyeCatch == "NORMAL")
+		EyeCatch01(0)
+	ElseIf (sprEyeCatch == "DATE")
+		EyeCatch03(0)
+	ElseIf (sprEyeCatch == "BLACKOUT")
+		EyeCatch03(0)
+	EndIf
+	eyeCatchs.RemoveAll()
+	eyeCatchType := 0
+EndFunc
+

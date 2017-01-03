@@ -52,7 +52,7 @@ ExternDef  		fConfirm			; 21
 ExternDef  		fEyeCatchEnter		; 22
 ExternDef  		eyeCatchType		; 23
 ExternDef  		sprEyeCatch			; 24	type!
-
+ExternDef  		eyeCatchs			; 25
 ExternDef 		debugSkin			; 26
 ExternDef   	debugFrame			; 27
 ExternDef   	debugBase			; 28
