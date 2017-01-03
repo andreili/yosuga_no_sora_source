@@ -313,3 +313,13 @@ Structure BustupInfo
 	MoveParam leaveParam
 EndStruct
 
+Structure CgViewManager
+	Integer isCreate
+	Array thumbInfo
+	Begin
+		If (InitFields)
+			this.isCreate := false
+		EndIf
+	End
+EndStruct
+

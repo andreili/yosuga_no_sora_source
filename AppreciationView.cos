@@ -475,3 +475,330 @@ Function AppreciationView::showCg(Reference info, Integer fFlush)
 	adv.update(fFlush)
 EndFunc
 
+Function AppreciationView::setCgPalette(Integer tagID, Integer page)
+	resetThumbBase()
+	Integer cgNum := 0
+	If (tagID == 0)
+		cgNum := 23
+		If (page == 0)
+			checkPaletteCg(1, 1, "CA01")
+			checkPaletteCg(2, 2, "CA02")
+			checkPaletteCg(3, 3, "CA03")
+			checkPaletteCg(4, 4, "CA04")
+			checkPaletteCg(6, 5, "CA06")
+			checkPaletteCg(5, 6, "CA05")
+			checkPaletteCg(7, 7, "CA07")
+			checkPaletteCg(100, 8, "EA01")
+			checkPaletteCg(110, 9, "EA02")
+			checkPaletteCg(120, 10, "EA03")
+			checkPaletteCg(130, 11, "EA04")
+			checkPaletteCg(140, 12, "EA05")
+		ElseIf (page == 1)
+			checkPaletteCg(150, 1, "EA06")
+			checkPaletteCg(160, 2, "EA07")
+			checkPaletteCg(170, 3, "EA08")
+			checkPaletteCg(180, 4, "EA09")
+			checkPaletteCg(190, 5, "EA10")
+			checkPaletteCg(200, 6, "EA11")
+			checkPaletteCg(210, 7, "EA12")
+			checkPaletteCg(220, 8, "EA13")
+			checkPaletteCg(250, 9, "EA16")
+			checkPaletteCg(260, 10, "EA17")
+			checkPaletteCg(270, 11, "EA18")
+		ElseIf (page == 3)
+			checkPaletteRecollect(1, 1, "REC_SR1")
+			checkPaletteRecollect(2, 2, "REC_SR2")
+			checkPaletteRecollect(3, 3, "REC_SR3")
+			checkPaletteRecollect(4, 4, "REC_SR4")
+			checkPaletteRecollect(5, 5, "REC_SR5")
+		EndIf
+	ElseIf (tagID == 1)
+		cgNum := 21
+		If (page == 0)
+			checkPaletteCg(11, 1, "CB01")
+			checkPaletteCg(12, 2, "CB02")
+			checkPaletteCg(13, 3, "CB03")
+			checkPaletteCg(14, 4, "CB04")
+			checkPaletteCg(16, 5, "CB06")
+			checkPaletteCg(17, 6, "CB07")
+			checkPaletteCg(280, 7, "EB01")
+			checkPaletteCg(290, 8, "EB02")
+			checkPaletteCg(300, 9, "EB03")
+			checkPaletteCg(310, 10, "EB04")
+			checkPaletteCg(320, 11, "EB05")
+			checkPaletteCg(330, 12, "EB06")
+		ElseIf (page == 1)
+			checkPaletteCg(340, 1, "EB07")
+			checkPaletteCg(350, 2, "EB08")
+			checkPaletteCg(370, 3, "EB10")
+			checkPaletteCg(380, 4, "EB11")
+			checkPaletteCg(390, 5, "EB12")
+			checkPaletteCg(400, 6, "EB13")
+			checkPaletteCg(430, 7, "EB16")
+			checkPaletteCg(440, 8, "EB17")
+			checkPaletteCg(450, 9, "EB18")
+		ElseIf (page == 3)
+			checkPaletteRecollect(6, 1, "REC_NO1")
+			checkPaletteRecollect(7, 2, "REC_NO2")
+			checkPaletteRecollect(8, 3, "REC_NO3")
+			checkPaletteRecollect(9, 4, "REC_NO4")
+		EndIf
+	Elseif (tagID == 2)
+		cgNum := 22
+		If (page == 0)
+			checkPaletteCg(21, 1, "CC01")
+			checkPaletteCg(22, 2, "CC02")
+			checkPaletteCg(23, 3, "CC03")
+			checkPaletteCg(26, 4, "CC06")
+			checkPaletteCg(24, 5, "CC04")
+			checkPaletteCg(28, 6, "CC08")
+			checkPaletteCg(25, 7, "CC05")
+			checkPaletteCg(27, 8, "CC07")
+			checkPaletteCg(460, 9, "EC01")
+			checkPaletteCg(470, 10, "EC02")
+			checkPaletteCg(480, 11, "EC03")
+			checkPaletteCg(500, 12, "EC05")
+		ElseIf (page == 1)
+			checkPaletteCg(510, 1, "EC06")
+			checkPaletteCg(520, 2, "EC07")
+			checkPaletteCg(540, 3, "EC09")
+			checkPaletteCg(550, 4, "EC10")
+			checkPaletteCg(560, 5, "EC11")
+			checkPaletteCg(570, 6, "EC12")
+			checkPaletteCg(580, 7, "EC13")
+			checkPaletteCg(610, 8, "EC16")
+			checkPaletteCg(620, 9, "EC17")
+			checkPaletteCg(630, 10, "EC18")
+		ElseIf (page == 3)
+			checkPaletteRecollect(10, 1, "REC_AK1")
+			checkPaletteRecollect(11, 2, "REC_AK2")
+			checkPaletteRecollect(12, 3, "REC_AK3")
+		EndIf
+	ElseIf (tagID == 3)
+		cgNum := 22
+		If (page == 0)
+			checkPaletteCg(31, 1, "CD01")
+			checkPaletteCg(32, 2, "CD02")
+			checkPaletteCg(33, 3, "CD03")
+			checkPaletteCg(34, 4, "CD04")
+			checkPaletteCg(37, 5, "CD07")
+			checkPaletteCg(35, 6, "CD05")
+			checkPaletteCg(36, 7, "CD06")
+			checkPaletteCg(640, 8, "ED01")
+			checkPaletteCg(650, 9, "ED02")
+			checkPaletteCg(660, 10, "ED03")
+			checkPaletteCg(670, 11, "ED04")
+			checkPaletteCg(680, 12, "ED05")
+		ElseIf (page == 1)
+			checkPaletteCg(690, 1, "ED06")
+			checkPaletteCg(700, 2, "ED07")
+			checkPaletteCg(720, 3, "ED09")
+			checkPaletteCg(730, 4, "ED10")
+			checkPaletteCg(740, 5, "ED11")
+			checkPaletteCg(750, 6, "ED12")
+			checkPaletteCg(760, 7, "ED13")
+			checkPaletteCg(790, 8, "ED16")
+			checkPaletteCg(800, 9, "ED17")
+			checkPaletteCg(810, 10, "ED18")
+		ElseIf (page == 3)
+			checkPaletteRecollect(13, 1, "REC_KA1")
+			checkPaletteRecollect(14, 2, "REC_KA2")
+			checkPaletteRecollect(15, 3, "REC_KA3")
+		EndIf
+	ElseIf (tagID == 4)
+		cgNum := 19
+		If (page == 0)
+			checkPaletteCg(41, 1, "CE01")
+			checkPaletteCg(42, 2, "CE02")
+			checkPaletteCg(43, 3, "CE03")
+			checkPaletteCg(44, 4, "CE04")
+			checkPaletteCg(820, 5, "EE01")
+			checkPaletteCg(830, 6, "EE02")
+			checkPaletteCg(840, 7, "EE03")
+			checkPaletteCg(850, 8, "EE04")
+			checkPaletteCg(860, 9, "EE05")
+			checkPaletteCg(870, 10, "EE06")
+			checkPaletteCg(880, 11, "EE07")
+			checkPaletteCg(890, 12, "EE08")
+		ElseIf (page == 1)
+			checkPaletteCg(910, 1, "EE10")
+			checkPaletteCg(920, 2, "EE11")
+			checkPaletteCg(930, 3, "EE12")
+			checkPaletteCg(940, 4, "EE13")
+			checkPaletteCg(970, 5, "EE16")
+			checkPaletteCg(980, 6, "EE17")
+			checkPaletteCg(990, 7, "EE18")
+		ElseIf (page == 3)
+			checkPaletteRecollect(16, 1, "REC_MT1")
+			checkPaletteRecollect(17, 2, "REC_MT2")
+			checkPaletteRecollect(18, 3, "REC_MT3")
+		EndIf
+	ElseIf (tagID == 5)
+		cgNum := 21
+		If (page == 0)
+			checkPaletteCg(51, 1, "CF01")
+			checkPaletteCg(52, 2, "CF02")
+			checkPaletteCg(53, 3, "CF03")
+			checkPaletteCg(54, 4, "CF04")
+			checkPaletteCg(55, 5, "CF05")
+			checkPaletteCg(56, 6, "CF06")
+			checkPaletteCg(61, 7, "CG01")
+			checkPaletteCg(62, 8, "CG02")
+			checkPaletteCg(63, 9, "CG03")
+			checkPaletteCg(71, 10, "CH01")
+			checkPaletteCg(72, 11, "CH02")
+			checkPaletteCg(74, 12, "CH04")
+		ElseIf (page == 1)
+			checkPaletteCg(77, 1, "CH07")
+			checkPaletteCg(75, 2, "CH05")
+			checkPaletteCg(76, 3, "CH06")
+			checkPaletteCg(81, 4, "CJ01")
+			checkPaletteCg(91, 5, "CK01")
+			checkPaletteCg(1000, 6, "EZ01")
+			checkPaletteCg(1030, 7, "EZ04")
+			checkPaletteCg(1040, 8, "EZ05")
+			checkPaletteCg(1050, 9, "EZ06")
+		EndIf
+	EndIf
+	For i:=0 To (cgNum - 1)
+		this.cgViewMan[i] := CgViewManager
+	Next
+EndFunc
+
+Function AppreciationView::showCgLoop(Integer charID, Integer id)
+	Integer fFlush := (cnfObj.screenEffect == 1)
+	Integer index
+	Integer length
+	setupCgViewInfo(charID, id)
+	index := 0
+	length := this.cgViewMan[id].thumbInfo.GetLength()
+	While (index < length)
+		If (CheckCgFlag(this.cgViewMan[id].thumbInfo[index].flag))
+			Break
+		EndIf
+		index += 1
+	EndWhile
+	showCg(this.cgViewMan[id].thumbInfo[index], true)
+	hide()
+	Integer CG_VIEW_MAX := this.cgViewMan.GetLength()
+	WndSpriteCmd wscmd
+	input.FlushJoyButtonPushed()
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (input.GetJoyButtonPushed(0) > 0)
+			id -= 1
+			index := true
+			If (id < 0)
+				id := CG_VIEW_MAX - 1
+			EndIf
+			setupCgViewInfo(charID, id)
+			length := this.cgViewMan[id].thumbInfo.GetLength()
+			While (true)
+				index += 1
+				If (index >= length)
+					index := 0
+					id -= 1
+				EndIf
+				If (id < 0)
+					id := CG_VIEW_MAX - 1
+				EndIf
+				setupCgViewInfo(charID, id)
+				length := this.cgViewMan[id].thumbInfo.GetLength()
+				If (CheckCgFlag(this.cgViewMan[id].thumbInfo[index].flag))
+					Break
+				EndIf
+			EndWhile
+			showCg(this.cgViewMan[id].thumbInfo[index])
+			input.FlushJoyButtonPushed()
+		ElseIf (input.GetJoyButtonPushed(1) > 0)
+			id += 1
+			index := true
+			If (id >= CG_VIEW_MAX)
+				id := 0
+			EndIf
+			setupCgViewInfo(charID, id)
+			length := this.cgViewMan[id].thumbInfo.GetLength()
+			While (true)
+				index += 1
+				If (index >= length)
+					index := 0
+					id += 1
+				EndIf
+				If (id >= CG_VIEW_MAX)
+					id := 0
+				EndIf
+				setupCgViewInfo(charID, id)
+				length := this.cgViewMan[id].thumbInfo.GetLength()
+				If (CheckCgFlag(this.cgViewMan[id].thumbInfo[index].flag))
+					Break
+				EndIf
+			EndWhile
+			showCg(this.cgViewMan[id].thumbInfo[index])
+			input.FlushJoyButtonPushed()
+		ElseIf (input.GetJoyButtonPushed(4) > 0)
+			While (true)
+				index += 1
+				If (index >= length)
+					index := false
+					id += 1
+				EndIf
+				If (id >= CG_VIEW_MAX)
+					id := 0
+				EndIf
+				setupCgViewInfo(charID, id)
+				length := this.cgViewMan[id].thumbInfo.GetLength()
+				If (CheckCgFlag(this.cgViewMan[id].thumbInfo[index].flag))
+					Break
+				EndIf
+			EndWhile
+			showCg(this.cgViewMan[id].thumbInfo[index])
+			input.FlushJoyButtonPushed()
+		ElseIf ((wscmd.strID == "ID_CLOSE") | (input.GetJoyButtonPushed(8) > 0))
+			this.sprScroll.SetTransparency(256)
+			input.FlushJoyButtonPushed()
+		ElseIf (wscmd.strID == "ID_SCROLL")
+			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			Reference info
+			info := this.cgViewMan[id].thumbInfo[index]
+			Bezier2D bzPt
+			bzPt.SetLinear(info.ptCg1.x, info.ptCg1.y, info.ptCg2.x, info.ptCg2.y)
+			Vector2D pt
+			pt := bzPt.pt(this.scrollT)
+			adv.sprCg.MovePosition(-pt.x, -pt.y)
+			input.FlushJoyButtonPushed()
+		ElseIf ((input.GetJoyButtonPushed(2) > 0) & (this.fScroll == true))
+			this.sprScroll.SetHorzScrollPos(this.sprScroll.GetHorzScrollPos("ID_SCROLL") - 10, "ID_SCROLL")
+			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			Reference info
+			info := this.cgViewMan[id].thumbInfo[index]
+			Bezier2D bzPt
+			bzPt.SetLinear(info.ptCg1.x, info.ptCg1.y, info.ptCg2.x, info.ptCg2.y)
+			Vector2D pt
+			pt := bzPt.pt(this.scrollT)
+			adv.sprCg.MovePosition(-pt.x, -pt.y)
+			input.FlushJoyButtonPushed()
+		ElseIf ((input.GetJoyButtonPushed(3) > 0) & (this.fScroll == true))
+			this.sprScroll.SetHorzScrollPos(this.sprScroll.GetHorzScrollPos("ID_SCROLL") + 10, "ID_SCROLL")
+			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			Reference info
+			info := this.cgViewMan[id].thumbInfo[index]
+			Bezier2D bzPt
+			bzPt.SetLinear(info.ptCg1.x, info.ptCg1.y, info.ptCg2.x, info.ptCg2.y)
+			Vector2D pt
+			pt := bzPt.pt(this.scrollT)
+			adv.sprCg.MovePosition(-pt.x, -pt.y)
+			input.FlushJoyButtonPushed()
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			If ((this.fScroll == true) & (this.sprScroll.IsVisible() == false))
+				this.sprScroll.SetTransparency(0)
+			Else
+				Break
+			EndIf
+			input.FlushJoyButtonPushed()
+		EndIf
+	EndWhile
+	input.FlushJoyButtonPushed()
+	show()
+EndFunc
+

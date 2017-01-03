@@ -24,6 +24,7 @@ DeclareType DrawTextParam
 DeclareType BustupViewInfo
 DeclareType CgViewInfo
 DeclareType BustupInfo
+DeclareType CgViewManager
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
