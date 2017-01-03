@@ -1,0 +1,477 @@
+Include	"yosuga.ch"
+
+Function AppreciationView::cgProc(Reference wscmd)
+	Integer id := true
+	Array aParam
+	If (IsUNK1)
+	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_TAG&", aParam) == "")
+		Integer tag := (0 := aParam[0]) - 1
+		If (this.sprTag[tag].IsButtonChecked("ID_PAGE1") == true)
+			setPage(tag, 0)
+		ElseIf (this.sprTag[tag].IsButtonChecked("ID_PAGE2") == true)
+			setPage(tag, 1)
+		ElseIf (this.sprTag[tag].IsButtonChecked("ID_PAGE3") == true)
+			setPage(tag, 2)
+		ElseIf (this.sprTag[tag].IsButtonChecked("ID_REC") == true)
+			setPage(tag, 3)
+		EndIf
+	ElseIf (wscmd.strID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_PAGE&(<0-9>*)", aParam) == "")
+		setPage((0 := aParam[0]) - 1, (0 := aParam[1]) - 1)
+	ElseIf (wscmd.strID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_REC&", aParam) == "")
+		setPage((0:= aParam[0]) - 1, 3)
+	ElseIf (wscmd.strID.IsMatchUsage("&ID_CGSEL&(<0-9>*)", aParam) == "")
+		id :=(0 := aParam[0]) - 1
+	Else
+		Return 0
+	EndIf
+    If (id != true)
+        showCgLoop(this.selTag, this.selPage * 12 + id)
+    EndIf
+	screen.FlushCommandQueue(true)
+	Return true
+EndFunc
+
+Function AppreciationView::checkHitCg(Integer id)
+	Integer length := this.cgViewMan[id].thumbInfo.GetLength()
+	Integer i := 0
+	While (i < length)
+        If (CheckCgFlag(this.cgViewMan[id].thumbInfo[i].flag))
+            Break
+        EndIf
+        i += 1
+    EndWhile
+    If (i == length)
+        Return true
+    EndIf
+    Return i
+EndFunc
+
+Function AppreciationView::checkPaletteCg(Integer flag, Integer id, String spriteID)
+	If (CheckCgFlag(flag) == true)
+        this.sprThumbBase.SetTransparency(0, "ID_CG" + ("" := id))
+        this.sprThumbBase.SetTransparency(0, "ID_CGSEL" + ("" := id))
+        this.sprThumbBase.SetSpriteImage("ID_CG" + ("" := id), "ID_" + spriteID)
+    Else
+        this.sprThumbBase.SetTransparency(0, "ID_CG" + ("" := id))
+        this.sprThumbBase.SetSpriteImage("ID_CG" + ("" := id), "ID_FRM_0733")
+    EndIf
+EndFunc
+
+Function AppreciationView::hide(Integer fWait)
+	this.sprBase.SetBlendingEnvelope(256)
+	this.sprBase.BeginActivation(500)
+	If (fWait == true)
+		WaitUntilSpriteActive(this.sprBase, true)
+	EndIf
+EndFunc
+
+Function AppreciationView::show()
+	this.sprScroll.SetBlendingEnvelope(256)
+	this.sprScroll.BeginActivation(300)
+	this.sprBase.SetBlendingEnvelope(0)
+	this.sprBase.BeginActivation(500)
+EndFunc
+
+Function AppreciationView::startRecollect(String scenario)
+	Integer flag := this.isPlayBgm
+	stopBgm()
+	adv.setCg("BLACK")
+	adv.bustupClear()
+	adv.update(true)
+	hide(true)
+	destroy()
+	cnfObj.flgPlayBgm := this.cnfPlayBgm
+	InitScenarioData()
+	ScenarioLoop(scenario)
+	cnfObj.flgPlayBgm := true
+	create(this.selTag, this.selPage, this.selPlayBgm)
+	SetupAdvScreen()
+	show()
+	this.isPlayBgm := flag
+EndFunc
+
+Function AppreciationView::stopBgm()
+	StopBgm(true)
+	this.isPlayBgm := 0
+EndFunc
+
+Function AppreciationView::checkPaletteRecollect(Integer flag, Integer id, String spriteID)
+	If (ChkRecollectFlag(flag) == true)
+		this.sprThumbBase.SetTransparency(0, "ID_REC" + ("" := id))
+		this.sprThumbBase.SetTransparency(0, "ID_RECSEL" + ("" := id))
+		this.sprThumbBase.SetSpriteImage("ID_REC" + ("" := id), "ID_" + spriteID)
+	Else
+		this.sprThumbBase.SetTransparency(0, "ID_REC" + ("" := id))
+		this.sprThumbBase.SetSpriteImage("ID_REC" + ("" := id), "ID_FRM_0735")
+	EndIf
+EndFunc
+
+Function AppreciationView::destroy()
+	this.sprBase.DetachAllSprite()
+	screen.DetachSprite(this.sprBase)
+	screen.DetachSprite(this.sprScroll)
+	this.sprBase.Release()
+	this.sprTag.Remove()
+	this.sprThumbBase.Release()
+	this.sprMusic.Release()
+	this.sprScroll.Release()
+	this.optionSkin.DeleteContents()
+EndFunc
+
+Function AppreciationView::create(Integer tagID, Integer pageID, Integer bgm)
+	this.optionSkin.LoadResource("option.noa")
+	this.sprBase.CreateSprite(67108865, 800, 600)
+	this.sprBase.SetTransparency(256)
+	this.sprBase.SetVisible(true)
+	screen.AddSprite(50400, this.sprBase)
+	this.sprBack.AttachImage(this.optionSkin.ID_FRM_0701)
+	this.sprBack.SetVisible(true)
+	this.sprBase.AddSprite(100, this.sprBack)
+	this.sprTitle.AttachImage(this.optionSkin.ID_FRM_0702)
+	this.sprTitle.MovePosition(5, 6)
+	this.sprTitle.SetVisible(true)
+	this.sprBase.AddSprite(5, this.sprTitle)
+	For i:=0 To 5
+		this.sprTag[i] := Sprite
+		this.optionSkin.CreateFormPage(this.sprTag[i], "ID_PAGE_TAG"  + ("" := i + 1))
+		this.sprTag[i].SetVisible(true)
+		this.sprTag[i].CheckButton("ID_PAGE1", true)
+		this.sprBase.AddSprite(10 + i, this.sprTag[i])
+	Next
+	this.optionSkin.CreateFormPage(this.sprThumbBase, "ID_PAGE_THUMB")
+	ImageInfo info
+	info:= this.sprThumbBase.GetInfo()
+	SpriteParam param
+	this.sprThumbBase.GetParameter(param)
+	param.ptRevCenter := IPoint(info.nImageWidth / 2, 0)
+	this.sprThumbBase.SetParameter(param)
+	this.sprThumbBase.SetVisible(true)
+	this.sprBase.AddSprite(30, this.sprThumbBase)
+	this.optionSkin.CreateFormPage(this.sprMusic, "ID_PAGE_MUSIC")
+	this.sprMusic.MovePosition(534, 38)
+	this.sprMusic.CheckButton("ID_STOP", true)
+	this.sprMusic.SetVisible(true)
+	this.sprBase.AddSprite(50, this.sprMusic)
+	If (bgm == true)
+		this.sprMusic.CheckButton("ID_STOP", true)
+	Else
+		playBgm(bgm)
+		this.sprMusic.CheckButton("ID_BGM" + ("" := (bgm + 1)), true)
+	EndIf
+	this.optionSkin.CreateFormPage(this.sprScroll, "ID_PAGE_SCROLL")
+	info := this.sprScroll.GetInfo()
+	this.sprScroll.MovePosition((800 - info.nImageWidth) / 2, 550)
+	this.sprScroll.SetHorzScrollRange(100, "ID_SCROLL")
+	this.sprScroll.SetHorzScrollPos(0, "ID_SCROLL")
+	this.sprScroll.SetTransparency(256)
+	this.sprScroll.SetVisible(true)
+	screen.AddSprite(50410, this.sprScroll)
+	this.selTag := true
+	this.selPage := true
+	setPage(tagID, pageID, true)
+EndFunc
+
+Function AppreciationView::playBgm(Integer id)
+	String file
+	If (IsUNK1)
+	Elseif (id == 0)
+		file := "BGM01"
+	ElseIf (id == 1)
+		file := "BGM03"
+	ElseIf (id == 2)
+		file := "BGM04"
+	ElseIf (id == 3)
+		file := "BGM05"
+	ElseIf (id == 4)
+		file := "BGM06"
+	ElseIf (id == 5)
+		file := "BGM07"
+	ElseIf (id == 6)
+		file := "BGM08"
+	ElseIf (id == 7)
+		file := "BGM09"
+	ElseIf (id == 8)
+		file := "BGM10"
+	ElseIf (id == 9)
+		file := "BGM11"
+	ElseIf (id == 10)
+		file := "BGM12"
+	ElseIf (id == 11)
+		file := "BGM13"
+	ElseIf (id == 12)
+		file := "BGM14"
+	ElseIf (id == 13)
+		file := "BGM15"
+	ElseIf (id == 14)
+		file := "BGM16"
+	ElseIf (id == 15)
+		file := "BGM17"
+	ElseIf (id == 16)
+		file := "BGM18"
+	ElseIf (id == 17)
+		file := "BGM19"
+	ElseIf (id == 18)
+		file := "BGM20"
+	ElseIf (id == 19)
+		file := "BGM21"
+	ElseIf (id == 20)
+		file := "BGM02_S"
+	Else
+		Return
+	EndIf
+	PlayBgm(file, true)
+	this.selPlayBgm := id
+	this.isPlayBgm := true
+EndFunc
+
+Function AppreciationView::playerProc(Reference wscmd)
+	If (IsUNK1)
+	Elseif (wscmd.strID == "ID_STOP")
+		If (IsPlayBgm())
+			stopBgm()
+			this.selPlayBgm := true
+		EndIf
+	Elseif (wscmd.strID == "ID_BGM1")
+		playBgm(0)
+	Elseif (wscmd.strID == "ID_BGM2")
+		playBgm(1)
+	Elseif (wscmd.strID == "ID_BGM3")
+		playBgm(2)
+	Elseif (wscmd.strID == "ID_BGM4")
+		playBgm(3)
+	Elseif (wscmd.strID == "ID_BGM5")
+		playBgm(4)
+	Elseif (wscmd.strID == "ID_BGM6")
+		playBgm(5)
+	Elseif (wscmd.strID == "ID_BGM7")
+		playBgm(6)
+	Elseif (wscmd.strID == "ID_BGM8")
+		playBgm(7)
+	Elseif (wscmd.strID == "ID_BGM9")
+		playBgm(8)
+	Elseif (wscmd.strID == "ID_BGM10")
+		playBgm(9)
+	Elseif (wscmd.strID == "ID_BGM11")
+		playBgm(10)
+	Elseif (wscmd.strID == "ID_BGM12")
+		playBgm(11)
+	Elseif (wscmd.strID == "ID_BGM13")
+		playBgm(12)
+	Elseif (wscmd.strID == "ID_BGM14")
+		playBgm(13)
+	Elseif (wscmd.strID == "ID_BGM15")
+		playBgm(14)
+	Elseif (wscmd.strID == "ID_BGM16")
+		playBgm(15)
+	Elseif (wscmd.strID == "ID_BGM17")
+		playBgm(16)
+	Elseif (wscmd.strID == "ID_BGM18")
+		playBgm(17)
+	Elseif (wscmd.strID == "ID_BGM19")
+		playBgm(18)
+	Elseif (wscmd.strID == "ID_BGM20")
+		playBgm(19)
+	Elseif (wscmd.strID == "ID_BGM21")
+		playBgm(20)
+	Else
+		Return false
+	EndIf
+	screen.FlushCommandQueue(true)
+	Return true
+EndFunc
+
+Function AppreciationView::resetThumbBase()
+	For i:=0 To 11
+		this.sprThumbBase.SetTransparency(256, "ID_CG" + ("" := i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_CGSEL" + ("" := i + 1))
+	Next
+	For i:=0 To 5
+		this.sprThumbBase.SetTransparency(256, "ID_REC" + ("" := i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_RECSEL" + ("" := i + 1))
+	Next
+EndFunc
+
+Function AppreciationView::recollectProc(Reference wscmd)
+	Integer id := true
+	Array aParam
+	If (IsUNK1)
+	Elseif (wscmd.strID.IsMatchUsage("&ID_RECSEL&(<0-9>*)", aParam) == "")
+		id := (0 := aParam[0]) - 1
+		If (IsUNK1)
+		ElseIf ((this.selTag == 0) & (id == 0))
+			startRecollect("00_A020")
+		ElseIf ((this.selTag == 0) & (id == 1))
+			startRecollect("00_A022")
+		ElseIf ((this.selTag == 0) & (id == 2))
+			startRecollect("00_A025B")
+		ElseIf ((this.selTag == 0) & (id == 3))
+			startRecollect("00_A026")
+		ElseIf ((this.selTag == 0) & (id == 4))
+			startRecollect("00_A032")
+		ElseIf ((this.selTag == 1) & (id == 0))
+			startRecollect("00_B005")
+		ElseIf ((this.selTag == 1) & (id == 1))
+			startRecollect("00_B021")
+		ElseIf ((this.selTag == 1) & (id == 2))
+			startRecollect("00_B025")
+		ElseIf ((this.selTag == 1) & (id == 3))
+			startRecollect("00_B032")
+		ElseIf ((this.selTag == 2) & (id == 0))
+			startRecollect("00_C019B")
+		ElseIf ((this.selTag == 2) & (id == 1))
+			startRecollect("00_C023")
+		ElseIf ((this.selTag == 2) & (id == 2))
+			startRecollect("00_C034")
+		ElseIf ((this.selTag == 3) & (id == 0))
+			startRecollect("00_D025B")
+		ElseIf ((this.selTag == 3) & (id == 1))
+			startRecollect("00_D028B")
+		ElseIf ((this.selTag == 3) & (id == 2))
+			startRecollect("00_D042B")
+		ElseIf ((this.selTag == 4) & (id == 0))
+			startRecollect("00_E013C")
+		ElseIf ((this.selTag == 4) & (id == 1))
+			startRecollect("00_E024B")
+		ElseIf ((this.selTag == 4) & (id == 2))
+			startRecollect("00_E036")
+		EndIf
+	Else
+		Return false
+	Endif
+	screen.FlushCommandQueue(true)
+	Return true
+EndFunc
+
+Function AppreciationView::run()
+	this.cnfPlayBgm := cnfObj.flgPlayBgm
+	cnfObj.flgPlayBgm := true
+	SetupAdvScreen()
+	show()
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			Break
+		ElseIf (cgProc(wscmd))
+		ElseIf (recollectProc(wscmd))
+		ElseIf (playerProc(wscmd))
+		Endif
+	EndWhile
+	adv.setCg("BLACK")
+	adv.bustupClear()
+	adv.update(true)
+	DestroyAdvScreen()
+	hide(true)
+	StopBgm(true)
+	cnfObj.flgPlayBgm := this.cnfPlayBgm
+EndFunc
+
+Function AppreciationView::setBustupInfo(Reference info, String buFile, Integer pos, Integer priority)
+	Integer index := info.GetLength() - 1
+	Integer iBustup := info[index].buList.GetLength()
+	info[index].buList[iBustup] := BustupViewInfo
+	Reference rBustup := info[index].buList[iBustup]
+	rBustup.file := buFile
+	rBustup.pos := pos
+	rBustup.priority := priority
+EndFunc
+
+Function AppreciationView::setCgInfo(Reference info, Integer flag, String cgFile, String buFile, Reference pt1, Reference pt2)
+	Integer index := info.GetLength()
+	info[index] := CgViewInfo
+	info[index].flag := flag
+	info[index].cgFile := cgFile
+	If (pt1.GetType() == "Point")
+		info[index].ptCg1 := pt1
+	Else
+		info[index].ptCg1 := IPoint(0, 0)
+	EndIf
+	If (pt2.GetType() == "Point")
+		info[index].ptCg2 := pt2
+		info[index].fScroll := true
+	Else
+		info[index].fScroll := false
+	EndIf
+	If (buFile != "")
+		setBustupInfo(info, buFile)
+	EndIf
+EndFunc
+
+Function AppreciationView::setPage(Integer tagID, Integer pageID, Integer fFlush)
+	If ((this.selTag == tagID) & (this.selPage == pageID))
+		Return false
+	EndIf
+	screen.Lock()
+	If (this.selTag != tagID)
+		this.cgViewMan.Remove()
+	Endif
+	setCgPalette(tagID, pageID)
+	SpriteParam param
+	Bezier2D bzMov
+	Bezier2D bzMag
+	Integer y := 38
+	For i:=0 To 5
+		this.sprTag[i].GetParameter(param)
+		bzMov.SetLinear(param.ptDstPos.x, param.ptDstPos.y, 5, y)
+		bzMov.SetAcceleration(3.0, 0)
+		this.sprTag[i].SetBezierCurve(bzMov)
+		y += 38
+		If (tagID == i)
+			this.sprThumbBase.GetParameter(param)
+			bzMov.SetLinear(270, param.ptDstPos.x, 270, y)
+			bzMov.SetAcceleration(3.0, 0)
+			bzMag.SetLinear(1.0, 0.0, 1.0, 1.0)
+			bzMag.SetAcceleration(3.0, 0)
+			If (this.selTag != tagID)
+				this.sprThumbBase.SetBezierCurve(bzMov, Reference, bzMag)
+			EndIf
+			this.sprThumbBase.SetTransparency(128)
+			this.sprThumbBase.SetBlendingEnvelope(0)
+			y += 312
+		Endif
+	Next
+	For i:=0 To 5
+		this.sprTag[i].BeginActivation(500)
+		If (fFlush)
+			this.sprTag[i].FlushActivation()
+		EndIf
+	Next
+	this.sprThumbBase.BeginActivation(500)
+	If (fFlush)
+		this.sprThumbBase.FlushActivation()
+	EndIf
+	screen.Unlock()
+	this.selTag := tagID
+	this.selPage := pageID
+EndFunc
+
+Function AppreciationView::showCg(Reference info, Integer fFlush)
+	fFlush |= (cnfObj.screenEffect == 1)
+	adv.bustupClear()
+	this.fScroll := info.fScroll
+	If (fFlush == false)
+		If (this.fScroll == true)
+			this.sprScroll.SetBlendingEnvelope(0)
+		Else
+			this.sprScroll.SetBlendingEnvelope(256)
+		EndIf
+		this.sprScroll.BeginActivation(300)
+	ElseIf (this.fScroll == true)
+		this.sprScroll.SetTransparency(0)
+	Else
+		this.sprScroll.SetTransparency(256)
+	EndIf
+	this.sprScroll.SetHorzScrollPos(0, "ID_SCROLL")
+	this.scrollT := 0.0
+	adv.setCg(info.cgFile, info.ptCg1.x, info.ptCg1.y)
+	If (info.buList.GetLength() != 0)
+		For i:=0 To (info.buList.GetLength() - 1)
+			adv.setBustup(info.buList[i].file, info.buList[i].pos, info.buList[i].priority)
+		Next
+	EndIf
+	adv.update(fFlush)
+EndFunc
+
