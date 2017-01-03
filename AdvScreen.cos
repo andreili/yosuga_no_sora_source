@@ -1731,3 +1731,44 @@ Function AdvScreen::endAnimation()
 		i += 1
 	EndWhile
 EndFunc
+
+Function ChkSelect(Integer num)
+	Return (adv.getSelectResult() == num)
+EndFunc
+
+Function Clear()
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.clearMessage()
+EndFunc
+
+Function SetupAdvScreen()
+	Debug("+-SetupAdvScreen-+")
+	adv.create()
+EndFunc
+
+Function AddSelect(String str, Integer flag)
+	adv.addSelect(str, flag)
+EndFunc
+
+Function BustupClear(Integer id)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.bustupClear(id)
+EndFunc
+
+Function BustupMove(Integer id, Integer pos)
+	If (IsLoad() == -1)
+        Return
+    EndIf
+	adv.bustupMove(id, pos)
+EndFunc
+
+Function BustupLeave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.bustupLeave(id, mx, my, fFade, time, accel)
+EndFunc
