@@ -353,7 +353,194 @@ Function AddjustString(String src, Integer num)
 	Return temp
 EndFunc
 
-Function AddSelect(String str, Integer flag)
-	adv.addSelect(str, flag)
+Function AskGameExit()
+	If (Confirm("ÉQÅ[ÉÄÇèIóπÇµÇ‹Ç∑", true))
+		screen.Lock()
+		Throw()
+	EndIf
+EndFunc
+
+Function BlackOut(Integer wait, Integer fHide)
+	If (fHide != false)
+		Hide()
+	EndIf
+	If (wait == 0)
+		wait := 1000
+	EndIf
+	SetCg("black")
+	Transition("", wait)
+	Update()
+EndFunc
+
+Function Bookmark::init()
+	this.fSave := 0
+	this.comment := ""
+	this.time.nYear := 0
+	this.time.nMonth := 0
+	this.time.nDay := 0
+	this.time.nWeek := 0
+	this.time.nHour := 0
+	this.time.nMinute := 0
+	this.time.nSecond := 0
+EndFunc
+
+Function CgInfo::clear()
+	this.timeZone := 0
+	this.filename := ""
+	this.pt := IPoint(0, 0)
+	this.effectParam.strType := "Nothing"
+EndFunc
+
+Function CheckBu(Reference src, String filename, Integer baseFlag, Integer flag)
+	If (src.Find(filename) != -1)
+        If (baseFlag != 0)
+            SetCgFlag(baseFlag)
+            SetCgFlag(flag)
+        EndIf
+        Return -1
+    EndIf
+    Return 0
+EndFunc
+
+Function CheckCg(Reference src, String filename, Integer baseFlag, Integer flag)
+	If (src == filename)
+        If (baseFlag != 0)
+            SetCgFlag(baseFlag)
+            SetCgFlag(flag)
+        EndIf
+        Return -1
+    EndIf
+    Return 0
+EndFunc
+
+Function CheckCgFlag(Integer id)
+	If ((1 <= id) & (id < 4096))
+        Return sysObj.cgFlag.check(id)
+    EndIf
+    Return 0
+EndFunc
+
+Function CheckPlayVoice(String trueName)
+	Integer cnfId
+	If (cnfObj.voiceDetails[0] == -1)
+        cnfId.SetBit(4)
+    EndIf
+	If (cnfObj.voiceDetails[1] == -1)
+        cnfId.SetBit(2)
+    EndIf
+	If (cnfObj.voiceDetails[2] == -1)
+        cnfId.SetBit(3)
+    EndIf
+	If (cnfObj.voiceDetails[3] == -1)
+        cnfId.SetBit(5)
+    EndIf
+	If (cnfObj.voiceDetails[4] == -1)
+        cnfId.SetBit(6)
+    EndIf
+	If (cnfObj.voiceDetails[5] == -1)
+        cnfId.SetBit(9)
+    EndIf
+	If (cnfObj.voiceDetails[6] == -1)
+        cnfId.SetBit(8)
+    EndIf
+	If (cnfObj.voiceDetails[7] == -1)
+        cnfId.SetBit(7)
+    EndIf
+	If (cnfObj.voiceDetails[8] == -1)
+        cnfId.SetBit(24)
+    EndIf
+	trueName := trueName.Replace("óI", "")
+	trueName := trueName.Replace("Åï", "")
+	Integer fPlayVoice := -1
+	If ((trueName.Find("‚u") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(4) == -1)
+    EndIf
+	If ((trueName.Find("âl") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(2) == -1)
+    EndIf
+	If ((trueName.Find("ìﬁèè") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(3) == -1)
+    EndIf
+	If ((trueName.Find("àÍót") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(5) == -1)
+    EndIf
+	If ((trueName.Find("èââ¿") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(6) == -1)
+    EndIf
+	If ((trueName.Find("àœàıí∑") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(9) == -1)
+    EndIf
+	If ((trueName.Find("Ç‚Ç–ÇÎ") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(8) == -1)
+    EndIf
+	If ((trueName.Find("ó∫ïΩ") != -1) & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(7) == -1)
+    EndIf
+	trueName := trueName.Replace("‚u", "")
+	trueName := trueName.Replace("âl", "")
+	trueName := trueName.Replace("ìﬁèè", "")
+	trueName := trueName.Replace("àÍót", "")
+	trueName := trueName.Replace("èââ¿", "")
+	trueName := trueName.Replace("àœàıí∑", "")
+	trueName := trueName.Replace("Ç‚Ç–ÇÎ", "")
+	trueName := trueName.Replace("ó∫ïΩ", "")
+	If ((trueName != "") & (fPlayVoice == -1))
+        fPlayVoice := (cnfId.TestBit(24) == true)
+    EndIf
+	Return fPlayVoice
+EndFunc
+
+Function CheckTrueName(Reference aliasName, Reference showName, Reference trueName)
+	String strTemp
+	strTemp := aliasName
+	Integer index := strTemp.Find("Ås")
+	If (index != -1)
+        showName := strTemp.Left(index)
+        Integer iRight := strTemp.Find("Åt")
+        trueName := strTemp.Middle(index + 1, iRight - index - 1)
+    Else
+        trueName := strTemp
+        showName :=strTemp
+    EndIf
+	If (strTemp == "")
+	ElseIf (showName == "åÍÇË")
+        showName := ""
+	ElseIf (showName == "êSÇÃê∫")
+        showName := ""
+	ElseIf(showName == "ÉÇÉmÉçÅ[ÉO")
+        showName := ""
+    EndIf
+EndFunc
+
+Function ChkFlag(Integer i)
+	Return ChkFlagOn(i)
+EndFunc
+
+Function ChkFlagOff(Integer i)
+	If ((1 <= i) & (i < 512))
+        Return (scObj.flag.check(i) == 0)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkFlagOn(Integer i)
+	If ((1 <= i) & (i < 512))
+        Return scObj.flag.check(i)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkGlobalFlagOn(Integer i)
+	If ((1 <= i) & (i < 128))
+        Return sysObj.globalScFlag.check(i)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkRecollectFlag(Integer i)
+	If ((1 <= i) & (i < 32))
+        Return sysObj.recollectFlag.check(i)
+    EndIf
+    Return 0
 EndFunc
 
