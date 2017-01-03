@@ -1,0 +1,329 @@
+Include	"yosuga.ch"
+
+Function BustupManager::adjustPosition()
+	Array id_rel
+	Integer num := numPoeple()
+	Integer i := 0
+	Integer cnt := 0
+	While (i < 5)
+        If ((this.info[i].id != -1) & (this.info[i].status != 8) & (this.info[i].fPosFix == 0))
+            id_rel[cnt] := BustupInfo
+            id_rel[cnt].id := this.info[i].id
+            id_rel[cnt].relation := this.info[i].relation
+            cnt += 1
+        EndIf
+        i += 1
+    EndWhile
+	BustupInfo temp
+	Integer m
+	Integer n
+	m := 0
+	While (m < ( cnt - 1))
+        n := m + 1
+        While (n < cnt)
+            If (id_rel[m].relation > id_rel[n].relation)
+                id_rel.Swap(m, n)
+            EndIf
+            n += 1
+        EndWhile
+        m += 1
+    EndWhile
+	Array pos
+	If (cnt == 1)
+        pos += 6
+    ElseIf (cnt == 2)
+        pos += 4
+        pos += 8
+    ElseIf (cnt == 3)
+        pos += 3
+        pos += 6
+        pos += 9
+    ElseIf (cnt == 4)
+        pos += 3
+        pos += 5
+        pos += 7
+        pos += 9
+    ElseIf (cnt == 5)
+        pos += 2
+        pos += 4
+        pos += 6
+        pos += 8
+        pos += 10
+    EndIf
+    i := 0
+    While (i < cnt)
+        m := 0
+        While (m < 5)
+            If (id_rel[i].id == this.info[m].id)
+                If (this.info[m].pos < 0)
+                    this.info[m].pos := -this.info[m].pos
+                Else
+                    this.info[m].pos := pos[i]
+                EndIf
+                Break
+            EndIf
+            m += 1
+        EndWhile
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::adjustSprPosition(Integer id)
+	Integer num := numPoeple()
+	Integer pos := this.info[id].pos
+	ImageInfo info
+	info := this.spr[id].GetInfo()
+	this.info[id].basePosition.x := BUSTUP_XPOS[pos]
+	this.info[id].localPosition.x := this.info[id].basePosition.x
+	this.spr[id].MovePosition(this.info[id].localPosition.x, this.info[id].localPosition.y)
+EndFunc
+
+Function BustupManager::clear(Integer id)
+	Integer i := 0
+	If (id == 0)
+        While (i < 5)
+            If (this.info[i].status != 0)
+                this.info[i].clear()
+            EndIf
+            i += 1
+        EndWhile
+    Else
+        While (i < 5)
+            If (this.info[i].id == id)
+                this.info[i].clear()
+            EndIf
+            i += 1
+        EndWhile
+    EndIf
+EndFunc
+
+Function BustupManager::create(Integer max)
+	this.max := max
+	this.info.Remove(0, -1)
+	this.spr.Remove(0, -1)
+	Integer i := 0
+	While (i < max)
+        this.info[i] := BustupInfo
+        this.spr[i] := Sprite
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::down(Integer id, Integer mv, Integer time, Integer accel)
+	Integer i := 0
+    While (i < 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 16
+            Integer iMv
+            Integer iTime
+            Integer iAccel
+            If (mv == 0)
+                iMv := 50
+                iAccel := 3
+            ElseIf (mv == -1)
+                iMv := -(this.info[i].localPosition.y - this.info[i].basePosition.y)
+                iAccel := 3
+            Else
+                iMv := mv
+                iAccel := accel
+            EndIf
+            If (time == 0)
+                iTime := 1000
+            ElseIf (time == -1)
+                iTime := 0
+            Else
+                iTime := time
+            EndIf
+            this.info[i].downParam.set(IPoint(0, iMv), iTime, iAccel, 0)
+            Break;
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::jump(Integer id, Integer mv)
+	Integer i := 0
+	While (i < 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 32
+			Break
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::leave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
+	Integer i := 0
+	While (i < 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 128
+            this.info[i].leaveParam.set(IPoint(mx, my), time, accel, fFade)
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::move(Integer id, Integer pos)
+	Integer i := 0
+    While (i < 5)
+        If (this.info[i].id == id)
+            If (this.info[i].pos != pos)
+                this.info[i].status := 4
+            EndIf
+            If (pos == 0)
+                this.info[i].fPosFix := 0
+            Else
+                this.info[i].fPosFix := -1
+            EndIf
+            this.info[i].pos := pos
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::movePosition(Integer id, Integer pos)
+	Integer i := 0
+    While (i < 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 4
+            this.info[i].pos := pos
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::numPoeple()
+	Integer count := 0
+	Integer i := 0
+	While (i < 5)
+        If ((this.info[i].status != 0) & (this.info[i].status != 8))
+            count += 1
+        EndIf
+        i += 1
+    EndWhile
+    Return count
+EndFunc
+
+Function BustupManager::set(String str, Integer pos, Integer priority, Integer timezone)
+	BustupInfo info
+	info := CheckSetupBustup(str, timezone)
+	Integer i
+	i := 0
+    While (i < this.max)
+        If (this.info[i].id == info.id)
+            If ((this.info[i].status == 16) | (this.info[i].status == 32) | (this.info[i].status == 64))
+            Else
+                this.info[i].status := 4
+            EndIf
+            this.info[i].basename := info.basename
+            this.info[i].filename := info.filename
+            If (pos > 0)
+                this.info[i].pos := pos
+                this.info[i].fPosFix := -1
+            ElseIf (pos < 0)
+                this.info[i].pos := pos
+                this.info[i].fPosFix := 0
+            EndIf
+            this.info[i].relation := info.relation
+            If (priority == 0)
+            Else
+                this.info[i].priority := priority
+            EndIf
+            this.info[i].basePosition := info.basePosition
+            Break
+        EndIf
+        i += 1
+    EndWhile
+	If (i == this.max)
+        i := 0
+        While (i < this.max)
+            If (this.info[i].status == 0)
+                this.info[i].status := 1
+                this.info[i].id := info.id
+                this.info[i].basename := info.basename
+                this.info[i].filename := info.filename
+                if (pos > 0)
+                    this.info[i].pos := pos
+                    this.info[i].fPosFix := -1
+                ElseIf (pos <= 0)
+                    this.info[i].pos := pos
+                    this.info[i].fPosFix := 0
+                EndIf
+                this.info[i].relation := info.relation
+                If (priority == 0)
+                    this.info[i].priority := info.priority
+                Else
+                    this.info[i].priority := priority
+                EndIf
+                this.info[i].basePosition := info.basePosition
+                this.info[i].localPosition := this.info[i].basePosition
+                Break
+            EndIf
+            i += 1
+        EndWhile
+    EndIf
+EndFunc
+
+Function BustupManager::shake(Integer id, Integer mh, Integer count)
+	Integer i := 0
+	While (i < 5)
+        If (this.info[i].id == id)
+            this.info[i].status := 64
+        EndIf
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::sortPriority(Integer fDescend)
+	Integer i
+	Integer j
+	If (fDescend == -1)
+        i := 0
+        While (i <= 5)
+            j := i + 1
+            While (j < 5)
+                If (this.info[i].priority < this.info[j].priority)
+                    swap(i, j)
+                EndIf
+                j += 1
+            EndWhile
+            i += 1
+        EndWhile
+    Else
+        i := 0
+        While (i <= 5)
+            j := i + 1
+            While (j < 5)
+                If (this.info[i].priority > this.info[j].priority)
+                    swap(i, j)
+                EndIf
+                j += 1
+            EndWhile
+            i += 1
+        EndWhile
+    EndIf
+EndFunc
+
+Function BustupManager::sortRelation()
+	Integer i
+	Integer j
+	i := 0
+    While (i <= 5)
+        j := i + 1
+        While (j < 5)
+            If (this.info[i].relation > this.info[j].relation)
+                swap(i, j)
+            EndIf
+            j += 1
+        EndWhile
+        i += 1
+    EndWhile
+EndFunc
+
+Function BustupManager::swap(Integer n, Integer m)
+	BustupInfo temp
+	temp := this.info[n]
+	this.info[n] := this.info[m]
+	this.info[m] := temp
+EndFunc
+

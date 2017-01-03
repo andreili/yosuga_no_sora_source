@@ -341,3 +341,24 @@ Function Change(String str)
 	scObj.scenarioCall := str
 EndFunc
 
+Function AddjustString(String src, Integer num)
+	Integer length := src.GetLength()
+	If (length <= num)
+		Return src
+	EndIf
+	String temp
+	Integer i := 0
+	While (i + num < length)
+		temp += src.Middle(i, num) + "\n"
+		i += num
+	EndWhile
+	If (i < length)
+		temp += src.Middle(i, num)
+	EndIf
+	Return temp
+EndFunc
+
+Function AddSelect(String str, Integer flag)
+	adv.addSelect(str, flag)
+EndFunc
+

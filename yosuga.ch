@@ -21,6 +21,8 @@ DeclareType ConfigWindow
 DeclareType AppreciationView
 DeclareType HistoryWindow
 DeclareType DrawTextParam
+DeclareType BustupViewInfo
+DeclareType CgViewInfo
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
