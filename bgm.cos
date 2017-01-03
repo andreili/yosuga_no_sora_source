@@ -1,0 +1,26 @@
+Include	"yosuga.ch"
+
+Function BgmCheckCallback()
+	If (bgm[0].fEndingProcess == true)
+		If ((bgm[0].res.IsPlaying() == true) && (bgm[0].res.IsPendingEnvelope() == false))
+			bgm[0].res.Stop()
+			bgm[0].res.Release()
+			bgm[0].fEndingProcess := false
+		EndIf
+	EndIf
+	If (bgm[1].fEndingProcess == true)
+		If ((bgm[1].res.IsPlaying() == true) && (bgm[1].res.IsPendingEnvelope() == false))
+			bgm[1].res.Stop()
+			bgm[1].res.Release()
+			bgm[1].fEndingProcess := false
+		EndIf
+	EndIf
+EndFunc
+
+Function BgmRelease()
+	bgm[0].res.Stop()
+	bgm[0].res.Release()
+	bgm[1].res.Stop()
+	bgm[1].res.Release()
+EndFunc
+
