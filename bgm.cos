@@ -2,6 +2,9 @@
 Include	"yosuga.ch"
 @ENDIF
 
+bgm[0] := Sound
+bgm[1] := Sound
+
 Function BgmCheckCallback()
 	If (bgm[0].fEndingProcess == true)
 		If ((bgm[0].res.IsPlaying() == true) && (bgm[0].res.IsPendingEnvelope() == false))
@@ -88,8 +91,8 @@ Function EnvSeCheckCallback()
 	While (i < envSe.GetLength())
 		String str
 		str := envSe.GetTagName(i)
-		If (envSe[str].fEndingProcess == -1)
-			If ((envSe[str].res.IsPlaying() == -1) && (envSe[str].res.IsPendingEnvelope() == 0))
+		If (envSe[str].fEndingProcess == true)
+			If ((envSe[str].res.IsPlaying() == true) && (envSe[str].res.IsPendingEnvelope() == 0))
 				envSe[str].res.Stop()
 				envSe[str].res.Release()
 				envSe.Remove(str)
@@ -109,5 +112,30 @@ Function EnvSeRelease()
 		i += 1
 	EndWhile
 	envSe.RemoveAll()
+EndFunc
+
+Function GetPlayBgmName()
+	Return bgm[bgmIndex].filename
+EndFunc
+
+Function GetPlayEnvSeList(Reference list)
+	Integer i := 0
+	While (i < envSe.GetLength())
+		Reference rEnv
+		rEnv := envSe[envSe.GetTagName(i)]
+		If (rEnv.fEndingProcess == 0)
+			list[i] := envSe.GetTagName(i)
+		EndIf
+		i += 1
+	EndWhile
+EndFunc
+
+Function GetVoicePlayingPosition(Reference total, Reference pos)
+	SoundInfo info
+	info := voice.GetInfo()
+	total := info.nSampleCount
+	Integer nowTime
+	nowTime := GetCurrentTime()
+	pos := (info.nSamplesPerSec * (nowTime - playVoiceTime)) / 1000.0
 EndFunc
 

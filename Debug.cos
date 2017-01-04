@@ -75,6 +75,170 @@ Function EndDebugSearch()
 EndFunc
 
 Function EnterDebugJump()
-	fDebugSearch := -1
+	fDebugSearch := true
+EndFunc
+
+Function GetDebugJumpScenario()
+	Return DebugJumpScenario
+EndFunc
+
+Function GetDebugSearchString()
+	Return rDebugSearch
+EndFunc
+
+Function DebugCommandLine(Reference com)
+	com.MakeUpper()
+	If (IsUNK1)
+	ElseIf (com.Find("ONFLAG") != true)
+		Array strNum
+		If (com.IsMatchUsage("%t(%n)", strNum) == "")
+			Integer i := 0
+			While (i < strNum.GetLength())
+				strNum[i].TrimLeft()
+				OnFlag(StringToNum(strNum[i]))
+				i += 1
+			EndWhile
+		EndIf
+	ElseIf (com.Find("OFFFLAG") != true)
+		Array strNum
+		If (com.IsMatchUsage("%t(%n)", strNum) == "")
+			Integer i := 0
+			While (i < strNum.GetLength())
+				strNum[i].TrimLeft()
+				OffFlag(StringToNum(strNum[i]))
+				i += 1
+			EndWhile
+		EndIf
+	ElseIf (com.Find("FLAG") != true)
+		Array strNum
+		If (com.IsMatchUsage("%t(%n)", strNum) == "")
+			Integer i := 0
+			While (i < strNum.GetLength())
+				strNum[i].TrimLeft()
+				If (ChkFlagOn(StringToNum(strNum[i])))
+					Debug("Flag" + strNum[i] + "-ON")
+				Else
+					Debug("Flag" + strNum[i] + "-OFF")
+				EndIf
+				i += 1
+			EndWhile
+		EndIf
+	ElseIf (com.Find("SCH") != true)
+		Array strNum
+		If (com.IsMatchUsage("%t(%t)", strNum) == "")
+			Integer i := 0
+			While (i < strNum.GetLength())
+				strNum[i] := strNum[i].Replace("@", "  ")
+				StartDebugSearch(strNum[i])
+				i += 1
+			EndWhile
+		EndIf
+		FlushJoyButton()
+	ElseIf (com != "")
+		If (com.Find("TG") != true)
+			DebugJumpScenario := com
+		ElseIf (com.Char(0) == 83)
+			DebugJumpScenario := com
+		ElseIf (com.Find("00_") == true)
+			DebugJumpScenario := "00_" + com
+		Else
+			DebugJumpScenario := com
+		EndIf
+		EnterDebugJump()
+	Else
+		debugFrame.SetSpriteText("ID_DEBUGEDIT", "")
+	EndIf
+EndFunc
+
+Function DebugEditEnter()
+	Integer optionFlag := screen.GetOptionalFuncFlag()
+	screen.SetOptionalFuncFlag(optionFlag | 8)
+	debugFrame.SetTransparency(0)
+	Integer ret := 0
+	FlushJoyButton()
+	screen.FlushCommandQueue(true)
+	While (true)
+		WndSpriteCmd wscmd
+		ClearWscmd(wscmd)
+		screen.GetCommand(wscmd, 30, true)
+		If (IsUNK1)
+		ElseIf ((input.GetJoyButtonPushed(4) > 0) | (wscmd.strID == "ID_DEBUGEDIT_OK"))
+			String str
+			str := debugFrame.GetSpriteText("ID_DEBUGEDIT")
+			DebugCommandLine(str)
+			Break
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			debugFrame.SetSpriteText("ID_DEBUGEDIT", "")
+			Break
+		EndIf
+	EndWhile
+	FlushJoyButton()
+	screen.FlushCommandQueue(true)
+	debugFrame.SetFocus("")
+	WndSpriteCmd wscmd
+	screen.GetCommand(wscmd, 0, true)
+	debugFrame.SetTransparency(128)
+	screen.SetOptionalFuncFlag(optionFlag)
+	Return ret
+EndFunc
+
+Function DebugProc(Reference wscmd)
+	If (isCreateDebugWindow == true)
+		Return
+	EndIf
+	isCreateDebugWindow := true
+	If (wscmd.strID == "ID_BUTTON_DEBUG-")
+		MinimizeDebugWindow()
+		input.FlushJoyButtonPushed()
+		screen.FlushCommandQueue(true)
+	ElseIf ((input.GetJoyButtonPushed(20) > 0) | (wscmd.strID == "ID_BUTTON_DEBUGX"))
+		If (IsShowDebugWindow())
+			screen.ChangeDisplaySize(800, 600)
+			HideDebugWindow()
+		Else
+			screen.ChangeDisplaySize(1024, 600)
+			ShowDebugWindow()
+		EndIf
+		input.FlushJoyButtonPushed()
+		screen.FlushCommandQueue(true)
+	ElseIf (wscmd.strID == "ID_DEBUGEDIT")
+		input.FlushJoyButtonPushed()
+		screen.FlushCommandQueue(true)
+		If (DebugEditEnter() == 40)
+		EndIf
+	EndIf
+	isCreateDebugWindow := false
+EndFunc
+
+Function HideDebugWindow()
+	If (isCreateDebugWindow == false)
+		Return
+	EndIf
+	debugFrame.SetVisible(false)
+	debugBase.SetVisible(false)
+	debugMes.SetVisible(false)
+EndFunc
+
+Function IsDebugJump()
+	Return DebugJumpEnter
+EndFunc
+
+Function IsDebugSearch()
+	Return fDebugSearch
+EndFunc
+
+Function IsShowDebugWindow()
+	Return debugFrame.IsVisible()
+EndFunc
+
+Function LeaveDebugJump()
+	DebugJumpEnter := false
+EndFunc
+
+Function StartDebugSearch(String strSearch)
+	Debug("\c;8888FF:---Search---\c:")
+	rDebugSearch := strSearch
+	fDebugSearch := true
+	adv.skip(true)
 EndFunc
 
