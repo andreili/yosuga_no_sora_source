@@ -25,6 +25,7 @@ DeclareType BustupViewInfo
 DeclareType CgViewInfo
 DeclareType BustupInfo
 DeclareType CgViewManager
+DeclareType Sound
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
@@ -71,7 +72,7 @@ ExternDef 		rDebugSearch		; 39
 ExternDef		IsDebug 
 ExternDef		IsUNK1	
 
-DeclareDef  	input
-DeclareDef  	inputE
-DeclareDef  	screen
-DeclareDef  	frameSkin
+ExternDef  	input
+ExternDef  	inputE
+ExternDef  	screen
+ExternDef  	frameSkin

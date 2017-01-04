@@ -42,3 +42,297 @@ Function ConfigWindow::apply()
 	this.sprBase.SetHorzScrollPos(cnfObj.automodeSpeed, "ID_AUTOMODE_SPEED")
 EndFunc
 
+Function ConfigWindow::show()
+	If (cnfObj.screenEffect == 0)
+		Bezier2D bzMag
+		bzMag.SetLinear(0.0, 0.0, 1.0, 1.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		this.sprBase.SetBezierCurve(Reference, Reference, bzMag)
+		this.sprBase.SetBlendingEnvelope(0)
+		this.sprBase.BeginActivation(300)
+	Else
+		this.sprBase.SetTransparency(0)
+	EndIf
+EndFunc
+
+Function ConfigWindow::run()
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (wscmd.strID == "ID_WINDOW")
+			ChangeDisplay(false)
+			cnfObj.screenType := 0
+			SaveConfigData()
+		ElseIf (wscmd.strID == "ID_FULLSCREEN")
+			ChangeDisplay(true)
+			cnfObj.screenType := 1
+			SaveConfigData()
+		ElseIf (wscmd.strID == "ID_CHECK_BGM")
+			cnfObj.flgPlayBgm := this.sprBase.IsButtonChecked("ID_CHECK_BGM")
+			If (cnfObj.flgPlayBgm == true)
+				If (GetPlayBgmName() != "")
+					PlayBgm(GetPlayBgmName(), true)
+				EndIf
+			Else
+				StopBgm(true, true)
+			EndIf
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_VOL_BGM")
+			SetBgmVolume(this.sprBase.GetHorzScrollPos("ID_VOL_BGM") / 256.0)
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_CHECK_SE")
+			cnfObj.flgPlaySe := this.sprBase.IsButtonChecked("ID_CHECK_SE")
+			If (cnfObj.flgPlaySe == true)
+				Array list
+				GetPlayEnvSeList(list)
+				Integer i := 0
+				While (i < list.GetLength())
+					PlayEnvSe(list[i])
+					i += 1
+				EndWhile
+			Else
+				StopEnvSe("", false, true)
+			EndIf
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_VOL_SE")
+			SetSeVolume(this.sprBase.GetHorzScrollPos("ID_VOL_SE") / 256.0)
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_CHECK_SYSTEM")
+			cnfObj.flgPlaySysSe := this.sprBase.IsButtonChecked("ID_CHECK_SYSTEM")
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_VOL_SYSTEM")
+			SetSysSeVolume(this.sprBase.GetHorzScrollPos("ID_VOL_SYSTEM") / 256.0)
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_CHECK_VOICE")
+			cnfObj.flgPlayVoice := this.sprBase.IsButtonChecked("ID_CHECK_VOICE")
+			If (cnfObj.flgPlayVoice == true)
+			Else
+				StopVoice()
+			EndIf
+		ElseIf (wscmd.strID == "ID_VOL_VOICE")
+			SetVoiceVolume(this.sprBase.GetHorzScrollPos("ID_VOL_VOICE") / 256.0)
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_WINDOW_DEPTH")
+			cnfObj.windowDepth := 256 - this.sprBase.GetHorzScrollPos("ID_WINDOW_DEPTH")
+			adv.msgFrame.transparencyBase(cnfObj.windowDepth)
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_VOICE_DETAILS")
+			voiceDetails()
+			input.FlushJoyButtonPushed()
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_NORMAL")
+			cnfObj.screenEffect := 0
+			adv.beginAnimation()
+		ElseIf (wscmd.strID == "ID_NONE")
+			cnfObj.screenEffect := 1
+			adv.endAnimation()
+		ElseIf (wscmd.strID == "ID_DEFAULT")
+			If (Confirm("‰ŠúÝ’è‚É–ß‚µ‚Ü‚·", true) == true)
+				scObj.Lock()
+				Integer screenType := cnfObj.screenType
+				InitConfigData()
+				cnfObj.screenType := screenType
+				apply()
+				applyToSysytem()
+				scObj.Unlock()
+			EndIf
+			scObj.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_TITLE")
+			If (Confirm("ƒ^ƒCƒgƒ‹‚É–ß‚è‚Ü‚·", true) == true)
+				Return 30
+			EndIf
+		ElseIf (wscmd.strID == "ID_APPLICIATION")
+			If (Confirm("ŠÓÜ‚É–ß‚è‚Ü‚·", true) == true)
+				Return 30
+			EndIf
+		ElseIf (wscmd.strID == "ID_END")
+			AskGameExit()
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			Break
+		EndIf
+	EndWhile
+	this.sprBase.Enable(false)
+EndFunc
+
+Function ConfigWindow::applyToSysytem()
+	If (cnfObj.flgPlayBgm == true)
+		If (GetPlayBgmName() != "")
+			PlayBgm(GetPlayBgmName(), true)
+		EndIf
+	Else
+		StopBgm(true, true)
+	EndIf
+	SetBgmVolume(this.sprBase.GetHorzScrollPos("ID_VOL_BGM") / 256.0)
+	If (cnfObj.flgPlaySe == true)
+		Array list
+		GetPlayEnvSeList(list)
+		Integer i := 0
+		While (i < list.GetLength())
+			PlayEnvSe(list[i])
+			i += 1
+		EndWhile
+	Else
+		StopEnvSe("", false, true)
+	EndIf
+	SetSeVolume(this.sprBase.GetHorzScrollPos("ID_VOL_SE") / 256.0)
+	SetSysSeVolume(this.sprBase.GetHorzScrollPos("ID_VOL_SYSTEM") / 256.0)
+	If (cnfObj.flgPlayVoice == true)
+	Else
+		StopVoice()
+	EndIf
+	SetVoiceVolume(this.sprBase.GetHorzScrollPos("ID_VOL_VOICE") / 256.0)
+	If (cnfObj.screenEffect == 0)
+		adv.beginAnimation()
+	Else
+		adv.endAnimation()
+	EndIf
+EndFunc
+
+Function ConfigWindow::create(Integer fFromTitle)
+	frameSkin.CreateFormPage(this.sprBase, "ID_PAGE_CONFIG")
+	ImageInfo info
+	info := this.sprBase.GetInfo()
+	SpriteParam param
+	this.sprBase.GetParameter(param)
+	param.ptDstPos := IPoint(400, 300)
+	param.ptRevCenter := IPoint(info.nImageWidth / 2, info.nImageHeight / 2)
+	this.sprBase.SetParameter(param)
+	Point pos
+	pos := IPoint(400 - info.nImageWidth / 2, 300 - info.nImageHeight / 2)
+	this.sprBase.SetTransparency(256)
+	this.sprBase.SetVisible(true)
+	this.sprBase.SetHorzScrollRange(256, "ID_VOL_BGM")
+	this.sprBase.SetHorzScrollRange(256, "ID_VOL_SE")
+	this.sprBase.SetHorzScrollRange(256, "ID_VOL_SYSTEM")
+	this.sprBase.SetHorzScrollRange(256, "ID_VOL_VOICE")
+	this.sprBase.SetHorzScrollRange(256, "ID_WINDOW_DEPTH")
+	this.sprBase.SetHorzScrollRange(45, "ID_MESSAGE_SPEED")
+	this.sprBase.SetHorzScrollRange(8, "ID_AUTOMODE_SPEED")
+	apply()
+	If (fFromTitle == true)
+		this.sprBase.SetTransparency(256, "ID_TITLE")
+		this.sprBase.SetTransparency(256, "ID_APPLICIATION")
+		this.sprBase.SetTransparency(256, "ID_END")
+	Elseif (IsRecollectMode() == true)
+		this.sprBase.SetTransparency(256, "ID_TITLE")
+	Else
+		this.sprBase.SetTransparency(256, "ID_APPLICIATION")
+	EndIf
+	screen.AddSprite(50230, this.sprBase)
+EndFunc
+
+Function ConfigWindow::destroy(Reference this)
+	If (this.sprBase.IsButtonChecked("ID_WINDOW") == true)
+		cnfObj.screenType := 0
+	Else
+		cnfObj.screenType := 1
+	EndIf
+	cnfObj.flgPlayBgm := this.sprBase.IsButtonChecked("ID_CHECK_BGM")
+	cnfObj.volBgm := this.sprBase.GetHorzScrollPos("ID_VOL_BGM") / 256.0
+	cnfObj.flgPlaySe := this.sprBase.IsButtonChecked("ID_CHECK_SE")
+	cnfObj.volSe := this.sprBase.GetHorzScrollPos("ID_VOL_SE") / 256.0
+	cnfObj.flgPlaySysSe := this.sprBase.IsButtonChecked("ID_CHECK_SYSTEM")
+	cnfObj.volSysSe := this.sprBase.GetHorzScrollPos("ID_VOL_SYSTEM") / 256.0
+	cnfObj.flgPlayVoice := this.sprBase.IsButtonChecked("ID_CHECK_VOICE")
+	cnfObj.volVoice := this.sprBase.GetHorzScrollPos("ID_VOL_VOICE") / 256.0
+	If (this.sprBase.IsButtonChecked("ID_NORMAL") == true)
+		cnfObj.screenEffect := 0
+	Else
+		cnfObj.screenEffect := 1
+	EndIf
+	cnfObj.windowDepth := 256 - this.sprBase.GetHorzScrollPos("ID_WINDOW_DEPTH")
+	cnfObj.messageSpeed := this.sprBase.GetHorzScrollPos("ID_MESSAGE_SPEED")
+	cnfObj.readSkip := this.sprBase.IsButtonChecked("ID_READED")
+	cnfObj.voiceStopOnClick := !this.sprBase.IsButtonChecked("ID_CLICK_PLAY")
+	cnfObj.lockSkip := this.sprBase.IsButtonChecked("ID_STATIC")
+	cnfObj.automodeSpeed := this.sprBase.GetHorzScrollPos("ID_AUTOMODE_SPEED")
+	SaveConfigData()
+	screen.DetachSprite(this.sprBase)
+EndFunc
+
+Function ConfigWindow::hide(Integer fWait)
+	If (cnfObj.screenEffect == 0)
+		this.sprBase.SetBlendingEnvelope(256)
+		this.sprBase.BeginActivation(300)
+		If (fWait == true)
+			WaitUntilSpriteActive(this.sprBase, false)
+		Endif
+	Else
+		this.sprBase.SetTransparency(256)
+	EndIf
+EndFunc
+
+Function ConfigWindow::voiceDetails()
+	this.sprBase.Enable(false)
+	Sprite sprDetails
+	frameSkin.CreateFormPage(sprDetails, "ID_PAGE_VOICE_DETAILS")
+	ImageInfo info
+	info := this.sprBase.GetInfo()
+	Point pos
+	pos := IPoint(400 - info.nImageWidth / 2, 300 - info.nImageHeight / 2)
+	info := sprDetails.GetInfo()
+	SpriteParam param
+	sprDetails.GetParameter(param)
+	param.ptDstPos := IPoint(pos.x + 438, pos.y + 215)
+	param.ptRevCenter := IPoint(info.nImageWidth / 2, 0)
+	sprDetails.SetParameter(param)
+	sprDetails.SetTransparency(256)
+	sprDetails.SetVisible(true)
+	sprDetails.CheckButton("ID_SORA", cnfObj.voiceDetails[0])
+	sprDetails.CheckButton("ID_AKIRA", cnfObj.voiceDetails[1])
+	sprDetails.CheckButton("ID_NAO", cnfObj.voiceDetails[2])
+	sprDetails.CheckButton("ID_KAZUHA", cnfObj.voiceDetails[3])
+	sprDetails.CheckButton("ID_MOTOKA", cnfObj.voiceDetails[4])
+	sprDetails.CheckButton("ID_KOZUE", cnfObj.voiceDetails[5])
+	sprDetails.CheckButton("ID_YAHIRO", cnfObj.voiceDetails[6])
+	sprDetails.CheckButton("ID_RYOUHEI", cnfObj.voiceDetails[7])
+	sprDetails.CheckButton("ID_OTHER", cnfObj.voiceDetails[8])
+	screen.AddSprite(50230 - 1, sprDetails)
+	If (cnfObj.screenEffect == 0)
+		Bezier2D bzMag
+		bzMag.SetLinear(1.0, 0.0, 1.0, 1.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		sprDetails.SetBezierCurve(Reference, Reference, bzMag)
+		sprDetails.SetBlendingEnvelope(0)
+		sprDetails.BeginActivation(300)
+		this.sprBase.SetBlendingEnvelope(128)
+		this.sprBase.BeginActivation(300)
+	Else
+		sprDetails.SetTransparency(0)
+		this.sprBase.SetTransparency(128)
+	EndIf
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			Break
+		EndIf
+	EndWhile
+	If (cnfObj.screenEffect == 0)
+		sprDetails.SetBlendingEnvelope(256)
+		sprDetails.BeginActivation(300)
+		this.sprBase.SetBlendingEnvelope(0)
+		this.sprBase.BeginActivation(300)
+	Else
+		sprDetails.SetTransparency(256)
+		this.sprBase.SetTransparency(256)
+	EndIf
+	cnfObj.voiceDetails[0] := (sprDetails.IsButtonChecked("ID_SORA") == true)
+	cnfObj.voiceDetails[1] := (sprDetails.IsButtonChecked("ID_AKIRA") == true)
+	cnfObj.voiceDetails[2] := (sprDetails.IsButtonChecked("ID_NAO") == true)
+	cnfObj.voiceDetails[3] := (sprDetails.IsButtonChecked("ID_KAZUHA") == true)
+	cnfObj.voiceDetails[4] := (sprDetails.IsButtonChecked("ID_MOTOKA") == true)
+	cnfObj.voiceDetails[5] := (sprDetails.IsButtonChecked("ID_KOZUE") == true)
+	cnfObj.voiceDetails[6] := (sprDetails.IsButtonChecked("ID_YAHIRO") == true)
+	cnfObj.voiceDetails[7] := (sprDetails.IsButtonChecked("ID_RYOUHEI") == true)
+	cnfObj.voiceDetails[8] := (sprDetails.IsButtonChecked("ID_OTHER") == true)
+	screen.DetachSprite(sprDetails)
+	this.sprBase.Enable(true)
+EndFunc
+

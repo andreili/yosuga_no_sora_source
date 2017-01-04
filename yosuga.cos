@@ -19,10 +19,6 @@ Include	"SystemObject.cos"
 Include	"yosuga.ch"
 @ENDIF
 
-File cout
-
-cout.Open( "", modeWrite )
-
 Function main()
 	Initialize()
 	Try
@@ -68,7 +64,7 @@ Function Initialize()
 	rs.SetTotalVolume(1, totalVolume)
 	rs.SetTotalVolume(2, totalVolume)
 	rs.SetTotalVolume(3, totalVolume)
-	If (IsDebug)
+	If (IsDebug == true)
 		CreateDebugWindow()
 		ShowDebugWindow()
 	EndIf
@@ -298,12 +294,12 @@ Function CgInfo::clear()
 EndFunc
 
 Function CheckBu(Reference src, String filename, Integer baseFlag, Integer flag)
-	If (src.Find(filename) != -1)
+	If (src.Find(filename) != true)
         If (baseFlag != 0)
             SetCgFlag(baseFlag)
             SetCgFlag(flag)
         EndIf
-        Return -1
+        Return true
     EndIf
     Return 0
 EndFunc
@@ -314,7 +310,7 @@ Function CheckCg(Reference src, String filename, Integer baseFlag, Integer flag)
             SetCgFlag(baseFlag)
             SetCgFlag(flag)
         EndIf
-        Return -1
+        Return true
     EndIf
     Return 0
 EndFunc
@@ -328,59 +324,59 @@ EndFunc
 
 Function CheckPlayVoice(String trueName)
 	Integer cnfId
-	If (cnfObj.voiceDetails[0] == -1)
+	If (cnfObj.voiceDetails[0] == true)
         cnfId.SetBit(4)
     EndIf
-	If (cnfObj.voiceDetails[1] == -1)
+	If (cnfObj.voiceDetails[1] == true)
         cnfId.SetBit(2)
     EndIf
-	If (cnfObj.voiceDetails[2] == -1)
+	If (cnfObj.voiceDetails[2] == true)
         cnfId.SetBit(3)
     EndIf
-	If (cnfObj.voiceDetails[3] == -1)
+	If (cnfObj.voiceDetails[3] == true)
         cnfId.SetBit(5)
     EndIf
-	If (cnfObj.voiceDetails[4] == -1)
+	If (cnfObj.voiceDetails[4] == true)
         cnfId.SetBit(6)
     EndIf
-	If (cnfObj.voiceDetails[5] == -1)
+	If (cnfObj.voiceDetails[5] == true)
         cnfId.SetBit(9)
     EndIf
-	If (cnfObj.voiceDetails[6] == -1)
+	If (cnfObj.voiceDetails[6] == true)
         cnfId.SetBit(8)
     EndIf
-	If (cnfObj.voiceDetails[7] == -1)
+	If (cnfObj.voiceDetails[7] == true)
         cnfId.SetBit(7)
     EndIf
-	If (cnfObj.voiceDetails[8] == -1)
+	If (cnfObj.voiceDetails[8] == true)
         cnfId.SetBit(24)
     EndIf
 	trueName := trueName.Replace("óI", "")
 	trueName := trueName.Replace("Åï", "")
-	Integer fPlayVoice := -1
-	If ((trueName.Find("‚u") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(4) == -1)
+	Integer fPlayVoice := true
+	If ((trueName.Find("‚u") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(4) == true)
     EndIf
-	If ((trueName.Find("âl") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(2) == -1)
+	If ((trueName.Find("âl") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(2) == true)
     EndIf
-	If ((trueName.Find("ìﬁèè") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(3) == -1)
+	If ((trueName.Find("ìﬁèè") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(3) == true)
     EndIf
-	If ((trueName.Find("àÍót") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(5) == -1)
+	If ((trueName.Find("àÍót") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(5) == true)
     EndIf
-	If ((trueName.Find("èââ¿") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(6) == -1)
+	If ((trueName.Find("èââ¿") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(6) == true)
     EndIf
-	If ((trueName.Find("àœàıí∑") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(9) == -1)
+	If ((trueName.Find("àœàıí∑") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(9) == true)
     EndIf
-	If ((trueName.Find("Ç‚Ç–ÇÎ") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(8) == -1)
+	If ((trueName.Find("Ç‚Ç–ÇÎ") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(8) == true)
     EndIf
-	If ((trueName.Find("ó∫ïΩ") != -1) & (fPlayVoice == -1))
-        fPlayVoice := (cnfId.TestBit(7) == -1)
+	If ((trueName.Find("ó∫ïΩ") != true) & (fPlayVoice == true))
+        fPlayVoice := (cnfId.TestBit(7) == true)
     EndIf
 	trueName := trueName.Replace("‚u", "")
 	trueName := trueName.Replace("âl", "")
@@ -390,7 +386,7 @@ Function CheckPlayVoice(String trueName)
 	trueName := trueName.Replace("àœàıí∑", "")
 	trueName := trueName.Replace("Ç‚Ç–ÇÎ", "")
 	trueName := trueName.Replace("ó∫ïΩ", "")
-	If ((trueName != "") & (fPlayVoice == -1))
+	If ((trueName != "") & (fPlayVoice == true))
         fPlayVoice := (cnfId.TestBit(24) == true)
     EndIf
 	Return fPlayVoice
@@ -400,7 +396,7 @@ Function CheckTrueName(Reference aliasName, Reference showName, Reference trueNa
 	String strTemp
 	strTemp := aliasName
 	Integer index := strTemp.Find("Ås")
-	If (index != -1)
+	If (index != true)
         showName := strTemp.Left(index)
         Integer iRight := strTemp.Find("Åt")
         trueName := strTemp.Middle(index + 1, iRight - index - 1)
@@ -555,7 +551,7 @@ Function DestroyAdvScreen()
 EndFunc
 
 Function Down(Integer id, Integer mv, Integer time, Integer accel)
-	If (IsLoad() == -1)
+	If (IsLoad() == true)
 		Return
 	EndIf
 	adv.bustupDown(id, mv, time, accel)
@@ -570,35 +566,79 @@ Function DumpContext(String path)
 EndFunc
 
 Function EnterLoad()
-	scObj.isLoad := -1
+	scObj.isLoad := true
 	scObj.hitretCountTemp := 0
 	scObj.selectCount := 0
 	adv.msgInfo.clear()
 EndFunc
 
 Function EnterRecollectMode()
-	flgRecollectMode := -1
+	flgRecollectMode := true
 EndFunc
 
 Function Flush(String color, Integer time, String cgFile)
-	If (IsLoad() == -1)
+	If (IsLoad() == true)
 		Return 0
 	Endif
 	Integer fFlush := adv.isKeyUpdateFlush()
-	If (fFlush == -1)
+	If (fFlush == true)
 		Return 0
 	EndIf
 	adv.effectFlush(color, time, cgFile)
 EndFunc
 
 Function FlushCommandQueue()
-	screen.FlushCommandQueue(-1)
+	screen.FlushCommandQueue(true)
 EndFunc
 
 Function Font(Integer size, String face)
-	If (IsLoad() == -1)
+	If (IsLoad() == true)
 		Return
 	EndIf
 	adv.font(size, 0, 0, face)
+EndFunc
+
+Function GetCommand(Reference wscmd, Integer timeout)
+	adv.updateProc()
+	BgmCheckCallback()
+	EnvSeCheckCallback()
+	If (0 == true)
+		VoicePlayIndicatorProc()
+	EndIf
+	ClearWscmd(wscmd)
+	Integer res
+	res := screen.GetCommand(wscmd, timeout, true)
+	If (wscmd.strID == "ID_APP_EXIT")
+		AskGameExit()
+		screen.FlushCommandQueue(true)
+	ElseIf (0 == true)
+		DebugProc(wscmd)
+	EndIf
+	Return res
+EndFunc
+
+Function Hide(Integer fWait)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.hideMessage(0, fWait)
+EndFunc
+
+Function HideLoadEffect()
+	sprLoadEffectBase.SetBlendingEnvelope(256)
+	sprLoadEffectBase.BeginActivation(300)
+	WaitUntilSpriteActive(sprLoadEffectBase, 0)
+	screen.DetachSprite(sprLoadEffectBase)
+	sprLoadEffect.Release()
+	sprLoadEffectBase.Release()
+	resLoadEffectAlpha.Release()
+EndFunc
+
+Function HideVoicePlayIndicator()
+EndFunc
+
+Function Hitret(Integer id, Integer fVoiceWait)
+	Integer ret := adv.hitret(id, fVoiceWait)
+	Return ret
 EndFunc
 

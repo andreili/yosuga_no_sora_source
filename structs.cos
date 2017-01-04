@@ -27,16 +27,16 @@ Structure ZoomParam
 	Size size
 	Integer time
 	Integer accel
-;	Begin
-;		If (InitFields)
-;			this.pt.x := 0
-;			this.pt.y := 0
-;			this.size.x := 800
-;			this.size.y := 600
-;			this.time := 0
-;			this.accel := 0
-;		EndIf
-;	End
+	Begin
+		If (InitFields)
+			this.pt.x := 0
+			this.pt.y := 0
+			this.size.w := 800
+			this.size.h := 600
+			this.time := 0
+			this.accel := 0
+		EndIf
+	End
 EndStruct
 
 Structure ScenarioObject
@@ -323,5 +323,15 @@ Structure CgViewManager
 			this.isCreate := false
 		EndIf
 	End
+EndStruct
+
+Structure Sound
+	Resource res
+	String filename
+	Integer fPlaying
+	Integer endPos
+	Integer rewindPos
+	Integer fPause
+	Integer fEndingProcess
 EndStruct
 
