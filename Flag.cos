@@ -45,3 +45,70 @@ Function Flag::set(Integer id)
 	Return this.flag[index].SetBit(shift)
 EndFunc
 
+Function ChkFlag(Integer i)
+	Return ChkFlagOn(i)
+EndFunc
+
+Function ChkFlagOff(Integer i)
+	If ((1 <= i) & (i < 512))
+        Return (scObj.flag.check(i) == 0)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkFlagOn(Integer i)
+	If ((1 <= i) & (i < 512))
+        Return scObj.flag.check(i)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkGlobalFlagOn(Integer i)
+	If ((1 <= i) & (i < 128))
+        Return sysObj.globalScFlag.check(i)
+    EndIf
+    Return 0
+EndFunc
+
+Function ChkRecollectFlag(Integer i)
+	If ((1 <= i) & (i < 32))
+        Return sysObj.recollectFlag.check(i)
+    EndIf
+    Return 0
+EndFunc
+
+Function CountFlagOn(Integer f0, Integer f1, Integer f2, Integer f3, Integer f4, Integer f5, Integer f6, Integer f7, Integer f8, Integer f9)
+	Integer ret := 0
+	If (ChkFlagOn(f0) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f1) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f2) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f3) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f4) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f5) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f6) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f7) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f8) == true)
+		ret += 1
+	EndIf
+	If (ChkFlagOn(f9) == true)
+		ret += 1
+	EndIf
+	Return ret
+EndFunc
+

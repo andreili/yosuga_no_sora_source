@@ -26,6 +26,8 @@ DeclareType CgViewInfo
 DeclareType BustupInfo
 DeclareType CgViewManager
 DeclareType Sound
+DeclareType E3DColor
+DeclareType InputEvent
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1

@@ -1,0 +1,83 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function MessageFrame::autoMode(Integer f)
+	if (f == true)
+		this.sprMenu.Enable(0, "ID_AUTO")
+	Else
+		this.sprMenu.Enable(1, "ID_AUTO")
+	EndIf
+EndFunc
+
+Function MessageFrame::changeStyle(Integer style)
+EndFunc
+
+Function MessageFrame::clearPage()
+	this.msprMess.ClearMessage()
+	this.msprMess.MoveCursorPos(0, 0)
+EndFunc
+
+Function MessageFrame::destroy()
+	this.isCreate := 0
+	this.sprFrame.SetVisible(0)
+	this.sprBase[0].SetVisible(0)
+	this.sprBase[1].SetVisible(0)
+	this.sprMenu.SetVisible(0)
+	this.sprClose.SetVisible(0)
+	this.msprName.SetVisible(0)
+	this.msprMess.SetVisible(0)
+	this.sprParent.DetachAllSprite()
+	this.sprParent.Release()
+	this.sprBase.Remove()
+	this.sprFrame.Release()
+	this.sprMenu.Release()
+	this.sprClose.Release()
+	this.msprName.Release()
+	this.msprMess.Release()
+	this.sprBlinkHit.Release()
+EndFunc
+
+Function MessageFrame::enable(Integer f)
+	this.sprMenu.Enable(f)
+EndFunc
+
+Function MessageFrame::enableQLoad(Integer f)
+	if (f == true)
+		this.sprMenu.SetTransparency(0, "ID_QLOAD")
+		this.sprMenu.Enable(-1, "ID_QLOAD")
+	Else
+		this.sprMenu.SetTransparency(128, "ID_QLOAD")
+		this.sprMenu.Enable(0, "ID_QLOAD")
+	EndIf
+EndFunc
+
+Function MessageFrame::flush()
+	Return this.msprMess.FlushMessage()
+EndFunc
+
+Function MessageFrame::getView()
+	Return this.viewType
+EndFunc
+
+Function MessageFrame::hideBlink()
+	this.sprBlinkHit.FlushActivation()
+	this.sprBlinkHit.SetTransparency(256)
+	this.isShowBlinkHit := false
+EndFunc
+
+Function MessageFrame::hide(Integer fFlush, Integer fWait)
+	If (isShow() == true)
+		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.sprParent.SetTransparency(256)
+		Else
+			this.sprParent.SetBlendingEnvelope(256)
+			this.sprParent.BeginActivation(300)
+			If (fWait == true)
+				WaitUntilSpriteActive(this.sprParent, true)
+			EndIf
+		EndIf
+		this.isShow := false
+	EndIf
+EndFunc
+
