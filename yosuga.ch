@@ -1,6 +1,6 @@
 Include "cotopha.ch"
 
-Constant		InitFields := true
+ExternDef		InitFields
 
 DeclareType Flag
 DeclareType	LogManager
@@ -68,8 +68,8 @@ ExternDef 		DebugJumpEnter		; 37
 ExternDef 		fDebugSearch		; 38
 ExternDef 		rDebugSearch		; 39
 
-Constant		IsDebug := false
-Constant		IsUNK1	:= false
+ExternDef		IsDebug 
+ExternDef		IsUNK1	
 
 DeclareDef  	input
 DeclareDef  	inputE

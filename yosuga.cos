@@ -1,4 +1,27 @@
+Include "defs.cos"
+@If	(__BUILD_ONE__ == 1)
+Include "cotopha.ch"
+Include	"structs.cos"
+Include	"vars.cos"
+Include	"AdvScreen.cos"
+Include	"AppreciationView.cos"
+Include	"bgm.cos"
+Include	"BustupManager.cos"
+Include	"ConfigDataBase.cos"
+Include	"ConfigWindow.cos"
+Include	"Debug.cos"
+Include	"EyeCatch.cos"
+Include	"Flag.cos"
+Include	"init.cos"
+Include	"start_screens.cos"
+Include	"SystemObject.cos"
+@Else
 Include	"yosuga.ch"
+@ENDIF
+
+File cout
+
+cout.Open( "", modeWrite )
 
 Function main()
 	Initialize()

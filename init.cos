@@ -1,0 +1,13 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@EndIf
+
+Function Appreciation()
+	StopBgm()
+	EnterRecollectMode()
+	AppreciationView view
+	view.create(0, 0, true)
+	view.run()
+	view.destroy()
+	LeaveRecollectMode()
+EndFunc
