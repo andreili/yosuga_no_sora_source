@@ -156,6 +156,14 @@ Function Postprocessing()
 	SaveConfigData()
 EndFunc
 
+Function SaveObject(String path, Reference object)
+	File file
+	If (file.Open(path, 5))
+		Return 1
+	EndIf
+	Return file.SaveObject(object)
+EndFunc
+
 Function LoadObject(String path, Reference object)
 	File file
 	If (file.Open(path))
@@ -608,5 +616,131 @@ EndFunc
 Function Hitret(Integer id, Integer fVoiceWait)
 	Integer ret := adv.hitret(id, fVoiceWait)
 	Return ret
+EndFunc
+
+Function HitWait(Integer time)
+	FlushJoyButton()
+	Integer startTime := GetCurrentTime()
+	While ((GetCurrentTime() - startTime) < time)
+		If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(5) > 0))
+			Return true
+		EndIf
+	EndWhile
+	Return false
+EndFunc
+
+Function IsConfirm()
+	Return fConfirm
+EndFunc
+
+Function IsEyeCatch()
+	Return fEyeCatchEnter
+EndFunc
+
+Function IsGameClear()
+	Return sysObj.gameClear
+EndFunc
+
+Function IsHitRect(Reference rect, Integer x, Integer y)
+	If ((rect.left <= x) & (x < rect.right) & (rect.top <= y) & (y < rect.bottom))
+		Return true
+	EndIf
+	Return false
+EndFunc
+
+Function IsHitSprite(Reference spr, Integer x, Integer y)
+	Rect rect
+	rect := spr.GetRectangle()
+	Return IsHitRect(rect, x, y)
+EndFunc
+
+Function IsLoad()
+	Return scObj.isLoad
+EndFunc
+
+Function IsPauseBgm()
+	Return bgm[bgmIndex].fPause
+EndFunc
+
+Function IsPlayBgm()
+	Return bgm[bgmIndex].IsPlaying
+EndFunc
+
+Function IsPlayVoice()
+	Return voice.IsPlaying
+EndFunc
+
+Function IsRecollectMode()
+	Return flgRecollectMode
+EndFunc
+
+Function Jump(Integer id)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.bustupJump(id)
+EndFunc
+
+Function LeaveRecollectMode()
+	flgRecollectMode := false
+EndFunc
+
+Function Load(String filename)
+	Debug("Load:" + filename)
+	StopBgm()
+	StopEnvSe()
+	StopSe()
+	StopVoice()
+	File file
+	file.Open(filename + ".dat", 2)
+	Integer ret := file.LoadObject(scObj)
+	file.Close()
+	If ((ret == false) & (200 == scObj.version))
+		ShowLoadEffect()
+		EnterLoad()
+	Else
+		Confirm("�Z�[�u�f�[�^�Ɉُ킪����A�Q�[����I�����܂��B", false, false, 5000)
+		screen.Lock()
+		Throw()
+	EndIf
+EndFunc
+
+Function IsHScene(String str)
+	If (IsUNK1)
+	ElseIf (str.Find("EA10") != true)
+	ElseIf (str.Find("EA11") != true)
+	ElseIf (str.Find("EA12") != true)
+	ElseIf (str.Find("EA13") != true)
+	ElseIf (str.Find("EA16") != true)
+	ElseIf (str.Find("EA17") != true)
+	ElseIf (str.Find("EB01") != true)
+	ElseIf (str.Find("EB10") != true)
+	ElseIf (str.Find("EB11") != true)
+	ElseIf (str.Find("EB12") != true)
+	ElseIf (str.Find("EB13") != true)
+	ElseIf (str.Find("EB16") != true)
+	ElseIf (str.Find("EB17") != true)
+	ElseIf (str.Find("EC10") != true)
+	ElseIf (str.Find("EC11") != true)
+	ElseIf (str.Find("EC12") != true)
+	ElseIf (str.Find("EC13") != true)
+	ElseIf (str.Find("EC16") != true)
+	ElseIf (str.Find("EC17") != true)
+	ElseIf (str.Find("ED10") != true)
+	ElseIf (str.Find("ED11") != true)
+	ElseIf (str.Find("ED12") != true)
+	ElseIf (str.Find("ED13") != true)
+	ElseIf (str.Find("ED16") != true)
+	ElseIf (str.Find("ED17") != true)
+	ElseIf (str.Find("EE10") != true)
+	ElseIf (str.Find("EE11") != true)
+	ElseIf (str.Find("EE12") != true)
+	ElseIf (str.Find("EE13") != true)
+	ElseIf (str.Find("EE16") != true)
+	ElseIf (str.Find("EE17") != true)
+	Else
+		Return false
+	EndIf
+	Return true
 EndFunc
 
