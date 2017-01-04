@@ -1,0 +1,170 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function HistoryWindow::create()
+	Integer i
+	frameSkin.CreateFormPage(this.sprFrame, "ID_PAGE_HISTORY")
+	this.sprFrame.SetVisible(true)
+	ImageInfo info
+	info := this.sprFrame.GetInfo()
+	this.sprBase.CreateSprite(67108865, info.nImageWidth, info.nImageHeight)
+	this.sprBase.SetTransparency(256)
+	this.sprBase.SetVisible(true)
+	SpriteParam param
+	this.sprBase.GetParameter(param)
+	param.ptDstPos := IPoint(800 / 2, 600 / 2 + info.nImageHeight / 2)
+	param.ptRevCenter := IPoint(info.nImageWidth / 2, info.nImageHeight)
+	this.sprBase.SetParameter(param)
+	screen.AddSprite(50250, this.sprBase)
+	this.sprBase.AddSprite(50, this.sprFrame)
+	i := 0
+	While (i < 4)
+		this.sprVoice[i] := Sprite
+		frameSkin.CreateFormPage(this.sprVoice[i], "ID_PAGE_HISTORY_VOICE" + ("" := (i + 1)))
+		this.sprVoice[i].SetTransparency(256)
+		this.sprVoice[i].SetVisible(true)
+		this.sprBase.AddSprite(30, this.sprVoice[i])
+		i += 1
+	EndWhile
+	this.msprMessage.CreateMessage(680, 504)
+	this.msprMessage.AttachMessageStyle(frameSkin, "ID_FONT_MESSAGE")
+	this.msprMessage.SetDefaultMsgSpeed(0, 0, 0)
+	this.msprMessage.MovePosition(14, 0)
+	this.msprMessage.SetVisible(true)
+	this.sprBase.AddSprite(20, this.msprMessage)
+	this.index := 0
+	this.indexRange := scObj.nameLog.num() - 4
+	If (this.indexRange <= 0)
+		this.sprFrame.SetTransparency(256, "ID_SCROLL")
+		this.indexRange := 0
+	Else
+		this.sprFrame.SetVertScrollRange(this.indexRange, "ID_SCROLL")
+		this.sprFrame.SetVertScrollPos(this.indexRange, "ID_SCROLL")
+	EndIf
+	setPage(this.index)
+EndFunc
+
+Function HistoryWindow::destroy()
+	this.sprBase.DetachAllSprite()
+	screen.DetachSprite(this.sprBase)
+EndFunc
+
+Function HistoryWindow::hide(Integer fWait)
+	If (cnfObj.screenEffect == 0)
+		this.sprBase.SetBlendingEnvelope(256)
+		this.sprBase.BeginActivation(300)
+		If (fWait == true)
+			WaitUntilSpriteActive(this.sprBase, 0)
+		EndIf
+	Else
+		this.sprBase.SetTransparency(256)
+	EndIf
+EndFunc
+
+Function HistoryWindow::show()
+	If (cnfObj.screenEffect == 0)
+		Bezier2D bzMag
+		bzMag.SetLinear(1.0, 0.0, 1.0, 1.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		this.sprBase.SetBezierCurve(Reference, Reference, bzMag)
+		this.sprBase.SetBlendingEnvelope(0)
+		this.sprBase.BeginActivation(300)
+	Else
+		this.sprBase.SetTransparency(0)
+	EndIf
+EndFunc
+
+Function HistoryWindow::setPage(Integer index)
+	screen.Lock()
+	this.msprMessage.ClearMessage()
+	Integer y
+	Integer num := scObj.messLog.num()
+	If (this.indexRange == 0)
+		this.pagePointer := num - 1
+	Else
+		this.pagePointer := 4 + index - 1
+	EndIf
+	this.msprMessage.AttachMessageStyle(frameSkin, "ID_FONT_MESSAGE")
+	y := 37
+	Integer i := 0
+	While (i < 4)
+		this.msprMessage.MoveCursorPos(0, y)
+		this.msprMessage.OutputMessage(scObj.seqLog.get(this.pagePointer - i) + scObj.messLog.get(this.pagePointer - i))
+		y += 128
+		i += 1
+	EndWhile
+	Point pt
+	this.msprMessage.AttachMessageStyle(frameSkin, "ID_FONT_NAME")
+	y := 6
+	String showName
+	String trueName
+	i := 0
+	While (i < 4)
+		CheckTrueName(scObj.nameLog.get(this.pagePointer - i), showName, trueName)
+		this.msprMessage.MoveCursorPos(5, y)
+		this.msprMessage.OutputMessage(showName)
+		If (scObj.voiceLog.get(this.pagePointer - i) == "")
+			this.sprVoice[i].SetTransparency(256)
+		Else
+			pt := this.msprMessage.GetCursorPos()
+			this.sprVoice[i].SetTransparency(0)
+			this.sprVoice[i].MovePosition(14 + pt.x + 4, 0 + pt.y + 5)
+		EndIf
+		y += 128
+		i += 1
+	EndWhile
+	screen.Unlock()
+EndFunc
+
+Function HistoryWindow::run()
+	Integer ret := 0
+	Integer fPlayVoice := false
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			Break
+		ElseIf (wscmd.strID == "ID_SCROLL")
+			If (this.index != (this.indexRange - this.sprFrame.GetVertScrollPos("ID_SCROLL")))
+				this.index := this.indexRange - this.sprFrame.GetVertScrollPos("ID_SCROLL")
+				setPage(this.index)
+			EndIf
+		ElseIf (input.GetJoyButtonPushed(0) > 0)
+			If (this.index < this.indexRange)
+				this.index += 1
+				this.sprFrame.SetVertScrollPos(this.indexRange - this.index, "ID_SCROLL")
+				setPage(this.index)
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(1) > 0)
+			If (this.index == 0)
+				Break
+			Else
+				this.index -= 1
+				this.sprFrame.SetVertScrollPos(this.indexRange - this.index, "ID_SCROLL")
+				setPage(this.index)
+			EndIf
+			FlushJoyButton()
+		ElseIf (wscmd.strID == "ID_VOICE1")
+			PlayVoice(scObj.voiceLog.get(this.pagePointer - 0), true)
+			fPlayVoice := true
+		ElseIf (wscmd.strID == "ID_VOICE2")
+			PlayVoice(scObj.voiceLog.get(this.pagePointer - 1), true)
+			fPlayVoice := true
+		ElseIf (wscmd.strID == "ID_VOICE3")
+			PlayVoice(scObj.voiceLog.get(this.pagePointer - 2), true)
+			fPlayVoice := true
+		ElseIf (wscmd.strID == "ID_VOICE4")
+			PlayVoice(scObj.voiceLog.get(this.pagePointer - 3), true)
+			fPlayVoice := true
+		EndIf
+	EndWhile
+	If (fPlayVoice == true)
+		StopVoice()
+	EndIf
+EndFunc
+
