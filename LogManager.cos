@@ -1,0 +1,49 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function LogManager::add(String str)
+	If (this.index >= this.max)
+		this.index := 0
+	EndIf
+	If (this.num < this.max)
+		this.num += 1
+	EndIf
+	this.log[this.index] := str
+	this.index += 1
+EndFunc
+
+Function LogManager::clear()
+	this.index := 0
+	this.num := 0
+	Integer i := 0
+	While (i < this.num)
+		this.log[i] := ""
+		i += 1
+	EndWhile
+EndFunc
+
+Function LogManager::create(Integer max)
+	this.max := max
+	Integer i := 0
+	While (i < max)
+		this.log[i] := ""
+		i += 1
+	EndWhile
+	this.clear()
+EndFunc
+
+Function LogManager::get(Integer index)
+	if (index < this.max)
+		If (this.index - 1 < index)
+			Return this.log[this.num - (index - (this.index - 1))]
+		Else
+			Return this.log[this.index - 1 - index]
+		EndIf
+	EndIf
+	Return ""
+EndFunc
+
+Function LogManager::num()
+	Return this.num
+EndFunc
