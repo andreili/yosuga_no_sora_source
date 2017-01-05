@@ -1,0 +1,240 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function LoadSaveWindow::destroy()
+	this.sprBase.DetachAllSprite()
+	screen.DetachSprite(this.sprFrame)
+EndFunc
+
+Function LoadSaveWindow::hide(Integer fWait)
+	If (cnfObj.screenEffect == 0)
+		Bezier2D bzMag
+		bzMag.SetLinear(1.0, 1.0, 0.0, 0.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		this.sprBase.SetBezierCurve(Reference, Reference, bzMag)
+		this.sprBase.SetBlendingEnvelope(256)
+		this.sprBase.BeginActivation(300)
+		If (fWait == true)
+			WaitUntilSpriteActive(this.sprBase, true)
+		EndIf
+	Else
+		this.sprBase.SetTransparency(256)
+	EndIf
+EndFunc
+
+Function LoadSaveWindow::loadsave(Integer index, Reference arrayHideSpr, Reference arrayShowSpr)
+	Integer ret := 0
+	If (this.fLoad == true)
+		If (Confirm(("" := (index + 1)) + "番をロードします", true) == true)
+			NormalLoad(index)
+			ret := 40
+		EndIf
+	ElseIf (sysObj.bookmark[index].fSave == true)
+		If (Confirm(("" := (index + 1)) + "番にセーブします", true) == true)
+			NormalSave(index, arrayHideSpr, arrayShowSpr)
+			setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+		EndIf
+	Else
+		NormalSave(index, arrayHideSpr, arrayShowSpr)
+		setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+	EndIf
+	Return ret
+EndFunc
+
+Function LoadSaveWindow::create(Integer fLoad)
+	this.fLoad := fLoad
+	If (fLoad == true)
+		frameSkin.CreateFormPage(this.sprFrame, "ID_PAGE_LOAD")
+		If (sysObj.fQSave == false)
+			this.sprFrame.Enable(false, "ID_QSAVE")
+			this.sprFrame.SetTransparency(256, "ID_QSAVE")
+		EndIf
+	Else
+		frameSkin.CreateFormPage(this.sprFrame, "ID_PAGE_SAVE")
+	EndIf
+	ImageInfo info
+	info := this.sprFrame.GetInfo()
+	this.sprFrame.SetVertScrollRange((60 - 9) / 3, "ID_SCROLL")
+	this.sprFrame.SetVisible(true)
+	this.sprBase.CreateSprite(67108865, info.nImageWidth, info.nImageHeight)
+	SpriteParam param
+	this.sprBase.GetParameter(param)
+	param.ptDstPos := IPoint(400, 300)
+	param.ptRevCenter := IPoint(info.nImageWidth / 2, info.nImageHeight / 2)
+	this.sprBase.SetParameter(param)
+	this.sprBase.SetTransparency(256)
+	this.sprBase.SetVisible(true)
+	this.sprBase.AddSprite(50, this.sprFrame)
+	screen.AddSprite(50240, this.sprBase)
+	this.rcThumbMask.LoadImage("FRM_0510_.eri")
+	Integer i := 0
+	While (i < 9)
+		this.sprThumbBase[i] := Sprite
+		this.sprThumbBase[i].SetAlphaImage(this.rcThumbMask, 1)
+		this.sprThumbBase[i].SendCommand("", "<basic_flag hit_transparency=\"true\"/>")
+		this.sprThumbBase[i].MovePosition((i % 3) * 224 + 95, (i / 3) * 174 + 34)
+		this.sprThumbBase[i].SetBlendDegree(128)
+		this.sprThumbBase[i].SetVisible(true)
+		this.sprBase.AddSprite(30, this.sprThumbBase[i])
+		this.sprThumb[i] := Sprite
+		this.sprThumb[i].SetVisible(true)
+		this.sprThumbBase[i].AddSprite(50, this.sprThumb[i])
+		i += 1
+	EndWhile
+	If (sysObj.newBookmarkIndex == true)
+		setPage(0)
+	ElseIf ((0 <= sysObj.newBookmarkIndex) & (sysObj.newBookmarkIndex <= 2))
+		setPage(0)
+	ElseIf (((60 - 3 - 1) <= sysObj.newBookmarkIndex) & (sysObj.newBookmarkIndex <= (60 - 1)))
+		setPage((60 - 9) / 3)
+	Else
+		setPage(sysObj.newBookmarkIndex / 3 - 1)
+	EndIf
+EndFunc
+
+Function LoadSaveWindow::show()
+	If (cnfObj.screenEffect == 0)
+		Bezier2D bzMag
+		bzMag.SetLinear(0.0, 0.0, 1.0, 1.0)
+		bzMag.SetAcceleration(3.0, 0.0)
+		this.sprBase.SetBezierCurve(Reference, Reference, bzMag)
+		this.sprBase.SetBlendingEnvelope(0)
+		this.sprBase.BeginActivation(300)
+	Else
+		this.sprBase.SetTransparency(0)
+	EndIf
+EndFunc
+
+Function LoadSaveWindow::setPage(Integer index)
+	this.sprFrame.SetVertScrollPos(index, "ID_SCROLL")
+	Integer startSaveIndex:= index * 3
+	screen.Lock()
+	Integer i := 0
+	While (i < 9)
+		String strID
+		String strNum
+		String strDate
+		strID := "ID_SELECT" + CreateNumString(i + 1, 2, true) + "\\"
+		If (sysObj.bookmark[startSaveIndex + i].fSave == true)
+			this.sprThumb[i].LoadImage("Save" + CreateNumString(startSaveIndex + i, 3, true) + ".dat")
+			this.sprThumbBase[i].SetVisible(true)
+			String strNum
+			String strDate
+			strID := "ID_SELECT" + CreateNumString(i + 1, 2, true) + "\\"
+			strNum := CreateNumString(startSaveIndex + i + 1, 2, true, true)
+			strDate := CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nYear, 4, true) + "/"
+			strDate += CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nMonth, 2, true) + "/"
+			strDate += CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nDay, 2, true)
+			strDate += " "
+			strDate += CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nHour, 2, true) + ":"
+			strDate += CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nMinute, 2, true) + ":"
+			strDate += CreateNumString(sysObj.bookmark[startSaveIndex + i].time.nSecond, 2, true)
+			this.sprFrame.SetSpriteText(strID + "ID_NUMBER", strNum)
+			this.sprFrame.SetSpriteText(strID + "ID_DATE", strDate)
+			this.sprFrame.SetSpriteText(strID + "ID_COMMENT", sysObj.bookmark[startSaveIndex + i].comment)
+			If ((startSaveIndex + i) == sysObj.newBookmarkIndex)
+				this.sprFrame.SetTransparency(0, strID + "ID_NEW")
+			Else
+				this.sprFrame.SetTransparency(256, strID + "ID_NEW")
+			EndIf
+			this.sprFrame.Enable(true, strID + "ID_SELECT")
+		Else
+			this.sprThumbBase[i].SetVisible(false)
+			String strNum
+			strNum := CreateNumString(startSaveIndex + i + 1, 2, true, true)
+			this.sprFrame.SetSpriteText(strID + "ID_NUMBER", strNum)
+			this.sprFrame.SetSpriteText(strID + "ID_DATE", "")
+			this.sprFrame.SetSpriteText(strID + "ID_COMMENT", "")
+			this.sprFrame.SetTransparency(256, strID + "ID_NEW")
+			If (this.fLoad == true)
+				this.sprFrame.Enable(false, strID + "ID_SELECT")
+			Else
+				this.sprFrame.Enable(true, strID + "ID_SELECT")
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+	screen.Unlock()
+EndFunc
+
+Function LoadSaveWindow::run(Reference arrayHideSpr, Reference arrayShowSpr)
+	Integer ret := 0
+	Integer i
+	If (arrayHideSpr.GetType() == "Array")
+		Integer index := arrayHideSpr.GetLength()
+		arrayHideSpr[index] := Reference
+		arrayHideSpr[index] := this.sprBase
+	EndIf
+	SpriteParam param
+	Bezier2D bzMag
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	WndSpriteCmd wscmd
+	While (true)
+		GetCommand(wscmd, 33)
+		If (IsUNK1)
+		ElseIf (wscmd.strID == "ID_SELECT")
+			Array aParam
+			If (wscmd.strFullID.IsMatchUsage("%s&\\\\ID_SELECT&(<0-9>*)&\\\\ID_SELECT&", aParam) == "")
+				If (IsUNK1)
+				ElseIf (aParam[0] == "01")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 0, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "02")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 1, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "03")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 2, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "04")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 3, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "05")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 4, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "06")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 5, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "07")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 6, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "08")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 7, arrayHideSpr, arrayShowSpr)
+				ElseIf (aParam[0] == "09")
+					ret := loadsave(this.sprFrame.GetVertScrollPos("ID_SCROLL") * 3 + 8, arrayHideSpr, arrayShowSpr)
+				EndIf
+				If (ret == 40)
+					Break
+				EndIf
+			EndIf
+			screen.FlushCommandQueue(true)
+		ElseIf (wscmd.strID == "ID_SCROLL")
+			setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+			screen.FlushCommandQueue(true)
+		ElseIf (input.GetJoyButtonPushed(0) > 0)
+			Integer temp := this.sprFrame.GetVertScrollPos("ID_SCROLL")
+			this.sprFrame.SetVertScrollPos(temp - 1, "ID_SCROLL")
+			If (temp != this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+				setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+			EndIf
+			input.FlushJoyButtonPushed()
+		ElseIf (input.GetJoyButtonPushed(1) > 0)
+			Integer temp := this.sprFrame.GetVertScrollPos("ID_SCROLL")
+			this.sprFrame.SetVertScrollPos(temp + 1, "ID_SCROLL")
+			If (temp != this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+				setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
+			EndIf
+			input.FlushJoyButtonPushed()
+		ElseIf ((wscmd.strID == "ID_QSAVE") | (input.GetJoyButtonPushed(17) > 0))
+			If (sysObj.fQSave == true)
+				If (Confirm("クイックロードします", true) == true)
+					QuickLoad()
+					ret := 40
+					Break
+				EndIf
+			EndIf
+			FlushJoyButton()
+		ElseIf (input.GetJoyButtonPushed(5) > 0)
+			Break
+		EndIf
+	EndWhile
+	this.sprBase.Enable(false)
+	input.FlushJoyButtonPushed()
+	screen.FlushCommandQueue(true)
+	Return ret
+EndFunc
+
