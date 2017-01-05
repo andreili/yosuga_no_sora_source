@@ -81,3 +81,58 @@ Function MessageFrame::hide(Integer fFlush, Integer fWait)
 	EndIf
 EndFunc
 
+Function MessageFrame::hideVoice()
+	this.sprVoice.FlushActivation()
+	this.sprVoice.SetTransparency(256)
+EndFunc
+
+Function MessageFrame::isPending()
+	Return this.msprMess.IsMessagePending()
+EndFunc
+
+Function MessageFrame::hideMessage(Integer fFlush, Integer fWait)
+	If (isShow() == true)
+		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.msprMess.SetTransparency(256)
+		Else
+			this. msprMess.SetBlendingEnvelope(256)
+			this. msprMess.BeginActivation(300)
+			If (fWait == true)
+				WaitUntilSpriteActive(this. msprMess, true)
+			EndIf
+		EndIf
+		this.isShow := false
+	EndIf
+EndFunc
+
+Function MessageFrame::isShow()
+	Return this.isShow
+EndFunc
+
+Function MessageFrame::isShowBlink()
+	Return this.isShowBlinkHit
+EndFunc
+
+Function MessageFrame::position(Integer x, Integer y)
+	this.sprParent.MovePosition(x, y)
+EndFunc
+
+Function MessageFrame::show(Integer fFlush, Integer fWait)
+	If (isShow() == false)
+		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.sprParent.SetTransparency(0)
+		Else
+			Bezier2D bzMag
+			bzMag.SetLinear(0.0, 0.0, 1.0, 1.0)
+			bzMag.SetAcceleration(3.0, 0.0)
+			this.sprParent.SetBezierCurve(Reference, Reference, bzMag)
+			this.sprParent.SetBlendingEnvelope(0)
+			this.sprParent.BeginActivation(300)
+			If (fWait == true)
+				WaitUntilSpriteActive(this.sprParent, true)
+			EndIf
+		EndIf
+		this.isShow := true
+	EndIf
+EndFunc
+

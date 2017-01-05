@@ -112,3 +112,72 @@ Function CountFlagOn(Integer f0, Integer f1, Integer f2, Integer f3, Integer f4,
 	Return ret
 EndFunc
 
+Function OnFlag(Integer i)
+	If ((1 <= i) & (i < 512))
+		If (IsUNK1)
+		Else
+			String num
+			num := i
+			Debug("Flag" + num + "-ON")
+		EndIf
+		scObj.flag.set(i)
+	EndIf
+EndFunc
+
+Function OffFlag(Integer i)
+	If ((1 <= i) & (i < 512))
+		If (IsUNK1)
+		Else
+			String num
+			num := i
+			Debug("Flag" + num + "-OFF")
+		EndIf
+		scObj.flag.reset(i)
+	EndIf
+EndFunc
+
+Function OnGlobalFlag(Integer i)
+	If ((1 <= i) & (i < 128))
+		If (IsUNK1)
+		Else
+			String num
+			num := i
+			Debug("GlobalFlag" + num + "-ON")
+		EndIf
+		scObj.globalScFlag.set(i)
+		SaveSystemData()
+	EndIf
+EndFunc
+
+Function OffGlobalFlag(Integer i)
+	If ((1 <= i) & (i < 128))
+		If (IsUNK1)
+		Else
+			String num
+			num := i
+			Debug("GlobalFlag" + num + "-OFF")
+		EndIf
+		scObj.globalScFlag.reset(i)
+		SaveSystemData()
+	EndIf
+EndFunc
+
+Function OnRecollectFlag(Integer i)
+	If ((1 <= i) & (i < 32))
+		If (IsUNK1)
+		Else
+			String num
+			num := i
+			Debug("‰ñ‘z" + num + "-ON")
+		EndIf
+		scObj.recollectFlag.set(i)
+		SaveSystemData()
+	EndIf
+EndFunc
+
+Function ResetCgFlag(Integer id)
+	If ((1 <= id) & (id < 4096))
+		scObj.cgFlag.reset(id)
+	EndIf
+EndFunc
+

@@ -139,3 +139,157 @@ Function GetVoicePlayingPosition(Reference total, Reference pos)
 	pos := (info.nSamplesPerSec * (nowTime - playVoiceTime)) / 1000.0
 EndFunc
 
+Function PauseBgm()
+	bgm[bgmIndex].res.Pause()
+	bgm[bgmIndex].fPause := true
+EndFunc
+
+Function PlayEnvSe(String file, Integer fFade)
+	file.MakeUpper()
+	Debug("EnvSe-" + file)
+	If (envSe[file].GetType() == "Sound")
+		envSe[file].res.Stop()
+		envSe.Remove(file)
+		envSe[file] := Sound
+	Else
+		envSe[file] := Sound
+	EndIf
+	If ((envSe[file].res.IsPlaying()) & (envSe[file].fEndingProcess == false))
+		Return
+	EndIf
+	envSe[file].filename := file
+	If (cnfObj.flgPlaySe == true)
+		envSe[file].fPlaying := true
+	Else
+		envSe[file].fPlaying := false
+		Return
+	EndIf
+	envSe[file].res.LoadSound(file + ".mio")
+	If (fFade != false)
+		envSe[file].res.SetVolume(0.0, 0.0)
+		envSe[file].res.Play(0, 0)
+		Bezier2D bzVol
+		bzVol.SetLinear(0.0, 0.0,  cnfObj.volSe, cnfObj.volSe)
+		envSe[file].res.SetVolumeEnvelope(bzVol, 2000)
+	Else
+		envSe[file].res.SetVolume(cnfObj.volSe, cnfObj.volSe)
+		envSe[file].res.Play(0, 0)
+	EndIf
+EndFunc
+
+Function PlaySe(String file, Integer fWait)
+	Debug("Se-" + file)
+	If (cnfObj.flgPlaySe == false)
+		Return
+	EndIf
+	se.LoadSound(file + ".mio")
+	se.SetVolume(cnfObj.volSe, cnfObj.volSe)
+	se.Play(-2, 1)
+	If (fWait == false)
+	Else
+		input.FlushJoyButtonPushed()
+		While (se.IsPlaying())
+			If ((input.GetJoyButtonPushed(4)) && (input.GetJoyButtonPushed(5)))
+				Break
+			EndIf
+			Sleep(30)
+		EndWhile
+	EndIf
+EndFunc
+
+Function PlaySysSe(String file, Integer fWait)
+	Debug("SysSe-" + file)
+	If (cnfObj.flgPlaySysSe == false)
+		Return
+	EndIf
+	sysSe.LoadSound(file + ".mio")
+	sysSe.SetVolume(cnfObj.volSysSe, cnfObj.volSysSe)
+	sysSe.Play(-2, 1)
+	If (fWait == false)
+	Else
+		input.FlushJoyButtonPushed()
+		While (sysSe.IsPlaying())
+			If ((input.GetJoyButtonPushed(4)) && (input.GetJoyButtonPushed(5)))
+				Break
+			EndIf
+			Sleep(30)
+		EndWhile
+	EndIf
+EndFunc
+
+Function PlayVoice(String file, Integer fForce)
+	Integer ret
+	If ((cnfObj.flgPlayVoice == false) & (fForce == false))
+		Return
+	EndIf
+	If (voice.LoadSound(file + ".mio") == 0)
+		voice.SetVolume(cnfObj.volVoice, cnfObj.volVoice)
+		playVoiceTime := GetCurrentTime()
+		voice.Play(-2, 2)
+		ret := true
+	Else
+		Debug("\c;FF0000:NotFound-" + file + "\c:")
+		ret := false
+	EndIf
+	Return ret
+EndFunc
+
+Function RestartBgm()
+	bgm[bgmIndex].res.Restart()
+	bgm[bgmIndex].fPause := false
+EndFunc
+
+Function ScPauseBgm()
+	If (IsLoad() == true)
+		Return
+	EndIf
+	PauseBgm()
+EndFunc
+
+Function ScPlayBgm(String file, Integer fNonFade)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	PlayBgm(file, fNonFade)
+EndFunc
+
+Function ScPlayEnvSe(String file, Integer fFade)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	PlayEnvSe(file, fFade)
+EndFunc
+
+Function ScPlaySe(String file, Integer fWait)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	If ((fWait == false) &(adv.isSkip() == true))
+		fWait := false
+	EndIf
+	PlaySe(file, fWait)
+EndFunc
+
+Function SetSysSeVolume(Real vol)
+	cnfObj.volSysSe := vol
+EndFunc
+
+Function SetSeVolume(Real vol)
+	Integer i := 0
+	While (i < envSe.GetLength())
+		String str
+		str := envSe.GetTagName(i)
+		envSe[str].res.SetVolume(vol, vol)
+		i += 1
+	EndWhile
+	cnfObj.volSe := vol
+EndFunc
+
+Function SetVoiceVolume(Real vol)
+	voice.SetVolume(vol, vol)
+	cnfObj.volVoice := vol
+EndFunc
+
+Function ShowVoicePlayIndicator()
+EndFunc
+

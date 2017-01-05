@@ -71,8 +71,8 @@ ExternDef 		DebugJumpEnter		; 37
 ExternDef 		fDebugSearch		; 38
 ExternDef 		rDebugSearch		; 39
 
-ExternDef		IsDebug 
-ExternDef		IsUNK1	
+Constant		IsDebug := false
+Constant		IsUNK1	:= false
 
 ExternDef  	input
 ExternDef  	inputE
