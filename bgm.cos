@@ -55,13 +55,13 @@ Function PlayBgm(String file, Integer fNonFade)
 	bgm[bgmIndex].res.LoadSound(file + ".mio", true)
 	If (fNonFade == false)
 		bgm[bgmIndex].res.SetVolume(0.0, 0.0)
-		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+		bgm[bgmIndex].res.PlayFrom(0, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, ptfMusic)
 		Bezier2D bzVol
 		bzVol.SetLinear(0.0, 0.0, cnfObj.volBgm, cnfObj.volBgm)
 		bgm[bgmIndex].res.SetVolumeEnvelope(bzVol, 2000)
 	Else
 		bgm[bgmIndex].res.SetVolume(cnfObj.volBgm, cnfObj.volBgm)
-		bgm[bgmIndex].res.PlayFrom(false, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, false)
+		bgm[bgmIndex].res.PlayFrom(0, bgm[bgmIndex].endPos, true, bgm[bgmIndex].rewindPos, ptfMusic)
 	EndIf
 EndFunc
 
@@ -167,13 +167,13 @@ Function PlayEnvSe(String file, Integer fFade)
 	envSe[file].res.LoadSound(file + ".mio")
 	If (fFade != false)
 		envSe[file].res.SetVolume(0.0, 0.0)
-		envSe[file].res.Play(0, 0)
+		envSe[file].res.Play(0, ptfMusic)
 		Bezier2D bzVol
 		bzVol.SetLinear(0.0, 0.0,  cnfObj.volSe, cnfObj.volSe)
 		envSe[file].res.SetVolumeEnvelope(bzVol, 2000)
 	Else
 		envSe[file].res.SetVolume(cnfObj.volSe, cnfObj.volSe)
-		envSe[file].res.Play(0, 0)
+		envSe[file].res.Play(0, ptfSE)
 	EndIf
 EndFunc
 
@@ -184,7 +184,7 @@ Function PlaySe(String file, Integer fWait)
 	EndIf
 	se.LoadSound(file + ".mio")
 	se.SetVolume(cnfObj.volSe, cnfObj.volSe)
-	se.Play(-2, 1)
+	se.Play(-2, ptfSE)
 	If (fWait == false)
 	Else
 		input.FlushJoyButtonPushed()
@@ -204,7 +204,7 @@ Function PlaySysSe(String file, Integer fWait)
 	EndIf
 	sysSe.LoadSound(file + ".mio")
 	sysSe.SetVolume(cnfObj.volSysSe, cnfObj.volSysSe)
-	sysSe.Play(-2, 1)
+	sysSe.Play(-2, ptfSE)
 	If (fWait == false)
 	Else
 		input.FlushJoyButtonPushed()
@@ -225,7 +225,7 @@ Function PlayVoice(String file, Integer fForce)
 	If (voice.LoadSound(file + ".mio") == 0)
 		voice.SetVolume(cnfObj.volVoice, cnfObj.volVoice)
 		playVoiceTime := GetCurrentTime()
-		voice.Play(-2, 2)
+		voice.Play(-2, ptfVoice)
 		ret := true
 	Else
 		Debug("\c;FF0000:NotFound-" + file + "\c:")

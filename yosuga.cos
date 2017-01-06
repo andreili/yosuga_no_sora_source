@@ -71,8 +71,8 @@ Function Initialize()
 	rs.SetTotalVolume(2, totalVolume)
 	rs.SetTotalVolume(3, totalVolume)
 	If (IsDebug == true)
-		CreateDebugWindow()
-		ShowDebugWindow()
+		;CreateDebugWindow()
+		;ShowDebugWindow()
 	EndIf
 EndFunc
 
@@ -158,7 +158,7 @@ Function PlayMovie(String strFileName, Integer nFlags)
 		movie.SetParameter(sp)
 		screen.Unlock()
 		screen.ShowCursor(false)
-		Integer nFlags := 1
+		Integer nFlags := mpfDirectDraw
 		movie.PlayMovie(nFlags, false)
 		WndSpriteCmd wscmd
 		input.FlushJoyButtonPushed()

@@ -2,6 +2,13 @@
 Include	"yosuga.ch"
 @ENDIF
 
+File	cout
+
+If	cout.Open( "", modeWrite ) != eslErrSuccess
+	AllocConsole()
+	cout.Open( "", modeWrite )
+EndIf
+
 Function CreateDebugWindow()
 	If (isCreateDebugWindow == true)
 		Return
@@ -53,6 +60,7 @@ Function ShowDebugWindow()
 EndFunc
 
 Function Debug(String str)
+	cout += str
 	if (isCreateDebugWindow == 0)
 		Return
 	EndIf

@@ -1893,3 +1893,10 @@ Function SetBustup(String str, Integer pos, Integer priority)
 	advsetBustup(str, pos, priority)
 EndFunc
 
+Function Transition(String type, Integer time)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.setTransition(type, time)
+EndFunc
+
