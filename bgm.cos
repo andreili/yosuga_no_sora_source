@@ -293,3 +293,86 @@ EndFunc
 Function ShowVoicePlayIndicator()
 EndFunc
 
+Function IsPauseBgm()
+	Return bgm[bgmIndex].fPause
+EndFunc
+
+Function IsPlayBgm()
+	Return bgm[bgmIndex].res.IsPlaying()
+EndFunc
+
+Function IsPlayVoice()
+	Return voice.res.IsPlaying()
+EndFunc
+
+Function SetBgmInfo(Reference info)
+	If (info.filename == "BGM01")
+		info.endPos := true
+		info.rewindPos := true
+	ElseIf (info.filename == "BGM02")
+		info.endPos := true
+		info.rewindPos := true
+	ElseIf (info.filename == "BGM02_S")
+		info.endPos := true
+		info.rewindPos := true
+	ElseIf (info.filename == "BGM03")
+		info.endPos := 3453154
+		info.rewindPos := 235043
+	ElseIf (info.filename == "BGM04")
+		info.endPos := 6625443
+		info.rewindPos := 403958
+	ElseIf (info.filename == "BGM05")
+		info.endPos := 4658801
+		info.rewindPos := 524416
+	ElseIf (info.filename == "BGM06")
+		info.endPos := 5516339
+		info.rewindPos := 243508
+	ElseIf (info.filename == "BGM07")
+		info.endPos := 4973038
+		info.rewindPos := 161922
+	ElseIf (info.filename == "BGM08")
+		info.endPos := 6405448
+		info.rewindPos := 179568
+	ElseIf (info.filename == "BGM09")
+		info.endPos := 4664696
+		info.rewindPos := 399603
+	ElseIf (info.filename == "BGM10")
+		info.endPos := 7202878
+		info.rewindPos := 734884
+	ElseIf (info.filename == "BGM11")
+		info.endPos := 3830880
+		info.rewindPos := 1394331
+	ElseIf (info.filename == "BGM12")
+		info.endPos := 3888551
+		info.rewindPos := 943395
+	ElseIf (info.filename == "BGM13")
+		info.endPos := 3915822
+		info.rewindPos := 22837
+	ElseIf (info.filename == "BGM14")
+		info.endPos := 2955738
+		info.rewindPos := 22821
+	ElseIf (info.filename == "BGM15")
+		info.endPos := 3487364
+		info.rewindPos := 120386
+	ElseIf (info.filename == "BGM16")
+		info.endPos := 8693598
+		info.rewindPos := 226400
+	ElseIf (info.filename == "BGM17")
+		info.endPos := 9330057
+		info.rewindPos := 211613
+	ElseIf (info.filename == "BGM18")
+		info.endPos := 7477617
+		info.rewindPos := 22772
+	ElseIf (info.filename == "BGM19")
+		info.endPos := 4934151
+		info.rewindPos := 530871
+	ElseIf (info.filename == "BGM20")
+		info.endPos := 9068182
+		info.rewindPos := 364347
+	ElseIf (info.filename == "BGM21")
+		info.endPos := 6787583
+		info.rewindPos := 22075
+	EndIf
+	info.fEndingProcess := 0
+EndFunc
+

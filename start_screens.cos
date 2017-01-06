@@ -198,7 +198,7 @@ Function Title()
 			enterTime := GetCurrentTime()
 		ElseIf (input.GetJoyButtonPushed(17) > 0)
 			If (sysObj.fQSave == true)
-				If (Confirm("??????????", true) == true)
+				If (Confirm("クイックロードします", true) == true)
 					QuickLoad()
 					ret := 2
 					Break
@@ -219,7 +219,7 @@ Function Title()
 			FlushJoyButton()
 		ElseIf (input.GetJoyButtonPushed(24) > 0)
 			If (IsUNK1)
-				Debug("CG/??-???")
+				Debug("CG/回想-全閲覧")
 				Integer i
 				i := 0
 				While (i < sysObj.cgFlag.flag.GetLength())
@@ -235,7 +235,7 @@ Function Title()
 			FlushJoyButton()
 		ElseIf (input.GetJoyButtonPushed(25) > 0)
 			if (IsUNK1)
-				Debug("??????")
+				Debug("ゲームクリア")
 				OnGameClear()
 			EndIf
 			FlushJoyButton()

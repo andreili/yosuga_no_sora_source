@@ -663,18 +663,6 @@ Function IsLoad()
 	Return scObj.isLoad
 EndFunc
 
-Function IsPauseBgm()
-	Return bgm[bgmIndex].fPause
-EndFunc
-
-Function IsPlayBgm()
-	Return bgm[bgmIndex].IsPlaying
-EndFunc
-
-Function IsPlayVoice()
-	Return voice.IsPlaying
-EndFunc
-
 Function IsRecollectMode()
 	Return flgRecollectMode
 EndFunc
@@ -1005,5 +993,110 @@ EndFunc
 
 Function WindowView(Integer type)
 	adv.messageView(type)
+EndFunc
+
+Function CreateNumString(Integer iNum, Integer iFigure, Integer flgZero, Integer flgZenkaku)
+	String str
+	String temp
+	Integer flgMinus := false
+	If (iNum < 0)
+		iNum *= -1
+		flgMinus := true
+	EndIf
+	Integer num := 0
+	Integer figure := 0
+	Integer numTemp := iNum
+	While (numTemp != 0)
+		Integer amari := numTemp % 10
+		If (amari == 0)
+			If (flgZenkaku)
+				str := "‚O" + str
+			Else
+				str := "0" + str
+			EndIf
+		ElseIf (amari == 1)
+			If (flgZenkaku)
+				str := "‚P" + str
+			Else
+				str := "1" + str
+			EndIf
+		ElseIf (amari == 2)
+			If (flgZenkaku)
+				str := "‚Q" + str
+			Else
+				str := "2" + str
+			EndIf
+		ElseIf (amari == 3)
+			If (flgZenkaku)
+				str := "‚R" + str
+			Else
+				str := "3" + str
+			EndIf
+		ElseIf (amari == 4)
+			If (flgZenkaku)
+				str := "‚S" + str
+			Else
+				str := "4" + str
+			EndIf
+		ElseIf (amari == 5)
+			If (flgZenkaku)
+				str := "‚T" + str
+			Else
+				str := "5" + str
+			EndIf
+		ElseIf (amari == 6)
+			If (flgZenkaku)
+				str := "‚U" + str
+			Else
+				str := "6" + str
+			EndIf
+		ElseIf (amari == 7)
+			If (flgZenkaku)
+				str := "‚V" + str
+			Else
+				str := "7" + str
+			EndIf
+		ElseIf (amari == 8)
+			If (flgZenkaku)
+				str := "‚W" + str
+			Else
+				str := "8" + str
+			EndIf
+		ElseIf (amari == 9)
+			If (flgZenkaku)
+				str := "‚X" + str
+			Else
+				str := "9" + str
+			EndIf
+		EndIf
+		numTemp /= 10
+		figure += 1
+	EndWhile
+	If ((iFigure == 0) | (iFigure <= figure))
+	Else
+		Integer i := iFigure - figure
+		While (i != 0)
+			If (flgZero)
+				If (flgZenkaku)
+					str := "‚O" + str
+				Else
+					str := "0" + str
+				EndIf
+			ElseIf (flgZenkaku)
+				str := "  " + str
+			Else
+				str := " " + str
+			EndIf
+			i -= 1
+		EndWhile
+	EndIf
+	If (flgMinus)
+		If (flgZenkaku)
+			str := "|" + str
+		Else
+			str := "-" + str
+		EndIf
+	EndIf
+	Return str
 EndFunc
 
