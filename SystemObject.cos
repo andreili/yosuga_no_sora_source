@@ -3,7 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function LoadSystemData()
-	If (File.IsExisting("system.dat"))
+	If (File.IsExisting("system.dat") == true)
 		LoadObject("system.dat", sysObj)
 	Else
 		InitSystemData()

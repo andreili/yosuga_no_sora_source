@@ -815,9 +815,9 @@ Function AdvScreen::loadCg(Reference spr, String filename)
 		If (0 == true)
 			SpriteParam sprParam
 			Sprite sprTemp
-			If(File.IsExisting(filename.Left(3) + ".eri"))
+			If(File.IsExisting(filename.Left(3) + ".eri") == true)
 				sprTemp.LoadImage(filename.Left(3) + ".eri")
-			ElseIf (File.IsExisting(filename.Left(4) + ".eri"))
+			ElseIf (File.IsExisting(filename.Left(4) + ".eri") == true)
 				sprTemp.LoadImage(filename.Left(4) + ".eri")
 			ElseIf (filename.Char(0) == 66)
 				sprTemp.LoadImage("dummyBg.eri")

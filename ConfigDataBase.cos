@@ -3,7 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function LoadConfigData()
-	If (File.IsExisting("config.dat"))
+	If (File.IsExisting("config.dat") == true)
 		LoadObject("config.dat", cnfObj)
 	Else
 		InitConfigData()
