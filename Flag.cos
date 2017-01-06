@@ -181,6 +181,12 @@ Function ResetCgFlag(Integer id)
 	EndIf
 EndFunc
 
+Function SetCgFlag(Integer id)
+	If ((1 <= id) & (id < 4096))
+		scObj.cgFlag.set(id)
+	EndIf
+EndFunc
+
 Function CheckCgFlag(Integer id)
 	If ((1 <= id) & (id < 4096))
         Return sysObj.cgFlag.check(id)

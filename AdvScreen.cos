@@ -1216,7 +1216,7 @@ EndFunc
 
 Function AdvScreen::zoom(Integer cx, Integer cy, Integer w, Integer h, Integer time, Integer accel)
 	this.zoomParam.set(cx, cy, w, h, time, accel)
-	If ((this.fZoom == 0) & (this.zoomParam.isZoom == 0))
+	If ((this.fZoom == 0) & (this.zoomParam.isZoom() == 0))
 		Return
 	EndIf
 	if (this.fUpdate == 0)
@@ -1774,3 +1774,122 @@ Function BustupLeave(Integer id, Integer mx, Integer my, Integer fFade, Integer 
 	EndIf
 	adv.bustupLeave(id, mx, my, fFade, time, accel)
 EndFunc
+
+Function Talk(String str, String voice)
+	adv.name(str, voice)
+EndFunc
+
+Function Tone(String type)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.setToneFilter(type)
+EndFunc
+
+Function DestroyAdvScreen()
+	Debug("+-DestroyAdvScreen-+")
+	adv.destroy()
+EndFunc
+
+Function Jump(Integer id)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.bustupJump(id)
+EndFunc
+
+Function Quake(Integer w, Integer h, Integer fWhole, Integer count, Integer time)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	Integer fFlush := adv.isKeyUpdateFlush()
+	If (fFlush == true)
+		Return
+	EndIf
+	adv.effectQuake(w, h, fWhole, count, time)
+EndFunc
+
+Function Scroll(Integer x, Integer y, Integer time, Integer accel, Integer fWait)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.scroll(x, y, time, accel, fWait)
+EndFunc
+
+Function Sepia(Integer flag)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	If (flag != 0)
+		adv.setToneFilter("SEPIA")
+	Else
+		adv.setToneFilter("NORMAL")
+	EndIf
+EndFunc
+
+Function Show(Integer fWait)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.showMessage(0, fWait)
+EndFunc
+
+Function StartSelect()
+	Return adv.startSelect()
+EndFunc
+
+Function Update(Integer fFlush)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	fFlush |= adv.isKeyUpdateFlush()
+	adv.update(fFlush)
+	adv.waitUpdate(fFlush)
+EndFunc
+
+Function WindowView(Integer type)
+	adv.messageView(type)
+EndFunc
+
+Function WaitScroll()
+	adv.waitScroll()
+EndFunc
+
+Function Zoom(Integer x, Integer y, Integer w, Integer h, Integer time, Integer accel, Integer fWait)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.zoom(x, y, w, h, time, accel, fWait)
+EndFunc
+
+Function Shake(Integer id)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.bustupShake(id)
+EndFunc
+
+Function SetCgRGB(Integer r, Integer g, Integer b)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.setCgRGB(r, g, b)
+	adv.bustupClear(false)
+EndFunc
+
+Function SetCg(String str, Integer x, Integer y, Integer w, Integer h)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	adv.setCg(str, x, y, w, h)
+	adv.bustupClear(false)
+	adv.zoom(400, 400, 800, 600)
+EndFunc
+
+Function SetBustup(String str, Integer pos, Integer priority)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	advsetBustup(str, pos, priority)
+EndFunc
+

@@ -382,3 +382,115 @@ Function SetBgmInfo(Reference info)
 	info.fEndingProcess := 0
 EndFunc
 
+Function StopEnvSe(String file, Integer fFade, Integer fConfigStop)
+	file.MakeUpper()
+	If (file != "")
+		If (envSe.IsEmpty(file) == true)
+			Return
+		EndIf
+	Endif
+	If (file == "")
+		Array strRemove
+		Debug("StopEnvSe-All")
+		Integer i := 0
+		While (i < envSe.GetLength())
+			String str
+			str := envSe.GetTagName(i)
+			If (fFade != false)
+				Bezier2D bzVol
+				Real leftVol
+				Real rightVol
+				envSe[str].res.GetVolume(leftVol, rightVol)
+				bzVol.SetLinear(leftVol, rightVol, 0.0, 0.0)
+				envSe[str].res.SetVolumeEnvelope(bzVol, 3000)
+				envSe[str].fEndingProcess:= true
+			Else
+				envSe[str].res.Stop()
+				envSe[str].res.Release()
+				If (fConfigStop == false)
+					strRemove += str
+				EndIf
+			EndIf
+			i += 1
+		EndWhile
+		i := 0
+		While (i < strRemove.GetLength())
+			envSe.Remove(strRemove[i])
+			i += 1
+		EndWhile
+	Else
+		Debug("StopEnvSe-" + file)
+		If (fFade != false)
+			Bezier2D bzVol
+			Real leftVol
+			Real rightVol
+			envSe[file].res.GetVolume(leftVol,rightVol)
+			bzVol.SetLinear(leftVol, rightVol, 0.0, 0.0)
+			envSe[file].res.SetVolumeEnvelope(bzVol, 3000)
+			envSe[file].fEndingProcess := true
+		Else
+			envSe[file].res.Stop()
+			envSe[file].res.Release()
+			If (fConfigStop == false)
+				envSe.Remove(file)
+			EndIf
+		EndIf
+	EndIf
+EndFunc
+
+Function StopSe()
+	If (se.IsPlaying() == true)
+		se.Stop()
+		se.Release()
+	EndIf
+EndFunc
+
+Function StopSysSe()
+	If (sysSe.IsPlaying() == true)
+		sysSe.Stop()
+		sysSe.Release()
+	EndIf
+EndFunc
+
+Function StopVoice()
+	If (voice.IsPlaying() == true)
+		voice.Stop()
+		voice.Release()
+	EndIf
+EndFunc
+
+Function VoicePlayIndicatorProc()
+	If (IsDebug == true)
+		Integer total
+		Integer pos
+		If (IsPlayVoice() == true)
+			GetVoicePlayingPosition(total, pos)
+			If (sprVoicePlayingBar.IsVisible() == false)
+				sprVoicePlayingBar.SetVisible(true)
+				sprVoicePlayingTrim.SetVisible(true)
+			EndIf
+			total += 10000
+			sprVoicePlayingBar.MovePosition((DEBUG_VOICECHECK_X + 7) + 190.0 * ((0.0 := pos) / total),DEBUG_VOICECHECK_Y)
+		ElseIf (sprVoicePlayingBar.IsVisible() == true)
+			sprVoicePlayingBar.SetVisible(false)
+			sprVoicePlayingTrim.SetVisible(false)
+		EndIf
+	EndIf
+EndFunc
+
+Function WaitVoice(Integer fKeyDisable)
+	If (fKeyDisable != false)
+		While (voice.IsPlaying())
+		EndWhile
+	Else
+		input.FlushJoyButtonPushed()
+		While (voice.IsPlaying())
+			If ((input.GetJoyButtonPushed(4)) && (input.GetJoyButtonPushed(5)))
+				Break
+			EndIf
+			Sleep(30)
+		EndWhile
+	EndIf
+	StopVoice()
+EndFunc
+

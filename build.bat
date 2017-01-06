@@ -21,5 +21,8 @@ bin\cotoco.exe /nologo /Fo out\HistoryWindow.co HistoryWindow.cos
 bin\cotoco.exe /nologo /Fo out\LogManager.co LogManager.cos
 bin\cotoco.exe /nologo /Fo out\MessageFrame.co MessageFrame.cos
 bin\cotoco.exe /nologo /Fo out\LoadSaveWindow.co LoadSaveWindow.cos
-bin\cotolink.exe /nologo /Lo out\yosuga.csx out\cotopha.co out\init.co out\structs.co out\ConfigDataBase.co out\SystemObject.co out\start_screens.co out\yosuga.co out\AdvScreen.co out\AppreciationView.co out\bgm.co out\BustupManager.co out\EyeCatch.co out\Debug.co out\Input.co out\Flag.co out\ConfigWindow.co out\vars.co out\HistoryWindow.co out\LogManager.co out\MessageFrame.co out\LoadSaveWindow.co
-bin\sora_tool.exe --export --input out/yosuga.csx --output ../data/
+bin\cotoco.exe /nologo /Fo out\utils.co utils.cos
+bin\cotoco.exe /nologo /Fo out\NovelLogManager.co NovelLogManager.cos
+bin\cotoco.exe /nologo /Fo out\Scenario.co Scenario.cos
+bin\cotolink.exe /nologo /Lo out\yosuga.csx out\cotopha.co out\init.co out\structs.co out\ConfigDataBase.co out\SystemObject.co out\start_screens.co out\yosuga.co out\AdvScreen.co out\AppreciationView.co out\bgm.co out\BustupManager.co out\EyeCatch.co out\Debug.co out\Input.co out\Flag.co out\ConfigWindow.co out\vars.co out\HistoryWindow.co out\LogManager.co out\MessageFrame.co out\LoadSaveWindow.co out\utils.co out\NovelLogManager.co out\Scenario.co
+rem bin\sora_tool.exe --export --input out/yosuga.csx --output ../data/

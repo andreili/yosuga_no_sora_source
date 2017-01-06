@@ -520,3 +520,13 @@ Function CheckSetupBustup(String str, Integer timezone)
 	Return info
 EndFunc
 
+Function SetTimezomeBustup(Reference str, Integer timezone)
+	If (timezone == 1)
+		str + "D"
+	ElseIf (timezone == 2)
+		str + "E"
+	ElseIf (timezone == 3)
+		str + "N"
+	EndIf
+EndFunc
+

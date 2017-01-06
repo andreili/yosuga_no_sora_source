@@ -1,0 +1,402 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function InitScenarioData()
+	scObj.version := 200
+	scObj.familyName := "春日野"
+	scObj.familyName_read := "かすがの"
+	scObj.firstName := "悠"
+	scObj.firstName_read := "はるか"
+	scObj.flag.create(512)
+	scObj.flagBackup.create(512)
+	scObj.nameLog.create(512)
+	scObj.messLog.create(512)
+	scObj.seqLog.create(512)
+	scObj.voiceLog.create(512)
+	Return
+EndFunc
+
+Function ScenarioLoop(String func)
+	StopBgm()
+	SetupAdvScreen()
+	Change(func)
+	adv.setToneFilter("NORMAL")
+	adv.setCg("BLACK")
+	While (scObj.scenarioCall != "EXIT_SCENARIO")
+		If (IsDebug == true)
+			Debug("\\c;8888FF:Jump-" + scObj.scenarioCall + "\\c:")
+		EndIf
+		String tempCall
+		tempCall := "sc" + scObj.scenarioCall
+		tempCall := tempCall.Replace("-", "_")
+		If (tempCall.Call() == true)
+			Break
+		EndIf
+	EndWhile
+	adv.setToneFilter("NORMAL")
+	adv.hideMessage()
+	adv.setCg("BLACK")
+	adv.bustupClear()
+	adv.update(false, true)
+	StopVoice()
+	StopSe()
+	StopEnvSe()
+	StopBgm(false)
+	DestroyAdvScreen()
+EndFunc
+
+Function Change(String str)
+	str.MakeUpper()
+	scObj.scenarioCall := str
+EndFunc
+
+Function EnterLoad()
+	scObj.isLoad := true
+	scObj.hitretCountTemp := 0
+	scObj.selectCount := 0
+	adv.msgInfo.clear()
+EndFunc
+
+Function LeaveLoad()
+	scObj.isLoad := false
+	adv.flushUpdate()
+	If (scObj.playBgm != "")
+		PlayBgm(scObj.playBgm)
+		If (scObj.fPauseBgm == true)
+			PauseBgm()
+		EndIf
+	EndIf
+	Integer i := 0
+	While (i < scObj.playEnvSe.GetLength())
+		PlayEnvSe(scObj.playEnvSe[i])
+		i += 1
+	EndWhile
+	adv.messageView(scObj.viewType)
+	adv.msgFrame.clearPage()
+	String showName
+	String trueName
+	CheckTrueName(scObj.nameLog.get(0), showName, trueName)
+	adv.msgFrame.output(showName, scObj.seqLog.get(0) + scObj.messLog.get(0), true)
+	If (scObj.voiceLog.get(0) != "")
+		adv.msgFrame.showVoice()
+	Else
+		adv.msgFrame.hideVoice()
+	EndIf
+	adv.msgFrame.show(true)
+	adv.skip(false)
+	adv.autoMode(false)
+	If (scObj.fToneFilter == true)
+		adv.setToneFilter(scObj.toneFilter)
+	Else
+		adv.setToneFilter("NORMAL")
+	EndIf
+	If (scObj.fCgRGB == 0)
+		SetCg(scObj.cg.filename, scObj.cg.pt.x, scObj.cg.pt.y)
+	Else
+		Integer col := scObj.colSetCgRGB
+		SetCgRGB((col & 16711680).ShiftRight(16), (col & 65280).ShiftRight(8), (col & 255))
+	EndIf
+	i := 0
+	While (i < scObj.bustup.GetLength())
+		Reference info := scObj.bustup[i]
+		If (info.status != 0)
+			If (info.fPosFix == 0)
+				SetBustup(info.basename, -info.pos, info.priority)
+			Else
+				SetBustup(info.basename, info.pos, info.priority)
+			EndIf
+			If (info.basePosition.y != info.localPosition.y)
+				adv.bustupDown(info.id, info.localPosition.y - info.basePosition.y)
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+	If (scObj.fZoom == true)
+		Reference param
+		param := scObj.zoomParam
+		adv.zoom(scObj.zoomParam.pt.x, scObj.zoomParam.pt.y, scObj.zoomParam.size.w, scObj.zoomParam.size.h)
+	Else
+		adv.zoom(0, 0, 800, 600)
+	EndIf
+	adv.update(true)
+	HideLoadEffect()
+	If (scObj.voiceLog.get(0) != "")
+		If (CheckPlayVoice(trueName) == true)
+			PlayVoice(scObj.voiceLog.get(0))
+		EndIf
+	EndIf
+EndFunc
+
+Function IsLoad()
+	Return scObj.isLoad
+EndFunc
+
+Function Save(String filename, Integer fThumb, Reference arrayHideSpr, Reference arrayShowSpr)
+	Debug("Save:" + filename)
+	Array arrayShowTrans
+	Array arrayHideTrans
+	screen.Lock()
+	Integer i
+	If (arrayHideSpr.GetType() == "Array")
+		i := 0
+		While(i < arrayHideSpr.GetLength())
+			arrayHideTrans[i] := arrayHideSpr[i].GetTransparency()
+			arrayHideSpr[i].SetTransparency(256)
+			i += 1
+		EndWhile
+	EndIf
+	If (arrayShowSpr.GetType() == "Array")
+		i := 0
+		While(i < arrayShowSpr.GetLength())
+			arrayShowTrans[i] := arrayShowSpr[i].GetTransparency()
+			arrayShowSpr[i].SetTransparency(0)
+			i += 1
+		EndWhile
+	EndIf
+	screen.Refresh()
+	Sprite sprScreen
+	sprScreen.CreateSprite(67108865, ScreenSize.w, ScreenSize.h)
+	SpriteParam param
+	screen.GetParameter(param)
+	sprScreen.DrawImage(screen, param)
+	scObj.cg := adv.cg
+	scObj.fCgRGB := adv.fSetCgRGB
+	scObj.colSetCgRGB := adv.colSetCgRGB
+	scObj.bustup := adv.bustupMan.info
+	scObj.fToneFilter := adv.isToneFilter()
+	scObj.toneFilter := adv.getToneFilter()
+	scObj.viewType := adv.getMessageView()
+	scObj.fZoom := adv.isZoom()
+	scObj.zoomParam := adv.getZoomParam()
+	scObj.playBgm := GetPlayBgmName()
+	scObj.fPauseBgm := IsPauseBgm()
+	scObj.playEnvSe.Remove()
+	GetPlayEnvSeList(scObj.playEnvSe)
+	Integer fHScene := IsHScene(scObj.cg.filename)
+	File file
+	file.Open(filename + ".dat", 5 | 4)
+	If (fHScene == false)
+		If (fThumb == true)
+			file.SaveThumbnailImage(sprScreen, 120, 90)
+		EndIf
+	Else
+		Sprite sprThumb
+		sprThumb.LoadImage(scObj.cg.filename.Left(4) + "thm.eri")
+		If (fThumb == true)
+			file.SaveThumbnailImage(sprThumb, 120, 90)
+		EndIf
+	EndIf
+	file.SaveObject(scObj)
+	file.Close()
+	If (IsDebug == true)
+		DumpContext("_save.log")
+	EndIf
+	If (arrayHideSpr.GetType() == "Array")
+		i := 0
+		While (i < arrayHideSpr.GetLength())
+			arrayHideSpr[i].SetTransparency(arrayHideTrans[i])
+			i += 1
+		EndWhile
+	EndIf
+	If (arrayShowSpr.GetType() == "Array")
+		i := 0
+		While (i < arrayShowSpr.GetLength())
+			arrayShowSpr[i].SetTransparency(arrayShowTrans[i])
+			i += 1
+		EndWhile
+	EndIf
+	screen.Unlock()
+EndFunc
+
+Function Load(String filename)
+	Debug("Load:" + filename)
+	StopBgm()
+	StopEnvSe()
+	StopSe()
+	StopVoice()
+	File file
+	file.Open(filename + ".dat", 2)
+	Integer ret := file.LoadObject(scObj)
+	file.Close()
+	If ((ret == false) & (200 == scObj.version))
+		ShowLoadEffect()
+		EnterLoad()
+	Else
+		Confirm("セーブデータに異常があり、ゲームを終了します。", false, false, 5000)
+		screen.Lock()
+		Throw()
+	EndIf
+EndFunc
+
+Function QuickSave()
+	String comment
+	If (scObj.nameLog.get(0) != "")
+		comment += scObj.nameLog.get(0)
+	EndIf
+	comment += scObj.messLog.get(0)
+	If (comment.GetLength() > 10)
+		comment := comment.Left(9) + "…"
+	EndIf
+	Save("QSave", 0)
+	sysObj.fQSave := true
+	SaveSystemData()
+	Confirm("クイックセーブしました", false)
+EndFunc
+
+Function QuickLoad(Integer id)
+	Load("QSave")
+EndFunc
+
+Function IsHScene(String str)
+	If (IsUNK1)
+	ElseIf (str.Find("EA10") != true)
+	ElseIf (str.Find("EA11") != true)
+	ElseIf (str.Find("EA12") != true)
+	ElseIf (str.Find("EA13") != true)
+	ElseIf (str.Find("EA16") != true)
+	ElseIf (str.Find("EA17") != true)
+	ElseIf (str.Find("EB01") != true)
+	ElseIf (str.Find("EB10") != true)
+	ElseIf (str.Find("EB11") != true)
+	ElseIf (str.Find("EB12") != true)
+	ElseIf (str.Find("EB13") != true)
+	ElseIf (str.Find("EB16") != true)
+	ElseIf (str.Find("EB17") != true)
+	ElseIf (str.Find("EC10") != true)
+	ElseIf (str.Find("EC11") != true)
+	ElseIf (str.Find("EC12") != true)
+	ElseIf (str.Find("EC13") != true)
+	ElseIf (str.Find("EC16") != true)
+	ElseIf (str.Find("EC17") != true)
+	ElseIf (str.Find("ED10") != true)
+	ElseIf (str.Find("ED11") != true)
+	ElseIf (str.Find("ED12") != true)
+	ElseIf (str.Find("ED13") != true)
+	ElseIf (str.Find("ED16") != true)
+	ElseIf (str.Find("ED17") != true)
+	ElseIf (str.Find("EE10") != true)
+	ElseIf (str.Find("EE11") != true)
+	ElseIf (str.Find("EE12") != true)
+	ElseIf (str.Find("EE13") != true)
+	ElseIf (str.Find("EE16") != true)
+	ElseIf (str.Find("EE17") != true)
+	Else
+		Return false
+	EndIf
+	Return true
+EndFunc
+
+Function ScPlayMovie(String file)
+	DestroyAdvScreen()
+	Resource rs
+	If (cnfObj.flgPlayBgm == true)
+		rs.SetTotalVolume(0, cnfObj.volBgm * 0.0)
+	Else
+		rs.SetTotalVolume(0, 0.0)
+	EndIf
+	PlayMovie(file + ".mei")
+	rs.SetTotalVolume(0, 0.0)
+	SetupAdvScreen()
+EndFunc
+
+Function ScPlayVoice(String file)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	PlayVoice(file)
+EndFunc
+
+Function ScRestartBgm()
+	If (IsLoad() == true)
+		Return
+	EndIf
+	RestartBgm()
+EndFunc
+
+Function ScStopBgm(Integer fNonFade)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	StopBgm(fNonFade)
+EndFunc
+
+Function ScStopSe()
+	StopSe()
+EndFunc
+
+Function ScStopEnvSe(String file, Integer fFade)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	StopEnvSe(file, fFade)
+EndFunc
+
+Function ScStopVoice()
+	StopVoice()
+EndFunc
+
+Function ScWaitVoice(Integer fKeyDisable)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	WaitVoice(fKeyDisable)
+EndFunc
+
+Function ScenarioEnter()
+	If (IsLoad() == true)
+		Return
+	EndIf
+	scObj.hitretCount := 0
+	scObj.hitretCountTemp := 0
+	scObj.select.Remove()
+	scObj.selectCount := 0
+EndFunc
+
+Function ScWait(Integer time, Integer fKeyDisable)
+	If (IsLoad() == true)
+		Return
+	EndIf
+	Integer fFlush := adv.isKeyUpdateFlush()
+	If (fFlush == true)
+		Return
+	EndIf
+	WndSpriteCmd wscmd
+	FlushJoyButton()
+	Integer nowTime := GetCurrentTime()
+	While ((nowTime + time) > GetCurrentTime())
+		If (fKeyDisable == false)
+			GetCommand(wscmd, 50)
+			If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(5) > 0))
+				break
+			EndIf
+		EndIf
+	EndWhile
+	FlushJoyButton()
+EndFunc
+
+Function SceneTitle(String str)
+	scObj.sceneTitle := str
+EndFunc
+
+Function ShowLoadEffect()
+	resLoadEffectAlpha.LoadImage("WIP_TLBR.eri")
+	sprLoadEffectBase.SetAlphaImage(resLoadEffectAlpha, 8)
+	sprLoadEffectBase.SetBlendDegree(256)
+	sprLoadEffectBase.SetVisible(true)
+	screen.AddSprite(50100, sprLoadEffectBase)
+	sprLoadEffect.LoadImage("BLACK.eri")
+	sprLoadEffect.SetVisible(true)
+	sprLoadEffectBase.AddSprite(10, sprLoadEffect)
+	sprLoadEffectBase.SetBlendingEnvelope(0)
+	sprLoadEffectBaseBeginActivation(300)
+	WaitUntilSpriteActive(sprLoadEffectBase, false)
+EndFunc
+
+Function SetName(String familyName, String familyName_read, String firstName, String firstName_read)
+	scObj.familyName := familyName
+	scObj.familyName_read := familyName_read
+	scObj.firstName := firstName
+	scObj.firstName_read := firstName_read
+EndFunc
+

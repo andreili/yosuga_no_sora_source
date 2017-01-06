@@ -29,6 +29,7 @@ DeclareType Sound
 DeclareType E3DColor
 DeclareType InputEvent
 DeclareType NovelLogManager
+DeclareType NovelLogPage
 
 ExternDef  		nRandomSeed			; 0
 ExternDef  		hitretResult		; 1
