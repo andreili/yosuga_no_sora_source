@@ -181,3 +181,32 @@ Function ResetCgFlag(Integer id)
 	EndIf
 EndFunc
 
+Function CheckCgFlag(Integer id)
+	If ((1 <= id) & (id < 4096))
+        Return sysObj.cgFlag.check(id)
+    EndIf
+    Return 0
+EndFunc
+
+Function CheckCg(Reference src, String filename, Integer baseFlag, Integer flag)
+	If (src == filename)
+        If (baseFlag != 0)
+            SetCgFlag(baseFlag)
+            SetCgFlag(flag)
+        EndIf
+        Return true
+    EndIf
+    Return 0
+EndFunc
+
+Function CheckBu(Reference src, String filename, Integer baseFlag, Integer flag)
+	If (src.Find(filename) != true)
+        If (baseFlag != 0)
+            SetCgFlag(baseFlag)
+            SetCgFlag(flag)
+        EndIf
+        Return true
+    EndIf
+    Return 0
+EndFunc
+

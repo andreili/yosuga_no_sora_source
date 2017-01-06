@@ -290,6 +290,12 @@ Function SetVoiceVolume(Real vol)
 	cnfObj.volVoice := vol
 EndFunc
 
+Function SetBgmVolume(Real vol)
+	bgm[0].res.SetVolume(vol, vol)
+	bgm[1].res.SetVolume(vol, vol)
+	cnfObj.volBgm := vol
+EndFunc
+
 Function ShowVoicePlayIndicator()
 EndFunc
 

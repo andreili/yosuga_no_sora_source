@@ -20,6 +20,7 @@ Include	"MessageFrame.cos"
 Include	"start_screens.cos"
 Include	"SystemObject.cos"
 Include	"LoadSaveWindow.cos"
+Include	"utils.cos"
 @Else
 Include	"yosuga.ch"
 @ENDIF
@@ -73,10 +74,6 @@ Function Initialize()
 		CreateDebugWindow()
 		ShowDebugWindow()
 	EndIf
-EndFunc
-
-Function InitRandom(Integer seed)	; OK
-	nRandomSeed := seed
 EndFunc
 
 Function InitScenarioData()
@@ -161,22 +158,6 @@ Function Postprocessing()
 	SaveConfigData()
 EndFunc
 
-Function SaveObject(String path, Reference object)
-	File file
-	If (file.Open(path, 5))
-		Return 1
-	EndIf
-	Return file.SaveObject(object)
-EndFunc
-
-Function LoadObject(String path, Reference object)
-	File file
-	If (file.Open(path))
-		Return 1
-	EndIf
-	Return (file.LoadObject(object))
-EndFunc
-
 Function ScenarioLoop(String func)
 	StopBgm()
 	SetupAdvScreen()
@@ -251,90 +232,6 @@ Function Change(String str)
 	scObj.scenarioCall := str
 EndFunc
 
-Function AddjustString(String src, Integer num)
-	Integer length := src.GetLength()
-	If (length <= num)
-		Return src
-	EndIf
-	String temp
-	Integer i := 0
-	While (i + num < length)
-		temp += src.Middle(i, num) + "\n"
-		i += num
-	EndWhile
-	If (i < length)
-		temp += src.Middle(i, num)
-	EndIf
-	Return temp
-EndFunc
-
-Function AskGameExit()
-	If (Confirm("ƒQ[ƒ€‚ðI—¹‚µ‚Ü‚·", true))
-		screen.Lock()
-		Throw()
-	EndIf
-EndFunc
-
-Function BlackOut(Integer wait, Integer fHide)
-	If (fHide != false)
-		Hide()
-	EndIf
-	If (wait == 0)
-		wait := 1000
-	EndIf
-	SetCg("black")
-	Transition("", wait)
-	Update()
-EndFunc
-
-Function Bookmark::init()
-	this.fSave := 0
-	this.comment := ""
-	this.time.nYear := 0
-	this.time.nMonth := 0
-	this.time.nDay := 0
-	this.time.nWeek := 0
-	this.time.nHour := 0
-	this.time.nMinute := 0
-	this.time.nSecond := 0
-EndFunc
-
-Function CgInfo::clear()
-	this.timeZone := 0
-	this.filename := ""
-	this.pt := IPoint(0, 0)
-	this.effectParam.strType := "Nothing"
-EndFunc
-
-Function CheckBu(Reference src, String filename, Integer baseFlag, Integer flag)
-	If (src.Find(filename) != true)
-        If (baseFlag != 0)
-            SetCgFlag(baseFlag)
-            SetCgFlag(flag)
-        EndIf
-        Return true
-    EndIf
-    Return 0
-EndFunc
-
-Function CheckCg(Reference src, String filename, Integer baseFlag, Integer flag)
-	If (src == filename)
-        If (baseFlag != 0)
-            SetCgFlag(baseFlag)
-            SetCgFlag(flag)
-        EndIf
-        Return true
-    EndIf
-    Return 0
-EndFunc
-
-Function CheckCgFlag(Integer id)
-	If ((1 <= id) & (id < 4096))
-        Return sysObj.cgFlag.check(id)
-    EndIf
-    Return 0
-EndFunc
-
 Function CheckPlayVoice(String trueName)
 	Integer cnfId
 	If (cnfObj.voiceDetails[0] == true)
@@ -405,28 +302,6 @@ Function CheckPlayVoice(String trueName)
 	Return fPlayVoice
 EndFunc
 
-Function CheckTrueName(Reference aliasName, Reference showName, Reference trueName)
-	String strTemp
-	strTemp := aliasName
-	Integer index := strTemp.Find("s")
-	If (index != true)
-        showName := strTemp.Left(index)
-        Integer iRight := strTemp.Find("t")
-        trueName := strTemp.Middle(index + 1, iRight - index - 1)
-    Else
-        trueName := strTemp
-        showName :=strTemp
-    EndIf
-	If (strTemp == "")
-	ElseIf (showName == "Œê‚è")
-        showName := ""
-	ElseIf (showName == "S‚Ìº")
-        showName := ""
-	ElseIf(showName == "ƒ‚ƒmƒ[ƒO")
-        showName := ""
-    EndIf
-EndFunc
-
 Function ClearEffectParameter(Reference param)
 	param.strType := "Nothing"
 	param.nFlags := 0
@@ -449,101 +324,9 @@ Function ClearEffectParameter(Reference param)
 	param.vRevRandom := IVector(0, 0, 0)
 EndFunc
 
-Function ClearWscmd(Reference wscmd)
-	wscmd.strID := ""
-	wscmd.strFullID := ""
-	wscmd.nNotification := 0
-	wscmd.nParameter := 0
-EndFunc
-
-Function CreateDateString(Reference time)
-	String ret
-	String temp
-	ret := ""
-	temp := time.nYear
-	ret += temp + "/"
-	If (time.nMonth < 10)
-		ret += "0"
-	EndIf
-	temp := time.nMonth
-	ret += temp + "/"
-	If (time.nDay < 10)
-		ret += "0"
-	EndIf
-	ret += ("" := time.nDay) + " "
-	If (time.nHour < 10)
-		ret += "0"
-	EndIf
-	temp := time.nHour
-	ret += temp + ":"
-	If (time.nMinute < 10)
-		ret += "0"
-	EndIf
-	temp := time.nMinute
-	ret += temp + ":"
-	If (time.nSecond < 10)
-		ret += "0"
-	EndIf
-	temp := time.nSecond
-	ret += temp
-	Return ret
-EndFunc
-
-Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold, Integer fItalic, String face)
-	String sequence
-	If (size != 0)
-		sequence += "\\s;" + ("" := size) + ":"
-	Else
-		sequence += "\\s:"
-	EndIf
-	If (height != 0)
-		sequence += "\\h;" + ("" := height) + ":"
-	Else
-		sequence += "\\h:"
-	EndIf
-	If (fBold != 0)
-		sequence += "\\b"
-	Else
-		sequence += "\\nb"
-	EndIf
-	If (fItalic != 0)
-		sequence += "\\i"
-	Else
-		sequence += "\\ni"
-	EndIf
-	If (face == "")
-		sequence += "\\f:"
-	Else
-		sequence += "\\f;" + face + ":"
-	EndIf
-	Return sequence
-EndFunc
-
-Function CreateRGBImage(Reference spr, Integer col, Integer width, Integer height)
-	spr.Release()
-	spr.CreateSprite(1, width, height)
-	spr.SetBackColor(Reference, 0)
-	spr.FillRect(IRect(0, 0, width, height), col)
-EndFunc
-
 Function DestroyAdvScreen()
 	Debug("+-DestroyAdvScreen-+")
 	adv.destroy()
-EndFunc
-
-Function Down(Integer id, Integer mv, Integer time, Integer accel)
-	If (IsLoad() == true)
-		Return
-	EndIf
-	adv.bustupDown(id, mv, time, accel)
-EndFunc
-
-Function DumpContext(String path)
-	File file
-	If (file.Open(path, 5))
-		Return 1
-	EndIf
-	Return file.DumpContext()
 EndFunc
 
 Function EnterLoad()
@@ -553,56 +336,78 @@ Function EnterLoad()
 	adv.msgInfo.clear()
 EndFunc
 
+Function LeaveLoad()
+	scObj.isLoad := false
+	adv.flushUpdate()
+	If (scObj.playBgm != "")
+		PlayBgm(scObj.playBgm)
+		If (scObj.fPauseBgm == true)
+			PauseBgm()
+		EndIf
+	EndIf
+	Integer i := 0
+	While (i < scObj.playEnvSe.GetLength())
+		PlayEnvSe(scObj.playEnvSe[i])
+		i += 1
+	EndWhile
+	adv.messageView(scObj.viewType)
+	adv.msgFrame.clearPage()
+	String showName
+	String trueName
+	CheckTrueName(scObj.nameLog.get(0), showName, trueName)
+	adv.msgFrame.output(showName, scObj.seqLog.get(0) + scObj.messLog.get(0), true)
+	If (scObj.voiceLog.get(0) != "")
+		adv.msgFrame.showVoice()
+	Else
+		adv.msgFrame.hideVoice()
+	EndIf
+	adv.msgFrame.show(true)
+	adv.skip(false)
+	adv.autoMode(false)
+	If (scObj.fToneFilter == true)
+		adv.setToneFilter(scObj.toneFilter)
+	Else
+		adv.setToneFilter("NORMAL")
+	EndIf
+	If (scObj.fCgRGB == 0)
+		SetCg(scObj.cg.filename, scObj.cg.pt.x, scObj.cg.pt.y)
+	Else
+		Integer col := scObj.colSetCgRGB
+		SetCgRGB((col & 16711680).ShiftRight(16), (col & 65280).ShiftRight(8), (col & 255))
+	EndIf
+	i := 0
+	While (i < scObj.bustup.GetLength())
+		Reference info := scObj.bustup[i]
+		If (info.status != 0)
+			If (info.fPosFix == 0)
+				SetBustup(info.basename, -info.pos, info.priority)
+			Else
+				SetBustup(info.basename, info.pos, info.priority)
+			EndIf
+			If (info.basePosition.y != info.localPosition.y)
+				adv.bustupDown(info.id, info.localPosition.y - info.basePosition.y)
+			EndIf
+		EndIf
+		i += 1
+	EndWhile
+	If (scObj.fZoom == true)
+		Reference param
+		param := scObj.zoomParam
+		adv.zoom(scObj.zoomParam.pt.x, scObj.zoomParam.pt.y, scObj.zoomParam.size.w, scObj.zoomParam.size.h)
+	Else
+		adv.zoom(0, 0, 800, 600)
+	EndIf
+	adv.update(true)
+	HideLoadEffect()
+	If (scObj.voiceLog.get(0) != "")
+		If (CheckPlayVoice(trueName) == true)
+			PlayVoice(scObj.voiceLog.get(0))
+		EndIf
+	EndIf
+EndFunc
+
 Function EnterRecollectMode()
 	flgRecollectMode := true
-EndFunc
-
-Function Flush(String color, Integer time, String cgFile)
-	If (IsLoad() == true)
-		Return 0
-	Endif
-	Integer fFlush := adv.isKeyUpdateFlush()
-	If (fFlush == true)
-		Return 0
-	EndIf
-	adv.effectFlush(color, time, cgFile)
-EndFunc
-
-Function FlushCommandQueue()
-	screen.FlushCommandQueue(true)
-EndFunc
-
-Function Font(Integer size, String face)
-	If (IsLoad() == true)
-		Return
-	EndIf
-	adv.font(size, 0, 0, face)
-EndFunc
-
-Function GetCommand(Reference wscmd, Integer timeout)
-	adv.updateProc()
-	BgmCheckCallback()
-	EnvSeCheckCallback()
-	If (0 == true)
-		VoicePlayIndicatorProc()
-	EndIf
-	ClearWscmd(wscmd)
-	Integer res
-	res := screen.GetCommand(wscmd, timeout, true)
-	If (wscmd.strID == "ID_APP_EXIT")
-		AskGameExit()
-		screen.FlushCommandQueue(true)
-	ElseIf (0 == true)
-		DebugProc(wscmd)
-	EndIf
-	Return res
-EndFunc
-
-Function Hide(Integer fWait)
-	If (IsLoad() == true)
-		Return
-	EndIf
-	adv.hideMessage(0, fWait)
 EndFunc
 
 Function HideLoadEffect()
@@ -616,30 +421,6 @@ Function HideLoadEffect()
 EndFunc
 
 Function HideVoicePlayIndicator()
-EndFunc
-
-Function Hitret(Integer id, Integer fVoiceWait)
-	Integer ret := adv.hitret(id, fVoiceWait)
-	Return ret
-EndFunc
-
-Function HitWait(Integer time)
-	FlushJoyButton()
-	Integer startTime := GetCurrentTime()
-	While ((GetCurrentTime() - startTime) < time)
-		If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(5) > 0))
-			Return true
-		EndIf
-	EndWhile
-	Return false
-EndFunc
-
-Function IsConfirm()
-	Return fConfirm
-EndFunc
-
-Function IsEyeCatch()
-	Return fEyeCatchEnter
 EndFunc
 
 Function IsGameClear()
@@ -737,166 +518,6 @@ Function IsHScene(String str)
 	Return true
 EndFunc
 
-Function MakeRandom(Integer nLimit)
-	If (nLimit == 0)
-		Return 0
-	EndIf
-	nRandomSeed := nRandomSeed * 9 + 1779772371
-	Return (0 := (nRandomSeed & 2147483647)).ShiftRight(8) % nLimit
-EndFunc
-
-Function Mess(String str)
-	adv.mess(str)
-EndFunc
-
-Function WaitUntilSpriteActive(Reference refSprite, Integer fEnableSkip)
-	Integer iCanceled := 0
-	input.FlushJoyButtonPushed()
-	While (refSprite.IsActivation())
-		If ((fEnableSkip) & (input.GetJoyButtonPushed(4) > 0))
-			iCanceled := true
-			Break
-		EndIf
-		Sleep(33)
-	EndWhile
-	refSprite.FlushActivation()
-	UpdateWindow()
-	Return iCanceled
-EndFunc
-
-Function Confirm(String str, Integer fYesNo, Reference refSpr, Integer time)
-	screen.SetFocus("")
-	If (IsConfirm() == true)
-		Return false
-	EndIf
-	Integer ret := 0
-	fConfirm := true
-	Sprite sprBlack
-	Sprite sprBase
-	Sprite sprFrame
-	MessageSprite msprMessage
-	sprBlack.CreateSprite(1, ScreenSize.w, ScreenSize.h)
-	sprBlack.FillRect(IRect(0, 0, ScreenSize.w, ScreenSize.h), RGB(0, 0, 0))
-	sprBlack.SetTransparency(256)
-	sprBlack.SetVisible(true)
-	frameSkin.CreateFormPage(sprFrame, "ID_PAGE_CONFIRM")
-	ImageInfo info
-	info := sprFrame.GetInfo()
-	If (fYesNo == true)
-	Else
-		sprFrame.SetTransparency(256, "ID_YES")
-		sprFrame.SetTransparency(256, "ID_NO")
-	EndIf
-	sprFrame.SetVisible(true)
-	msprMessage.CreateMessage(ScreenSize.w, 24)
-	msprMessage.AttachMessageStyle(frameSkin, "ID_FONT_CONFIRM")
-	msprMessage.SetDefaultMsgSpeed(0, 0, 0)
-	If (fYesNo == true)
-		msprMessage.MovePosition(0, 30)
-	Else
-		msprMessage.MovePosition(0, (info.nImageHeight - 24) / 2)
-	EndIf
-	msprMessage.OutputMessage(str)
-	msprMessage.SetVisible(true)
-	sprBase.CreateSprite(67108865, info.nImageWidth, info.nImageHeight)
-	sprBase.SetTransparency(256)
-	sprBase.AddSprite(10, msprMessage)
-	sprBase.AddSprite(20, sprFrame)
-	sprBase.MovePosition(0, ScreenSize.h / 2)
-	SpriteParam param
-	sprBase.GetParameter(param)
-	param.ptRevCenter.y := info.nImageHeight / 2
-	sprBase.SetParameter(param)
-	sprBase.SetVisible(true)
-	If (refSpr.GetType() == "Sprite")
-		ImageInfo sprInfo := refSpr.GetInfo()
-		SpriteParam param
-		refSpr.GetParameter(param)
-		param.ptRevCenter.x := sprInfo.nImageWidth / 2
-		param.ptRevCenter.y := sprInfo.nImageHeight / 2
-		If (80 < sprInfo.nImageHeight)
-			param.rHorzUnit := 80.0 / sprInfo.nImageHeight
-			param.rVertUnit := 80.0 / sprInfo.nImageHeight
-		EndIf
-		refSpr.SetParameter(param)
-		refSpr.MovePosition(128, info.nImageHeight / 2)
-		refSpr.SetVisible(true)
-		sprBase.AddSprite(15, refSpr)
-	EndIf
-	screen.AddSprite(50200, sprBase)
-	screen.AddSprite(50200, sprBlack)
-	screen.Lock()
-	If (cnfObj.screenEffect == 0)
-		Bezier2D bzMag
-		bzMag.SetLinear(1.0, 0.0, 1.0, 1.0)
-		bzMag.SetAcceleration(3, 0)
-		sprBase.SetBezierCurve(Reference, Reference, bzMag)
-		sprBase.SetBlendingEnvelope(0)
-		sprBase.BeginActivation(300)
-		sprBlack.SetBlendingEnvelope(128)
-		sprBlack.BeginActivation(300)
-	Else
-		sprBase.SetTransparency(0)
-		sprBlack.SetTransparency(128)
-	EndIf
-	screen.Unlock()
-	input.FlushJoyButtonPushed()
-	screen.FlushCommandQueue(true)
-	WndSpriteCmd wscmd
-	If (fYesNo == true)
-		While (true)
-			GetCommand(wscmd, 33)
-			If (IsUNK1)
-			ElseIf (wscmd.strID == "ID_YES")
-				sprFrame.Enable(false, "ID_YES")
-				ret := true
-				Break
-			ElseIf ((wscmd.strID == "ID_NO") | (input.GetJoyButtonPushed(5) > 0))
-				sprFrame.Enable(false, "ID_NO")
-				ret := false
-				Break
-			EndIf
-		EndWhile
-	Else
-		If (time == 0)
-			time := 1000
-		EndIf
-		Integer startTime := GetCurrentTime()
-		While (true)
-			GetCommand(wscmd, 33)
-			If ((startTime + time) < GetCurrentTime())
-				Break
-			ElseIf ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(5) > 0))
-				Break
-			EndIf
-		EndWhile
-	EndIf
-	screen.Lock()
-	If (cnfObj.screenEffect == 0)
-		sprBase.SetBlendingEnvelope(256)
-		sprBase.BeginActivation(300)
-		sprBlack.SetBlendingEnvelope(256)
-		sprBlack.BeginActivation(300)
-		screen.Unlock()
-		WaitUntilSpriteActive(sprBlack, false)
-	Else
-		sprBase.SetVisible(false)
-		sprBlack.SetVisible(false)
-		screen.nlock()
-	EndIf
-	sprBase.DetachSprite(msprMessage)
-	sprBase.DetachSprite(sprFrame)
-	sprBase.DetachSprite(sprBase)
-	If (refSpr.GetType() == "Sprite")
-		sprBase.DetachSprite(refSpr)
-	EndIf
-	screen.DetachSprite(sprBlack)
-	fConfirm := false
-	input.FlushJoyButtonPushed()
-	screen.FlushCommandQueue(true)
-	Return ret
-EndFunc
-
 Function OffGameClear()
 	sysObj.gameClear := false
 	SaveSystemData()
@@ -916,26 +537,6 @@ Function OpeningMovie()
 	PlayMovie("opening.mei")
 	SetupAdvScreen()
 	sysObj.viewOpeningMovie := true
-EndFunc
-
-Function OutputLogText(String path, String text)
-	File file
-	If (file.Open(path, 4))
-		If (file.Open(path, 5))
-			Return
-		EndIf
-	EndIf
-	file.Seek(0, 2)
-	file.WriteText(text)
-	file.Close()
-EndFunc
-
-Function RGB(Integer r, Integer g, Integer b)
-	Return r.ShiftLeft(16) | g.ShiftLeft(8) | b
-EndFunc
-
-Function RGBA(Integer r, Integer g, Integer b, Integer a)
-	Return a.ShiftLeft(24) | r.ShiftLeft(16) | g.ShiftLeft(8) | b
 EndFunc
 
 Function Quake(Integer w, Integer h, Integer fWhole, Integer count, Integer time)
@@ -995,108 +596,9 @@ Function WindowView(Integer type)
 	adv.messageView(type)
 EndFunc
 
-Function CreateNumString(Integer iNum, Integer iFigure, Integer flgZero, Integer flgZenkaku)
-	String str
-	String temp
-	Integer flgMinus := false
-	If (iNum < 0)
-		iNum *= -1
-		flgMinus := true
+Function NormalLoad(Integer id)
+	If ((0 <= id) & (id < 60))
+		Load("Save" + CreateNumString(id, 3, true))
 	EndIf
-	Integer num := 0
-	Integer figure := 0
-	Integer numTemp := iNum
-	While (numTemp != 0)
-		Integer amari := numTemp % 10
-		If (amari == 0)
-			If (flgZenkaku)
-				str := "‚O" + str
-			Else
-				str := "0" + str
-			EndIf
-		ElseIf (amari == 1)
-			If (flgZenkaku)
-				str := "‚P" + str
-			Else
-				str := "1" + str
-			EndIf
-		ElseIf (amari == 2)
-			If (flgZenkaku)
-				str := "‚Q" + str
-			Else
-				str := "2" + str
-			EndIf
-		ElseIf (amari == 3)
-			If (flgZenkaku)
-				str := "‚R" + str
-			Else
-				str := "3" + str
-			EndIf
-		ElseIf (amari == 4)
-			If (flgZenkaku)
-				str := "‚S" + str
-			Else
-				str := "4" + str
-			EndIf
-		ElseIf (amari == 5)
-			If (flgZenkaku)
-				str := "‚T" + str
-			Else
-				str := "5" + str
-			EndIf
-		ElseIf (amari == 6)
-			If (flgZenkaku)
-				str := "‚U" + str
-			Else
-				str := "6" + str
-			EndIf
-		ElseIf (amari == 7)
-			If (flgZenkaku)
-				str := "‚V" + str
-			Else
-				str := "7" + str
-			EndIf
-		ElseIf (amari == 8)
-			If (flgZenkaku)
-				str := "‚W" + str
-			Else
-				str := "8" + str
-			EndIf
-		ElseIf (amari == 9)
-			If (flgZenkaku)
-				str := "‚X" + str
-			Else
-				str := "9" + str
-			EndIf
-		EndIf
-		numTemp /= 10
-		figure += 1
-	EndWhile
-	If ((iFigure == 0) | (iFigure <= figure))
-	Else
-		Integer i := iFigure - figure
-		While (i != 0)
-			If (flgZero)
-				If (flgZenkaku)
-					str := "‚O" + str
-				Else
-					str := "0" + str
-				EndIf
-			ElseIf (flgZenkaku)
-				str := "  " + str
-			Else
-				str := " " + str
-			EndIf
-			i -= 1
-		EndWhile
-	EndIf
-	If (flgMinus)
-		If (flgZenkaku)
-			str := "|" + str
-		Else
-			str := "-" + str
-		EndIf
-	EndIf
-	Return str
 EndFunc
 
