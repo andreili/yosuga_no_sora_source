@@ -1,0 +1,71 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function NovelLogManager::clear()
+	Integer i := 0
+	While (i < this.max)
+		this.page[i].name.Remove()
+		this.page[i].mess.Remove()
+		this.page[i].voice.Remove()
+		i += 1
+	EndWhile
+	this.num := 1
+EndFunc
+
+Function NovelLogManager::add(Reference name, Reference mess, Reference voice)
+	If (this.num == true)
+		Return
+	Endif
+	Integer i := this.page[this.index].name.GetLength()
+	this.page[this.index].name[i] := ""
+	this.page[this.index].name[i] := name
+	this.page[this.index].mess[i] := ""
+	this.page[this.index].mess[i] := mess
+	this.page[this.index].voice[i] := ""
+	this.page[this.index].voice[i] := voice
+EndFunc
+
+Function NovelLogManager::create(Integer max)
+	this.max := max
+	Integer i := 0
+	While (i < max)
+		this.page[i] := NovelLogPage
+		i += 1
+	EndWhile
+	clear()
+EndFunc
+
+Function NovelLogManager::newPage()
+	this.index += 1
+	If (this.index >= this.max)
+		this.index := 0
+	EndIf
+	this.page[this.index].name.Remove()
+	this.page[this.index].mess.Remove()
+	this.page[this.index].voice.Remove()
+	If (this.num < this.max)
+		this.num += 1
+	EndIf
+EndFunc
+
+Function NovelLogManager::num()
+	Return this.num
+EndFunc
+
+Function NovelLogManager::get(Integer index, Reference name, Reference mess, Reference voice)
+	If (index < this.max)
+		If (index <= this.index)
+			name := this.page[this.index - index].name
+			mess := this.page[this.index - index].mess
+			voice := this.page[this.index - index].voice
+		Else
+			name := this.page[this.num - (index - this.index)].name
+			mess := this.page[this.num - (index - this.index)].mess
+			voice := this.page[this.num - (index - this.index)].voice
+		EndIf
+		Return true
+	EndIf
+	Return false
+EndFunc
+
