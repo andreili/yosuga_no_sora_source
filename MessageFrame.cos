@@ -136,3 +136,211 @@ Function MessageFrame::show(Integer fFlush, Integer fWait)
 	EndIf
 EndFunc
 
+Function MessageFrame::transparencyBase(Integer trans)
+	If (this.isCreate == false)
+		Return
+	EndIf
+	this.sprBase[this.viewType].SetTransparency(trans)
+EndFunc
+
+Function MessageFrame::output(String name, String mess, Integer fFlush)
+	If (fFlush == true)
+		this.msprMess.SetDefaultMsgSpeed(0, 0, 256)
+	Else
+		this.msprMess.SetDefaultMsgSpeed(cnfObj.messageSpeed, 50, 256)
+	EndIf
+	If (cnfObj.screenEffect == 1)
+		fFlush := true
+	EndIf
+	If (this.preName != name)
+		this.msprName.ClearMessage()
+		If (name != "")
+			this.msprName.MoveCursorPos(0, 2)
+			this.msprName.OutputMessage(name)
+		EndIf
+	EndIf
+	this.preName := name
+	this.msprMess.OutputMessage(mess)
+	this.posBlink := this.msprMess.GetCursorPos()
+	If (IsDebug == true)
+		Point pos
+		pos := this.msprMess.GetCursorPos()
+		If (pos.x < -32)
+			Debug("ページオーバーです。")
+			Reference rName
+			Reference rMess
+			Reference rVoice
+			scObj.novelLog.get(0, rName, rMess, rVoice)
+			OutputLogText("PageOver.log", "" + scObj.scenarioCall + ":\n" + rMess[0] + "\n")
+		EndIf
+	EndIf
+EndFunc
+
+Function MessageFrame::showBlink()
+	Point pos
+	pos := this.msprMess.GetCursorPos()
+	this.sprBlinkHit.MovePosition(39 + pos.x, 40 + pos.y + 2)
+	If (cnfObj.screenEffect == 0)
+		this.sprBlinkHit.SetBlendingEnvelope(0)
+		this.sprBlinkHit.BeginActivation(500)
+	Else
+		this.sprBlinkHit.SetTransparency(0)
+	EndIf
+	this.isShowBlinkHit := true
+EndFunc
+
+Function MessageFrame::showMessage(Integer fFlush, Integer fWait)
+	If (isShow() == false)
+		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.msprMess.SetTransparency(0)
+		Else
+			this.msprMess.SetBlendingEnvelope(0)
+			this.msprMess.BeginActivation(300)
+			If (fWait == true)
+				WaitUntilSpriteActive(this.msprMess, true)
+			EndIf
+		EndIf
+		this.isShow := true
+	EndIf
+EndFunc
+
+Function MessageFrame::showVoice()
+	Point pos
+	pos := this.msprName.GetCursorPos()
+	this.sprVoice.MovePosition(27 + pos.x + 4, 5 + pos.y + 5)
+	If (cnfObj.screenEffect == 0)
+		this.sprVoice.SetBlendingEnvelope(0)
+		this.sprVoice.BeginActivation(500)
+	Else
+		this.sprVoice.SetTransparency(0)
+	EndIf
+EndFunc
+
+Function MessageFrame::skip(Integer f)
+	If (f == true)
+		this.sprMenu.Enable(false, "ID_SKIP")
+	Else
+		this.sprMenu.Enable(1, "ID_SKIP")
+	EndIf
+EndFunc
+
+Function MessageFrame::transparency(Integer trans, Integer fFlush, Integer fWait)
+	If (isShow() == true)
+		If (fFlush == false)
+			this.sprParent.SetBlendingEnvelope(trans)
+			this.sprParent.BeginActivation(300)
+			If (fWait == true)
+				WaitUntilSpriteActive(this.sprParent)
+			EndIf
+		Else
+			this.sprParent.SetTransparency(trans)
+		EndIf
+		this.isShow := true
+	EndIf
+EndFunc
+
+Function MessageFrame::view(Integer type)
+	If ((0 <= type) & (type <= 1))
+		If ((cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.sprBase[this.viewType].SetTransparency(256)
+		Else
+			this.sprBase[this.viewType].SetBlendingEnvelope(256)
+			this.sprBase[this.viewType].BeginActivation(300)
+		EndIf
+		this.viewType := type
+		If ((cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
+			this.sprBase[this.viewType].SetTransparency(cnfObj.windowDepth)
+		Else
+			this.sprBase[this.viewType].SetBlendingEnvelope(cnfObj.windowDepth)
+			this.sprBase[this.viewType].BeginActivation(300)
+		EndIf
+	EndIf
+EndFunc
+
+Function MessageFrame::create(Integer style)
+	this.isCreate := true
+	this.sprParent.CreateSprite(67108865, 750, 152)
+	this.sprParent.SetTransparency(256)
+	this.sprParent.SetVisible(true)
+	SpriteParam param
+	this.sprParent.GetParameter(param)
+	param.ptRevCenter := IPoint(750 / 2, 152 / 2)
+	this.sprParent.SetParameter(param)
+	screen.AddSprite(50700, this.sprParent)
+	this.sprFrame.AttachImage(frameSkin.ID_FRM_0101)
+	this.sprFrame.MovePosition(0, 0)
+	this.sprFrame.SetTransparency(0)
+	this.sprFrame.SetVisible(true)
+	this.sprParent.AddSprite(10, this.sprFrame)
+	this.sprBase[0] := Sprite
+	this.sprBase[0].AttachImage(frameSkin.ID_FRM_0102B)
+	this.sprBase[1] := Sprite
+	this.sprBase[1].AttachImage(frameSkin.ID_FRM_0106B)
+	Integer i := 0
+	wHILE (i < 2)
+		this.sprBase[i].MovePosition(0, 0)
+		this.sprBase[i].SetTransparency(256)
+		this.sprBase[i].SetVisible(true)
+		this.sprParent.AddSprite(50 + i, this.sprBase[i])
+		i += 1
+	EndWhile
+	view(false)
+	frameSkin.CreateFormPage(this.sprMenu, "ID_PAGE_ADV_MENU")
+	this.sprMenu.MovePosition(9, 124)
+	this.sprMenu.SetTransparency(0)
+	this.sprMenu.SetVisible(true)
+	this.sprParent.AddSprite(49, this.sprMenu)
+	enableQLoad(sysObj.fQSave)
+	If (IsUNK1 == true)
+		this.sprMenu.SetTransparency(128, "ID_SAVE")
+		this.sprMenu.Enable(false, "ID_SAVE")
+		this.sprMenu.SetTransparency(128, "ID_LOAD")
+		this.sprMenu.Enable(false, "ID_LOAD")
+	ElseIf (IsRecollectMode() == true)
+		this.sprMenu.SetTransparency(128, "ID_QSAVE")
+		this.sprMenu.Enable(false, "ID_QSAVE")
+		this.sprMenu.SetTransparency(128, "ID_QLOAD")
+		this.sprMenu.Enable(false, "ID_QLOAD")
+		this.sprMenu.SetTransparency(128, "ID_SAVE")
+		this.sprMenu.Enable(false, "ID_SAVE")
+		this.sprMenu.SetTransparency(128, "ID_LOAD")
+		this.sprMenu.Enable(false, "ID_LOAD")
+	EndIf
+	frameSkin.CreateFormPage(this.sprClose, "ID_PAGE_ADV_CLOSE")
+	this.sprClose.MovePosition(727, 7)
+	this.sprClose.SetTransparency(0)
+	this.sprClose.SetVisible(true)
+	this.sprParent.AddSprite(48, this.sprClose)
+	frameSkin.CreateFormPage(this.sprVoice, "ID_PAGE_ADV_VOICE")
+	this.sprVoice.MovePosition(689, 6)
+	this.sprVoice.SetTransparency(256)
+	this.sprVoice.SetVisible(true)
+	this.sprParent.AddSprite(47, this.sprVoice)
+	this.msprName.CreateMessage(320, 36)
+	this.msprName.AttachMessageStyle(frameSkin, "ID_FONT_NAME")
+	this.msprName.MovePosition(27, 5)
+	this.msprName.SetFontBordering(true)
+	this.msprName.SetDefaultMsgSpeed(0, 0, 256)
+	this.msprName.SetVisible(true)
+	this.msprName.OutputMessage("・")
+	this.msprName.ClearMessage()
+	this.sprParent.AddSprite(30, this.msprName)
+	this.msprMess.CreateMessage(684, 90)
+	this.msprMess.AttachMessageStyle(frameSkin, "ID_FONT_MESSAGE")
+	this.msprMess.MovePosition(39, 40)
+	this.msprMess.SetFontBordering(true)
+	this.msprMess.SetDefaultMsgSpeed(0, 0, 256)
+	this.msprMess.SetVisible(true)
+	this.msprMess.OutputMessage("・")
+	this.msprMess.ClearMessage()
+	this.sprParent.AddSprite(30, this.msprMess)
+	this.sprBlinkHit.AttachImage(frameSkin.ID_FRM_0103)
+	this.sprBlinkHit.SetTransparency(256)
+	this.sprBlinkHit.SetVisible(true)
+	this.sprParent.AddSprite(40, this.sprBlinkHit)
+	this.preName := ""
+	this.isShow := false
+	position(400, 520)
+	clearPage()
+EndFunc
+
