@@ -1,0 +1,318 @@
+Include"yosuga.ch"
+
+Function sc00_E033()
+	ScenarioEnter()
+	WindowView(1)
+	ScPlayBgm("BGM10", 0)
+	Scroll(0, 600, 3000, 0, 0)
+	Update()
+	WaitScroll()
+	SetCg("B16c", 0, 0)
+	SetBustup("CE02_07M", 0, 0)
+	SetBustup("CG01_02M", 0, 0)
+	Talk("初佳", "MT051458")
+	Mess("わらしはねぇ、わらしがほしぃーって、言ってほしかったの！")
+	hitretResult := Hitret(38540)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("やひろ", "YH050145")
+	Mess("人ん家来てヤケ酒かよ……")
+	hitretResult := Hitret(38541)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_09M", 0, 0)
+	Talk("初佳", "MT051459")
+	Mess("らって……いまになって来るんらもん……")
+	hitretResult := Hitret(38542)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051460")
+	Mess("なんれいまなのよぉ～～～……なんれ、あのとき……言ってく")
+	Mess("れなひゃったのよぉ～～～……")
+	hitretResult := Hitret(38543)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051461")
+	Mess("言ってくれてたら……言ってくれてたら……わらしひゃって、")
+	Mess("行ったんらから……")
+	hitretResult := Hitret(38544)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("やひろ", "YH050146")
+	Mess("あん時のこと、まだ後悔してんのか。")
+	hitretResult := Hitret(38545)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051462")
+	Mess("……わかんにゃい……")
+	hitretResult := Hitret(38546)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("やひろ", "YH050147")
+	Mess("今度はどうすんだ？")
+	hitretResult := Hitret(38547)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051463")
+	Mess("…………………………………………")
+	hitretResult := Hitret(38548)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_07M", 0, 0)
+	Talk("初佳", "MT051464")
+	Mess("なんれ……いまなの……いまひゃらかったら……")
+	hitretResult := Hitret(38549)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_06M", 0, 0)
+	Talk("やひろ", "YH050148")
+	Mess("両方選べたってか？　アホらしい。")
+	hitretResult := Hitret(38550)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051465")
+	Mess("そうらない……そうらなふて…………")
+	hitretResult := Hitret(38551)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051466")
+	Mess("……わらひは、らめなおんらよ……はるかふんとは、つりあわ")
+	Mess("らいの……")
+	hitretResult := Hitret(38552)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051467")
+	Mess("はるかふんがいれば、がんばれりゅっれ、おもっらの……")
+	hitretResult := Hitret(38553)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051468")
+	Mess("れもね、それはわらひのわがまま。わらひにひばりつけらら、")
+	Mess("かーいそーらのよ。")
+	hitretResult := Hitret(38554)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051469")
+	Mess("わらひはみをひくの……")
+	hitretResult := Hitret(38555)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_02M", 0, 0)
+	Talk("やひろ", "YH050149")
+	Mess("それが結論かよ。くだらねえ。")
+	hitretResult := Hitret(38556)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_12M", 0, 0)
+	Talk("初佳", "MT051470")
+	Mess("らによぉ～？　らりがくらららなひってぇ？")
+	hitretResult := Hitret(38557)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_06M", 0, 0)
+	Talk("やひろ", "YH050150")
+	Mess("物わかりが良いフリして、大人ぶってるだけじゃねえか。")
+	hitretResult := Hitret(38558)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("やひろ", "YH050151")
+	Mess("何一つ、てめえで決めちゃいねえだろ。")
+	hitretResult := Hitret(38559)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_07M", 0, 0)
+	Talk("初佳", "MT051471")
+	Mess("……ほらに、ろーしようがあるっていふのよぉ～？")
+	hitretResult := Hitret(38560)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051472")
+	Mess("これら……いひばん、はるかふんが傷つらないの……好きに／")
+	Mess("なっれからひゃ、おそいのよ……")
+	hitretResult := Hitret(38561)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_07M", 0, 0)
+	Talk("やひろ", "YH050152")
+	Mess("わかってんのに納得してねえってのは、何なんだろうな。")
+	hitretResult := Hitret(38562)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051473")
+	Mess("…………らにが、言いらいのよ…………")
+	hitretResult := Hitret(38563)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_01M", 0, 0)
+	Talk("やひろ", "YH050153")
+	Mess("あたしは寝る。出てくんだったら、ちゃんと始末してけよ。")
+	hitretResult := Hitret(38564)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(8)
+	Talk("初佳", "MT051474")
+	Mess("……やひろぉ……")
+	hitretResult := Hitret(38565)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_02M", 0, 0)
+	Talk("やひろ", "YH050154")
+	Mess("何だよ。")
+	hitretResult := Hitret(38566)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051475")
+	Mess("……はるかふんを……おねひゃいね……")
+	hitretResult := Hitret(38567)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CG01_01M", 0, 0)
+	Talk("やひろ", "YH050155")
+	Mess("ガキはほっときゃ大人になんだよ。")
+	hitretResult := Hitret(38568)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051476")
+	Mess("ほうね……")
+	hitretResult := Hitret(38569)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051477")
+	Mess("れも、わらひ……いつまれたっれも、ころもらわ……")
+	hitretResult := Hitret(38570)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	WindowView(0)
+	Change("00_e034")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

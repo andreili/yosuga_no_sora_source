@@ -1,0 +1,880 @@
+Include"yosuga.ch"
+
+Function sc00_B017()
+	ScenarioEnter()
+	WindowView(1)
+	SetCg("B01a_", 0, 0)
+	Transition("", 1000)
+	ScPlayEnvSe("SE301", "1", 0)
+	Talk("モノローグ《奈緒》", "NO030826")
+	Mess("When I first met Haru-chan, it was a sudden encounter／during summer vacation.")
+	hitretResult := Hitret(14205)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030827")
+	Mess("In our neighborhood, I often ran errands for this small／clinic, then I met the two of them.")
+	hitretResult := Hitret(14206)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030828")
+	Mess("I haven't seen them in this neighborhood, a boy and a／girl who wears respectable clothes. They both have a／light-complexion, just like cute dolls.")
+	hitretResult := Hitret(14207)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030829")
+	Mess("The boy was looking around restlessly, his face shows／he's interested in so many things around him, and the／girl was just staring beside him as she held on his／sleeves.")
+	hitretResult := Hitret(14208)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030830")
+	Mess("Hello...")
+	hitretResult := Hitret(14209)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030831")
+	Mess("I approached them, it surprised the girl and hid behind／the boy.")
+	hitretResult := Hitret(14210)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030832")
+	Mess("Aah, so that's how it is, the boy is the big brother, I／already thought about that.")
+	hitretResult := Hitret(14211)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030833")
+	Mess("Where did you came from? I'm Nao and I live around here.")
+	hitretResult := Hitret(14212)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030834")
+	Mess("Then the boy said, they just got from the train and they／don't know the streets, he asked me to teach him.")
+	hitretResult := Hitret(14213)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030835")
+	Mess("And then, "I'm Haruka, and this is my little sister／Sora" and, Sora-chan bashfully bowed with him.")
+	hitretResult := Hitret(14214)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030836")
+	Mess("At that time, Sensei exactly came... Haru-chan's grandpa／went out, then he told something to the both of them.")
+	hitretResult := Hitret(14215)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030837")
+	Mess("Haru-chan's parents are busy with their work, so it was／talked about that they'll stay here during summer／vacation.")
+	hitretResult := Hitret(14216)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030838")
+	Mess("The first thing that surprised me was, both of them are／twins.")
+	hitretResult := Hitret(14217)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030839")
+	Mess("It looked like from a television, it felt like that as I／met these two cute twins.")
+	hitretResult := Hitret(14218)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030840")
+	Mess("I was somehow interested with the both of them. I wanted／to play and talk with them so much... To simply put it,／I feel that our meeting is really fantastic.")
+	hitretResult := Hitret(14219)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030841")
+	Mess(""Be friends with them Nao-chan", Sensei asked me that／favor during that time, and I answered with just a nod.")
+	hitretResult := Hitret(14220)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopEnvSe("SE301", 1)
+	BlackOut(0, 0)
+	SetCg("B36a_", 0, 0)
+	Scroll(600, 0, 30000, 1, 0)
+	ScPlayBgm("BGM07", 0)
+	Talk("モノローグ《奈緒》", "NO030842")
+	Mess("And from there, I took my time to be familiar with them／by playing with Haru-chan and his sister.")
+	hitretResult := Hitret(14221)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030843")
+	Mess("Haru-chan grew up in the city after all, so everything／he sees here looks so fresh and new, "What's that?／What's this?" he threw a lot of questions to me.")
+	hitretResult := Hitret(14222)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030844")
+	Mess("When they see an adult and we're in a place they're not／familiar of, Haru-chan and Sora-chan are holding hands／so tightly.")
+	hitretResult := Hitret(14223)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030845")
+	Mess(""Nao-chan let's play? Let's play!" They're always／energetic when the both of them approach me, it's like／they're my new little brother and little sister.")
+	hitretResult := Hitret(14224)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030846")
+	Mess("I'm the only child after all, that's why I always say／I'm scared if I ever have siblings, but it would／definitely feel great if these two are the ones.")
+	hitretResult := Hitret(14225)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030847")
+	Mess("I always did my best, just to be their elder sister, I／was always attentive on taking care of them.")
+	hitretResult := Hitret(14226)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030848")
+	Mess("Haru-chan looks cute when he's obedient, though I always／had it in my mind, that Haru-chan and his sister won't／be here always.")
+	hitretResult := Hitret(14227)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030849")
+	Mess("And then, summer vacation ended with just a blink of an／eye, Haru-chan's parents came here with their car.")
+	hitretResult := Hitret(14228)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B01a_", 0, 0)
+	Talk("モノローグ《奈緒》", "NO030850")
+	Mess("Sora-chan always hugged her mother, though Haru-chan had／this weird facial expression.")
+	hitretResult := Hitret(14229)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030851")
+	Mess("... What's the matter, Haru-chan?")
+	hitretResult := Hitret(14230)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030852")
+	Mess("I asked him, "I want to go back with everyone." He said.")
+	hitretResult := Hitret(14231)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030853")
+	Mess("I remembered that summer when I first met Haru-chan,／only with that encounter, he wanted to bring everything／and everyone home.")
+	hitretResult := Hitret(14232)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030854")
+	Mess("I know that something like that is not possible.")
+	hitretResult := Hitret(14233)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030855")
+	Mess("But I always thought that, Haru-chan also felt sad for／going away.")
+	hitretResult := Hitret(14234)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030856")
+	Mess("You can come here again right?")
+	hitretResult := Hitret(14235)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030857")
+	Mess("Haru-chan looked surprised.")
+	hitretResult := Hitret(14236)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030858")
+	Mess("It's because we're bidding farewell to each other, it／was heart-breaking. Just when I had a little brother...／Also, I feel like we can't create fun memories／anymore...")
+	hitretResult := Hitret(14237)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030859")
+	Mess("Come here again, then let's play again okay?")
+	hitretResult := Hitret(14238)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030860")
+	Mess("If we made a promise, it can probably come true.")
+	hitretResult := Hitret(14239)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030861")
+	Mess("I held Haru-chan's hands very hard, and wished for it.／"Haru-chan, I want to meet you again"... I said.")
+	hitretResult := Hitret(14240)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030862")
+	Mess("Haru-chan also held my hands back with a strong grip,／and then nodded.")
+	hitretResult := Hitret(14241)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030863")
+	Mess("Summer ended as well, then I went back to my daily life.")
+	hitretResult := Hitret(14242)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030864")
+	Mess("I can never forget those memories I had during that／summer, I often come to Sensei's place, just to ask if／Haru-chan and his sister would come.")
+	hitretResult := Hitret(14243)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030865")
+	Mess("Then Sensei said, "Do you want to call them through the／telephone?" I was shy since I don't know what to say to／them, so I ran as I felt shy.")
+	hitretResult := Hitret(14244)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B06a_", 0, 0)
+	Talk("モノローグ《奈緒》", "NO030866")
+	Mess("Then, the rice harvesting season ended, then winter came／with just a blink of an eye.")
+	hitretResult := Hitret(14245)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030867")
+	Mess("During the short winter break, I asked myself "Is／Haru-chan and his sister coming?" then I made a New／Year's card in case I meet him.")
+	hitretResult := Hitret(14246)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030868")
+	Mess("Even so, I felt happy when I was writing the New Year's／card.")
+	hitretResult := Hitret(14247)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030869")
+	Mess("Not just in summer, there's also a lot of fun things／during the winter.")
+	hitretResult := Hitret(14248)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030870")
+	Mess("Kite flying, eating mochi, snowball fights... One after／the other as words can say. But, we're still kids, so／they were normal things for us.")
+	hitretResult := Hitret(14249)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030871")
+	Mess("Then spring came, classes in school were changed and I／got new friends, I was slowly forgetting Haru-chan and／his sister.")
+	hitretResult := Hitret(14250)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	ScStopBgm()
+	Talk("モノローグ《奈緒》", "NO030872")
+	Mess("It was clear that those memories I had in summer were／"Great Memories" as you call them, but will they vanish?／I felt sad.")
+	hitretResult := Hitret(14251)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B07d_", 0, 0)
+	ScPlayBgm("BGM08", 0)
+	Talk("モノローグ《奈緒》", "NO030873")
+	Mess("Summer festival. My friends and I were talking on what／kind of things we should do during the summer vacation.")
+	hitretResult := Hitret(14252)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030874")
+	Mess("I want to go the ocean, I want to go on a trip.")
+	hitretResult := Hitret(14253)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030875")
+	Mess("I want to play and swim in the school's pool, after／that...")
+	hitretResult := Hitret(14254)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030876")
+	Mess("Both seemed to be fun, I dreamed of something bigger.")
+	hitretResult := Hitret(14255)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030877")
+	Mess("During vacation, can I sleep until the afternoon? Then,／I began to think about the little things.")
+	hitretResult := Hitret(14256)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030878")
+	Mess("The group of boys with Ryouhei kept on asking me to come／out and play with them, though the other girls are／scared of them since they're always lively.")
+	hitretResult := Hitret(14257)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030879")
+	Mess("But to me, if someone around me is noisy, I just ignore／them.")
+	hitretResult := Hitret(14258)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030880")
+	Mess("And then... During those days, summer vacation started.")
+	hitretResult := Hitret(14259)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030881")
+	Mess("Even though I always have a little time to play, I／suddenly felt like I had more free time to go outside,／everything went the other away.")
+	hitretResult := Hitret(14260)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030882")
+	Mess("Especially at times when I have no plans at all.")
+	hitretResult := Hitret(14261)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030883")
+	Mess("At that time, I aimlessly go around the neighborhood.")
+	hitretResult := Hitret(14262)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B01a_", 0, 0)
+	Talk("モノローグ《奈緒》", "NO030884")
+	Mess("While I was in front of Sensei's house, I saw something／flickering.")
+	hitretResult := Hitret(14263)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030885")
+	Mess("One day, I found Sensei eating watermelon, then he／suddenly called me.")
+	hitretResult := Hitret(14264)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030886")
+	Mess("At that time too, "Will Haru-chan come by this year?", I／asked as I came.")
+	hitretResult := Hitret(14265)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030887")
+	Mess("I somehow wanted to hear something... Though I feel／something strange.")
+	hitretResult := Hitret(14266)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030888")
+	Mess("However, I think I understand it now. "They're not／coming"... He said, I felt dreadful.")
+	hitretResult := Hitret(14267)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030889")
+	Mess("As I finished eating the watermelon, I was about to go／home, Sensei slowly said it.")
+	hitretResult := Hitret(14268)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030890")
+	Mess(""Tomorrow", he said.")
+	hitretResult := Hitret(14269)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030891")
+	Mess("It was so sudden, I didn't know what to do and where to／begin. Sensei also smiled quietly, then I became more／confused.")
+	hitretResult := Hitret(14270)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030892")
+	Mess("But, I understand it right away.")
+	hitretResult := Hitret(14271)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030893")
+	Mess("I thanked Sensei, then I was so happy that I started／running.")
+	hitretResult := Hitret(14272)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030894")
+	Mess("Yes, just like what Sensei said, on the next day,／Haru-chan and his sister came.")
+	hitretResult := Hitret(14273)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030895")
+	Mess("And then every year, Haru-chan and his sister comes to／play as summer vacation starts.")
+	hitretResult := Hitret(14274)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030896")
+	Mess("It's the season every year that I look forward to,／thinking about things that we can do and play together.")
+	hitretResult := Hitret(14275)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030897")
+	Mess("Since the time of Haru-chan and his sister is limited,／we need to have fun right away.")
+	hitretResult := Hitret(14276)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B36a_", 600, 0)
+	Talk("モノローグ《奈緒》", "NO030898")
+	Mess("Two years, three years, and many more that passed, it／was just alternating through summer vacation, we were／always getting along very well.")
+	hitretResult := Hitret(14277)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030899")
+	Mess("They said that they really looked like my siblings, and／I felt very happy about it.")
+	hitretResult := Hitret(14278)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030900")
+	Mess("During the times they weren't here, I feel cold inside,／I was very silent.")
+	hitretResult := Hitret(14279)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030901")
+	Mess("With just that... They're probably the most important／people in my life.")
+	hitretResult := Hitret(14280)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030902")
+	Mess("... But...")
+	hitretResult := Hitret(14281)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030903")
+	Mess("Even that releationship, came to an end.")
+	hitretResult := Hitret(14282)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030904")
+	Mess("...I thought it wasn't broken...")
+	hitretResult := Hitret(14283)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Talk("モノローグ《奈緒》", "NO030905")
+	Mess("That was our last connection.")
+	hitretResult := Hitret(14284)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B05a_", 0, 0)
+	Talk("モノローグ《奈緒》", "NO030906")
+	Mess("School was coming up ahead, I felt that my surroundings／suddenly changed.")
+	hitretResult := Hitret(14285)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030907")
+	Mess("I couldn't see it until now... No, I wasn't able to／notice it, even if I confront it.")
+	hitretResult := Hitret(14286)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030908")
+	Mess("Everything... was my fault...")
+	hitretResult := Hitret(14287)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030909")
+	Mess("...Haru-chan...")
+	hitretResult := Hitret(14288)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM16", 0)
+	SetCg("EB01b", 0, 0)
+	Flush("WHITE", 2000, "")
+	Talk("モノローグ《奈緒》", "NO030910")
+	Mess("At that time I... didn't even know why.")
+	hitretResult := Hitret(14289)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030911")
+	Mess("I was not even sure of Haru-chan's will... It was my own／desire...")
+	hitretResult := Hitret(14290)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030912")
+	Mess("He just got dragged into it...")
+	hitretResult := Hitret(14291)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030913")
+	Mess("It's a punishment that I got... To lose Haru-chan.")
+	hitretResult := Hitret(14292)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030914")
+	Mess("Ever since then I... somehow felt empty and horrible.")
+	hitretResult := Hitret(14293)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030915")
+	Mess("I was regretful of it... I got easily carried away by／the feeling I had inside me.")
+	hitretResult := Hitret(14294)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO030916")
+	Mess("Just to benefit from it... I just lived with it／everyday.")
+	hitretResult := Hitret(14295)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB08b_", 0, 0)
+	Talk("モノローグ《奈緒》", "NO030917")
+	Mess("...Then Haru-chan came back.")
+	hitretResult := Hitret(14296)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO030918")
+	Mess("And now...")
+	hitretResult := Hitret(14297)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Hide()
+	WindowView(0)
+	Change("00_b018")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

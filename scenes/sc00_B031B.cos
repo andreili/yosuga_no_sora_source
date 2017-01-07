@@ -1,0 +1,96 @@
+Include"yosuga.ch"
+
+Function sc00_B031B()
+	ScenarioEnter()
+	SetCg("B35c", 0, 0)
+	SetBustup("CA03_07M", 0, 0)
+	WindowView(1)
+	Transition("WIP_BT", 500)
+	ScPlayBgm("BGM08", 0)
+	Talk("Sora", "SR030312")
+	Mess("……………………")
+	hitretResult := Hitret(17212)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD03_01M", 0, 0)
+	Talk("Kazuha", "KA030040")
+	Mess("...I can drop you off, but...")
+	hitretResult := Hitret(17213)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030313")
+	Mess("...It's fine...")
+	hitretResult := Hitret(17214)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA030041")
+	Mess("...I understand. If that's the case, I'll take my leave／here. Yamanashi-san, let's go.")
+	hitretResult := Hitret(17215)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CJ01_01M", 0, 0)
+	Talk("Yamanashi", "YM030001")
+	Mess("Understood, Ojou-sama.")
+	hitretResult := Hitret(17216)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(10)
+	Talk("Sora", "SR030314")
+	Mess("Uggh... Haru...")
+	hitretResult := Hitret(17217)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD03_08M", 0, 0)
+	Talk("Kazuha", "KA030042")
+	Mess("Even if it's unbearable... it's much better if you just／watch them from the side.")
+	hitretResult := Hitret(17218)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030315")
+	Mess("……………………")
+	hitretResult := Hitret(17219)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	ScWait(3000, 0)
+	WindowView(0)
+	Change("00_b032")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

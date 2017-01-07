@@ -1,0 +1,805 @@
+Include"yosuga.ch"
+
+Function sc00_E022()
+	ScenarioEnter()
+	WindowView(1)
+	ScPlayBgm("BGM03", 0)
+	SetCg("B27a", 0, 0)
+	Talk("モノローグ《初佳》", "MT051082")
+	Mess("穹ちゃんに認められるとは、お母さんもやるわね。")
+	hitretResult := Hitret(37233)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051083")
+	Mess("悠くんが二人暮らしをしてる事を考えれば、穹ちゃんの懐柔は")
+	Mess("不可欠。")
+	hitretResult := Hitret(37234)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051084")
+	Mess("おかげで私にも光明が見えてきたわ！")
+	hitretResult := Hitret(37235)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B07a", 0, 0)
+	SetBustup("CC03_12L", 0, 0)
+	Talk("初佳", "MT051085")
+	Mess("瑛ちゃんっ！　料理教えてっ！！")
+	hitretResult := Hitret(37236)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051086")
+	Mess("お昼の休憩時間、断ってお屋敷を出ると神社へ走った。")
+	hitretResult := Hitret(37237)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051087")
+	Mess("いつも小言を言われるお母さんにすがるのは、ちょっとどころ")
+	Mess("でなく、悔しかったから。")
+	hitretResult := Hitret(37238)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC03_12M", 0, 0)
+	Talk("瑛", "AK050098")
+	Mess("わっ、初佳お姉ちゃんっ！？　／")
+	Mess("びっくりしたよー、どうしたの？")
+	hitretResult := Hitret(37239)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051088")
+	Mess("だからっ、料理を教えて欲しいのっ、私にっ！")
+	hitretResult := Hitret(37240)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC03_03M", 0, 0)
+	Talk("瑛", "AK050099")
+	Mess("お料理？　うんっ、いいよっ！　何でも聞いてっ。")
+	hitretResult := Hitret(37241)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051089")
+	Mess("それじゃあ、料理上手になるには、どうしたらいいかな？")
+	hitretResult := Hitret(37242)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC03_01M", 0, 0)
+	Talk("瑛", "AK050100")
+	Mess("ん～～……たくさんお料理する事、かなぁ？")
+	hitretResult := Hitret(37243)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051090")
+	Mess("うぅ、そうよねぇ、やっぱり……")
+	hitretResult := Hitret(37244)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050101")
+	Mess("教えて欲しいメニューとかあるかな？")
+	hitretResult := Hitret(37245)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051091")
+	Mess("……メニューって言うか……コツとか、全般的に？")
+	hitretResult := Hitret(37246)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC03_03M", 0, 0)
+	Talk("瑛", "AK050102")
+	Mess("あはー、それじゃあ基本からだね。基本が一番大事だよー。")
+	hitretResult := Hitret(37247)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051092")
+	Mess("うん、それでお願いっ。")
+	hitretResult := Hitret(37248)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050103")
+	Mess("じゃ、お買い物からだねっ。")
+	hitretResult := Hitret(37249)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051093")
+	Mess("お買い物から……基本ってそこなの？")
+	hitretResult := Hitret(37250)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC03_01M", 0, 0)
+	Talk("瑛", "AK050104")
+	Mess("材料ないと、お料理出来ないよ。")
+	hitretResult := Hitret(37251)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051094")
+	Mess("それはそうだけど……うーん……")
+	hitretResult := Hitret(37252)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051095")
+	Mess("しかし、教えてくれる相手に逆らってたら進めないか。")
+	hitretResult := Hitret(37253)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050105")
+	Mess("今日ならタカノが来てるねー。行こっ。")
+	hitretResult := Hitret(37254)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 1)
+	ScPlaySe("SE351", 0)
+	SetCg("B14a", 0, 0)
+	SetBustup("CE01_01M", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("モノローグ《初佳》", "MT051096")
+	Mess("広場の中央に停まっているトラック。")
+	hitretResult := Hitret(37255)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051097")
+	Mess("知ってはいたけど、買い物するのは初めてだ。")
+	hitretResult := Hitret(37256)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(6)
+	SetBustup("CC06_02M", 0, 0)
+	Talk("瑛", "AK050106")
+	Mess("おじちゃーん、今日のオススメは何かなー？")
+	hitretResult := Hitret(37257)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110019")
+	Mess("おー、瑛ちゃんいらっしゃい。ウチのはどれも毎日新鮮、オス")
+	Mess("スメばかりだよー！")
+	hitretResult := Hitret(37258)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051098")
+	Mess("その割には……空っぽのケースが多いみたいだけど……")
+	hitretResult := Hitret(37259)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110020")
+	Mess("おおっ、こりゃ珍しい。メイドさんじゃないか！　いやあ、す")
+	Mess("まないね、昼前にみんな売れちまってさぁ。")
+	hitretResult := Hitret(37260)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_01M", 0, 0)
+	Talk("瑛", "AK050107")
+	Mess("もうお昼ご飯の時間だもんねー、ちょっと遅かったかなー。")
+	hitretResult := Hitret(37261)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051099")
+	Mess("考えてもみればその通りだった。")
+	hitretResult := Hitret(37262)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051100")
+	Mess("お昼ご飯の用意は、お昼ご飯の前に済ませなきゃならないし、")
+	Mess("お昼ご飯のための買い物なら、なおさらだ。")
+	hitretResult := Hitret(37263)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051101")
+	Mess("料理の材料は冷蔵庫か何かに入ってる、くらいの認識しかな／")
+	Mess("かったもんなぁ。")
+	hitretResult := Hitret(37264)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_14M", 0, 0)
+	Talk("瑛", "AK050108")
+	Mess("それじゃ残り物で考えよっと。何が良いかなー……")
+	hitretResult := Hitret(37265)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051102")
+	Mess("品定めを始める瑛ちゃんの視線を私も追いかける。")
+	hitretResult := Hitret(37266)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051103")
+	Mess("なんだか……残ってるのって野菜ばかりね。みんな野菜嫌いな")
+	Mess("のかな？")
+	hitretResult := Hitret(37267)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_01M", 0, 0)
+	Talk("瑛", "AK050109")
+	Mess("自分で作ってるから買ってかないんだよねー。")
+	hitretResult := Hitret(37268)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051104")
+	Mess("そっか、野菜は作ってる人に貰った方が早いわよねー。")
+	hitretResult := Hitret(37269)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110021")
+	Mess("まったく買わないねえ、この辺りの人達は。どんな良い野菜仕")
+	Mess("入れたって、ちっとも売れやしないんだから。")
+	hitretResult := Hitret(37270)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_08M", 0, 0)
+	Talk("瑛", "AK050110")
+	Mess("シイタケとか果物は買うよー……あー、でも売り切れてるねー")
+	Mess("……残ってるのは、牛スネとスジと……難しいなー。")
+	hitretResult := Hitret(37271)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051105")
+	Mess("難しいの？")
+	hitretResult := Hitret(37272)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050111")
+	Mess("煮込まなきゃダメなんだよー。慣れてないと固くなっちゃうか")
+	Mess("ら、初佳お姉ちゃんにはお勧めできないかなぁ。")
+	hitretResult := Hitret(37273)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_03M", 0, 0)
+	Talk("瑛", "AK050112")
+	Mess("煮物ならお魚が良いよ。火加減が大切だからー。")
+	hitretResult := Hitret(37274)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051106")
+	Mess("火加減？")
+	hitretResult := Hitret(37275)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050113")
+	Mess("お料理はね、火加減が一番じゅーよーだよ。美味しいのも美味")
+	Mess("しくないのも、みんなそこで決まるの。")
+	hitretResult := Hitret(37276)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051107")
+	Mess("へー、火加減ねー……")
+	hitretResult := Hitret(37277)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051108")
+	Mess("今まで適当にやってたなぁ、そういうの……")
+	hitretResult := Hitret(37278)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110022")
+	Mess("へぇ、瑛ちゃんがメイドさんに料理を教えてるのかい？　だっ")
+	Mess("たらほら、ニンジン買って行きなっ！　煮物にもカレーにも／")
+	Mess("使える、野菜の万能選手だぜ！")
+	hitretResult := Hitret(37279)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_14M", 0, 0)
+	Talk("瑛", "AK050114")
+	Mess("そうだねー、やっぱりお煮染めにしようかなー……ニンジンと")
+	Mess("里芋とゴボウと……")
+	hitretResult := Hitret(37280)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051109")
+	Mess("瑛ちゃん瑛ちゃん、それ泥付いてて汚いよ？")
+	hitretResult := Hitret(37281)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_02M", 0, 0)
+	Talk("瑛", "AK050115")
+	Mess("だから良いんだよー。新鮮って事だからー。")
+	hitretResult := Hitret(37282)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110023")
+	Mess("そうだよ、メイドさん。泥が付いてるほど取れ立てってね、見")
+	Mess("立ての基本だよっ。")
+	hitretResult := Hitret(37283)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051110")
+	Mess("そ、そうだったんだ……")
+	hitretResult := Hitret(37284)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050116")
+	Mess("お魚は目の色で見るんだよ。お肉は色と押した時の感触かな？")
+	hitretResult := Hitret(37285)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110024")
+	Mess("でも頼むから瑛ちゃん、パックをグニグニ潰すのはやめてね！")
+	hitretResult := Hitret(37286)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_05M", 0, 0)
+	Talk("瑛", "AK050117")
+	Mess("あはー、ごめんなさい。")
+	hitretResult := Hitret(37287)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051111")
+	Mess("……基本かぁ……私って、そんな事も知らないんだ……")
+	hitretResult := Hitret(37288)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051112")
+	Mess("ねえ、瑛ちゃん、私ってどう見える？　生活力なさそう？")
+	hitretResult := Hitret(37289)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050118")
+	Mess("んー……？　……んー……うんっ！")
+	hitretResult := Hitret(37290)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051113")
+	Mess("は、はっきり頷かれた……")
+	hitretResult := Hitret(37291)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051114")
+	Mess("そんなにわかりやすいの？　私って……")
+	hitretResult := Hitret(37292)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051115")
+	Mess("でもこれからはきちんとするからね？　しっかり者で、家事も")
+	Mess("ちゃんと出来るようになるんだから。")
+	hitretResult := Hitret(37293)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_04M", 0, 0)
+	Talk("瑛", "AK050119")
+	Mess("がんばれっ、初佳お姉ちゃんっ！")
+	hitretResult := Hitret(37294)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051116")
+	Mess("ええっ、頑張るわっ！")
+	hitretResult := Hitret(37295)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_01M", 0, 0)
+	Talk("初佳", "MT051117")
+	Mess("今まで合コン行ってもイマイチ相手されなかったのは、こうい")
+	Mess("う事だったのよ。")
+	hitretResult := Hitret(37296)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051118")
+	Mess("私に魅力無いとかじゃなくて、ちょっと生活力に欠けてるのが")
+	Mess("バレてたからなんだわっ！")
+	hitretResult := Hitret(37297)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050120")
+	Mess("そうだねー、お姉ちゃんは浮世離れしてる感じかも。")
+	hitretResult := Hitret(37298)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051119")
+	Mess("……難しい言葉知ってるのね、瑛ちゃん。")
+	hitretResult := Hitret(37299)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050121")
+	Mess("ひろ姉ちゃんよく言ってるよ。お酒飲みながら、「浮き世の憂")
+	Mess("さを晴らしてんだよ」って。")
+	hitretResult := Hitret(37300)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051120")
+	Mess("あの子……被後見人の前で何やってるのよ。")
+	hitretResult := Hitret(37301)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_02M", 0, 0)
+	Talk("瑛", "AK050122")
+	Mess("初佳お姉ちゃんもお酒いっぱい飲むから、いっぱいお酒飲める")
+	Mess("人に相手になって貰うのがいいよね？")
+	hitretResult := Hitret(37302)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051121")
+	Mess("えっ……そ、そうねっ。")
+	hitretResult := Hitret(37303)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051122")
+	Mess("お酒飲むのには、悠くんはまだ早いけど……")
+	hitretResult := Hitret(37304)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051123")
+	Mess("料理が出来るようになれば、悠くんはもちろん……穹ちゃんも")
+	Mess("私を見直してくれるはず。")
+	hitretResult := Hitret(37305)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051124")
+	Mess("よしっ！　それじゃ瑛ちゃん、その材料で美味しい料理教えて")
+	Mess("ねっ。")
+	hitretResult := Hitret(37306)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_04M", 0, 0)
+	Talk("瑛", "AK050123")
+	Mess("はーいっ！　まっかせてーっ！")
+	hitretResult := Hitret(37307)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("タカノ店主", "NP110025")
+	Mess("へいっ、まいどっ！　せっかくのメイドさんだ、おまけにおま")
+	Mess("けして、全部で１２６０万円だよっ。")
+	hitretResult := Hitret(37308)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051125")
+	Mess("せ、せんっ、まんっ！？")
+	hitretResult := Hitret(37309)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050124")
+	Mess("あははー、ギャグだよそれー、面白いよねー？")
+	hitretResult := Hitret(37310)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051126")
+	Mess("ええっ！？")
+	hitretResult := Hitret(37311)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051127")
+	Mess("……生活力を身に付けるのは、なかなか大変そう……")
+	hitretResult := Hitret(37312)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050125")
+	Mess("あははー。")
+	hitretResult := Hitret(37313)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051128")
+	Mess("がっくりと肩を落とす私だった。")
+	hitretResult := Hitret(37314)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	WindowView(0)
+	Change("00_e023")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

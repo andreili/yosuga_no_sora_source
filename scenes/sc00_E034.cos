@@ -1,0 +1,234 @@
+Include"yosuga.ch"
+
+Function sc00_E034()
+	ScenarioEnter()
+	ScPlayBgm("BGM05", 0)
+	SetCg("B17a", 0, 0)
+	Talk("心の声", "")
+	Mess("今日ほど放課後を待ち遠しいと感じた日はなかった。")
+	hitretResult := Hitret(38571)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("何度も学校を抜け出そうと思っては、その度に初佳さんに迷惑")
+	Mess("が掛かるからと思い直した。")
+	hitretResult := Hitret(38572)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("やるべき事も出来ない人間だと、嫌われそうだったからでもあ")
+	Mess("る。")
+	hitretResult := Hitret(38573)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("初佳さんは、そういう所はちゃんとしてる人だから。")
+	hitretResult := Hitret(38574)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("だから、")
+	hitretResult := Hitret(38575)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Hide()
+	SetCg("B17b", 0, 0)
+	Update()
+	ScPlaySe("SE352", 0)
+	SetCg("B19b", 0, 0)
+	Talk("心の声", "")
+	Mess("全ての授業が終わって、帰りのホームルームが終わるのを待っ")
+	Mess("て、僕は教室を飛び出した。")
+	hitretResult := Hitret(38576)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Hide()
+	SetCg("BLACK", 0, 0)
+	WindowView(1)
+	Transition("WIP_LR", 500)
+	Update()
+	SetCg("B19b", 0, 0)
+	Transition("WIP_LR", 500)
+	SetBustup("CH01_04S", 0, 0)
+	Talk("委員長", "KO050006")
+	Mess("春日野君っ、今日の掃除当番っ……")
+	hitretResult := Hitret(38577)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_03S", 0, 0)
+	Talk("亮平", "RH050367")
+	Mess("おっと委員長。そいつは俺がやっとくから、勘弁してやってく")
+	Mess("れないか？")
+	hitretResult := Hitret(38578)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CH01_01S", 0, 0)
+	Talk("委員長", "KO050007")
+	Mess("中里さんが……？　いつも率先して逃げだそうとするのに……")
+	hitretResult := Hitret(38579)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_06S", 0, 0)
+	Talk("亮平", "RH050368")
+	Mess("なにおうっ！？　教室美化委員会事務局長たるこの俺を差し置")
+	Mess("いて、この教室を掃除してる輩がいると申すか！")
+	hitretResult := Hitret(38580)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CC01_02S", 0, 0)
+	Talk("瑛", "AK050140")
+	Mess("あー、あたしよく掃除してるよー？")
+	hitretResult := Hitret(38581)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_01S", 0, 0)
+	Talk("一葉", "KA050097")
+	Mess("瑛は簡単に引き受けすぎなのよ……")
+	hitretResult := Hitret(38582)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050141")
+	Mess("困ってる人見たら放っておけないよー。")
+	hitretResult := Hitret(38583)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_06S", 0, 0)
+	Talk("一葉", "KA050098")
+	Mess("困ってるんじゃなくて、楽をしたいだけなのっ！")
+	hitretResult := Hitret(38584)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_02S", 0, 0)
+	Talk("亮平", "RH050369")
+	Mess("まーまーお嬢様、ここはひとつ穏便に……")
+	hitretResult := Hitret(38585)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CH01_11S", 0, 0)
+	Talk("委員長", "KO050008")
+	Mess("……春日野君の代理は認めますから、さっさと掃除してくださ")
+	Mess("い。")
+	hitretResult := Hitret(38586)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CF01_02S", 0, 0)
+	SetBustup("CC01_04S", 0, 0)
+	Talk("亮平", "RH050370")
+	Mess("よっしゃぁっ！　そんじゃいっちょ始めるとすっか！")
+	hitretResult := Hitret(38587)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Jump(2, 0)
+	Talk("瑛", "AK050142")
+	Mess("わーい！　お掃除お掃除ーっ！！　／")
+	Mess("ほらー、カズちゃんも！")
+	hitretResult := Hitret(38588)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CD01_04S", 0, 0)
+	Talk("一葉", "KA050099")
+	Mess("どうして私まで……用事も無いからいいけど……")
+	hitretResult := Hitret(38589)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CF01_08M", 0, 0)
+	Talk("亮平", "RH050371")
+	Mess("……頑張れよ、悠……")
+	hitretResult := Hitret(38590)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	WindowView(0)
+	Change("00_e034b")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

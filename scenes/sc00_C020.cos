@@ -1,0 +1,264 @@
+Include"yosuga.ch"
+
+Function sc00_C020()
+	ScenarioEnter()
+	ScPlaySe("SE302", 0)
+	SetCg("B01a", 0, 0)
+	Update()
+	ScWait(1500, 0)
+	SetCg("B02a", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("—I", "")
+	Mess("`ô")
+	hitretResult := Hitret(22619)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("‚¨’‹‚²”Ñ‚ÉA–l‚Í–ìØ‚Ìc‚è•¨‚ğàu‚ß‚ÄÄ‚«‚»‚Î‚Ì‹ï‚ğì‚éB")
+	hitretResult := Hitret(22620)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM03", 0)
+	ScPlaySe("se071", 0)
+	Talk("S‚Ìº", "")
+	Mess("‚»‚µ‚Äƒtƒ‰ƒCƒpƒ“‚É”–‚­…‚ğ’£‚Á‚ÄA‚»‚±‚ÉÄ‚«‚»‚Î‚ÌŠ£–Ë‚ğ")
+	Mess("“ü‚êA…‚ğ•¦“«‚³‚¹‚È‚ª‚ç_‚ç‚©‚­‚µ‚Ä‚¢‚­B")
+	hitretResult := Hitret(22621)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("‘ÜÄ‚«‚»‚Î‚ÍA‚Ç‚¤‚â‚Á‚Äì‚é‚©‚Ì’·”N‚Ì“ä‚ª‚æ‚¤‚â‚­‚í‚©‚Á")
+	Mess("‚½B")
+	hitretResult := Hitret(22622)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR020154")
+	Mess("......... It feels disgusting.")
+	hitretResult := Hitret(22623)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("W-what are you talking about, I definitely tasted the^food, and this can be eaten!")
+	hitretResult := Hitret(22624)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 0, 0)
+	Talk("Sora", "SR020155")
+	Mess("....... Humming something through your nose, like Akira.")
+	hitretResult := Hitret(22625)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ehh...... Ah, you're talking about this. Can't I do^that? I'm just humming as I cook.")
+	hitretResult := Hitret(22626)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("After the noodles that have turned soft, and then^finally adding the sauce and mix together. The aroma^starts to spread out and my appetite is immediately^stoked.")
+	hitretResult := Hitret(22627)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("I place the fried Soba into two plates.")
+	hitretResult := Hitret(22628)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well then, let's eat...... Itadakimasu.")
+	hitretResult := Hitret(22629)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("Sora", "SR020156")
+	Mess("cccccccc")
+	hitretResult := Hitret(22630)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...... Hmm, I made it pretty well after all.")
+	hitretResult := Hitret(22631)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("The steaming fried along with the savorous sauce, is^really delicious.")
+	hitretResult := Hitret(22632)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Hm? Sora, are you going to eat?")
+	hitretResult := Hitret(22633)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 0, 0)
+	Talk("Sora", "SR020157")
+	Mess("......... I had enough.")
+	hitretResult := Hitret(22634)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Sora only ate a little of the side dishes that consisted^of vegetables, and placed her chopsticks down.")
+	hitretResult := Hitret(22635)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Is it summer exhaustion? If you don't eat well, you will^feel even more tired, right? (TL: Summer heat^exhaustion.)")
+	hitretResult := Hitret(22636)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR020158")
+	Mess("....... Haruka is, the one who's floating, be careful of^making blunders.")
+	hitretResult := Hitret(22637)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("......Eh?")
+	hitretResult := Hitret(22638)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("S‚Ìº", "")
+	Mess("Sora took a box of candy, and just returned to her room.")
+	hitretResult := Hitret(22639)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Is the food really that terrible...? Ah... This is^bad......")
+	hitretResult := Hitret(22640)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Packeted fried Soba...... And it's also instant noodles,^something that Sora hates.......")
+	hitretResult := Hitret(22641)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("But, why did she not say anything when I was^cooking......")
+	hitretResult := Hitret(22642)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Then this means...... All of this, has to be finished^all by myself......?")
+	hitretResult := Hitret(22643)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Adding up the two plates is certainly a large volume of^fried soba, and this ended up as my lunch.")
+	hitretResult := Hitret(22644)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	ScWait(2000, 0)
+	Change("00_c020b")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

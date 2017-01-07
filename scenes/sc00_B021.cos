@@ -1,0 +1,3207 @@
+Include"yosuga.ch"
+
+Function sc00_B021()
+	ScenarioEnter()
+	CALL IsRecollectMode
+	JUMP_OK _l_6
+	NOP
+	JUMP _l_1601
+@_l_6:
+	SetCg("B21a", 0, 0)
+	Transition("WIP_LR", 500)
+	ScPlayBgm("BGM03", 0)
+	Talk("êSÇÃê∫", "")
+	Mess("I pushed her against the door of the locker room, thenÅ^we stared at each other.")
+	hitretResult := Hitret(14802)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And again, we kissed each other but I felt her tonguesÅ^as well.")
+	hitretResult := Hitret(14803)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("After that...")
+	hitretResult := Hitret(14804)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We felt worried if someone might see us, so we quicklyÅ^let go of each other.")
+	hitretResult := Hitret(14805)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's because a teacher might come to the pool as well.Å^It would really be bad if someone might catch upÅ^flirting here.")
+	hitretResult := Hitret(14806)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("If a teacher comes to the pool for a while and sees usÅ^like this, they might send us home right away.")
+	hitretResult := Hitret(14807)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("With the two of us left in an awkward situation here inÅ^the pool, we decided to change our clothes.")
+	hitretResult := Hitret(14808)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se018", 0)
+	Talk("Haruka", "")
+	Mess("!? Wh-what?")
+	hitretResult := Hitret(14809)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Inside the clubroom of the swimming club, I heardÅ^something loud.")
+	hitretResult := Hitret(14810)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...Nao-chan? Are you all right?")
+	hitretResult := Hitret(14811)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031090")
+	Mess("Ah, yeah... I'm all right...")
+	hitretResult := Hitret(14812)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...??? What were you doing? That was loud...")
+	hitretResult := Hitret(14813)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_01M", 0, 0)
+	Talk("Nao", "NO031091")
+	Mess("Sorry if I surprised you... I was looking for this.")
+	hitretResult := Hitret(14814)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan came out from their clubroom, then she gave meÅ^a swimming goggle.")
+	hitretResult := Hitret(14815)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("This is...")
+	hitretResult := Hitret(14816)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031092")
+	Mess("We didn't use it that much, so you can have itÅ^Haru-chan.")
+	hitretResult := Hitret(14817)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh, is it all right? This was bought by the club right?")
+	hitretResult := Hitret(14818)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031093")
+	Mess("It's fine, it's totally fine if you use it.")
+	hitretResult := Hitret(14819)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Thank you, I'll cherish this and use it.")
+	hitretResult := Hitret(14820)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031094")
+	Mess("Hehe, you're welcome.")
+	hitretResult := Hitret(14821)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_02L", 0, 0)
+	Talk("Nao", "NO031095")
+	Mess("Let me see... I wonder if it looks good on youÅ^Haru-chan?")
+	hitretResult := Hitret(14822)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("!... Ah...")
+	hitretResult := Hitret(14823)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan suddenly leaned forward as she went up close toÅ^me.")
+	hitretResult := Hitret(14824)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And then, she gently placed the goggles on my head andÅ^perfectly placed it on my eyes.")
+	hitretResult := Hitret(14825)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031096")
+	Mess("Okay, okay, it looks all right.")
+	hitretResult := Hitret(14826)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah... I also think so.")
+	hitretResult := Hitret(14827)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I peeped into Nao-chan's breasts as they were in frontÅ^of me.")
+	hitretResult := Hitret(14828)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031097")
+	Mess("You can adjust the strap later.")
+	hitretResult := Hitret(14829)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I got it. Nao-chan, thank you very much.")
+	hitretResult := Hitret(14830)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031098")
+	Mess("No, no... Ah, sorry, I kept you waiting...")
+	hitretResult := Hitret(14831)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("No... It's fine, just take it slowly.")
+	hitretResult := Hitret(14832)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Talk("Nao", "NO031099")
+	Mess("I'll change right away... Kya!")
+	hitretResult := Hitret(14833)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Quake(16, 0, 0, 2, 30)
+	SetBustup("CB04_13L", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's feet slipped, then she fell down.")
+	hitretResult := Hitret(14834)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Oh! Are you all right?")
+	hitretResult := Hitret(14835)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_11L", 0, 0)
+	Talk("Nao", "NO031100")
+	Mess("Th-Thank you... Because it was always slippery here...")
+	hitretResult := Hitret(14836)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I caught and hugged Nao-chan in a very cool way, thoughÅ^I felt something was stiff.")
+	hitretResult := Hitret(14837)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Our kiss earlier seems to have left something in myÅ^head.")
+	hitretResult := Hitret(14838)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031101")
+	Mess("...Ah... Haru-chan...")
+	hitretResult := Hitret(14839)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I unintentionally hugged her more tightly as I placed myÅ^arms around her.")
+	hitretResult := Hitret(14840)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM18", 0)
+	SetBustup("CB04_11L", 0, 0)
+	Talk("Nao", "NO031102")
+	Mess("...H-Haru-chan...")
+	hitretResult := Hitret(14841)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's heart is also throbbing fast like mine.")
+	hitretResult := Hitret(14842)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Ever since earlier, my heart has been throbbingÅ^violently.")
+	hitretResult := Hitret(14843)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's wet swimsuit made the lines of her body moreÅ^obvious, and I can't look away from her anymore.")
+	hitretResult := Hitret(14844)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...Nao-chan...")
+	hitretResult := Hitret(14845)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... Sorry...")
+	hitretResult := Hitret(14846)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031103")
+	Mess("...It's fine...")
+	hitretResult := Hitret(14847)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan smiled strangely as she stroke my cheeks withÅ^her fingers.")
+	hitretResult := Hitret(14848)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And then, I slowly closed my eyes as I drew my face nearÅ^her.")
+	hitretResult := Hitret(14849)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+@_l_1601:
+
+	ScPlayBgm("BGM18", 0)
+	Talk("Nao", "NO031104")
+	Mess("...Ngh...")
+	hitretResult := Hitret(14850)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We continued to kiss each other for several times now.")
+	hitretResult := Hitret(14851)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I gently inserted my tongue between her lips, then myÅ^head felt like it's spinning, as if I fell into a trapÅ^of enchantment.")
+	hitretResult := Hitret(14852)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB10a", 0, 0)
+	Talk("Haruka", "")
+	Mess("...Nao-chan...")
+	hitretResult := Hitret(14853)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She slowly laid her body down the couch, then Nao-chanÅ^looked at me.")
+	hitretResult := Hitret(14854)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I felt a bit nervous, then my body felt more stiff.")
+	hitretResult := Hitret(14855)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...Ngh...")
+	hitretResult := Hitret(14856)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I tried to loosen up myself as I kissed her.")
+	hitretResult := Hitret(14857)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031105")
+	Mess("Ngh... *kiss*...")
+	hitretResult := Hitret(14858)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Our bodies were cooled from the pool earlier, though ourÅ^lips feel so hot.")
+	hitretResult := Hitret(14859)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I took one of Nao-chan's legs and opened her crotch,Å^Nao-chan covered her body above.")
+	hitretResult := Hitret(14860)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031106")
+	Mess("Haru-chan...")
+	hitretResult := Hitret(14861)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's going to be different from that time, I'll be onÅ^top of Nao-chan this time.")
+	hitretResult := Hitret(14862)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan embarrassedly closed her eyes, as if herÅ^strength slowly left her.")
+	hitretResult := Hitret(14863)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's body has completely changed ever since sheÅ^was small, she looks more mature now.")
+	hitretResult := Hitret(14864)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I suddenly reached out and touched her breasts, then IÅ^felt her thighs as well.")
+	hitretResult := Hitret(14865)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031107")
+	Mess("Ah... ngh...")
+	hitretResult := Hitret(14866)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan let out a seductive voice as I caressed herÅ^body.")
+	hitretResult := Hitret(14867)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031108")
+	Mess("Haru-chan... I love that spot... Is it fine if you touchÅ^it?")
+	hitretResult := Hitret(14868)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031109")
+	Mess("Over here... My chest... I love it here... ngh...")
+	hitretResult := Hitret(14869)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah... Nao-chan...")
+	hitretResult := Hitret(14870)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031110")
+	Mess("Ngh... It's fine... Haru-chan...")
+	hitretResult := Hitret(14871)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan guided me as she took my hands and placed it onÅ^her crotch.")
+	hitretResult := Hitret(14872)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her swimsuit is wet that it sticks perfectly on herÅ^skin, I can clearly feel something swelling up betweenÅ^her crotch.")
+	hitretResult := Hitret(14873)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Then I gently stroke it with my fingertips.")
+	hitretResult := Hitret(14874)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031111")
+	Mess("Ugh... Aah... ngh... So gentle... Haru-chan...")
+	hitretResult := Hitret(14875)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031112")
+	Mess("Is it all right if you put more force to it? Ah...Å^ngh... I'm fine, so...")
+	hitretResult := Hitret(14876)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031113")
+	Mess("Ngh! Aah... Th-There... That's my sensitive spot... Ugh!")
+	hitretResult := Hitret(14877)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031114")
+	Mess("Aah... Yes... Yes... Along those part... Rub it more...")
+	hitretResult := Hitret(14878)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031115")
+	Mess("Aaah... ngh... Aangh... Haahaahaa...")
+	hitretResult := Hitret(14879)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I felt her warm rift through my fingertips. At thatÅ^moment, I feel like Nao-chan's releasing something fromÅ^it, I'm sure of it.")
+	hitretResult := Hitret(14880)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her cameltoe is swelling up... I pushed it using myÅ^middle finger then I ran it through her rift up to herÅ^stomach, she slowly felt more warmer.")
+	hitretResult := Hitret(14881)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I stroke the whole area gently with my fingertips, thenÅ^Nao-chan hips kept on moving as if it wants to run away.")
+	hitretResult := Hitret(14882)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's so hot here... Nao-chan... I think you're soakingÅ^here...")
+	hitretResult := Hitret(14883)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031116")
+	Mess("Ngh... Ah... Haru-chan, it's because you're playing withÅ^it... It feels great... ngh... Haa haa...")
+	hitretResult := Hitret(14884)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031117")
+	Mess("But... It's a little ticklish too... ngah... Ah...")
+	hitretResult := Hitret(14885)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Your hips are moving.")
+	hitretResult := Hitret(14886)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031118")
+	Mess("Hehehe, that's right... ngh... Rub me more above theÅ^line...")
+	hitretResult := Hitret(14887)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay... You mean here...")
+	hitretResult := Hitret(14888)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031119")
+	Mess("Ahh... nghh.... Y-Yes... The upper part along thatÅ^line... Ah... There... Aahh... ngh... It feels greaat...")
+	hitretResult := Hitret(14889)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I rubbed it, then Nao-chan grabbed my hand to stop it.")
+	hitretResult := Hitret(14890)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031120")
+	Mess("Haahaa... Sorry... I was surprised when you rubbed it soÅ^hard... Do it one more time... nghhhh... Aaaghhh...")
+	hitretResult := Hitret(14891)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031121")
+	Mess("Ah... I-It's fine... Over here, is what they say theÅ^clitoris... It's a woman's sensitive spot... ngh... DidÅ^you know?")
+	hitretResult := Hitret(14892)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh... I-I think I've heard that name... Ah, this...")
+	hitretResult := Hitret(14893)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031122")
+	Mess("Hehe... It's because you kept on teasing me Haru-chan...Å^Say, can you touch it more?")
+	hitretResult := Hitret(14894)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah...")
+	hitretResult := Hitret(14895)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I caressed the spot gently once more as Nao-chan hadÅ^told me to. I'm not even sure if there's a cloth inÅ^between, it's hard and soft at the same time above herÅ^rift.")
+	hitretResult := Hitret(14896)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031123")
+	Mess("Ahh... ngh... nghhh... Aahh... Yes... Nice... Ahh, it'sÅ^so great... ngh...")
+	hitretResult := Hitret(14897)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031124")
+	Mess("Ngh... Ahh... I-It's hot... I'm getting hotter...")
+	hitretResult := Hitret(14898)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031125")
+	Mess("Ngh... Ahh... I can't feel my hips... Aughh... It'sÅ^embarrassing...")
+	hitretResult := Hitret(14899)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031126")
+	Mess("Ngh... nghu... Ahh... Haru-chan... Touch my breastsÅ^too...")
+	hitretResult := Hitret(14900)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay...")
+	hitretResult := Hitret(14901)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I looked straight at her large breasts. As I caress herÅ^clitoris for a several times, it shook a couple of timesÅ^as if she's really asking for it.")
+	hitretResult := Hitret(14902)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I honestly felt bad as I stared at for a long time,Å^though I don't usually see it so I carefully imprintedÅ^it on my eyes.")
+	hitretResult := Hitret(14903)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But now, I stretched my hands to her breasts that's beenÅ^seducing me.")
+	hitretResult := Hitret(14904)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Then suddenly, I spread my fingers as I grabbed herÅ^breasts.")
+	hitretResult := Hitret(14905)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It felt squishy as I rubbed it, as I felt it through myÅ^palms, it was so soft and flexible contrary to what IÅ^always thought it would be.")
+	hitretResult := Hitret(14906)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Even though it's so soft, it keeps its shape which makesÅ^it strange.")
+	hitretResult := Hitret(14907)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031127")
+	Mess("Ngh... Ah... Hehe, doing it so sudden?")
+	hitretResult := Hitret(14908)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah... Sorry...")
+	hitretResult := Hitret(14909)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031128")
+	Mess("No... It's fine... Fondle it more... I'm reallyÅ^confident that it's soft... ngh... nnn...")
+	hitretResult := Hitret(14910)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031129")
+	Mess("Ahh... Y-Yes... It feels great when you rub it around...")
+	hitretResult := Hitret(14911)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031130")
+	Mess("Nnn, nghhh... A-Ahaa... Don't take it off my breasts, isÅ^it fine if you fondle it more? Aaannhh... Ahaa...")
+	hitretResult := Hitret(14912)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("As I fondle it around and around, I poked it with myÅ^fingers, then it would shake and go back to its originalÅ^shape.")
+	hitretResult := Hitret(14913)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I can probably stretch her breasts as well. I looked atÅ^it shake once more, but somehow she looks happy when IÅ^do that.")
+	hitretResult := Hitret(14914)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I couldn't remember how I touched her breasts back then,Å^though as I touch her in so many ways I slowly rememberÅ^them.")
+	hitretResult := Hitret(14915)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031131")
+	Mess("Ngh... Ahh... nghuu... Ah... My nipples... are soÅ^hard...")
+	hitretResult := Hitret(14916)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("There's something bulging out from her swimsuit. Then IÅ^pinched it as I tease her.")
+	hitretResult := Hitret(14917)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031132")
+	Mess("Nuuugghhhh... Ah... My nipples are so hard... Ahu......Å^ngh... I can feel it mooore... Nuughh!")
+	hitretResult := Hitret(14918)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031133")
+	Mess("Aahh... Haru-chan... ngh... Ah... Rub it more...")
+	hitretResult := Hitret(14919)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031134")
+	Mess("Ahh... Aaughhh! Ngh... Ah... Ahaa... Ah!!!")
+	hitretResult := Hitret(14920)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031135")
+	Mess("Just rub my nipples more... I feel more hoooot... Aah...Å^Haahaa...")
+	hitretResult := Hitret(14921)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031136")
+	Mess("Ughhh... My breasts hurts a little...")
+	hitretResult := Hitret(14922)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah... Are you all right? Was I too rough?")
+	hitretResult := Hitret(14923)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031137")
+	Mess("No... *kiss* Nghh... You're so good at this Haru-chan...Å^The swimsuit was so tight... You can take it off for aÅ^bit.")
+	hitretResult := Hitret(14924)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB10b", 0, 0)
+	Talk("Nao", "NO031138")
+	Mess("Ngh... Sho... Ah... Ugh... I feel a bit embarrassed toÅ^show it to you...")
+	hitretResult := Hitret(14925)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I took off the strap from Nao-chan's shoulders, then herÅ^nipples slowly erected to its peak and her big breastsÅ^trembled more.")
+	hitretResult := Hitret(14926)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("SOO BIG... It changed once more. Her breast paddings areÅ^so deceiving, Nao-chan moved several times, then herÅ^breasts moved and swayed freely.")
+	hitretResult := Hitret(14927)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...It has a good form... ngh... *suck*...")
+	hitretResult := Hitret(14928)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031139")
+	Mess("Ahh... nghuuuhhh... Aahhh... Y-Yesss, it feels good whenÅ^you lick it... Ahh... nghuuu! Nghhuu...")
+	hitretResult := Hitret(14929)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031140")
+	Mess("Nghh... Aah... It's like a dream... For Haru-chan... ToÅ^suck my breasts very hard... nghhuuu! Aah... Aaahh...")
+	hitretResult := Hitret(14930)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031141")
+	Mess("Mor- Haru-chan... nghh, ughh! Ah, Aughh... Where haveÅ^you learned this? Doing these things...")
+	hitretResult := Hitret(14931)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's not like that... I don't know how... I just feelÅ^like doing it the way I want... *suck*... *lick*...")
+	hitretResult := Hitret(14932)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031142")
+	Mess("Aakkhh... Ahh... Aaaahh... You look so cute when youÅ^suck my tits... nghh... Don't suck it that hard...")
+	hitretResult := Hitret(14933)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031143")
+	Mess("Ahn... Ahahn... Haru-chan, that's cute...")
+	hitretResult := Hitret(14934)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031144")
+	Mess("Ngh... nghfu... Aaahh... I love you... Haru-chan...")
+	hitretResult := Hitret(14935)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I licked around her nipples all the way up to its tip,Å^then I continued to play with her nipples with the tipÅ^of my tongue, Nao-chan was moaning happily when I didÅ^it.")
+	hitretResult := Hitret(14936)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She cuddled and embraced me lightly like a baby, thenÅ^she brushed my head gently.")
+	hitretResult := Hitret(14937)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I felt so good, it's like I'm sucking milk fromÅ^Nao-chan's breasts as her nipples stood up so hard.")
+	hitretResult := Hitret(14938)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031145")
+	Mess("Nghuu... Ahh... Those sounds... Don't make those lewdÅ^sounds... Aah... nghh...")
+	hitretResult := Hitret(14939)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031146")
+	Mess("M-More... nghh... Aah... Don't touch it... It'sÅ^embarrassing... nghh... Aahh! Annhh!")
+	hitretResult := Hitret(14940)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031147")
+	Mess("Ah... Aahn... Even if you suck that much... I-I don'tÅ^have any milk... Aann... Ahh... nnhh...")
+	hitretResult := Hitret(14941)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031148")
+	Mess("Fuufuuh... ngh... Kya... Aaughh! Nghhuu! Ahyaa...Å^nghhuu... D-Don't bite it... Hyaa...")
+	hitretResult := Hitret(14942)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031149")
+	Mess("... B-But... Aah! Don't tease me like that... nghh...Å^it's soooo goood... Aaahnn!")
+	hitretResult := Hitret(14943)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan suddenly hugged me so tight.")
+	hitretResult := Hitret(14944)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ugh... Uughh... That hurts... Nao-chan...")
+	hitretResult := Hitret(14945)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031150")
+	Mess("Haahaahaa... Haru-chan... You were teasing me tooÅ^much...")
+	hitretResult := Hitret(14946)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She held me on to her sticky breasts, then I felt like IÅ^want to tickle her. But, her warmth felt so peaceful.")
+	hitretResult := Hitret(14947)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031151")
+	Mess("Geez... You're such a bad kid... *kiss*... ngh...")
+	hitretResult := Hitret(14948)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I slipped through her valley of breasts as I thought sheÅ^became angry earlier, then we kissed each other.")
+	hitretResult := Hitret(14949)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Let's do it more... Because I want to hear your cuteÅ^voice, Nao-chan.")
+	hitretResult := Hitret(14950)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031152")
+	Mess("Eh... H-Haru-chan? Ah... nghhkk... Aah!")
+	hitretResult := Hitret(14951)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I suddenly grabbed her on her breasts and faced herÅ^nipples, and then I rolled out my sticky saliva throughÅ^my tongue.")
+	hitretResult := Hitret(14952)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And, I placed my hand on her crotch, then I entered myÅ^finger in the gap on her swimsuit.")
+	hitretResult := Hitret(14953)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("A steam of air went out as I opened the gap, it looksÅ^like she's soaked so much as well.")
+	hitretResult := Hitret(14954)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She was already soaking wet that even her pubic hairÅ^were wet as well, I was touching her here earlier butÅ^then I went to caress it once more.")
+	hitretResult := Hitret(14955)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031153")
+	Mess("Nghku... Aah... I-Inside... Your fingers are goingÅ^inside... It's going inside me... nghku... Aaahh...Å^Hyaa... I feel so wet...")
+	hitretResult := Hitret(14956)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031154")
+	Mess("Nghh... Ah... Th-There... Ah... Aahh... M-My clitorisÅ^too... nghuuu... Ah...")
+	hitretResult := Hitret(14957)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031155")
+	Mess("Hyi... ngghhh... nghh... Ah... Haahaa... I-I can't feelÅ^anything... Aah... ngh...")
+	hitretResult := Hitret(14958)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("As I stroke her place up and down for several times, sheÅ^was already dripping with her own semen then it stickedÅ^to my fingers as well.")
+	hitretResult := Hitret(14959)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I caressed her with all of my fingers, and then it wasÅ^twitching and moving as if she was in pain.")
+	hitretResult := Hitret(14960)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I gently inserted my middle finger in her rift. At thatÅ^moment, she suddenly tightened up.")
+	hitretResult := Hitret(14961)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's hot inside Nao-chan's vagina, I felt her wallsÅ^along my finger as I lifted it up.")
+	hitretResult := Hitret(14962)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I graze my middle finger from the walls of her vagina,Å^then I slowly pushed my finger in and out.")
+	hitretResult := Hitret(14963)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031156")
+	Mess("Ngh-Aah... Ah... Aahn... Ah... Inside me... Hya... It'sÅ^touching me... Aah... Aghh... Ah...")
+	hitretResult := Hitret(14964)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The more I teased her, the tighter it gets.")
+	hitretResult := Hitret(14965)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I gently stroke Nao-chan's flesh near the opening of herÅ^vagina.")
+	hitretResult := Hitret(14966)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031157")
+	Mess("Nghh... Ahh... Aah! Ah... There... I can feel itÅ^there... Aah... Touch me there... nghh... That's good...")
+	hitretResult := Hitret(14967)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031158")
+	Mess("Aah... S-Stop... Haru-chan... nghhh!")
+	hitretResult := Hitret(14968)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031159")
+	Mess("Uwa... Aahn... Hya... Ugh... Ah... Aah!")
+	hitretResult := Hitret(14969)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031160")
+	Mess("I-I feel like I'm going to pass out... Aah!! Aaah...Å^nghh!!!")
+	hitretResult := Hitret(14970)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("At that time, Nao-chan started to leak out her fluids,Å^something hot squirted all over the place.")
+	hitretResult := Hitret(14971)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I took a peek in her vagina, then her hips looked likeÅ^they had cramps as she lifted it.")
+	hitretResult := Hitret(14972)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031161")
+	Mess("Aah... Ah! Nghuuu! S-Stop, your finger... Aahn... Aaa...Å^Aa, aahn!!")
+	hitretResult := Hitret(14973)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I caressed Nao-chan's weak spot which is the part aboveÅ^her rift, I pushed it down with my fingers then sheÅ^shook her head as if she's saying no.")
+	hitretResult := Hitret(14974)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But, I touched her stomach once more as I continued toÅ^tease her.")
+	hitretResult := Hitret(14975)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031162")
+	Mess("Nghaa... Ughh... A-Aah! D-Dooon't! I-It hurts... Aah!!")
+	hitretResult := Hitret(14976)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031163")
+	Mess("Haahaahaa... I feel like something is coming out...Å^nghh... Aah!")
+	hitretResult := Hitret(14977)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031164")
+	Mess("Ngh... Aaah... D-Don't touch that... ngh, nghaahn!")
+	hitretResult := Hitret(14978)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031165")
+	Mess("Ugh... Ah... H-Haru-chaan... I-I'm... ngh!")
+	hitretResult := Hitret(14979)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031166")
+	Mess("A-Aahn! A-A-Ahnnn!!")
+	hitretResult := Hitret(14980)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031167")
+	Mess("I-I'm... I-m coming! Nghuungg... Ah...")
+	hitretResult := Hitret(14981)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Flush("WHITE", 1000, "")
+	Talk("Nao", "NO031168")
+	Mess("Ah... Ahaa... ngh... Aaaaaaaaaaaaaa!!")
+	hitretResult := Hitret(14982)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031169")
+	Mess("Aaaaah... Aah... Ahaa... Haahaahaahaa...")
+	hitretResult := Hitret(14983)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031170")
+	Mess("Nghku... Ughh... Aa...")
+	hitretResult := Hitret(14984)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's body sprung up and formed an arch. Then sheÅ^layed down on the couch as if she wanted to sleep.")
+	hitretResult := Hitret(14985)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan bent back to the other side with an ecstaticÅ^look on her face, her strength left her slowly.")
+	hitretResult := Hitret(14986)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's crotch is flooded with her semen, though herÅ^swimsuit seems to be absorbing it as well.")
+	hitretResult := Hitret(14987)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's different from the scent of the pool's chlorine, itÅ^had a sweet aroma that drifted in the air.")
+	hitretResult := Hitret(14988)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The smell was a mixture of Nao-chan's semen and sweat, IÅ^once again again became aroused by it even though I'veÅ^already cooled down.")
+	hitretResult := Hitret(14989)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031171")
+	Mess("Haru-chan... Geez... You're so forceful...")
+	hitretResult := Hitret(14990)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's because you also look like you were enjoying itÅ^Nao-chan...")
+	hitretResult := Hitret(14991)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031172")
+	Mess("... Since when did you learn how to make a girl cry?")
+	hitretResult := Hitret(14992)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh... I-It's not like that...")
+	hitretResult := Hitret(14993)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031173")
+	Mess("Fufufu, just kidding...")
+	hitretResult := Hitret(14994)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan was staggering as she got up, she held me inÅ^both of my cheeks and we kissed for a long time.")
+	hitretResult := Hitret(14995)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031174")
+	Mess("Ngh... Chuu... nghh... ngh... Haahaa...")
+	hitretResult := Hitret(14996)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031175")
+	Mess("Next is Haru-chan's... Over here... Your stretched thingÅ^seems to be in pain, right?")
+	hitretResult := Hitret(14997)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ahh... ngh... Th-That's right, but... Ah...")
+	hitretResult := Hitret(14998)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031176")
+	Mess("Ngfuu... Your face looks like in pain... So cute...Å^Chuu...")
+	hitretResult := Hitret(14999)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Nao-chan...")
+	hitretResult := Hitret(15000)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It was pointing directly to Nao-chan, my thing wasÅ^already stretching my pants out.")
+	hitretResult := Hitret(15001)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan gently stroke it, then my hips gave up, I feltÅ^so weak to it.")
+	hitretResult := Hitret(15002)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("In that state... I couldn't hold it much longer.")
+	hitretResult := Hitret(15003)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031177")
+	Mess("Haru-chan... Come...")
+	hitretResult := Hitret(15004)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah... Nao-chan, put your hands against the wall.")
+	hitretResult := Hitret(15005)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031178")
+	Mess("Eh... Ah, okay...")
+	hitretResult := Hitret(15006)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We formed a line as I pushed up against her, it was aÅ^little narrow.")
+	hitretResult := Hitret(15007)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("Nao", "NO031179")
+	Mess("Like this?")
+	hitretResult := Hitret(15008)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan placed her hands against the lockers and lookedÅ^at me over her shoulders.")
+	hitretResult := Hitret(15009)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah... I'll go from behind.")
+	hitretResult := Hitret(15010)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031180")
+	Mess("Ah... Yeah... Ah... It's okay if we don't undress atÅ^all?")
+	hitretResult := Hitret(15011)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay then... Show me your tits.")
+	hitretResult := Hitret(15012)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031181")
+	Mess("Yeahh... Go ahead... Look at it... Here...")
+	hitretResult := Hitret(15013)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I took away my hand from her swimsuit by her hips, thenÅ^I slowly played her big breasts that kept on swinging.")
+	hitretResult := Hitret(15014)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I continued to cling behind Nao-chan which made herÅ^breasts sway more.")
+	hitretResult := Hitret(15015)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Chuu... nghh... *lick*... *suck*...")
+	hitretResult := Hitret(15016)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031182")
+	Mess("Aaah... nghh... Haru-chan, you really love my tits...")
+	hitretResult := Hitret(15017)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("That's because... You always looked so happy whenever IÅ^play with them...")
+	hitretResult := Hitret(15018)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031183")
+	Mess("Fufu, ahn... I really like it... Rub it more, okay?Å^Don't worry about anything... ngh...")
+	hitretResult := Hitret(15019)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Nao-chan... I'm going in...")
+	hitretResult := Hitret(15020)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031184")
+	Mess("Over here... I'm already soaking Haru-chan... Go on...")
+	hitretResult := Hitret(15021)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay... Here I come... ngh... guh...")
+	hitretResult := Hitret(15022)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("My thing sprung out as I opened my zipper.")
+	hitretResult := Hitret(15023)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("My thing stood like a tower and swayed, Nao-chan spreadÅ^the mouth of her place using her fingers so that I couldÅ^put it inside right away.")
+	hitretResult := Hitret(15024)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031185")
+	Mess("Uwa... It's hot, Haru-chan's thing... nghaaah... Aah...Å^I-It's going inside me... nghuuu...")
+	hitretResult := Hitret(15025)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her crevice is already soaking with semen, my thingÅ^easily entered because of it.")
+	hitretResult := Hitret(15026)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB11a", 0, 0)
+	Talk("Nao", "NO031186")
+	Mess("Nghuuu... Aaaaaaah... Guh... Aaahh...")
+	hitretResult := Hitret(15027)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031187")
+	Mess("Aah... Haahaahaa... It's very big... Aah... nghh...Å^Aah... Haahaah... My insides are trembling...")
+	hitretResult := Hitret(15028)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031188")
+	Mess("Ah... Haru-chan... you just reached the deepest part...Å^nghuu...")
+	hitretResult := Hitret(15029)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I pushed my thing all the way up to my base.")
+	hitretResult := Hitret(15030)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I teased her so much earlier with my fingers, but herÅ^whole vagina is getting so tight as if its caressing myÅ^whole thing as well.")
+	hitretResult := Hitret(15031)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("T-Take it all in...")
+	hitretResult := Hitret(15032)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("This doesn't feel too good, I stopped moving.")
+	hitretResult := Hitret(15033)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("How would I make this feel more better?")
+	hitretResult := Hitret(15034)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I remembered what we did in the past.")
+	hitretResult := Hitret(15035)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan was so lewd that time, and I didn't know what'sÅ^what at all, then I also got tired.")
+	hitretResult := Hitret(15036)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I'm glad I felt good that time even though my memory isÅ^quite hazy. However, I have this pleasant feeling that'sÅ^been running through my thing.")
+	hitretResult := Hitret(15037)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("That is, Nao-chan is communicating with my feelings...Å^Is our mind and heart connected as our bodies are?")
+	hitretResult := Hitret(15038)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan looked like she's feeling so much pleasure as IÅ^caress her as well. Then my thing reacted along withÅ^those gentle and happy thoughts.")
+	hitretResult := Hitret(15039)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Back then, maybe Nao-chan and I were also greatlyÅ^connected.")
+	hitretResult := Hitret(15040)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031189")
+	Mess("Hmm? Haru-chan, it's fine if you want to changeÅ^positions... nghh...")
+	hitretResult := Hitret(15041)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sure... I'm not really feeling good with thisÅ^position... We should change...")
+	hitretResult := Hitret(15042)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031190")
+	Mess("Fufu, if that's the case, I'll do my best until you'reÅ^tired...")
+	hitretResult := Hitret(15043)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... M-My body can still handle it...")
+	hitretResult := Hitret(15044)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031191")
+	Mess("It's fine if you take it slowly... Don't push yourselfÅ^too much okay?")
+	hitretResult := Hitret(15045)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, you're right. We're not yet done here...")
+	hitretResult := Hitret(15046)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031192")
+	Mess("Ngh... Aah... It's gonne be more fun right?")
+	hitretResult := Hitret(15047)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I grasp onto Nao-chan's hips, and slowly, I pulled myÅ^thing out and thrusted it back.")
+	hitretResult := Hitret(15048)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031193")
+	Mess("Nghh... Aah... Aahah... Aaaah...")
+	hitretResult := Hitret(15049)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031194")
+	Mess("It's slow but.. Nghhaahh... Aah, it feels so great...")
+	hitretResult := Hitret(15050)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031195")
+	Mess("Nghh... nghuu... Aaaah... You can do what you want...Å^Move any way you want...")
+	hitretResult := Hitret(15051)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031196")
+	Mess("Aah... Ahah... ngh-nghh... Haru-chan, y-you're stirringÅ^me up to my stomach.")
+	hitretResult := Hitret(15052)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031197")
+	Mess("Ahah... Ahn, Aah, Aahn!")
+	hitretResult := Hitret(15053)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Even though it was slow, Nao-chan can feel it as she wasÅ^so tight which makes me graze her walls.")
+	hitretResult := Hitret(15054)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("There were some semen along as I pulled out, thenÅ^Nao-chan leaked out up to her crotch and thighs.")
+	hitretResult := Hitret(15055)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I thrusted her hips several times, Nao-chan arched andÅ^bent her back, then her big juggs started swaying.")
+	hitretResult := Hitret(15056)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It looks like she's not hurt by it, though they'reÅ^shaking freely.")
+	hitretResult := Hitret(15057)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031198")
+	Mess("Nghh... nguuh... Ah-Aah-Aaah... Haru-chan! Nghuu...Å^Ahh... Y-Yes...")
+	hitretResult := Hitret(15058)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("You've got a beautiful back... *Kiss* *Kiss*... nghh...")
+	hitretResult := Hitret(15059)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031199")
+	Mess("Nghaah-aah... Kiss my back... nghh-aah...")
+	hitretResult := Hitret(15060)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031200")
+	Mess("Aagh, one after another... nghaaah... Aah... One moreÅ^time... Kiss me there... nghha...")
+	hitretResult := Hitret(15061)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031201")
+	Mess("Hyaah... Th-That's my nape... nghfuuuhn... Aah...")
+	hitretResult := Hitret(15062)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031202")
+	Mess("Haru-chan... my weak spots... It seems that you know allÅ^of them...")
+	hitretResult := Hitret(15063)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Next I grabbed her big swaying juggs. Then, I thrustedÅ^her so hard as I held on to her breasts.")
+	hitretResult := Hitret(15064)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031203")
+	Mess("Aaahn... nghuu... H-Haru-chan...")
+	hitretResult := Hitret(15065)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031204")
+	Mess("Nghh-nghhuu... Haahaah... Aaah... My tits... Rub themÅ^more... nghh-ughh... Hahhah...")
+	hitretResult := Hitret(15066)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031205")
+	Mess("Aahn... ngfuuu... Aah-kyaa... My nipples, you'reÅ^pinching them... Aa-aahh-aahh-aahh! ughn...")
+	hitretResult := Hitret(15067)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031206")
+	Mess("Hiih... Ughnn... A-Aah... J-Just take it easy...Å^A-Aaah... Aaahn~!")
+	hitretResult := Hitret(15068)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's useless to resist... *Kiss* *Kiss*...")
+	hitretResult := Hitret(15069)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031207")
+	Mess("Aahn... Haru-chan you meanie... You're at my backÅ^again... Aaahn...")
+	hitretResult := Hitret(15070)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I stroke her nipples as she tried to resist it, then IÅ^kissed Nao-chan on her back so that she won't run awayÅ^from this feeling.")
+	hitretResult := Hitret(15071)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031208")
+	Mess("Nghuu... Aah... You're feeling up my breasts too much...Å^Nhaaahn...")
+	hitretResult := Hitret(15072)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031209")
+	Mess("Haru-chan... my tits... Aaahh... It feels so good...Å^Haahaa... It's so matured now right... nghhh... Ugghh...")
+	hitretResult := Hitret(15073)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031210")
+	Mess("Aah-nghh... Haru-chan... You really love my tits huh...Å^Aahnn-nghh...")
+	hitretResult := Hitret(15074)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I saw them swaying a while ago, so I grabbed them.")
+	hitretResult := Hitret(15075)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031211")
+	Mess("Aah... Aaahn... Aah! Haah... Rub it with more roughly...")
+	hitretResult := Hitret(15076)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031212")
+	Mess("I can feel it change its shape... nghuu-aaah! Ahahn!")
+	hitretResult := Hitret(15077)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I tried to change its shape, I squeezed her breastsÅ^several times, and then I pinched her nipples andÅ^suddenly pulled it.")
+	hitretResult := Hitret(15078)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Even if I caressed it so roughly, my hands just wants toÅ^keep on feeling up Nao-chan's breasts as if they'reÅ^glued to it.")
+	hitretResult := Hitret(15079)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And then, Nao-chan moaned a lovely voice as she bent herÅ^back several times, then I can feel her vagina teasingÅ^my thing back as it squeezes it inside.")
+	hitretResult := Hitret(15080)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Kuh... As expected, I'm almost there...")
+	hitretResult := Hitret(15081)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031213")
+	Mess("Nghh-fuu... Me too... I can't handle of your teasingÅ^Haru-chan... I feel like cumming again... nghh...")
+	hitretResult := Hitret(15082)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Let's do it together... But just a little more...Å^Please...")
+	hitretResult := Hitret(15083)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031214")
+	Mess("Okayy... It's fine... Let's feel good up to the last.")
+	hitretResult := Hitret(15084)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I grasped once again onto Nao-chan's hips, I thrusted inÅ^and out and got more faster by the second.")
+	hitretResult := Hitret(15085)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031215")
+	Mess("Aah-aahh-aah-ahh-aahh-aaah-aaahhn!")
+	hitretResult := Hitret(15086)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031216")
+	Mess("A-All right... Aah-nghh-There... Yes... nghhh!")
+	hitretResult := Hitret(15087)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We stained the concrete floor with our semen as theyÅ^kept on dripping and flying all around.")
+	hitretResult := Hitret(15088)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We closed the locker room earlier when we were lovingÅ^one another, and because of our exciting feelings weÅ^were also soaked in our sweat.")
+	hitretResult := Hitret(15089)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Our gleaming feeling from the pool earlier was slowlyÅ^tainted, both of us were covered in sweat as I kept onÅ^thrusting my hips against hers.")
+	hitretResult := Hitret(15090)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031217")
+	Mess("H-Haru-chaaan... Ah-Aaaahnn-Aaa-Aaahn!")
+	hitretResult := Hitret(15091)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031218")
+	Mess("Haahaahaa... Y-You're moving so sturdy... Haru-chan, areÅ^you about to come? Nghh... Aaah...")
+	hitretResult := Hitret(15092)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031219")
+	Mess("Me too... A-Again... nghhuuhh-Aa-Aaah!!")
+	hitretResult := Hitret(15093)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031220")
+	Mess("Aa-aaahh-aah-nghh-nghhh-nghhuu!! Haru-chan, I love you,Å^I really really love you...")
+	hitretResult := Hitret(15094)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Aaah, me too. Nao-chan, I love you... nghh...")
+	hitretResult := Hitret(15095)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031221")
+	Mess("K-Kiss me... *chuu*... *Kiss* *Kiss*... nggghh!!")
+	hitretResult := Hitret(15096)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031222")
+	Mess("Aahu-nghh-aaahh... My head's, going blank... I can'tÅ^stand too... Aahnn-Aaahn...")
+	hitretResult := Hitret(15097)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan's hands were so smooth as I helped her standÅ^firm.")
+	hitretResult := Hitret(15098)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I can't also hold it anymore, I was slowly losing myÅ^mind as I continued to thrust my hips against her.")
+	hitretResult := Hitret(15099)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I must not collapse, I used her buttocks to support meÅ^at least, then I thrusted my thing once more back andÅ^forth.")
+	hitretResult := Hitret(15100)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031223")
+	Mess("Nghuu-Aa-aaahh, khaaa-aaaahnnuughh!")
+	hitretResult := Hitret(15101)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031224")
+	Mess("I'm about... nghhh-Aaahh... Haru-chaa-n, I'm... aboutÅ^to...")
+	hitretResult := Hitret(15102)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Y-Yeah... Let's do it... Together... Kuh... Uuughh!!")
+	hitretResult := Hitret(15103)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I want to feel it, until the very last moment...")
+	hitretResult := Hitret(15104)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her hips are shivering so bad, then I can feel that myÅ^body has a lot of semen stored inside of it that wantsÅ^to burst out right now.")
+	hitretResult := Hitret(15105)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But, not yet... Just a little more...")
+	hitretResult := Hitret(15106)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031225")
+	Mess("Nghh-aahhn, ahah-aaahhn-aah-aaaaaaaah!!")
+	hitretResult := Hitret(15107)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031226")
+	Mess("Haahaah... nghh-ngghh-nnghh-nghh!!")
+	hitretResult := Hitret(15108)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031227")
+	Mess("S-Sorry, I'm... nghh-aah-aaaaah!")
+	hitretResult := Hitret(15109)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031228")
+	Mess("C-Cumming... Aaah-ngguuuh-aaah-ngghhh!!")
+	hitretResult := Hitret(15110)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031229")
+	Mess("Haru-chan... I-I'm cumming!! Inside me-nghh... Let itÅ^all out inside me!!")
+	hitretResult := Hitret(15111)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031230")
+	Mess("Aa-aaahh... Give it to mee... nhghhh!! So many, areÅ^coming ouuuuut!!!")
+	hitretResult := Hitret(15112)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031231")
+	Mess("Aagghh... Ugghhnn... Aaa-aaaahh-aahaahh...")
+	hitretResult := Hitret(15113)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031232")
+	Mess("Nghh-ngghh-aahaahahh-aaaaaaaaaaaaah!!")
+	hitretResult := Hitret(15114)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031233")
+	Mess("...Nghh-nghhh-nghhh-ugggghhh!!")
+	hitretResult := Hitret(15115)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031234")
+	Mess("It's still c-cumming... aaahhh-aaah! Ngghhuuu...")
+	hitretResult := Hitret(15116)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ugghh... Nao-chan...!!!")
+	hitretResult := Hitret(15117)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031235")
+	Mess("Aa-aah! Aaaaaah! Nghhaaaaaaa!!!")
+	hitretResult := Hitret(15118)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB11b", 0, 0)
+	Flush("WHITE", 1000, "")
+	Talk("Nao", "NO031236")
+	Mess("Aah-nghh-ahaaaaaaaaaaaaaaaaaaaaaaa!!")
+	hitretResult := Hitret(15119)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031237")
+	Mess("...Aaahhh... Aaaah... Ahah... Aaahhh...")
+	hitretResult := Hitret(15120)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031238")
+	Mess("Nghh-aah-aaaahh... Haahhaahhaah... nghhh...")
+	hitretResult := Hitret(15121)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031239")
+	Mess("Y-You came... It filled up to my stomach... your hotÅ^thing...")
+	hitretResult := Hitret(15122)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("During my last thrust, I poured my semen insideÅ^Nao-chan.")
+	hitretResult := Hitret(15123)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("From the moment I ejaculated inside her, my hipsÅ^unconsciously moved as I poured it inside her womb myÅ^hips pushed it around.")
+	hitretResult := Hitret(15124)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031240")
+	Mess("Aah-aaaaah-nghhhuu-haahaahaa...")
+	hitretResult := Hitret(15125)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031241")
+	Mess("Ughh... Aah...")
+	hitretResult := Hitret(15126)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("N-Nao-chan... Ughh...")
+	hitretResult := Hitret(15127)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("She suddenly lost her strength, then Nao-chan fell toÅ^her knees.")
+	hitretResult := Hitret(15128)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Our bodies slowly got away from each other as I can'tÅ^keep it up anymore, and I also lost my strength alongÅ^with the last burst.")
+	hitretResult := Hitret(15129)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I hugged Nao-chan from her hips, and we felt connectedÅ^once more, then I slowly sat down.")
+	hitretResult := Hitret(15130)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We were still connected there, I feel like I'm gonnaÅ^have some cramps.")
+	hitretResult := Hitret(15131)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Even though it lost its energy, she still caressed myÅ^thing.")
+	hitretResult := Hitret(15132)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031242")
+	Mess("Haru-chan... I'm glad...")
+	hitretResult := Hitret(15133)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Me too... *Kiss*...")
+	hitretResult := Hitret(15134)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031243")
+	Mess("Nghh... *Kiss*...")
+	hitretResult := Hitret(15135)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We didn't know what to say to each other as we embracedÅ^each other, though the mood still lingers in the air.")
+	hitretResult := Hitret(15136)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The presence of love made us more happier and thatÅ^feeling came deep inside us.")
+	hitretResult := Hitret(15137)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Back then, I wonder how did Nao-chan got on top of me?")
+	hitretResult := Hitret(15138)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("At that time... I was drained easily, probably because IÅ^didn't even know a thing about it.")
+	hitretResult := Hitret(15139)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But... From that time, I was really happy when Nao-chanÅ^was making love to me.")
+	hitretResult := Hitret(15140)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	OnRecollectFlag(7)
+	CALL IsRecollectMode
+	JUMP_OK _l_10966
+	Change("EXIT_SCENARIO")
+	Return
+@_l_10966:
+	Talk("Nao", "NO031244")
+	Mess("That was a lot... Haru-chan...")
+	hitretResult := Hitret(15141)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah... It's because I was looking at your cute face,Å^Nao-chan.")
+	hitretResult := Hitret(15142)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031245")
+	Mess("Me too Haru-chan, it's like your voice was telling me toÅ^take it all in.")
+	hitretResult := Hitret(15143)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh... Really?")
+	hitretResult := Hitret(15144)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031246")
+	Mess("Yeah, it's kind of like an instinct of a girl... ButÅ^that felt really lovely.")
+	hitretResult := Hitret(15145)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031247")
+	Mess("This feeling... I'll treasure it.")
+	hitretResult := Hitret(15146)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Me too...")
+	hitretResult := Hitret(15147)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031248")
+	Mess("Thank you, Haru-chan. I love you so much...")
+	hitretResult := Hitret(15148)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Me too, I love you very much Nao-chan...")
+	hitretResult := Hitret(15149)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031249")
+	Mess("I'm really happy... Because of this feeling... nghhh...Å^*kiss*...")
+	hitretResult := Hitret(15150)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We kissed for a very long time once more, and ourÅ^feelings for each other became much deeper.")
+	hitretResult := Hitret(15151)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Feeling the chilly air made it so unpleasant as we wereÅ^so hot just now, we embraced each other to feel hot onceÅ^more.")
+	hitretResult := Hitret(15152)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("", 0)
+	Change("00_b022")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

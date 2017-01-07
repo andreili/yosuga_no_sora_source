@@ -1,0 +1,385 @@
+Include"yosuga.ch"
+
+Function sc00_B018B()
+	ScenarioEnter()
+	SetCg("B27c", 0, 600)
+	ScPlayEnvSe("SE300", "", 0)
+	Talk("心の声", "")
+	Mess("It's completely late now.")
+	hitretResult := Hitret(14354)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I'm pretty sure Sora's mad now.")
+	hitretResult := Hitret(14355)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("She could be hungry as well, I have to make something／right away.")
+	hitretResult := Hitret(14356)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("Nao-chan and I promised to meet again tomorrow as we go／home.")
+	hitretResult := Hitret(14357)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I'm happy.")
+	hitretResult := Hitret(14358)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I feel so enthusiastic as I hurriedly went back home.")
+	hitretResult := Hitret(14359)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("Haruka", "")
+	Mess("....? Huh?")
+	hitretResult := Hitret(14360)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("The lights in the house were turned off.")
+	hitretResult := Hitret(14361)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("...I guess she's asleep?")
+	hitretResult := Hitret(14362)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopEnvSe("SE300", 0)
+	ScPlaySe("se105", 0)
+	Talk("心の声", "")
+	Mess("The key wasn't also by the door way, so I just went／inside.")
+	hitretResult := Hitret(14363)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I'm back...")
+	hitretResult := Hitret(14364)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02c", 0, 0)
+	SetBustup("CA02_05S", 0, 0)
+	Talk("Haruka", "")
+	Mess("Whoa!? S-Sora... I thought it was someone...")
+	hitretResult := Hitret(14365)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("The lights went on, I was scared for a moment as I saw／Sora standing alone in the middle of the kitchen.")
+	hitretResult := Hitret(14366)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_06M", 0, 0)
+	Talk("Sora", "SR030168")
+	Mess("... What were you doing till this time?")
+	hitretResult := Hitret(14367)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry... We were playing around, then I didn't realized／time...")
+	hitretResult := Hitret(14368)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030169")
+	Mess("...You said you were going to shop as well, you didn't／even come back home early as you said...")
+	hitretResult := Hitret(14369)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...Yeah, that's right...")
+	hitretResult := Hitret(14370)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030170")
+	Mess("…………………………")
+	hitretResult := Hitret(14371)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	Talk("心の声", "")
+	Mess("I couldn't look Sora in her eyes as she looked straight／into me so I looked away, then I started preparing so I／can cook.")
+	hitretResult := Hitret(14372)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry, are you hungry? I'll make something right away...")
+	hitretResult := Hitret(14373)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR030171")
+	Mess("...I'm not...")
+	hitretResult := Hitret(14374)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... But...")
+	hitretResult := Hitret(14375)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030172")
+	Mess("...I'm not.")
+	hitretResult := Hitret(14376)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM08", 0)
+	BustupClear()
+	Talk("Haruka", "")
+	Mess("………………………………")
+	hitretResult := Hitret(14377)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I'm sure she glared at me right after that. Sora／returned to her room.")
+	hitretResult := Hitret(14378)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... *sigh*...")
+	hitretResult := Hitret(14379)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I can certainly understand why Sora should be mad at me.")
+	hitretResult := Hitret(14380)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("Instead of preparing our food, I was fooling around／outside...")
+	hitretResult := Hitret(14381)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I wasn't able to shop as well, next time the trailer／shop comes by, I should somehow get something...")
+	hitretResult := Hitret(14382)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... Sora...")
+	hitretResult := Hitret(14383)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I always make her worry and wait for me...")
+	hitretResult := Hitret(14384)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I did it to Sora even though it's something bad.")
+	hitretResult := Hitret(14385)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("The sweets and candies I bought are about to be finished／as well. With this, Sora's mood will be more bad.")
+	hitretResult := Hitret(14386)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("Probably, her stomach might be empty by midnight so she／might look for food in the fridge by that time, I should／make something so she could eat by that time.")
+	hitretResult := Hitret(14387)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("I made some rice balls, it's something that I didn't／plan on doing today.")
+	hitretResult := Hitret(14388)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("...Thinking about Nao-chan.")
+	hitretResult := Hitret(14389)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("Even though it hasn't been that long, whenever I think／of Nao-chan, her radiant smile always comes up to my／mind.")
+	hitretResult := Hitret(14390)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("She just used to be my neighbor and childhood friend,／but not anymore.")
+	hitretResult := Hitret(14391)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("... We...")
+	hitretResult := Hitret(14392)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("We understood each other, and as I become more closer／with Nao-chan, I feel so happy.")
+	hitretResult := Hitret(14393)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	Change("00_b019")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

@@ -1,0 +1,367 @@
+Include"yosuga.ch"
+
+Function sc00_B008()
+	ScenarioEnter()
+	ScPlayEnvSe("SE301", "", 0)
+	SetCg("B01a", 0, 0)
+	Transition("WIP_LR", 1000)
+	Update()
+	ScWait(2000, 0)
+	BlackOut(0, 1)
+	SetCg("B02a", 0, 0)
+	Talk("Haruka", "")
+	Mess("It's hot...")
+	hitretResult := Hitret(12255)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's so refreshing here at the countryside. It'sÅ^impression on me never changed ever since I was still aÅ^kid.")
+	hitretResult := Hitret(12256)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Along with my childhood memories, it's much refreshingÅ^by the balcony's shade, the wind that blows throughÅ^there always felt so good...")
+	hitretResult := Hitret(12257)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But, you can still feel the effect of the heat aroundÅ^inside the house, the humidty makes the my bodyÅ^uncomfortably sticky.")
+	hitretResult := Hitret(12258)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's unfortunate that we have to endure the whole summerÅ^without any aircons.")
+	hitretResult := Hitret(12259)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Though I would probably see an electric fan hangingÅ^around by the warehouse, in times like this, we need aÅ^better substitute for cooling down than water.")
+	hitretResult := Hitret(12260)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("Haruka", "")
+	Mess("...Sora?")
+	hitretResult := Hitret(12261)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(12262)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B04a", 0, 0)
+	SetBustup("CA02_05M", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("I took an iced barley tea to the room, and as usual,Å^Sora doesn't have any other set of clothes excpet herÅ^long sleeves, it's looks really dull.")
+	hitretResult := Hitret(12263)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Here, have some tea. Or do you want it warm? It's muchÅ^refreshing if you have it this way.")
+	hitretResult := Hitret(12264)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR030066")
+	Mess("...Ice cream.")
+	hitretResult := Hitret(12265)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora took the barley tea I gave her then she took aÅ^small sip.")
+	hitretResult := Hitret(12266)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh?")
+	hitretResult := Hitret(12267)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_06M", 0, 0)
+	Talk("Sora", "SR030067")
+	Mess("...I want to some ice cream.")
+	hitretResult := Hitret(12268)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well, you're right... I also want some in this kind ofÅ^heat.")
+	hitretResult := Hitret(12269)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well, shall we go and buy now?")
+	hitretResult := Hitret(12270)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("Sora", "SR030068")
+	Mess("...No.")
+	hitretResult := Hitret(12271)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's by the neighbourhood, or you'd have the same asÅ^mine?")
+	hitretResult := Hitret(12272)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030069")
+	Mess("...Not really... anything is fine.")
+	hitretResult := Hitret(12273)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay, I'll just get what's available. Any otherÅ^requests?")
+	hitretResult := Hitret(12274)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR030070")
+	Mess("...Aircon.")
+	hitretResult := Hitret(12275)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("They don't have that.")
+	hitretResult := Hitret(12276)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_06M", 0, 0)
+	Talk("Sora", "SR030071")
+	Mess("...The heat is killing me.")
+	hitretResult := Hitret(12277)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("If you can't really stand the heat, why don't you take aÅ^shower?")
+	hitretResult := Hitret(12278)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR030072")
+	Mess("...Eeeeh...")
+	hitretResult := Hitret(12279)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("For the mean time, I'll just look in the warehouse if IÅ^ever find something. The electric fan could be thereÅ^too.")
+	hitretResult := Hitret(12280)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR030073")
+	Mess("...Just buy one.")
+	hitretResult := Hitret(12281)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, I'll just buy for one person if there isn't one.")
+	hitretResult := Hitret(12282)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR030074")
+	Mess("...Aircon.")
+	hitretResult := Hitret(12283)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("That's expensive... the electric bill would beÅ^ridiculously high too. Also, don't take long baths Sora,Å^you might catch a cold, okay?")
+	hitretResult := Hitret(12284)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("Sora", "SR030075")
+	Mess("...")
+	hitretResult := Hitret(12285)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Your summer would be a total waste if you don't watchÅ^out for it, especially in this heat... that's why if itÅ^gets more hotter and we won't be able stand it, I mayÅ^think of getting an aircon.")
+	hitretResult := Hitret(12286)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("Sora pouted her mouth in displeased as I couldn't attendÅ^to all of her complaints, then I waved my hands at herÅ^as I went out.")
+	hitretResult := Hitret(12287)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02a", 0, 0)
+	ScStopEnvSe("SE301", 1)
+	Talk("êSÇÃê∫", "")
+	Mess("It really is hot... Even though it's made of wood.")
+	hitretResult := Hitret(12288)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Back then, it was so great to take a nap by the balcony,Å^compared to now...")
+	hitretResult := Hitret(12289)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("For now, we can't even open the windows since theÅ^mosquitos might come in as well.")
+	hitretResult := Hitret(12290)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("If this was just close to us, it would only take a whileÅ^to buy an ice cream.")
+	hitretResult := Hitret(12291)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 1)
+	ScWait(1500, 0)
+	Change("00_b008b")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

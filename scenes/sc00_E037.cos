@@ -1,0 +1,675 @@
+Include"yosuga.ch"
+
+Function sc00_E037()
+	ScenarioEnter()
+	ScPlayBgm("BGM05", 0)
+	SetCg("B27a", 0, 0)
+	Talk("初佳", "MT051623")
+	Mess("悠くーん！　穹ちゃーん！　お昼ご飯出来たわよーっ！")
+	hitretResult := Hitret(39010)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("はーいっ！")
+	hitretResult := Hitret(39011)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050200")
+	Mess("……はいはい。")
+	hitretResult := Hitret(39012)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02a", 0, 0)
+	SetBustup("CA02_01M", 0, 0)
+	SetBustup("CE01_04M", 0, 0)
+	Talk("悠", "")
+	Mess("うわっ、今日のお昼ご飯は豪華だね。")
+	hitretResult := Hitret(39013)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050201")
+	Mess("……まともな料理……")
+	hitretResult := Hitret(39014)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051624")
+	Mess("練習してますからっ！　このくらいは出来ないとね。")
+	hitretResult := Hitret(39015)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050202")
+	Mess("……今までが酷い。")
+	hitretResult := Hitret(39016)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("穹はもっと出来ないだろ。")
+	hitretResult := Hitret(39017)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("穹", "SR050203")
+	Mess("…………")
+	hitretResult := Hitret(39018)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_01M", 0, 0)
+	Talk("初佳", "MT051625")
+	Mess("穹ちゃんも一緒に料理する？　二人でしたら楽しいよー？")
+	hitretResult := Hitret(39019)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_09M", 0, 0)
+	Talk("穹", "SR050204")
+	Mess("……うるさい。")
+	hitretResult := Hitret(39020)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("こら、穹っ！　初佳さんの親切をだな……")
+	hitretResult := Hitret(39021)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("穹", "SR050205")
+	Mess("うるさいバカップル。")
+	hitretResult := Hitret(39022)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("お、おまえっ！")
+	hitretResult := Hitret(39023)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_11M", 0, 0)
+	Talk("初佳", "MT051626")
+	Mess("いやねえもう……カップルだなんて、そんな……えへへっ。")
+	hitretResult := Hitret(39024)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("初佳さんも照れてないで、喜んでないで……ああもう、うちの")
+	Mess("連中は……")
+	hitretResult := Hitret(39025)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("心の声", "")
+	Mess("このところ、日曜日には初佳さんがご飯を作りに来てくれる。")
+	hitretResult := Hitret(39026)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("初佳さんは、毎日作りに来てあげるよー、とも言ってくれるけ")
+	Mess("ど、さすがにそれは遠慮している。")
+	hitretResult := Hitret(39027)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("メイドの仕事も続けてるのに、そこまでは甘えられない。")
+	hitretResult := Hitret(39028)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_04M", 0, 0)
+	Talk("初佳", "MT051627")
+	Mess("未来の旦那さまが遠慮なんかしなくていいのにぃ～。")
+	hitretResult := Hitret(39029)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("まだ結婚した訳じゃないし……")
+	hitretResult := Hitret(39030)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051628")
+	Mess("結婚かぁ……言い響きだわぁ、どことなく勝ち組のかほり……")
+	hitretResult := Hitret(39031)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("穹", "SR050206")
+	Mess("……ばか？")
+	hitretResult := Hitret(39032)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051629")
+	Mess("ごめんね、穹ちゃん。お兄ちゃん取っちゃって。")
+	hitretResult := Hitret(39033)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_11M", 0, 0)
+	Talk("穹", "SR050207")
+	Mess("……初佳お姉ちゃん、私とハルは双子。兄でも妹でもない。")
+	hitretResult := Hitret(39034)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_05M", 0, 0)
+	Talk("初佳", "MT051630")
+	Mess("…………えっ？")
+	hitretResult := Hitret(39035)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050208")
+	Mess("わかったなら……")
+	hitretResult := Hitret(39036)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_04M", 6, 0)
+	SetBustup("CA02_11M", 8, 0)
+	Talk("初佳", "MT051631")
+	Mess("穹ちゃんっ！！")
+	hitretResult := Hitret(39037)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_13M", 0, 0)
+	Talk("穹", "SR050209")
+	Mess("ひっ……")
+	hitretResult := Hitret(39038)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051632")
+	Mess("い、今なんてっ！？")
+	hitretResult := Hitret(39039)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 9, 0)
+	Talk("穹", "SR050210")
+	Mess("……寄るな。")
+	hitretResult := Hitret(39040)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_11M", 4, 0)
+	SetBustup("CA02_01M", 8, 0)
+	Talk("初佳", "MT051633")
+	Mess("もう一回！　穹ちゃん、今のもう一回言ってっ！")
+	hitretResult := Hitret(39041)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("穹", "SR050211")
+	Mess("メイド、ウザイ。")
+	hitretResult := Hitret(39042)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	Talk("初佳", "MT051634")
+	Mess("あー、穹ちゃん、どこ行っちゃうのー？")
+	hitretResult := Hitret(39043)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01S", 8, 0)
+	Talk("穹", "SR050212")
+	Mess("散歩。")
+	hitretResult := Hitret(39044)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	SetBustup("CE01_09M", 6, 0)
+	Talk("初佳", "MT051635")
+	Mess("あーん……初めて“お姉ちゃん”って呼んでくれたのに……")
+	hitretResult := Hitret(39045)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("……ああ、そう言えば、確かに。")
+	hitretResult := Hitret(39046)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_12M", 0, 0)
+	Talk("初佳", "MT051636")
+	Mess("なーに？　その冷たい反応。私の念願が叶ったって言うのに。")
+	hitretResult := Hitret(39047)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("あんまり自然だったから……気付かなくて。")
+	hitretResult := Hitret(39048)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("でも、僕達のこと、穹も認めてくれたって事だね。")
+	hitretResult := Hitret(39049)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_11M", 0, 0)
+	Talk("初佳", "MT051637")
+	Mess("うん……嬉しい……")
+	hitretResult := Hitret(39050)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("実のところ、ご飯は日曜日と土曜だけだけど、それ以外の日も")
+	Mess("掃除とか洗濯とかを、初佳さんはしに来てくれる。")
+	hitretResult := Hitret(39051)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("プロポーズしたって事もあって、まるっきり通い妻状態だ。")
+	hitretResult := Hitret(39052)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("穹から“バカップル”なんて言われても仕方ない。")
+	hitretResult := Hitret(39053)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051638")
+	Mess("穹ちゃんは行っちゃったけど、悠くんだけでも温かいうちに食")
+	Mess("べて？")
+	hitretResult := Hitret(39054)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("はーい、それじゃあ……")
+	hitretResult := Hitret(39055)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE18", 0, 0)
+	Talk("初佳", "MT051639")
+	Mess("今日のお料理はどうかな？　あなた？")
+	hitretResult := Hitret(39056)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("うん、美味しい。１００点満点だよ、初佳さん。")
+	hitretResult := Hitret(39057)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051640")
+	Mess("そっか……うふふ、ありがと。")
+	hitretResult := Hitret(39058)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("穹が居ない二人っきりの時には、こんな会話もしたりして。")
+	hitretResult := Hitret(39059)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("……ますますバカップルだと言われても仕方ない。")
+	hitretResult := Hitret(39060)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("お仕事の方は順調？")
+	hitretResult := Hitret(39061)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051641")
+	Mess("そうそう！　月見山さんがね、今度新しい仕事を任せてみます")
+	Mess("か、って言ってくれたのっ！")
+	hitretResult := Hitret(39062)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051642")
+	Mess("言われた時は意味わかんなくて、“はぁ”なんて間抜けに返事")
+	Mess("しちゃったんだけど、これって働きぶりが認められたって事よ")
+	Mess("ね？")
+	hitretResult := Hitret(39063)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051643")
+	Mess("後になって興奮しちゃって、もうどうしよーって！")
+	hitretResult := Hitret(39064)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("初佳さんは世話好きだもんね、元々メイドの仕事とは相性が良")
+	Mess("かったんだよ。")
+	hitretResult := Hitret(39065)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051644")
+	Mess("ちょっと前まではダメダメだったのにねぇ。花嫁修業だって考")
+	Mess("えるようにしてから、こう、めきめきっとね。")
+	hitretResult := Hitret(39066)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051645")
+	Mess("で、悠くんの方はどうなの？　浮気なんてしてないわよね？")
+	hitretResult := Hitret(39067)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("僕は初佳さん一筋だよ……結婚まではもうしばらく時間が掛か")
+	Mess("るけど……")
+	hitretResult := Hitret(39068)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051646")
+	Mess("進学するつもりなのよね……卒業は遠いなぁ。")
+	hitretResult := Hitret(39069)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("ちゃんとした進路はまだ決めてないけど、ここから通える学校")
+	Mess("にするつもり。")
+	hitretResult := Hitret(39070)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("就職もこっちで……この町のためになる事がしたいなって。")
+	hitretResult := Hitret(39071)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051647")
+	Mess("……悠くん都会っ子だから、こんな地味な田舎町はつまらない")
+	Mess("んじゃない？")
+	hitretResult := Hitret(39072)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("僕は好きだよ。静かで優しいこの町が。")
+	hitretResult := Hitret(39073)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("初佳さんと出会わせてくれた町だしね……")
+	hitretResult := Hitret(39074)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("都会に出て、やひろさんみたいな目に遭うよりはね？")
+	hitretResult := Hitret(39075)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051648")
+	Mess("あはは、それはそうね。")
+	hitretResult := Hitret(39076)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("あはは、うふふ、と僕達は笑い合う。")
+	hitretResult := Hitret(39077)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("愛しい人と過ごす、この平凡で穏やかな日常こそが、僕が……")
+	Mess("僕達が求めてやまなかったものだから。")
+	hitretResult := Hitret(39078)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	OnGameClear()
+	Change("EXIT_SCENARIO")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

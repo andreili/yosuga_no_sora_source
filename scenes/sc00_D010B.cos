@@ -1,0 +1,1434 @@
+Include"yosuga.ch"
+
+Function sc00_D010B()
+	ScenarioEnter()
+	ScPlayBgm("BGM06", 0)
+	SetCg("B19a", 0, 0)
+	Talk("Akira", "AK040132")
+	Mess("Hey, hey, Haru-kun. Do you have some time after this?")
+	hitretResult := Hitret(27796)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC01_01M", 0, 0)
+	Talk("Haruka", "")
+	Mess("Amatsume? If you need an extra helping hand, thenÅ^okay...")
+	hitretResult := Hitret(27797)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It was after school, so I was packing up my stuff, whenÅ^Amatsume called out to me.")
+	hitretResult := Hitret(27798)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040133")
+	Mess("I've got something I want you to help out withÅ`")
+	hitretResult := Hitret(27799)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Help? What is it?")
+	hitretResult := Hitret(27800)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_10M", 0, 0)
+	Talk("Kazuha", "KA040173")
+	Mess("Akira, it's not right to do that.")
+	hitretResult := Hitret(27801)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("You're going too?")
+	hitretResult := Hitret(27802)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040174")
+	Mess("Y-Yeah... We were doing the offerings to traveller'sÅ^guardian deity this morning, remember? We will be makingÅ^the ornaments.")
+	hitretResult := Hitret(27803)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040134")
+	Mess("You said you wanted to help with the preparations, so IÅ^thought this would be a good opportunity for you to helpÅ^outÅ`")
+	hitretResult := Hitret(27804)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I see... Yeah, okay. I'll help.")
+	hitretResult := Hitret(27805)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040175")
+	Mess("You don't have to force yourself if you don't want to,Å^you know?")
+	hitretResult := Hitret(27806)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's okay. I want to know more about this town anyway.")
+	hitretResult := Hitret(27807)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_01M", 0, 0)
+	Talk("Kazuha", "KA040176")
+	Mess("I see...")
+	hitretResult := Hitret(27808)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC01_03M", 0, 0)
+	Talk("Akira", "AK040135")
+	Mess("Okay, let's go home and change, then we'll gather at myÅ^shrine!")
+	hitretResult := Hitret(27809)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Roger that!")
+	hitretResult := Hitret(27810)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("After returning home to change into a fresh set ofÅ^clothes, I headed toward the shrine.")
+	hitretResult := Hitret(27811)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM07", 0)
+	SetCg("B07b", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("êSÇÃê∫", "")
+	Mess("When I arrived, Migiwa-san and Amatsume had alreadyÅ^begun the preparations.")
+	hitretResult := Hitret(27812)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Besides the two girls, there were also a group of oldÅ^people gathered at the shrine office.")
+	hitretResult := Hitret(27813)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_02M", 0, 0)
+	Talk("Akira", "AK040136")
+	Mess("Ah! Haru-kuun! Welcome!")
+	hitretResult := Hitret(27814)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Hello. Am I late?")
+	hitretResult := Hitret(27815)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040137")
+	Mess("It's fineÅ` Here, come with meÅ`")
+	hitretResult := Hitret(27816)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("With Amatsume taking the lead, I was introduced to theÅ^people in the shrine office.")
+	hitretResult := Hitret(27817)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The old people were from the Elderly People'sÅ^Association, and since they can't provide much physcialÅ^labor on the day of the festival, they help out with theÅ^less menial tasks.")
+	hitretResult := Hitret(27818)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("What we're doing today is twisting some yarn to makeÅ^some kind of rope. It's something like making a JapaneseÅ^style Christmas wreath.")
+	hitretResult := Hitret(27819)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Everyone had done this before, so they were swiftly yetÅ^skillfuly weaving one thread after another.")
+	hitretResult := Hitret(27820)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("As they showed me the ropes, I gradually started to pickÅ^up the skill, but I'm still not as talented as them.")
+	hitretResult := Hitret(27821)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370005")
+	Mess("Well, well, what do we have here, a newcomer?")
+	hitretResult := Hitret(27822)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I'm sorry for taking up your time.")
+	hitretResult := Hitret(27823)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370006")
+	Mess("No need to worry. I still remember the time when I firstÅ^taught Kazuha-chan how to do it...")
+	hitretResult := Hitret(27824)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_10M", 0, 0)
+	Talk("Kazuha", "KA040177")
+	Mess("Don't bring me into this! And make sure you observeÅ^carefully, Kasugano-kun.")
+	hitretResult := Hitret(27825)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Y-Yeah...")
+	hitretResult := Hitret(27826)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("As instructed, I watched her hands carefully.")
+	hitretResult := Hitret(27827)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Although her movements were precise and careful, thereÅ^were still several places where the threads poked out,Å^making it look a bit clumsy compared to the oldÅ^granny's.")
+	hitretResult := Hitret(27828)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_12M", 0, 0)
+	Talk("Kazuha", "KA040178")
+	Mess("W-When I told you to watch, I didn't mean me...")
+	hitretResult := Hitret(27829)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh?")
+	hitretResult := Hitret(27830)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040179")
+	Mess("N-Nothing.")
+	hitretResult := Hitret(27831)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(5)
+	SetBustup("CC06_01M", 0, 0)
+	Talk("Akira", "AK040138")
+	Mess("Good job everyoneÅ` I've brought some tea! How's itÅ^coming along?")
+	hitretResult := Hitret(27832)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Thanks, Amatsume... I'm still learning. it looks quiteÅ^hard, though.")
+	hitretResult := Hitret(27833)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Taking the cup of barley tea from her, I forced a bitterÅ^smile.")
+	hitretResult := Hitret(27834)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040139")
+	Mess("Ahaa, it's hard when you're not used to it. Here, haveÅ^some too, Kazu-chan.")
+	hitretResult := Hitret(27835)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040140")
+	Mess("There's enough for everyone, so please do help yourself!")
+	hitretResult := Hitret(27836)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("After she called out, a chorus of thanks rose from theÅ^rest of the volunteers.")
+	hitretResult := Hitret(27837)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(2)
+	SetBustup("CD02_02M", 0, 0)
+	Talk("Kazuha", "KA040180")
+	Mess("Thanks, Akira...*glug* *glug* *glug*")
+	hitretResult := Hitret(27838)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Migiwa-san also took a cup from Amatsume, and downed itÅ^in one go.")
+	hitretResult := Hitret(27839)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I sat there staring as the tea slid down her whiteÅ^throat.")
+	hitretResult := Hitret(27840)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_01M", 0, 0)
+	Talk("Kazuha", "KA040181")
+	Mess("*Sigh* Cool and rejuvenating... Is there something youÅ^need, Kasugano-kun?Å^You've been staring at me this whole time.")
+	hitretResult := Hitret(27841)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("A-Ah, nah, it's nothing...")
+	hitretResult := Hitret(27842)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I was a kinda mesmerized, but there's no way I couldÅ^tell her that.")
+	hitretResult := Hitret(27843)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("So we had to make these decorations ourselves? I had noÅ^idea.")
+	hitretResult := Hitret(27844)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Trying not to sound suspicious,I immediately tried toÅ^change the subject.")
+	hitretResult := Hitret(27845)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(5)
+	SetBustup("CC06_01M", 0, 0)
+	Talk("Akira", "AK040141")
+	Mess("Well, we're offering to the gods, after all. It's aÅ^tradition that has been practiced over the decades.")
+	hitretResult := Hitret(27846)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Tradition, huh?")
+	hitretResult := Hitret(27847)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370007")
+	Mess("It feels weird when you put it that way. We're justÅ^making the things we use ourselves.")
+	hitretResult := Hitret(27848)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Suddenly, the old granny started to laugh.")
+	hitretResult := Hitret(27849)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Even while laughing, she continued threading the ropesÅ^briskly.")
+	hitretResult := Hitret(27850)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I wasn't so sure about making these, but when I saw howÅ^skillful she was, I thought that maybe I could learn asÅ^well.")
+	hitretResult := Hitret(27851)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_01M", 0, 0)
+	Talk("Kazuha", "KA040182")
+	Mess("Kasugano-kun. Once you've finished drinking your tea,Å^please get back to work.")
+	hitretResult := Hitret(27852)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yes, ma'am...but it's really difficult, you know?")
+	hitretResult := Hitret(27853)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040142")
+	Mess("In that case, how about you make it with Kazu-chan?")
+	hitretResult := Hitret(27854)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_12M", 0, 0)
+	Talk("Kazuha", "KA040183")
+	Mess("W-Why me?")
+	hitretResult := Hitret(27855)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_02M", 0, 0)
+	Talk("Akira", "AK040143")
+	Mess("You haven't been able to do it very well either, right?Å^If you do it together, I'm sure you can both help eachÅ^other outÅ`")
+	hitretResult := Hitret(27856)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_10M", 0, 0)
+	Talk("Kazuha", "KA040184")
+	Mess("Grr...That may be true, but...")
+	hitretResult := Hitret(27857)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("If you're fine with it, then please... At this rate,Å^I'll just be hindering your progress, but I really doÅ^want to help...")
+	hitretResult := Hitret(27858)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040185")
+	Mess("Well... If you put it like that, I guess I don't haveÅ^any choice.")
+	hitretResult := Hitret(27859)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040144")
+	Mess("Okay, I'm counting on youÅ` I'm off to help with theÅ^cleaning.")
+	hitretResult := Hitret(27860)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(2)
+	Talk("Kazuha", "KA040186")
+	Mess("...That Akira... Why me...")
+	hitretResult := Hitret(27861)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry about that, it's because I'm terrible at this...")
+	hitretResult := Hitret(27862)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_01M", 0, 0)
+	Talk("Kazuha", "KA040187")
+	Mess("It's not your fault. Anyway, let's hurry up andÅ^continue.")
+	hitretResult := Hitret(27863)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Y-Yeah...")
+	hitretResult := Hitret(27864)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It looks like Migiwa-san's mood turned sour again.")
+	hitretResult := Hitret(27865)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Was it because...I'm here?")
+	hitretResult := Hitret(27866)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040188")
+	Mess("Hold onto the tip and keep it still. I'll be pulling onÅ^it gently now, so please make sure it doesn't move.")
+	hitretResult := Hitret(27867)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I understand...is it like this?")
+	hitretResult := Hitret(27868)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040189")
+	Mess("Yeah... Okay, that's fine.")
+	hitretResult := Hitret(27869)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_07M", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("With her eyes intently focused, she carefully tugged theÅ^thread.")
+	hitretResult := Hitret(27870)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The old people were using their toes to do the same job,Å^but for us, that's almost impossible.")
+	hitretResult := Hitret(27871)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("First of all, we wouldn't know how to use our toes likeÅ^that. And if we seized it by hand, we couldn't put muchÅ^force into it, affecting the quality of the rope.")
+	hitretResult := Hitret(27872)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Furthermore, if you pull too hard, the thread snaps.")
+	hitretResult := Hitret(27873)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Without realizing it, my body started tensing up and myÅ^hands became sweaty.")
+	hitretResult := Hitret(27874)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah...")
+	hitretResult := Hitret(27875)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_12M", 0, 0)
+	Shake(5)
+	Talk("Kazuha", "KA040190")
+	Mess("Kya!..")
+	hitretResult := Hitret(27876)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("And just at that moment, Migiwa-san tugged on the rope,Å^and the thread slipped from my hand.")
+	hitretResult := Hitret(27877)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And she was instantly thrown back...")
+	hitretResult := Hitret(27878)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se018", 0)
+	Talk("Local Old Lady", "NP370008")
+	Mess("Ahahaha... What are you two doing?")
+	hitretResult := Hitret(27879)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Ah, sorry. It was an accident.")
+	hitretResult := Hitret(27880)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_07M", 0, 0)
+	Talk("Kazuha", "KA040191")
+	Mess("K-Kasugano-kun...I told you to hold it properly, didn'tÅ^I...?")
+	hitretResult := Hitret(27881)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I know! it was an accident. My hands started gettingÅ^sweaty and it slipped! It's not like I did it to beÅ^ev-...")
+	hitretResult := Hitret(27882)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370009")
+	Mess("You're saying this, but you were just nervous to be soÅ^close to the cute Kazuha-chan, weren't you?")
+	hitretResult := Hitret(27883)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_10M", 0, 0)
+	Talk("Kazuha", "KA040192")
+	Mess("W-What are you saying? ...Please don't tease me likeÅ^that!")
+	hitretResult := Hitret(27884)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Y-Yeah, that's it! That was... Ah, yes, I drank some teaÅ^earlier, so it's probably causing me to sweat so much.")
+	hitretResult := Hitret(27885)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370010")
+	Mess("Oh, is that so?. Well, make sure to continue with yourÅ^hard work.")
+	hitretResult := Hitret(27886)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("While the old grandma doubled over in laughter, sheÅ^flipped her rope over.")
+	hitretResult := Hitret(27887)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Did she really mean that...?")
+	hitretResult := Hitret(27888)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ummm... Should we continue?")
+	hitretResult := Hitret(27889)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_01M", 0, 0)
+	Talk("Kazuha", "KA040193")
+	Mess("Eh? Yeah... This time, don't let go, okay?")
+	hitretResult := Hitret(27890)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("After making sure that my grip was tight enough, sheÅ^started tugging at the thread again.")
+	hitretResult := Hitret(27891)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_07M", 0, 0)
+	Talk("Kazuha", "KA040194")
+	Mess("Mm...nn...eh...")
+	hitretResult := Hitret(27892)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("And after twisting and knitting them together, theÅ^threads formed a long rope.")
+	hitretResult := Hitret(27893)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("This time, everything went smoothly as we hastened ourÅ^pace.")
+	hitretResult := Hitret(27894)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The fruits of our hard work didn't have threads juttingÅ^out and looked presentable.")
+	hitretResult := Hitret(27895)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But despite that, when we compared our "masterpiece"Å^with the ones made by the elderly ladies, no matter howÅ^you looked at it, the difference in quality was tooÅ^much.")
+	hitretResult := Hitret(27896)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yay! We finally finished one!")
+	hitretResult := Hitret(27897)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_03M", 0, 0)
+	Talk("Kazuha", "KA040195")
+	Mess("Yeah, this much should be enough. Let's start onÅ^another.")
+	hitretResult := Hitret(27898)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah...Erm, after this... how many more do we still needÅ^do make?")
+	hitretResult := Hitret(27899)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040196")
+	Mess("We'll be decorating all the traveller's guardian deitiesÅ^in the town, so... I'm not really sure of the exactÅ^number.")
+	hitretResult := Hitret(27900)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Are there that many traveller's guardian deities in thisÅ^town?")
+	hitretResult := Hitret(27901)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_02M", 0, 0)
+	Talk("Kazuha", "KA040197")
+	Mess("There'll definitely be one at every intersection, so...Å^there should be at least....")
+	hitretResult := Hitret(27902)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("While preparing the next thread, she tilted her head asÅ^if trying to remember. As she stood deep in thought, IÅ^noticed that warm and gentle smile on her face.")
+	hitretResult := Hitret(27903)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It was completely different to the foul mood she was inÅ^when we started.")
+	hitretResult := Hitret(27904)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("When she makes that gentle smile, it emphasized herÅ^unrivaled beauty, the beauty of a goddess...Å^A smile that would make my heart race.")
+	hitretResult := Hitret(27905)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Without knowing it, I was overwhelmed by her beauty,Å^mesmerized by that warm smile, lost in those deepÅ^eyes...")
+	hitretResult := Hitret(27906)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_12M", 0, 0)
+	Talk("Kazuha", "KA040198")
+	Mess("Kya...!")
+	hitretResult := Hitret(27907)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh?")
+	hitretResult := Hitret(27908)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	ScPlaySe("se018", 0)
+	Talk("êSÇÃê∫", "")
+	Mess("And the moment I lost focus, Migiwa-san tumbled onto herÅ^back again.")
+	hitretResult := Hitret(27909)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Local Old Lady", "NP370011")
+	Mess("Ahahaha... Again... What are you doing?")
+	hitretResult := Hitret(27910)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_05M", 0, 0)
+	Talk("Kazuha", "KA040199")
+	Mess("K-Kasugano-kun...?")
+	hitretResult := Hitret(27911)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("U-Uh, that was...I'm sorry.")
+	hitretResult := Hitret(27912)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("This time it was definitely my fault.")
+	hitretResult := Hitret(27913)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_02M", 0, 0)
+	Talk("Kazuha", "KA040200")
+	Mess("...*Sigh* You're not Akira, so please be careful nextÅ^time.")
+	hitretResult := Hitret(27914)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah...yeah, I'll be more careful.")
+	hitretResult := Hitret(27915)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Migiwa-san...just spoke to me in an informal tone...")
+	hitretResult := Hitret(27916)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040201")
+	Mess("What? ...Ah.")
+	hitretResult := Hitret(27917)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_01M", 0, 0)
+	Talk("Kazuha", "KA040202")
+	Mess("...What is it?")
+	hitretResult := Hitret(27918)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Nah, it's nothing. Okay, let's start on the next one.")
+	hitretResult := Hitret(27919)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("But she turned back to normal immediately, huh?")
+	hitretResult := Hitret(27920)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(2000, 1)
+	ScStopBgm()
+	Talk("êSÇÃê∫", "")
+	Mess("After that, Amatsume returned from her cleaning, and weÅ^made the decorations together.")
+	hitretResult := Hitret(27921)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Eventually we learned the ropes, and once we stoppedÅ^using so much strength, our work went a lot smoother.")
+	hitretResult := Hitret(27922)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The next few hours whizzed by and before we knew it, theÅ^sun had already gone down as darkness fell upon theÅ^area.")
+	hitretResult := Hitret(27923)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM16", 0)
+	SetCg("B07c", 0, 0)
+	SetBustup("CD02_01M", 0, 0)
+	SetBustup("CC06_01M", 0, 0)
+	Transition("WIP_TB", 500)
+	ScPlayEnvSe("SE157", "", 0)
+	Talk("Kazuha", "KA040203")
+	Mess("Ah...")
+	hitretResult := Hitret(27924)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Hm? That sound is...a cellphone? It's not mine though...")
+	hitretResult := Hitret(27925)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I was told that cell phones were rarely used in thisÅ^town. Such a commonly used device in the city wasÅ^considered alien around here.")
+	hitretResult := Hitret(27926)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040204")
+	Mess("...It's mine. Probably from my family...")
+	hitretResult := Hitret(27927)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(5)
+	ScStopEnvSe("SE157", 0)
+	ScPlaySe("SE153", 0)
+	Talk("êSÇÃê∫", "")
+	Mess("For some reason, she spoke in a hushed and uneasy toneÅ^as she took her phone from her pocket.")
+	hitretResult := Hitret(27928)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040205")
+	Mess("Hello? ...Yes, it's me... Yes...")
+	hitretResult := Hitret(27929)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The voice which came from the phone sounded ratherÅ^monotonous.")
+	hitretResult := Hitret(27930)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040206")
+	Mess("Yes, I'm at the shrine... Yes... Not really... Yes...Å^Yes, I understand. I'll return immediately.")
+	hitretResult := Hitret(27931)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE154", 0)
+	Talk("Kazuha", "KA040207")
+	Mess("...*Sigh*")
+	hitretResult := Hitret(27932)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Heaving a deep sigh, she pocketed her phone.")
+	hitretResult := Hitret(27933)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_07M", 0, 0)
+	Talk("Akira", "AK040145")
+	Mess("Kazu-chan, was that from your family?")
+	hitretResult := Hitret(27934)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD02_08M", 0, 0)
+	Talk("Kazuha", "KA040208")
+	Mess("Yeah...but it's okay.")
+	hitretResult := Hitret(27935)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040146")
+	Mess("No, it's fine. If it gets too late, then they'll startÅ^to get worried.")
+	hitretResult := Hitret(27936)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040209")
+	Mess("But Akira...")
+	hitretResult := Hitret(27937)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK040147")
+	Mess("You can't worry them too much, okay?")
+	hitretResult := Hitret(27938)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA040210")
+	Mess("Akira... Okay. I'll come back again tomorrow.")
+	hitretResult := Hitret(27939)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_02M", 0, 0)
+	Talk("Akira", "AK040148")
+	Mess("Yup, thanksÅ`")
+	hitretResult := Hitret(27940)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(5)
+	Talk("êSÇÃê∫", "")
+	Mess("Although she said that, she glanced back several timesÅ^as she reluctantly walked down the steps. I could seeÅ^the hesitation in her eyes.")
+	hitretResult := Hitret(27941)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Did she not want to return home that badly?")
+	hitretResult := Hitret(27942)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It was like that other time... Maybe I was right. MaybeÅ^there really are some complications in her family...")
+	hitretResult := Hitret(27943)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC06_01M", 0, 0)
+	Talk("Akira", "AK040149")
+	Mess("It'd be best if you head home too. You'll worryÅ^Sora-chan.")
+	hitretResult := Hitret(27944)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I guess so...")
+	hitretResult := Hitret(27945)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Although I was reluctant to leave, this feeling ofÅ^reluctance was probably much different to Migiwa-san's.")
+	hitretResult := Hitret(27946)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	Change("00_d011")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

@@ -1,0 +1,922 @@
+Include"yosuga.ch"
+
+Function sc00_E032()
+	ScenarioEnter()
+	ScPlayBgm("BGM03", 0)
+	SetCg("B19a", 0, 0)
+	Talk("心の声", "")
+	Mess("あれ？　僕って振られたのか？")
+	hitretResult := Hitret(38376)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("SP10", 0, 0)
+	Talk("初佳", "MT051456")
+	Mess("ゴメンね、悠くん。今までありがとう。楽しかった。")
+	hitretResult := Hitret(38377)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B19a", 0, 0)
+	Talk("心の声", "")
+	Mess("他に考えようないのに……気付くのに一週間も掛かるなんて。")
+	hitretResult := Hitret(38378)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("ショックだった……って事なのかなぁ……")
+	hitretResult := Hitret(38379)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("僕は上手く行ってると思ってたんだけどな……初佳さんは違っ")
+	Mess("たのかな……")
+	hitretResult := Hitret(38380)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("どっかで嫌われる事したかなぁ……思い当たらないけど……")
+	hitretResult := Hitret(38381)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("一緒に帰った時に怒ったから……？")
+	hitretResult := Hitret(38382)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("そんなに心の狭い人かな、初佳さんって……")
+	hitretResult := Hitret(38383)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_02L", 0, 0)
+	Talk("亮平", "RH050340")
+	Mess("悠くぅーん、いつまで寝てるのぉ～？　お昼休み終わっちゃう")
+	Mess("わよぉ？")
+	hitretResult := Hitret(38384)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Quake(0, 16, 1, 2, 30)
+	Talk("悠", "")
+	Mess("うわわあああっ！？")
+	hitretResult := Hitret(38385)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_02M", 0, 0)
+	Talk("亮平", "RH050341")
+	Mess("わははは、目は覚めたか？")
+	hitretResult := Hitret(38386)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("いきなりアップで出て来ないでよ……心臓止まるかと思った。")
+	hitretResult := Hitret(38387)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("亮平", "RH050342")
+	Mess("起きたみたいだな。ならメシにしようぜ？　お前、今日はパン")
+	Mess("なんだろ？")
+	hitretResult := Hitret(38388)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("うん……って、何でわかったんだ？")
+	hitretResult := Hitret(38389)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050343")
+	Mess("ここんとこずっとパンだからな、予想も付くさ。")
+	hitretResult := Hitret(38390)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC01_01M", 0, 0)
+	Talk("瑛", "AK050136")
+	Mess("そーなのー？　んじゃ、みんなが戻ってくるまで待ってるよ。")
+	hitretResult := Hitret(38391)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_01M", 0, 0)
+	Talk("一葉", "KA050090")
+	Mess("私達だけの方が静かなんだから、待つことないわよ。")
+	hitretResult := Hitret(38392)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050137")
+	Mess("そんな事ないよー、大勢で食べたら楽しいよー？　あー、そう")
+	Mess("だ、あたし達のお弁当を分けてあげたらどーかな？")
+	hitretResult := Hitret(38393)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_02M", 0, 0)
+	Talk("亮平", "RH050344")
+	Mess("おおっ、お嬢の弁当を食わせて貰えるのか！　そりゃいい、そ")
+	Mess("うしようぜ、悠？")
+	hitretResult := Hitret(38394)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("えっ、そんなの悪いよ。")
+	hitretResult := Hitret(38395)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_07M", 0, 0)
+	Talk("一葉", "KA050091")
+	Mess("あげるなんて、まだ一言も言ってませんっ！")
+	hitretResult := Hitret(38396)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050138")
+	Mess("まーまー、カズちゃん落ち着いて……あれっ、カズちゃんのお")
+	Mess("弁当、いつもと違うね？")
+	hitretResult := Hitret(38397)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_10M", 0, 0)
+	Talk("一葉", "KA050092")
+	Mess("なっ、何っ！？　私が作ったら変だって言うのっ？")
+	hitretResult := Hitret(38398)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_06M", 0, 0)
+	Talk("亮平", "RH050345")
+	Mess("なにぃっ！？　お嬢のお手製か……それは是非いただかねば。")
+	hitretResult := Hitret(38399)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_06M", 0, 0)
+	Talk("一葉", "KA050093")
+	Mess("だからあげませんっ！！")
+	hitretResult := Hitret(38400)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("渚さんは、いつも自分でお弁当作ってるの？")
+	hitretResult := Hitret(38401)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_01M", 0, 0)
+	Talk("一葉", "KA050094")
+	Mess("私か母です。今日は母の都合が悪かったので私が……")
+	hitretResult := Hitret(38402)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("亮平", "RH050346")
+	Mess("初佳さんには頼まなかったのか？　料理の勉強してんだろ？")
+	hitretResult := Hitret(38403)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("一葉", "KA050095")
+	Mess("頼むときもありますが、乃木坂さんはしばらくお休みすると連")
+	Mess("絡がありましたから。")
+	hitretResult := Hitret(38404)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("瑛", "AK050139")
+	Mess("初佳お姉ちゃんどうしたの？")
+	hitretResult := Hitret(38405)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_02M", 0, 0)
+	Talk("一葉", "KA050096")
+	Mess("理由までは聞いてないから。")
+	hitretResult := Hitret(38406)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("心の声", "")
+	Mess("初佳さんがお休み……まさか病気なんかじゃないよな？")
+	hitretResult := Hitret(38407)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("だったらお見舞い……いや、僕はもう振られたんだから、行っ")
+	Mess("たりしたら迷惑かな……")
+	hitretResult := Hitret(38408)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("亮平", "RH050347")
+	Mess("ま、お嬢が分けてくれねえんじゃしょうがねえよな。パン買い")
+	Mess("に行こうぜ？")
+	hitretResult := Hitret(38409)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("あ、うん………………あ、ちょっと待って。穹を呼ばないと。")
+	hitretResult := Hitret(38410)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_08M", 0, 0)
+	Talk("亮平", "RH050348")
+	Mess("……そいつは待って欲しいんだけどな。")
+	hitretResult := Hitret(38411)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("亮平？")
+	hitretResult := Hitret(38412)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050349")
+	Mess("ちょっと話しておきたい事があってよ。お前と二人だけで。")
+	hitretResult := Hitret(38413)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("構わないけど……")
+	hitretResult := Hitret(38414)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("鋭い視線が真面目な話だと訴えている。")
+	hitretResult := Hitret(38415)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("何の話かは想像も付かないけど、断っていい雰囲気じゃなかっ")
+	Mess("た。")
+	hitretResult := Hitret(38416)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	SetCg("B20a", 0, 0)
+	ScPlayEnvSe("SE404", "", 0)
+	Talk("心の声", "")
+	Mess("亮平は購買部に寄ってパンを買うと、校舎を出てグラウンドへ")
+	Mess("僕を連れ出した。")
+	hitretResult := Hitret(38417)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("その間、パンを買う時のやりとり以外、亮平は一言も発しな／")
+	Mess("い。")
+	hitretResult := Hitret(38418)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("僕も後を付いて行く間、ずっと黙っていた。")
+	hitretResult := Hitret(38419)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("葬送の列のような僕達とは対照的に、グラウンドでは男子生徒")
+	Mess("がサッカーをして盛り上がっていた。")
+	hitretResult := Hitret(38420)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("彼らはもう昼食を食べ終わったんだろうな。")
+	hitretResult := Hitret(38421)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopEnvSe("SE404", 1)
+	SetBustup("CF01_08M", 0, 0)
+	ScPlayBgm("BGM16", 0)
+	Talk("心の声", "")
+	Mess("亮平はグラウンドの隅まで来て立ち止まり、彼らを見ながら、")
+	Mess("手のひらでぶどうパンをぽんぽんと弾ませている。")
+	hitretResult := Hitret(38422)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050350")
+	Mess("……お前が凹んでるのって、初佳さんの事だろ？")
+	hitretResult := Hitret(38423)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("不意打ちで言われて、僕は息をのんだ。")
+	hitretResult := Hitret(38424)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050351")
+	Mess("見てりゃ何かあった事くらいわかる……つーか、見ちまったん")
+	Mess("だよな。")
+	hitretResult := Hitret(38425)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("ぶどうパンを握りしめ、亮平が僕を見つめる。")
+	hitretResult := Hitret(38426)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("亮平も、あの湖に居たの？")
+	hitretResult := Hitret(38427)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050352")
+	Mess("湖？　いや、俺が見たのは初佳さんの方だ。")
+	hitretResult := Hitret(38428)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050353")
+	Mess("初佳さんというか……元彼だな。")
+	hitretResult := Hitret(38429)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("えっ？")
+	hitretResult := Hitret(38430)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("聞き捨てならない言葉を聞いたような……")
+	hitretResult := Hitret(38431)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050354")
+	Mess("この前、学校帰りにな……初佳さんが元彼と会ってるとこ、見")
+	Mess("ちまったんだ。")
+	hitretResult := Hitret(38432)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050355")
+	Mess("そいつと初佳さんはさ、なんつーか、円満な終わり方をしてな")
+	Mess("いんだよ。")
+	hitretResult := Hitret(38433)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050356")
+	Mess("端的に言や、逃げられたってことなんだが……詳しい事は俺の")
+	Mess("口からは言えねえけどよ。")
+	hitretResult := Hitret(38434)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("そんな事……なんで亮平が知ってる？")
+	hitretResult := Hitret(38435)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_07M", 0, 0)
+	Talk("亮平", "RH050357")
+	Mess("詳しい事は言えねえっつっただろ。その元彼の方と、ちっとだ")
+	Mess("け因縁があるってだけよ。")
+	hitretResult := Hitret(38436)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("視線を落として唇を歪める亮平。")
+	hitretResult := Hitret(38437)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("初佳さんと亮平。")
+	hitretResult := Hitret(38438)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("何かあるんじゃないかとは思ってたけど、これがそうなんだ。")
+	hitretResult := Hitret(38439)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("そして、亮平自身も消化出来ていない事なんだと思う。")
+	hitretResult := Hitret(38440)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("僕は、そこに踏み込めない。")
+	hitretResult := Hitret(38441)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_08M", 0, 0)
+	Talk("亮平", "RH050358")
+	Mess("そんな奴が戻って来てさ、初佳さんと会ってたりしたら、今彼")
+	Mess("のお前と何かあったって思うだろ？")
+	hitretResult := Hitret(38442)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("僕が今彼って……")
+	hitretResult := Hitret(38443)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050359")
+	Mess("誤魔化すなよ。それとも誤魔化すような、いい加減な関係だっ")
+	Mess("たのか？")
+	hitretResult := Hitret(38444)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("……もう、振られたんだよ。")
+	hitretResult := Hitret(38445)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_09M", 0, 0)
+	Talk("亮平", "RH050360")
+	Mess("なっ……そりゃどういう事だ！")
+	hitretResult := Hitret(38446)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("どうもこうも……もう終わりにしようって、初佳さんに言われ")
+	Mess("て……")
+	hitretResult := Hitret(38447)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050361")
+	Mess("それでお前は、はいそーですかって頷いたのか？　そんなんで")
+	Mess("諦めたのか？")
+	hitretResult := Hitret(38448)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("それは、なんていうか今まで実感なくて……")
+	hitretResult := Hitret(38449)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("亮平", "RH050362")
+	Mess("振られた実感がないって……呑気すぎだろ？")
+	hitretResult := Hitret(38450)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("自分でも呆れてる。自分じゃ結構上手く行ってるつもりだった")
+	Mess("から、だからだと思ってるけど……")
+	hitretResult := Hitret(38451)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050363")
+	Mess("じゃあ、お前は納得してるのか？")
+	hitretResult := Hitret(38452)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("わからない。けど、振られちゃったんだから、仕方ないよ。")
+	hitretResult := Hitret(38453)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("それに、カラダだけの関係って言われた……")
+	hitretResult := Hitret(38454)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("僕では、初佳さんの心には届かなかったんだろう。")
+	hitretResult := Hitret(38455)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("元彼とか、辛い恋愛とか……初佳さんの事を何も知らなかった")
+	Mess("のが良い証拠だ。")
+	hitretResult := Hitret(38456)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("初佳さんがその元彼を選んだなら……僕に何が出来る？")
+	hitretResult := Hitret(38457)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_07M", 0, 0)
+	Talk("亮平", "RH050364")
+	Mess("そうかもしれないけどよ……")
+	hitretResult := Hitret(38458)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("結局、僕は中途半端だったんだ。")
+	hitretResult := Hitret(38459)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("都会の煩わしさから逃げて……ここでもまた、退屈な暮らしか")
+	Mess("ら、初佳さんとの刺激的な関係に逃げたんだ。")
+	hitretResult := Hitret(38460)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("自分も、周りのことも、何も受け止められない、子供みたいな")
+	Mess("半端者。")
+	hitretResult := Hitret(38461)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("そんな自分が、とても情けなく思えた。")
+	hitretResult := Hitret(38462)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("SP10", 0, 0)
+	Talk("初佳", "MT051457")
+	Mess("イケナイ火遊びは、このくらいにしとかないかな？")
+	hitretResult := Hitret(38463)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B20a", 0, 0)
+	SetBustup("CF01_07M", 0, 0)
+	Talk("心の声", "")
+	Mess("初佳さんが遊びでしかなかったのも仕方ない……")
+	hitretResult := Hitret(38464)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050365")
+	Mess("……ちくしょ……パン、潰れてんじゃねえか……")
+	hitretResult := Hitret(38465)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("自分で握ってたじゃない。")
+	hitretResult := Hitret(38466)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050366")
+	Mess("そだっけか？　ついてねえなぁ……")
+	hitretResult := Hitret(38467)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("そんなどうでも良い会話の後は、僕も亮平も黙って。")
+	hitretResult := Hitret(38468)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("サッカーで盛り上がるグラウンドを、遠くの出来事のように眺")
+	Mess("めていた。")
+	hitretResult := Hitret(38469)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	EyeCatchEnter("", 0)
+	Change("00_e032b")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

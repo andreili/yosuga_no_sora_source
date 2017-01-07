@@ -1,0 +1,1457 @@
+Include"yosuga.ch"
+
+Function sc00_E007()
+	ScenarioEnter()
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("Night arrives.")
+	hitretResult := Hitret(34192)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B32c", 0, 0)
+	ScPlayBgm("BGM05", 0)
+	ScPlaySe("se109", 0)
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050176")
+	Mess("Hey there, Haruka-kun and Sora-chan.")
+	hitretResult := Hitret(34193)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san came holding a tote bag filled withÅ^ingredients.")
+	hitretResult := Hitret(34194)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR050052")
+	Mess("... She came again...")
+	hitretResult := Hitret(34195)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Quit talking like that.")
+	hitretResult := Hitret(34196)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR050053")
+	Mess("...")
+	hitretResult := Hitret(34197)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	Talk("êSÇÃê∫", "")
+	Mess("Unhappy with something, Sora returned to her room afterÅ^faintly sighing.")
+	hitretResult := Hitret(34198)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("That's just how she is, though IÅfd like her to takeÅ^some time to open up to a lot different of people.")
+	hitretResult := Hitret(34199)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050177")
+	Mess("Hmm... did I keep you two waiting?")
+	hitretResult := Hitret(34200)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050178")
+	Mess("Are you hungry? If so, I can make something that'llÅ^finish quick.")
+	hitretResult := Hitret(34201)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, no I'm fine. Sora should be, too.")
+	hitretResult := Hitret(34202)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry about even having you get the ingredients. I'llÅ^help out in any way I can.")
+	hitretResult := Hitret(34203)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_04M", 0, 0)
+	Talk("Motoka", "MT050179")
+	Mess("Don't worry about it. This is my way of apologizing toÅ^begin with. Just have a seat and wait a little.")
+	hitretResult := Hitret(34204)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050180")
+	Mess("Gonna be borrowing your kitchen for a bit.")
+	hitretResult := Hitret(34205)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02c", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("êSÇÃê∫", "")
+	Mess("I showed Motoka-san to the kitchen, then had a seat atÅ^the table.")
+	hitretResult := Hitret(34206)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("As I watched Motoka-san, her back turned to me as sheÅ^held on to a knife, I couldn't help but notice that herÅ^hand was shaking as she held the knife.")
+	hitretResult := Hitret(34207)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I suppose you also cook as part of your job as a maid?")
+	hitretResult := Hitret(34208)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050181")
+	Mess("Eehh?!")
+	hitretResult := Hitret(34209)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se067", 0)
+	Talk("êSÇÃê∫", "")
+	Mess("A rough sound suddenly rung out.")
+	hitretResult := Hitret(34210)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_03S", 0, 0)
+	Talk("Motoka", "MT050182")
+	Mess("A-ahaha... my hand slipped. Screwed that up...")
+	hitretResult := Hitret(34211)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The knife was stuck in the cutting board upon looking.")
+	hitretResult := Hitret(34212)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050183")
+	Mess("Don't look so concerned. My hand just shook by accident.Å^Not a problem at all.")
+	hitretResult := Hitret(34213)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san returned to preparing dinner, waving her handÅ^dismissively about what happened earlier.")
+	hitretResult := Hitret(34214)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her hand still seemed to be shaking, though, as she heldÅ^on to the knife once more.")
+	hitretResult := Hitret(34215)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I had no intention of shaking her up when I spoke out toÅ^her before, but her cooking just gave me a bad feeling.")
+	hitretResult := Hitret(34216)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The way she cut the vegetables, with a *chop*, *chop*Å^sound to it, was somehow more... rough than I would haveÅ^imagined.")
+	hitretResult := Hitret(34217)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Her style of cooking didn't seem all that different fromÅ^mine... Nao-chan would likely put both of us to shame.")
+	hitretResult := Hitret(34218)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Maybe I just don't get it cause I'm an amateur?")
+	hitretResult := Hitret(34219)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01S", 0, 0)
+	Talk("Motoka", "MT050184")
+	Mess("Oh, that's right. A bit late to be asking this, but isÅ^there any food you two dislike?")
+	hitretResult := Hitret(34220)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, not in particular. Sora should be fine withÅ^vegetables, I believe.")
+	hitretResult := Hitret(34221)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050185")
+	Mess("Glad to hear it. Stew shouldn't be a problem, then.")
+	hitretResult := Hitret(34222)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_04S", 0, 0)
+	Talk("Motoka", "MT050186")
+	Mess("Kinda foolish to not notice that until after I startedÅ^cooking, huh.")
+	hitretResult := Hitret(34223)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("'Ahaha', she laughed as she returned to throwing theÅ^diced vegetables in the stew.")
+	hitretResult := Hitret(34224)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She threw all the onions, potatoes, carrots, andÅ^broccoli in together.")
+	hitretResult := Hitret(34225)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Well, that's a bold way to make stew.")
+	hitretResult := Hitret(34226)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050187")
+	Mess("All that's left is to pour the water in, then let itÅ^simmer on the stove for a little.")
+	hitretResult := Hitret(34227)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050188")
+	Mess("It should be ready in just a bit, so wait a littleÅ^longer.")
+	hitretResult := Hitret(34228)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry for having you do all this.")
+	hitretResult := Hitret(34229)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050189")
+	Mess("You're worrying too much! This is to apologize, so justÅ^sit tight.")
+	hitretResult := Hitret(34230)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050190")
+	Mess("Ah, you know, could you be that type of person? You seemÅ^like you'd be the target of Ryouhei-kun's teasing.")
+	hitretResult := Hitret(34231)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("That's actually exactly how it is, leaving no room forÅ^me to refute her.")
+	hitretResult := Hitret(34232)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san giggled, as though she had read my mind.")
+	hitretResult := Hitret(34233)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050191")
+	Mess("He's not trying to be mean when he does that stuff. JustÅ^dismiss it as a child-like prank, okay?")
+	hitretResult := Hitret(34234)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I know. There are times when he seems a bit aggressive,Å^though.")
+	hitretResult := Hitret(34235)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_02M", 0, 0)
+	Talk("Motoka", "MT050192")
+	Mess("Hehe, he's probably got a side like that to him.")
+	hitretResult := Hitret(34236)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The mature way that Motoka-san laughed made my heartÅ^flutter.")
+	hitretResult := Hitret(34237)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Thinking back, have I been together with another girl atÅ^night like this before?")
+	hitretResult := Hitret(34238)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("... Kinda getting nervous.")
+	hitretResult := Hitret(34239)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050193")
+	Mess("Hm? What's the matter, Haruka-kun?")
+	hitretResult := Hitret(34240)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, no... it's nothing.")
+	hitretResult := Hitret(34241)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah! Shouldn't it be ready soon? I'll go call for Sora.")
+	hitretResult := Hitret(34242)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("I stood up from my seat as I began to grow embarrassed.")
+	hitretResult := Hitret(34243)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050194")
+	Mess("Wait a sec, Haruka-kun.")
+	hitretResult := Hitret(34244)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san hindered my retreat, though.")
+	hitretResult := Hitret(34245)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050195")
+	Mess("I'll call for her, since I'd like to be friendly withÅ^Sora-chan, too.")
+	hitretResult := Hitret(34246)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	ScPlaySe("se015", 0)
+	Talk("Haruka", "")
+	Mess("Ah, Motoka-san!")
+	hitretResult := Hitret(34247)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Is she going to be alright? Sora seemed like she was inÅ^a bad mood...")
+	hitretResult := Hitret(34248)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopSe()
+	Talk("Motoka", "MT050196")
+	Mess("... Uhh... Haruka-kun...")
+	hitretResult := Hitret(34249)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_03M", 0, 0)
+	Talk("Haruka", "")
+	Mess("Hm? Motoka-san?")
+	hitretResult := Hitret(34250)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Just when I was about to leaveÅc")
+	hitretResult := Hitret(34251)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050197")
+	Mess("I was wondering where Sora-chan's room is.")
+	hitretResult := Hitret(34252)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(34253)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I began to get worried in another sense.")
+	hitretResult := Hitret(34254)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	ScPlaySe("se101", 0)
+	Talk("Motoka", "MT050198")
+	Mess("Sora-chaannn! Dinner's ready; come eat!")
+	hitretResult := Hitret(34255)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(34256)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se101", 0)
+	Talk("Motoka", "MT050199")
+	Mess("Sora-chaaann! What's wrong? Maybe she's sleeping?")
+	hitretResult := Hitret(34257)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se101", 0)
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(34258)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She knocked again, but Sora still didn't respond.")
+	hitretResult := Hitret(34259)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Still not time for bed...")
+	hitretResult := Hitret(34260)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050200")
+	Mess("Yeah, that's true... Sora-chaaann! Dinner's ready~")
+	hitretResult := Hitret(34261)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(34262)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Did she really fall asleep?")
+	hitretResult := Hitret(34263)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("That's odd... Sora? It's time to eat.")
+	hitretResult := Hitret(34264)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("...")
+	hitretResult := Hitret(34265)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se100", 0)
+	Talk("Sora", "SR050054")
+	Mess("...")
+	hitretResult := Hitret(34266)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050201")
+	Mess("Ah, Sora-chan. Dinner's ready, so...")
+	hitretResult := Hitret(34267)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR050055")
+	Mess("...")
+	hitretResult := Hitret(34268)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora finally came out of her room, but she didn't evenÅ^so much as glance at Motoka-san as she headed for theÅ^kitchen.")
+	hitretResult := Hitret(34269)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Did she really just ignore her...?")
+	hitretResult := Hitret(34270)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050202")
+	Mess("M-maybe I was just a bit too friendly?")
+	hitretResult := Hitret(34271)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san seemed a bit timid as she followed afterÅ^Sora-chan.")
+	hitretResult := Hitret(34272)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I followed along behind those two, feeling even moreÅ^concerned.")
+	hitretResult := Hitret(34273)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02c", 0, 0)
+	SetBustup("CA02_01M", 0, 0)
+	SetBustup("CE02_04M", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san placed the finished cream stew and salad sheÅ^made with the leftover vegetables on the dinner table,Å^but Sora still looked sulky.")
+	hitretResult := Hitret(34274)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050203")
+	Mess("Ah, do you not like stew, Sora-chan? If so, I can makeÅ^something else for you.")
+	hitretResult := Hitret(34275)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "")
+	Mess("...")
+	hitretResult := Hitret(34276)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora didn't respond, despite Motoka-san talking to her.")
+	hitretResult := Hitret(34277)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It was as if she wasn't even aware Motoka-san was there.")
+	hitretResult := Hitret(34278)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050204")
+	Mess("Hungry, huh. Alright, let's eat!")
+	hitretResult := Hitret(34279)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_09M", 0, 0)
+	Talk("Sora", "")
+	Mess("...")
+	hitretResult := Hitret(34280)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_03M", 0, 0)
+	Talk("Motoka", "MT050205")
+	Mess("Umm...")
+	hitretResult := Hitret(34281)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san pressed her hands together, but Sora didn'tÅ^even react. Her expression soon changed from lively toÅ^grim.")
+	hitretResult := Hitret(34282)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("There's no room for doubt. Sora's completely ignoringÅ^her.")
+	hitretResult := Hitret(34283)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I'm surprised she'd act like this with her, no matterÅ^how poor she is with others.")
+	hitretResult := Hitret(34284)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I couldn't think of anything appropriate to say to helpÅ^Motoka-san out a bit.")
+	hitretResult := Hitret(34285)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("We should start eating before the food gets cold.")
+	hitretResult := Hitret(34286)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I could only force out a hollow, strained line that wasÅ^of no aid to Motoka-san.")
+	hitretResult := Hitret(34287)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("However, once I placed my spoon in the stew, Sora, likeÅ^she had resigned herself, picked up hers.")
+	hitretResult := Hitret(34288)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050206")
+	Mess("A-alright then, let's eat!")
+	hitretResult := Hitret(34289)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Each of began to eat after a change in mood.")
+	hitretResult := Hitret(34290)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Sora", "SR050058")
+	Mess("...")
+	hitretResult := Hitret(34291)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora stopped moving after taking just one bite.")
+	hitretResult := Hitret(34292)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("... This...")
+	hitretResult := Hitret(34293)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("How to put it... like it's half cooked? It doesn't tasteÅ^off, though.")
+	hitretResult := Hitret(34294)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Like there's something's missing...")
+	hitretResult := Hitret(34295)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050207")
+	Mess("H-how is it?")
+	hitretResult := Hitret(34296)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, it's goo-")
+	hitretResult := Hitret(34297)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR050059")
+	Mess("It's not good.")
+	hitretResult := Hitret(34298)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_03M", 0, 0)
+	Talk("Motoka", "MT050208")
+	Mess("Ah...")
+	hitretResult := Hitret(34299)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("S-Sora!")
+	hitretResult := Hitret(34300)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Can't believe she really just out and said that. I mean,Å^it's not like it's especially great or anything, but...")
+	hitretResult := Hitret(34301)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("Sora", "SR050060")
+	Mess("... I've had enough. It's no different from what HaruÅ^makes.")
+	hitretResult := Hitret(34302)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050209")
+	Mess("Uuh.")
+	hitretResult := Hitret(34303)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora stood up and took out a pack of curry and a bag ofÅ^snacks from the shelf behind us before I even had aÅ^chance to respond.")
+	hitretResult := Hitret(34304)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I bought those together yesterday.")
+	hitretResult := Hitret(34305)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_09M", 0, 0)
+	Talk("Motoka", "MT050210")
+	Mess("S-Sora-chan...")
+	hitretResult := Hitret(34306)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR050061")
+	Mess("This is better.")
+	hitretResult := Hitret(34307)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	Talk("êSÇÃê∫", "")
+	Mess("Sora retreated back to her room with that partingÅ^remark.")
+	hitretResult := Hitret(34308)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_10M", 0, 0)
+	Talk("Motoka", "MT050211")
+	Mess("*Shocked*.")
+	hitretResult := Hitret(34309)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san, so shocked at Sora's actions, wore a funnyÅ^expression on her face.")
+	hitretResult := Hitret(34310)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050212")
+	Mess("Haruka-kun... Haruka-kun, is it good?")
+	hitretResult := Hitret(34311)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh?")
+	hitretResult := Hitret(34312)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050213")
+	Mess("Even Haruka-kun doesn't think it's any good *sob*Å^*sob*...")
+	hitretResult := Hitret(34313)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Not at all. I can't make stew at all. Your food is muchÅ^better than mine.")
+	hitretResult := Hitret(34314)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Err, is that really any consolation?")
+	hitretResult := Hitret(34315)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_09M", 0, 0)
+	Talk("Motoka", "MT050214")
+	Mess("It's okay... I understand.")
+	hitretResult := Hitret(34316)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050215")
+	Mess("I only rarely cook. I'm not going to just instantly beÅ^good at it because I suddenly decided to cook again.")
+	hitretResult := Hitret(34317)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("R-really?")
+	hitretResult := Hitret(34318)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("So my eyes weren't just playing tricks on me when I sawÅ^her fumbling with the knife earlier.")
+	hitretResult := Hitret(34319)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("In that case... why did you decide to cook as a way toÅ^apologize, then?")
+	hitretResult := Hitret(34320)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_03M", 0, 0)
+	Talk("Motoka", "MT050216")
+	Mess("Well, you see.. A-aha... I was trying to look cool.")
+	hitretResult := Hitret(34321)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050217")
+	Mess("It's true that I genuinely do want to apologize.")
+	hitretResult := Hitret(34322)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050218")
+	Mess("So I was thinking, 'is there anything that I could helpÅ^those two out with?' You know, cause it's just you andÅ^Sora-chan.")
+	hitretResult := Hitret(34323)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess(".. Ahh, I see. Thanks a lot.")
+	hitretResult := Hitret(34324)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050219")
+	Mess("Don't look so meek. Aren't I the older one out of theÅ^two us? The old are supposed to look out for the young,Å^right?")
+	hitretResult := Hitret(34325)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("'I did screw up, though', said Motoka-san with a dryÅ^grin.")
+	hitretResult := Hitret(34326)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Though she's been attempting to act if she wasn'tÅ^pertubed by what happened, she still was unable to fullyÅ^contain her shock.")
+	hitretResult := Hitret(34327)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_07M", 0, 0)
+	Talk("Motoka", "MT050220")
+	Mess("Hahh~ Being the Onee-san is tough~")
+	hitretResult := Hitret(34328)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I think you're fine, Motoka-san.")
+	hitretResult := Hitret(34329)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050221")
+	Mess("Hm? What do you mean?")
+	hitretResult := Hitret(34330)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("That you make a good Onee-san.")
+	hitretResult := Hitret(34331)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_01M", 0, 0)
+	Talk("Motoka", "MT050222")
+	Mess("Heh, thanks. Trying to comfort me, are ya?")
+	hitretResult := Hitret(34332)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("No, it's just... there was a time when Sora was prettyÅ^reclusive, so she has trouble with others.")
+	hitretResult := Hitret(34333)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("She's like that with everyone, though. It's not justÅ^because it's you in particular that she acted that way.")
+	hitretResult := Hitret(34334)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("She may not be friendly, but... please don't let itÅ^bother you.")
+	hitretResult := Hitret(34335)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Oddly enough, the words just kind of came out of myÅ^mouth.")
+	hitretResult := Hitret(34336)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Almost like I was trying to stop Motoka-san fromÅ^distancing herself away from me.")
+	hitretResult := Hitret(34337)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050223")
+	Mess("So she was a recluse... I see.")
+	hitretResult := Hitret(34338)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well, she'll generally reply if you talk to her, soÅ^she's gotten a lot better.")
+	hitretResult := Hitret(34339)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("That's why...")
+	hitretResult := Hitret(34340)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_02M", 0, 0)
+	Talk("Motoka", "MT050224")
+	Mess("Okay, got it.")
+	hitretResult := Hitret(34341)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san gently nodded, stopping me from going on anyÅ^more.")
+	hitretResult := Hitret(34342)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050225")
+	Mess("So from now... No.")
+	hitretResult := Hitret(34343)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050226")
+	Mess("Even after now, don't be afraid to ask me for help withÅ^anything, okay?")
+	hitretResult := Hitret(34344)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Motoka-san... Sure.")
+	hitretResult := Hitret(34345)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Motoka-san really looked like an Onee-san to me as sheÅ^slightly smiled.")
+	hitretResult := Hitret(34346)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	Change("00_e008")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

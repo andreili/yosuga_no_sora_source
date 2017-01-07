@@ -1,0 +1,1527 @@
+Include"yosuga.ch"
+
+Function sc00_C014C()
+	ScenarioEnter()
+	ScPlayBgm("BGM06", 0)
+	SetCg("B23a", 0, 0)
+	SetBustup("CE04_04M", 0, 0)
+	Transition("WIP_BT", 500)
+	Talk("Motoka", "MT020018")
+	Mess("Huh, what's wrong? Already tired?")
+	hitretResult := Hitret(20935)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Your pace, is fast...")
+	hitretResult := Hitret(20936)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_02M", 0, 0)
+	Talk("Motoka", "MT020019")
+	Mess("Eh? That's not so, it's normal.")
+	hitretResult := Hitret(20937)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We were just a little bit distanced yet Motoka-san hadÅ^three open beers by her feet.")
+	hitretResult := Hitret(20938)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_01M", 0, 0)
+	Talk("Akira", "AK020633")
+	Mess("Ah, Modoka Onee-chan, there's boiled food so you canÅ^snack on those if you like.")
+	hitretResult := Hitret(20939)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_04M", 0, 0)
+	Talk("Motoka", "MT020020")
+	Mess("Really? Thank you, Akira-chan's made food goes good withÅ^beer. (More literally: The beer recommends the food)")
+	hitretResult := Hitret(20940)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA07_04M", 0, 0)
+	Talk("Sora", "SR020129")
+	Mess("It's hot...")
+	hitretResult := Hitret(20941)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora herself opens the cooler box and gulps down water.")
+	hitretResult := Hitret(20942)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_02M", 0, 0)
+	Talk("Akira", "AK020634")
+	Mess("Sorry for making you do the watching, should we switch?Å^It's okay to go play.")
+	hitretResult := Hitret(20943)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_08M", 0, 0)
+	Talk("Motoka", "MT020021")
+	Mess("I'm okay... there were numerous people who came toÅ^flirt, but seeing this number of luggage, everyoneÅ^thinks I have a child and runs away...")
+	hitretResult := Hitret(20944)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I-I'm somehwat sorry about that...")
+	hitretResult := Hitret(20945)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CE04_01M", 0, 0)
+	Talk("Motoka", "MT020022")
+	Mess("Ah, it's okay it's okay, today I came to supervise, if IÅ^was flirted with and went off somewhere, later I'd beÅ^killed by Yamanashi-san.")
+	hitretResult := Hitret(20946)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_08M", 0, 0)
+	Talk("Motoka", "MT020023")
+	Mess("Today when I was told that I'd be taken by car, IÅ^shivered. Alone with that Oji-san- just the two of us,Å^being on luggage duty in this tent I'd seem to loseÅ^about 10 kilograms in a day.")
+	hitretResult := Hitret(20947)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Are you not good with that person? That Yamanashi-san.")
+	hitretResult := Hitret(20948)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_03M", 0, 0)
+	Talk("Motoka", "MT020024")
+	Mess("It's not that I don't like him, but it's that it'd seemÅ^like I'd be told something ill, and my mind can't restÅ^on that... *glug glug*... puha-!")
+	hitretResult := Hitret(20949)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_04M", 0, 0)
+	Talk("Motoka", "MT020025")
+	Mess("That's why, doing this shift by myself is moreÅ^easygoing, so won't worry-.")
+	hitretResult := Hitret(20950)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Really at the pace of the level you'd think she justÅ^wants to drink as much as she wants from this noontime,Å^yet another beer can is made empty.")
+	hitretResult := Hitret(20951)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_02M", 0, 0)
+	Talk("Akira", "AK020635")
+	Mess("Here you go, if you are hungry you can go ahead and eatÅ^an bentou.")
+	hitretResult := Hitret(20952)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Amatsume's special boiled food is distributed in dishes,Å^and with it is snacks provided with the liquor caps.")
+	hitretResult := Hitret(20953)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("If there was a television or a newspaper here, it'd seemÅ^to be a comepletely geezer mode...")
+	hitretResult := Hitret(20954)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_01M", 0, 0)
+	Talk("Motoka", "MT020026")
+	Mess("Thank you-! You really are a good kid, Akira-chan.Å^Alright!")
+	hitretResult := Hitret(20955)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_14M", 0, 0)
+	Talk("Akira", "AK020636")
+	Mess("Nfu...")
+	hitretResult := Hitret(20956)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE04_02M", 0, 0)
+	Talk("Motoka", "MT020027")
+	Mess("As long as I have this, I'll be fine for awhile, you twoÅ^can go play.")
+	hitretResult := Hitret(20957)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well then, we will be going...Mm? Sora?")
+	hitretResult := Hitret(20958)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(2)
+	SetBustup("CA07_05M", 0, 0)
+	Talk("Sora", "SR020130")
+	Mess("...I'll sleep.")
+	hitretResult := Hitret(20959)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Is it okay? To not go out and play.")
+	hitretResult := Hitret(20960)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Sora", "SR020131")
+	Mess("...I'm tired.")
+	hitretResult := Hitret(20961)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	SetBustup("CE04_01M", 0, 0)
+	Talk("Motoka", "MT020028")
+	Mess("It's okay, I'll look over her so you two can go loveÅ^love and come back.")
+	hitretResult := Hitret(20962)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Love love... That's I...")
+	hitretResult := Hitret(20963)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("êSÇÃê∫", "")
+	Mess("I put a towel over Sora who is laid down round insideÅ^the sun-shade of the parasol.")
+	hitretResult := Hitret(20964)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Whether she really was tired, she immediately raisesÅ^sleeping breath.")
+	hitretResult := Hitret(20965)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I thought that since we finally came it would be aÅ^waste, but she originally was a shut in type, but withÅ^just coming out there much it may have been anÅ^advancement.")
+	hitretResult := Hitret(20966)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_01M", 6, 0)
+	Talk("Nao", "NO020071")
+	Mess("Oh, you've returned?")
+	hitretResult := Hitret(20967)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, Nao-chan welco--!?")
+	hitretResult := Hitret(20968)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF06_10M", 4, 0)
+	Down(7, 700, 1000, 3)
+	Update()
+	ScPlaySe("se018", 0)
+	Talk("Ryouhei", "RH020240")
+	Mess("Guho...")
+	hitretResult := Hitret(20969)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(7)
+	Talk("êSÇÃê∫", "")
+	Mess("Ryouhei who was grabbed by the nape of the neck andÅ^brought over is thrown onto the ground.")
+	hitretResult := Hitret(20970)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CB07_06M", 0, 0)
+	Talk("Nao", "NO020072")
+	Mess("Geez making us work this hard... Akira-chan, bury him.")
+	hitretResult := Hitret(20971)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_01M", 0, 0)
+	Talk("Akira", "AK020637")
+	Mess("Eh? Is it okay?")
+	hitretResult := Hitret(20972)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_02M", 0, 0)
+	Talk("Nao", "NO020073")
+	Mess("As a lesson yes. Do it as you please!")
+	hitretResult := Hitret(20973)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_04M", 0, 0)
+	Talk("Akira", "AK020638")
+	Mess("Okay!!")
+	hitretResult := Hitret(20974)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020241")
+	Mess("Akira...help...")
+	hitretResult := Hitret(20975)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_03M", 0, 0)
+	Talk("Akira", "AK020639")
+	Mess("HeheheheÅÙ")
+	hitretResult := Hitret(20976)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Like the feeling of a child playing on top of a sandÅ^box, Amatsume hesitantlessly covers sand on top ofÅ^Ryouhei.")
+	hitretResult := Hitret(20977)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020640")
+	Mess("Hey, Haru-kun also- pile some sand!")
+	hitretResult := Hitret(20978)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ryo-Ryouhei...")
+	hitretResult := Hitret(20979)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_03M", 0, 0)
+	Talk("Nao", "NO020074")
+	Mess("It's okay, Haru-chan do it too!")
+	hitretResult := Hitret(20980)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sorry, Ryouhei...")
+	hitretResult := Hitret(20981)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020242")
+	Mess("Ha-Haruka... you too...")
+	hitretResult := Hitret(20982)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_04M", 0, 0)
+	Talk("Akira", "AK020641")
+	Mess("Ei!")
+	hitretResult := Hitret(20983)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020243")
+	Mess("Opu!? Goho-goho!!")
+	hitretResult := Hitret(20984)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Ryouhei with just his next remaining was burried in aÅ^mountain of sand.")
+	hitretResult := Hitret(20985)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_01M", 0, 0)
+	Talk("Nao", "NO020075")
+	Mess("Well, I'll bring Migiwa-san, so Akira-chan, I'll beÅ^borrowing your floater.")
+	hitretResult := Hitret(20986)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_01M", 0, 0)
+	Talk("Akira", "AK020642")
+	Mess("Yeah, okay-.")
+	hitretResult := Hitret(20987)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("What are you going to do with the floater? Nao-chan canÅ^swim.")
+	hitretResult := Hitret(20988)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_02M", 0, 0)
+	Talk("Nao", "NO020076")
+	Mess("Migiwa-san in her vigor was fine chasing down thatÅ^idiot, but on her own she cannot come back.")
+	hitretResult := Hitret(20989)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah... I see...")
+	hitretResult := Hitret(20990)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_02M", 0, 0)
+	Talk("Akira", "AK020643")
+	Mess("Should I go see her too?")
+	hitretResult := Hitret(20991)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB07_01M", 0, 0)
+	Talk("Nao", "NO020077")
+	Mess("Ah, she said for both of you to not come...")
+	hitretResult := Hitret(20992)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah...")
+	hitretResult := Hitret(20993)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She probably has a big personal reason why she doesn'tÅ^want to be seen. Coming back being pulled on a floaterÅ^that is.")
+	hitretResult := Hitret(20994)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well should we borrow a boat and go see here?")
+	hitretResult := Hitret(20995)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020078")
+	Mess("We don't have to do that much. While I go out to seeÅ^here, turn this guy into a laughingstock.")
+	hitretResult := Hitret(20996)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(3)
+	Talk("Haruka", "")
+	Mess("Ryouhei, he has it rough.")
+	hitretResult := Hitret(20997)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020244")
+	Mess("If he wasn't caught it would've been more interesting.")
+	hitretResult := Hitret(20998)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_03M", 0, 0)
+	Talk("Akira", "AK020644")
+	Mess("Nn.. Yo.. slap-")
+	hitretResult := Hitret(20999)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And during that time Amatsume pats down the sand andÅ^makes it firm.")
+	hitretResult := Hitret(21000)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020245")
+	Mess("Well, it's a shame there was no exposed cleavage, butÅ^being chased around by two girls felt good. How aboutÅ^it, would you like to do it too Haruka?")
+	hitretResult := Hitret(21001)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("I can't swim so I'd get caught in the immediate attackÅ^and be burried.")
+	hitretResult := Hitret(21002)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020246")
+	Mess("You should do as you want! You've finally come to theÅ^ocean and everyone is in a state of release, more orÅ^less body touch and open cleavage is fine!")
+	hitretResult := Hitret(21003)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("But, the result is being burried.")
+	hitretResult := Hitret(21004)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020247")
+	Mess("Rather than regret of not doing it, it's satisfying!")
+	hitretResult := Hitret(21005)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020645")
+	Mess("Hm, hehe-hehe!!")
+	hitretResult := Hitret(21006)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020248")
+	Mess("Hey, Akira, what are you doing? It's about time to helpÅ^me.")
+	hitretResult := Hitret(21007)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CC07_02M", 0, 0)
+	Talk("Akira", "AK020646")
+	Mess("Ah, Ryou Onii-chan, you shouldn't move. I just did thisÅ^well.")
+	hitretResult := Hitret(21008)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Talk("Ryouhei", "RH020249")
+	Mess("Hah? You are... it can't be...")
+	hitretResult := Hitret(21009)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM15", 0)
+	SetCg("EC09", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("Akira", "AK020647")
+	Mess("*Grunt*... Hehe, how about this Haru-kun?")
+	hitretResult := Hitret(21010)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Uo... Since when did you...")
+	hitretResult := Hitret(21011)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020250")
+	Mess("W-what's wrong Haruka!?")
+	hitretResult := Hitret(21012)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("The sand mountain is becoming a sand castle...")
+	hitretResult := Hitret(21013)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020251")
+	Mess("Hah? A castle? Hey, you are creatin' some interestingÅ^thing aren't you!")
+	hitretResult := Hitret(21014)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020648")
+	Mess("Nnn~, I'll complete it in a bit, so hold on.")
+	hitretResult := Hitret(21015)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020252")
+	Mess("Rather, I'm now getting hot and becoming very dizzyÅ^but...")
+	hitretResult := Hitret(21016)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ryouhei, would you like to drink something?")
+	hitretResult := Hitret(21017)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020253")
+	Mess("No, if I'm going to drink, then let me out of here!!")
+	hitretResult := Hitret(21018)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020649")
+	Mess("Ah, Ryou Onii-chan, you can't move. I just finally gotÅ^it looking pretty.")
+	hitretResult := Hitret(21019)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020254")
+	Mess("Eh...y-you are more worried about that?")
+	hitretResult := Hitret(21020)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("F-for now how about opening your mouth?")
+	hitretResult := Hitret(21021)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020255")
+	Mess("*Glug glug*... Pfft, it can't be helped... Should I justÅ^think of this as a detox sand bath?")
+	hitretResult := Hitret(21022)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020029")
+	Mess("What are you doing? Pu! Ahahahaha!! What is this!?Å^Akira-chan, you really are skilled-!")
+	hitretResult := Hitret(21023)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020650")
+	Mess("Aha~ this is Mahalito-san's castle.")
+	hitretResult := Hitret(21024)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020256")
+	Mess("Mm? That's a game I played when I was little isn't it!?")
+	hitretResult := Hitret(21025)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020030")
+	Mess("Yeah, Ryouhei-kun is being burried? You can't move, I'llÅ^take a picture now.")
+	hitretResult := Hitret(21026)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020257")
+	Mess("Heh? I'm not being taken a picture of? The castle isÅ^instead?")
+	hitretResult := Hitret(21027)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020651")
+	Mess("Haru-kun, can you help me out a little?")
+	hitretResult := Hitret(21028)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Y-yea, sure.")
+	hitretResult := Hitret(21029)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020652")
+	Mess("You open the window a little at a time like this.")
+	hitretResult := Hitret(21030)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Amatsume with her thin pointing finger and picked upÅ^stick is making the windows of the castle.")
+	hitretResult := Hitret(21031)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Amatsume is quite skilled at this. Aren't you good atÅ^(painting/making) pictures?")
+	hitretResult := Hitret(21032)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020653")
+	Mess("Well, I do like drawing pictures, like this makingÅ^something out of sand is also fun.")
+	hitretResult := Hitret(21033)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020258")
+	Mess("This person is skilled with her hands after all. Hey, itÅ^couldn't be-?")
+	hitretResult := Hitret(21034)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020654")
+	Mess("Just a little more-.")
+	hitretResult := Hitret(21035)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("While Amatsume in front of my eyes waves her butt sheÅ^continues her work seemingly enjoying it.")
+	hitretResult := Hitret(21036)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I felt bad continuing to look at that so I avert myÅ^eyes, but that cute appearance of hers robs my eyes.")
+	hitretResult := Hitret(21037)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020655")
+	Mess("Haru-kun, how is it?")
+	hitretResult := Hitret(21038)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh? Ah, yeah! It looks like you've pretty much finishedÅ^it.")
+	hitretResult := Hitret(21039)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020656")
+	Mess("It looks cool doesn't it? This castle (that is).")
+	hitretResult := Hitret(21040)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020259")
+	Mess("Aside from that, you are quite the maniac aren't you,Å^(making) a castle of that old game.")
+	hitretResult := Hitret(21041)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020657")
+	Mess("That's because, that game was interesting. If I do itÅ^even now I could probably clear it.")
+	hitretResult := Hitret(21042)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020079")
+	Mess("How is it going? Aha, Isn't this amazing, Akirachan!")
+	hitretResult := Hitret(21043)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA020220")
+	Mess("Pu... What are you making, Akira?")
+	hitretResult := Hitret(21044)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020658")
+	Mess("Aha, Welcome back Kazu-chan, it's a castle.")
+	hitretResult := Hitret(21045)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA020221")
+	Mess("K-kuku... what good sense.")
+	hitretResult := Hitret(21046)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020260")
+	Mess("Uwa, you're already back!?")
+	hitretResult := Hitret(21047)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020080")
+	Mess("Once it's complete let's ditch him here for a bit.")
+	hitretResult := Hitret(21048)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020261")
+	Mess("Give me a break already, Nao-cha~n.")
+	hitretResult := Hitret(21049)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020081")
+	Mess("No, reflect upon your actions carefully.")
+	hitretResult := Hitret(21050)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020659")
+	Mess("Alright, complete-.")
+	hitretResult := Hitret(21051)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020082")
+	Mess("Ah, where's the camera? Have to leave this as a memory.")
+	hitretResult := Hitret(21052)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020262")
+	Mess("Bleh, if I touched breasts I would put up with thisÅ^much, but if without anything, this is overkill, Nao!")
+	hitretResult := Hitret(21053)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020083")
+	Mess("It's fine isn't it? You actually think this is deliciousÅ^right?")
+	hitretResult := Hitret(21054)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020263")
+	Mess("Just a little... huh, like I'd think that idiot!!")
+	hitretResult := Hitret(21055)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020031")
+	Mess("Okay, a picture, but I'll take one for you.")
+	hitretResult := Hitret(21056)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020660")
+	Mess("Okay-!")
+	hitretResult := Hitret(21057)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020032")
+	Mess("Okay, Ryouhei-kun, Mayonai~se!")
+	hitretResult := Hitret(21058)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE150", 0)
+	Talk("Ryouhei", "RH020264")
+	Mess("Ya~y!")
+	hitretResult := Hitret(21059)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020084")
+	Mess("Ahahaha! What are you doing with that face!! Ahahaha!")
+	hitretResult := Hitret(21060)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020661")
+	Mess("Ryou Onii-chan, (otsukaresama) It's okay now!")
+	hitretResult := Hitret(21061)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA020222")
+	Mess("Like this, isn't it enough?")
+	hitretResult := Hitret(21062)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020085")
+	Mess("Yeah, in that case, everyone it's early but let's eatÅ^lunch shall we?")
+	hitretResult := Hitret(21063)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020265")
+	Mess("Uo~i!! H-help Haruka!!")
+	hitretResult := Hitret(21064)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's okay now isn't it, Nao-chan?")
+	hitretResult := Hitret(21065)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020086")
+	Mess("Bleh, it can't be helped. Haru-chan, Haru-chan you areÅ^too nice to Ryouhei.")
+	hitretResult := Hitret(21066)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020266")
+	Mess("Well, for you, you can't make love-love of the level ofÅ^Haruka and I.")
+	hitretResult := Hitret(21067)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020087")
+	Mess("Tch, annoying.")
+	hitretResult := Hitret(21068)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020662")
+	Mess("Modoka Onee-chan, can you take one more (photo)?")
+	hitretResult := Hitret(21069)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020033")
+	Mess("Yeah, okay~.")
+	hitretResult := Hitret(21070)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020663")
+	Mess("Ehehe, Haru-kun want to take it together? As aÅ^commemoration for the two of us completing it.")
+	hitretResult := Hitret(21071)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, okay. But, didn't Amatsume make most of it?")
+	hitretResult := Hitret(21072)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020664")
+	Mess("It's okay, Haru-kun did help out.")
+	hitretResult := Hitret(21073)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020034")
+	Mess("Okay both of you I'm taking it, Mayone~...")
+	hitretResult := Hitret(21074)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's been making me wonder for awhile, but whyÅ^Mayone~...")
+	hitretResult := Hitret(21075)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE150", 0)
+	Talk("Motoka", "MT020035")
+	Mess("Zu!!")
+	hitretResult := Hitret(21076)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, Right now wasn't that a strange face? Can we takeÅ^one more picture?")
+	hitretResult := Hitret(21077)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020036")
+	Mess("Save complete~! A photo is most boring when it isÅ^prepared for. I'll send it to your phone later.")
+	hitretResult := Hitret(21078)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020665")
+	Mess("Ahaha! I also want one.")
+	hitretResult := Hitret(21079)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT020037")
+	Mess("Okay, I'll send Akira-chans to Yahiro's house computer.")
+	hitretResult := Hitret(21080)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020666")
+	Mess("Yay! Thank you-!")
+	hitretResult := Hitret(21081)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, I'll take one as well I think.")
+	hitretResult := Hitret(21082)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020267")
+	Mess("Okay! Take it looking good!")
+	hitretResult := Hitret(21083)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Alright, I'll be using it as a wallpaper. Now then, asÅ^for the castle...")
+	hitretResult := Hitret(21084)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE150", 0)
+	Talk("Akira", "AK020667")
+	Mess("Ehe!")
+	hitretResult := Hitret(21085)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Amatsume cut in and it became a two should with theÅ^castle.")
+	hitretResult := Hitret(21086)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK020668")
+	Mess("Sorry, I just reacted to the camera.")
+	hitretResult := Hitret(21087)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's okay, Amatsume is the one who made it, it'll be aÅ^good memory.")
+	hitretResult := Hitret(21088)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Inside the picture, Amatsume is showing her cute smileÅ^as always.")
+	hitretResult := Hitret(21089)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Oh yeah, it's been awhile since I took a picture of aÅ^girl.")
+	hitretResult := Hitret(21090)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("And that being one in a swimsuit, I become a littleÅ^embarassed and my finger pressing the save button shakedÅ^a little.")
+	hitretResult := Hitret(21091)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020268")
+	Mess("Hey~, what about me-?")
+	hitretResult := Hitret(21092)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Okay, I'll take one-!")
+	hitretResult := Hitret(21093)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO020088")
+	Mess("Ah, wait a second, okay-!! Hey everyone come here!")
+	hitretResult := Hitret(21094)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH020269")
+	Mess("Uoo!?")
+	hitretResult := Hitret(21095)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE150", 0)
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("This time with the shape of everyone surroundingÅ^Ryouhei, it became a commemoration photo.")
+	hitretResult := Hitret(21096)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	ScWait(2000, 0)
+	Change("00_c014d")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

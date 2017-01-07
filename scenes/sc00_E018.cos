@@ -1,0 +1,536 @@
+Include"yosuga.ch"
+
+Function sc00_E018()
+	ScenarioEnter()
+	SetCg("B32a", 0, 0)
+	ScPlayBgm("BGM05", 0)
+	Talk("心の声", "")
+	Mess("扇風機は、ふぉーんと低いうなりのような音を立てながら左右")
+	Mess("に首を振り、僕達に風を送っている。")
+	hitretResult := Hitret(36593)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("風が自分に向いている間は涼しく感じるけど、穹の方に向きだ")
+	Mess("すと途端に暑くなる。")
+	hitretResult := Hitret(36594)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("正午も近い今となっては焼け石に水だ。")
+	hitretResult := Hitret(36595)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("背中の辺りに滲んだ汗の感触の不快さに、朝からやっていた課")
+	Mess("題への集中も途切れてしまった。")
+	hitretResult := Hitret(36596)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("穹", "SR050107")
+	Mess("暑い。")
+	hitretResult := Hitret(36597)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("……何度も言うなよ。")
+	hitretResult := Hitret(36598)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050108")
+	Mess("まだ３２回目。")
+	hitretResult := Hitret(36599)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("……数えてたのか？")
+	hitretResult := Hitret(36600)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("相変わらず、何を考えているんだか……")
+	hitretResult := Hitret(36601)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 0, 0)
+	Talk("穹", "SR050109")
+	Mess("適当。")
+	hitretResult := Hitret(36602)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("おい。")
+	hitretResult := Hitret(36603)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("暑さで参ってるんじゃないだろうな？")
+	hitretResult := Hitret(36604)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("朝の早いうちにはうるさかったセミも、体力の消耗を避けるよ")
+	Mess("うにひっそりとしている。")
+	hitretResult := Hitret(36605)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("ちょっと休憩するか？")
+	hitretResult := Hitret(36606)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05M", 0, 0)
+	Talk("穹", "SR050110")
+	Mess("……エアコン。")
+	hitretResult := Hitret(36607)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("扇風機、回ってるから。")
+	hitretResult := Hitret(36608)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_07M", 0, 0)
+	Talk("穹", "SR050111")
+	Mess("部屋は冷えない。")
+	hitretResult := Hitret(36609)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("麦茶持って来てやるから。")
+	hitretResult := Hitret(36610)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050112")
+	Mess("氷、いっぱい入れて。")
+	hitretResult := Hitret(36611)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("はいはい……")
+	hitretResult := Hitret(36612)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02a", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("心の声", "")
+	Mess("冷蔵庫の麦茶のボトルには、穹の分がギリギリ用意できるくら")
+	Mess("いしか残ってなかった。")
+	hitretResult := Hitret(36613)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("……朝から何度も注がされたもんな。")
+	hitretResult := Hitret(36614)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("涼しい午前中に、と思って夏休みの課題をやってたけど、今日")
+	Mess("の暑さじゃそんな努力も意味がなかった。")
+	hitretResult := Hitret(36615)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("穹が暑いと言う度に麦茶を汲んできて、昨日の就寝前にたっぷ")
+	Mess("り作ったはずの麦茶は空っぽだ。")
+	hitretResult := Hitret(36616)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("自分が飲めないと思うと、余計に暑くなった気がする。")
+	hitretResult := Hitret(36617)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("しかもお茶っ葉も切れてる。")
+	hitretResult := Hitret(36618)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("お茶っ葉っていうか大麦だけど、また農家さんから貰って来な")
+	Mess("いとな。")
+	hitretResult := Hitret(36619)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B32a", 0, 0)
+	SetBustup("CA02_01M", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("悠", "")
+	Mess("はい、お待たせ。")
+	hitretResult := Hitret(36620)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050113")
+	Mess("暑かった。")
+	hitretResult := Hitret(36621)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("穹はグラスを受け取ると、一気に飲み干そうとする。")
+	hitretResult := Hitret(36622)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("おい、いっぺんに飲むなよ？　それだけしかないんだからな。")
+	hitretResult := Hitret(36623)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_06M", 0, 0)
+	Talk("穹", "SR050114")
+	Mess("……………………")
+	hitretResult := Hitret(36624)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("穹は半分ほど飲んだところで動きを止めた。")
+	hitretResult := Hitret(36625)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050115")
+	Mess("ハルの分は？")
+	hitretResult := Hitret(36626)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("無いよ。んで、麦茶の麦も無くなってたから、貰って来る。")
+	hitretResult := Hitret(36627)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050116")
+	Mess("……今から？")
+	hitretResult := Hitret(36628)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("いや、後でだけど。")
+	hitretResult := Hitret(36629)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 0, 0)
+	Talk("穹", "SR050117")
+	Mess("お昼はどうするの？")
+	hitretResult := Hitret(36630)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("…………ああ、お昼ご飯の時のお茶か……水じゃ……")
+	hitretResult := Hitret(36631)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04M", 0, 0)
+	Talk("穹", "SR050118")
+	Mess("………………")
+	hitretResult := Hitret(36632)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("ダメだよな、やっぱり。わかった、今から行ってくる。")
+	hitretResult := Hitret(36633)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01M", 0, 0)
+	Talk("心の声", "")
+	Mess("課題も切り上げるか……暑くてやってられないし。")
+	hitretResult := Hitret(36634)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("ああ、そうだ。ついでに渚さんのノートも返しに行くかな。も")
+	Mess("う使わないだろ？")
+	hitretResult := Hitret(36635)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050119")
+	Mess("……ん。")
+	hitretResult := Hitret(36636)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("お昼ご飯は帰ってから作るから。")
+	hitretResult := Hitret(36637)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_07M", 0, 0)
+	Talk("穹", "SR050120")
+	Mess("食欲無い。")
+	hitretResult := Hitret(36638)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("わかった。そうめんか何かにするから、ちゃんと食べろよ？")
+	hitretResult := Hitret(36639)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050121")
+	Mess("ん。")
+	hitretResult := Hitret(36640)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("心の声", "")
+	Mess("やれやれだな。")
+	hitretResult := Hitret(36641)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050122")
+	Mess("あ。")
+	hitretResult := Hitret(36642)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_05S", 0, 0)
+	Talk("悠", "")
+	Mess("また何かあるのか？")
+	hitretResult := Hitret(36643)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050123")
+	Mess("……まさか、メイド？")
+	hitretResult := Hitret(36644)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("悠", "")
+	Mess("なんで初佳さんが出てくるんだ？")
+	hitretResult := Hitret(36645)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("穹", "SR050124")
+	Mess("…………別に。")
+	hitretResult := Hitret(36646)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("心の声", "")
+	Mess("…………わかんないヤツ。")
+	hitretResult := Hitret(36647)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	BlackOut(0, 1)
+	Change("00_e018b")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

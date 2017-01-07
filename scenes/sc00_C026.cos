@@ -1,0 +1,662 @@
+Include"yosuga.ch"
+
+Function sc00_C026()
+	ScenarioEnter()
+	SetCg("B07c", 0, 0)
+	Update()
+	ScWait(1000, 0)
+	SetCg("BLACK", 0, 0)
+	Update(1)
+	SetCg("B08c", 0, 0)
+	Transition("WIP_BT", 500)
+	WindowView(1)
+	ScPlaySe("se063", 0)
+	Talk("Akira", "AK021581")
+	Mess("ÅcÅcÅcÅcÅIÅcÅcÅcÅcÅcÅc")
+	hitretResult := Hitret(24317)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021582")
+	Mess("...... A dream?")
+	hitretResult := Hitret(24318)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("ÉÇÉmÉçÅ[ÉOÅsâlÅt", "AK021583")
+	Mess("Ahh it's a dream, such a long awaited oneÅ`. It has beenÅ^so hot recently, I guess it must be summer fatigue?")
+	hitretResult := Hitret(24319)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE311", 0)
+	Talk("Akira", "AK021584")
+	Mess("Ah, shishouÅ[. This is rare of you to come at this time.")
+	hitretResult := Hitret(24320)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE311", 0)
+	Talk("Akira", "AK021585")
+	Mess("It must be cool outside? We have not slept together forÅ^a long time.")
+	hitretResult := Hitret(24321)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE312", 0)
+	Talk("Akira", "AK021586")
+	Mess("Fufuu, lately shishou has been going out a lot, so weÅ^didn't get together for a while.")
+	hitretResult := Hitret(24322)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("ÉÇÉmÉçÅ[ÉOÅsâlÅt", "AK021587")
+	Mess("I carried shishou to my stomach, and laid down on theÅ^floor.")
+	hitretResult := Hitret(24323)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("ÉÇÉmÉçÅ[ÉOÅsâlÅt", "AK021588")
+	Mess("Shishou and I stared blankly at the ceiling.")
+	hitretResult := Hitret(24324)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("ÉÇÉmÉçÅ[ÉOÅsâlÅt", "AK021589")
+	Mess("If it's the usual, I will enjoy Shishou's fluffyÅ^softness and sleep. But I can't seem to do so today.")
+	hitretResult := Hitret(24325)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021590")
+	Mess(".......Why..... now...... I'm remembering things aboutÅ^the past......")
+	hitretResult := Hitret(24326)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 1)
+	ScWait(1000, 0)
+	SetCg("B07a_", 0, 0)
+	Transition("CLOUD_A", 500)
+	ScPlayBgm("BGM03", 0)
+	Talk("Akira", "AK021591")
+	Mess("Hopscotch! Jump! Jump! Aha-.")
+	hitretResult := Hitret(24327)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021592")
+	Mess("Next is Shishou-!!")
+	hitretResult := Hitret(24328)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE311", 0)
+	Talk("Akira", "AK021593")
+	Mess("Ah, Morning-!!")
+	hitretResult := Hitret(24329)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080001")
+	Mess("Ah..... is..... dad in?")
+	hitretResult := Hitret(24330)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021594")
+	Mess("Ojichan? Mm, at the shrine~.")
+	hitretResult := Hitret(24331)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080002")
+	Mess("Is that so, I got it.")
+	hitretResult := Hitret(24332)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090001")
+	Mess("............ Hmph.")
+	hitretResult := Hitret(24333)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021595")
+	Mess("Oji-chan tachi...... That's pretty rare, they are comingÅ^here lately.")
+	hitretResult := Hitret(24334)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE311", 0)
+	Talk("Akira", "AK021596")
+	Mess("Ah, that's right! I need to bring out tea for theÅ^guests!")
+	hitretResult := Hitret(24335)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("Akira", "AK021597")
+	Mess("Hmm Mmm Mmm~ I washed it.")
+	hitretResult := Hitret(24336)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm(1)
+	Talk("Grandfather's son", "NP080003")
+	Mess("That's why, I said this many times!")
+	hitretResult := Hitret(24337)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM11", 0)
+	Talk("Akira's grandfather", "NP070001")
+	Mess("I'm going to take responsibility to raise that child. IÅ^already told you before I don't want to live together.")
+	hitretResult := Hitret(24338)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080004")
+	Mess("You're not young anymore dad, if there's anything thatÅ^happens to you, it's not enough just to have a childÅ^there right?")
+	hitretResult := Hitret(24339)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070002")
+	Mess("So you're letting me go there alone to stay? What aboutÅ^Akira?")
+	hitretResult := Hitret(24340)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090002")
+	Mess("In the first place it's not Father-in-law's child right?Å^She has reached the age to think for herself, and it'sÅ^okay to place her in an orphanage too.")
+	hitretResult := Hitret(24341)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070003")
+	Mess("I don't agree. Akira and I are staying right here. EvenÅ^though I'm grateful for the feelings that you want toÅ^live together to take care of me, but if you don't treatÅ^Akira as family, the talk ends here.")
+	hitretResult := Hitret(24342)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080005")
+	Mess("Dad...... Please think a little of our position hereÅ^too.")
+	hitretResult := Hitret(24343)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090003")
+	Mess("Please, enough is enough! Taking her as and adoptedÅ^child without even discussing with us, changing theÅ^house to something that like looks people cohabitingÅ^together, and saying something so selfish!")
+	hitretResult := Hitret(24344)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B08a_", 0, 0)
+	Talk("Akira", "AK021601")
+	Mess("Sorry for disturbing~. I brought the tea over-!")
+	hitretResult := Hitret(24345)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070004")
+	Mess("Thank you, Akira.")
+	hitretResult := Hitret(24346)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021603")
+	Mess("Please take your time to enjoy.")
+	hitretResult := Hitret(24347)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090004")
+	Mess("Hmph........")
+	hitretResult := Hitret(24348)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070005")
+	Mess("Akira, we're discussing something important. You don'tÅ^need to care about here so go outside to play.")
+	hitretResult := Hitret(24349)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021605")
+	Mess("Ok~ay. Then I will go off first~.")
+	hitretResult := Hitret(24350)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("Akira's grandfather", "NP070006")
+	Mess("I have said this many times before, I only have oneÅ^condition, which is to bring Akira along. If that isn'tÅ^possible, this talk is over.")
+	hitretResult := Hitret(24351)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090005")
+	Mess("Is this a snub to us for not having children? Do youÅ^really want a grandchild so much? Even though we don'tÅ^have children now, but when the timing is right we willÅ^consider it, didn't we tell you this before?")
+	hitretResult := Hitret(24352)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	ScWait(1000, 0)
+	SetCg("B29a_", 0, 0)
+	Talk("Akira", "AK021607")
+	Mess("He~re shishou! Let's begin-! Over heree!!")
+	hitretResult := Hitret(24353)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE311", 0)
+	Talk("Akira", "AK021608")
+	Mess("Ahahaa, what a great catch shishou!")
+	hitretResult := Hitret(24354)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se013", 0)
+	Talk("Grandfather's son's wife", "NP090006")
+	Mess("Really.... It should be us who says no! What should weÅ^do now? We can't stop work now right?")
+	hitretResult := Hitret(24355)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080006")
+	Mess("But, dad's only condition is to have the kid come over?Å^Is it really impossible?")
+	hitretResult := Hitret(24356)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090007")
+	Mess("No! We don't even know whose kid is this. Furthermore,Å^if her parents suddenly appear it will be even moreÅ^troublesome!")
+	hitretResult := Hitret(24357)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopSe()
+	SetCg("B07a_", 0, 0)
+	Talk("Akira", "AK021609")
+	Mess("Ah, are you going back? Please come again.")
+	hitretResult := Hitret(24358)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090008")
+	Mess("Damn it.... How old are you? You can be by yourselfÅ^already right?")
+	hitretResult := Hitret(24359)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080007")
+	Mess("O, Oi..........")
+	hitretResult := Hitret(24360)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090009")
+	Mess("We're troubled because of you! If you want to help yourÅ^stepfather.........")
+	hitretResult := Hitret(24361)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070007")
+	Mess("Shut up. If you have any opinions, tell them to me.")
+	hitretResult := Hitret(24362)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son", "NP080008")
+	Mess("We will con-contact you again. We're going...... Oi.")
+	hitretResult := Hitret(24363)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Grandfather's son's wife", "NP090010")
+	Mess("........ You don't even care if I can tolerate this.")
+	hitretResult := Hitret(24364)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se013", 0)
+	Talk("Akira's grandfather", "NP070008")
+	Mess("Akira, I'm sorry, you had to experience somethingÅ^unhappy like this.")
+	hitretResult := Hitret(24365)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021612")
+	Mess("It's okay. There's no need to apologize, grandfather. IÅ^don't feel unhappy over this.")
+	hitretResult := Hitret(24366)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopSe()
+	Talk("Akira's grandfather", "NP070009")
+	Mess("........ Akira.")
+	hitretResult := Hitret(24367)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021614")
+	Mess("Grandfather.")
+	hitretResult := Hitret(24368)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070010")
+	Mess("Hm? What is it?")
+	hitretResult := Hitret(24369)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021616")
+	Mess("Is it better for me to disappear?")
+	hitretResult := Hitret(24370)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se005", 0)
+	Talk("Akira", "AK021617")
+	Mess("Ah...!?")
+	hitretResult := Hitret(24371)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM16", 0)
+	Talk("Akira's grandfather", "NP070011")
+	Mess("Akira....... Stop saying something unnecessary.")
+	hitretResult := Hitret(24372)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021619")
+	Mess("Grand...... Grandfather...........")
+	hitretResult := Hitret(24373)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070012")
+	Mess("I know, you said something like this because you'reÅ^kind.")
+	hitretResult := Hitret(24374)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070013")
+	Mess("But, that isn't always the correct thing.")
+	hitretResult := Hitret(24375)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070014")
+	Mess("To consider everyone's feeling, and only to be in painÅ^by yourself, that's isn't true kindness.")
+	hitretResult := Hitret(24376)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021623")
+	Mess("...... I'm sorry...... grandfather.")
+	hitretResult := Hitret(24377)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070015")
+	Mess("No...... Even if I don't teach anything, you're still aÅ^kind and straightforward child.")
+	hitretResult := Hitret(24378)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira's grandfather", "NP070016")
+	Mess("Listen to me..... the small corner in Akira's heart.")
+	hitretResult := Hitret(24379)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 1)
+	ScWait(1000, 0)
+	SetCg("B08c", 0, 0)
+	Transition("WIP_RL", 500)
+	Talk("ÉÇÉmÉçÅ[ÉOÅsâlÅt", "AK021626")
+	Mess("The me back then....... What did I say back then.......")
+	hitretResult := Hitret(24380)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021627")
+	Mess("I don't understand again...... Grandfather......")
+	hitretResult := Hitret(24381)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021628")
+	Mess("....... I..... Perhaps it's better for me to disappearÅ^from here?")
+	hitretResult := Hitret(24382)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Akira", "AK021629")
+	Mess("In that case...... There's no need for me to lieÅ^again......")
+	hitretResult := Hitret(24383)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 1)
+	ScWait(1000, 0)
+	WindowView(0)
+	ScStopBgm()
+	SetCg("B07c", 0, 0)
+	Transition("WIP_TB", 500)
+	Update()
+	ScWait(3000, 0)
+	EyeCatchEnter("DATE", 0)
+	Change("00_c027")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

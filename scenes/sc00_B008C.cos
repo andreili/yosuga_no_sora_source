@@ -1,0 +1,705 @@
+Include"yosuga.ch"
+
+Function sc00_B008C()
+	ScenarioEnter()
+	Talk("êSÇÃê∫", "")
+	Mess("We told Amatsume that we should be going now, then weÅ^left the store.")
+	hitretResult := Hitret(12418)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("We also had ice creams, so we didn't have much time toÅ^spare or they'll melt.")
+	hitretResult := Hitret(12419)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayEnvSe("SE301", "1", 0)
+	SetCg("B34a", 400, 0)
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030394")
+	Mess("In this heat, the ice creams would really melt fast.")
+	hitretResult := Hitret(12420)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, but buying in the convenient store looks reallyÅ^fun though along the way is quite the opposite.")
+	hitretResult := Hitret(12421)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_02M", 0, 0)
+	Talk("Nao", "NO030395")
+	Mess("Ah, did you know, that this would be more delicious ifÅ^you eat it and squeeze it when it's frozen?")
+	hitretResult := Hitret(12422)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Heeh, so it's like a sherbet? Can you teach me how to doÅ^it next time?")
+	hitretResult := Hitret(12423)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030396")
+	Mess("Sure, it's really simple, let's do it together nextÅ^time.")
+	hitretResult := Hitret(12424)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B01a", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("Haruka", "")
+	Mess("Ah, what are you going to do now, Nao-chan?")
+	hitretResult := Hitret(12425)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030397")
+	Mess("Eh? nothing in particular.")
+	hitretResult := Hitret(12426)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Well, do you want to eat the ice cream that we boughtÅ^together along the way?")
+	hitretResult := Hitret(12427)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030398")
+	Mess("Is it fine? Haru-chan, you bought it for yourselvesÅ^right...")
+	hitretResult := Hitret(12428)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sure, it's really fine, you also came all the way withÅ^me.")
+	hitretResult := Hitret(12429)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_02M", 0, 0)
+	Talk("Nao", "NO030399")
+	Mess("Thank you... Sorry, you ended up treating me as well.")
+	hitretResult := Hitret(12430)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's nothing, it may also not be that refreshing inside,Å^though come on in.")
+	hitretResult := Hitret(12431)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopEnvSe("SE301", 0)
+	BlackOut(0, 0)
+	ScPlaySe("se105", 0)
+	Talk("Haruka", "")
+	Mess("I'm back.")
+	hitretResult := Hitret(12432)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030400")
+	Mess("Excuse me.")
+	hitretResult := Hitret(12433)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02a", 0, 0)
+	Talk("Sora", "SR030076")
+	Mess("...Haru?")
+	hitretResult := Hitret(12434)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_01S", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("As we went inside, we felt Sora's voice and her smallÅ^footsteps approaching us.")
+	hitretResult := Hitret(12435)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Sora, we've bought the ice cream, you can get whatÅ^flavor you wa--... EH!?")
+	hitretResult := Hitret(12436)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM13", 0)
+	SetBustup("CB02_13S", 0, 0)
+	Talk("Nao", "NO030401")
+	Mess("O-Oh my...")
+	hitretResult := Hitret(12437)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Sora's footsteps were wete, and there were also some inÅ^the kitchen.")
+	hitretResult := Hitret(12438)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("H-hey... wipe your feet...")
+	hitretResult := Hitret(12439)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_04S", 0, 0)
+	Talk("Sora", "SR030077")
+	Mess("It's so hot, weren't you also the one who told me toÅ^take a bath, Haru?")
+	hitretResult := Hitret(12440)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess(""So", that doesn't mean you should go out just likeÅ^that...")
+	hitretResult := Hitret(12441)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("I took some rags and wiped them off, then I went insideÅ^the bathroom.")
+	hitretResult := Hitret(12442)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Inside the bathroom, the water level is above the knee,Å^and it looks like Sora just came out of it since theÅ^water is still shaking.")
+	hitretResult := Hitret(12443)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I took some rags again, and I went to wipe the kitchenÅ^floor quickly.")
+	hitretResult := Hitret(12444)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B02a", 0, 0)
+	SetBustup("CB02_01M", 0, 0)
+	SetBustup("CA02_04M", 0, 0)
+	Talk("Haruka", "")
+	Mess("Here, wipe your feet.")
+	hitretResult := Hitret(12445)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	SetBustup("CA02_05M", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("I gave her a towel, Sora then gave a bothersome look asÅ^she wiped her feet.")
+	hitretResult := Hitret(12446)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah, sorry about that Nao-chan. Sora, Nao-chan eat theÅ^ice cream ahead of me.")
+	hitretResult := Hitret(12447)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_06M", 0, 0)
+	SetBustup("CB02_10M", 0, 0)
+	Talk("Sora", "SR030078")
+	Mess("......")
+	hitretResult := Hitret(12448)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("H-hey, Sora?")
+	hitretResult := Hitret(12449)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(4)
+	Talk("êSÇÃê∫", "")
+	Mess("Sora took her ice cream and potchy, then she went backÅ^to her own room.")
+	hitretResult := Hitret(12450)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("...That girl...")
+	hitretResult := Hitret(12451)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030402")
+	Mess("I wonder why...")
+	hitretResult := Hitret(12452)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("She doesn't want to wait too much, is she mad?")
+	hitretResult := Hitret(12453)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030403")
+	Mess("Sorry, it looks like I came at a bad time...")
+	hitretResult := Hitret(12454)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("It's fine, it's because we don't have an aircon here,Å^and it's also quite hot inside her room. That's why I'mÅ^thinking of loaning for it.")
+	hitretResult := Hitret(12455)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030404")
+	Mess("I see...")
+	hitretResult := Hitret(12456)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Hey, you should get one too Nao-chan?")
+	hitretResult := Hitret(12457)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlayBgm("BGM05", 0)
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030405")
+	Mess("Yeah, thanks. Ah, I can look into our house if we have aÅ^spare electric fan, I can let you borrow it?")
+	hitretResult := Hitret(12458)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Eh, really? But, is it all right?")
+	hitretResult := Hitret(12459)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030406")
+	Mess("Yeah, if someone left it at the warehouse, then I canÅ^just lend it to you Haru-chan.")
+	hitretResult := Hitret(12460)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Thanks. There might also be an electric fan in ourÅ^warehouse, though we're not sure if it works, so youÅ^just saved me.")
+	hitretResult := Hitret(12461)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_02M", 0, 0)
+	Talk("Nao", "NO030407")
+	Mess("Hehehe, nice timing right. Ah, here, you can have theÅ^half?")
+	hitretResult := Hitret(12462)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan was holding a soda and an ice cream in both ofÅ^her hands, so I reached out and took the half of the iceÅ^cream.")
+	hitretResult := Hitret(12463)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It melted a bit, though I sipped the one that wasÅ^dripping already, Nao-chan sucked on hers.")
+	hitretResult := Hitret(12464)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_03M", 0, 0)
+	Talk("Nao", "NO030408")
+	Mess("Mhmhm... ngh... aahh... It's coldÅô")
+	hitretResult := Hitret(12465)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan licked the ice cream from the bottom up to theÅ^top as it melted. It looked sexy as she licked it.")
+	hitretResult := Hitret(12466)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_02M", 0, 0)
+	Talk("Nao", "NO030409")
+	Mess("Ahaha, don't stare, it's embarrassing.")
+	hitretResult := Hitret(12467)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ah... okay...")
+	hitretResult := Hitret(12468)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I was charmed by Nao-chan's innocent look as the iceÅ^cream melted and dripped through her hands.")
+	hitretResult := Hitret(12469)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030410")
+	Mess("Hehehe, do you know that yours is melting too Haru-chan?")
+	hitretResult := Hitret(12470)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Ahh...")
+	hitretResult := Hitret(12471)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The ice cream was also melting and dripping through myÅ^hands, Nao-chan looked at me with a broad grin.")
+	hitretResult := Hitret(12472)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_03M", 0, 0)
+	Talk("Nao", "NO030411")
+	Mess("That's cute, Haru-chan.")
+	hitretResult := Hitret(12473)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("S-stop it...")
+	hitretResult := Hitret(12474)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("I didn't take my time as I ate the melting ice cream inÅ^my hands, I finished it right away.")
+	hitretResult := Hitret(12475)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030412")
+	Mess("Haru-chan, can I use some water?")
+	hitretResult := Hitret(12476)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, ah, I'll wash too.")
+	hitretResult := Hitret(12477)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030413")
+	Mess("As I thought it's hot, even the ice cream melted beforeÅ^we finished it.")
+	hitretResult := Hitret(12478)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah. One ice cream is not really refreshing...")
+	hitretResult := Hitret(12479)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_02L", 0, 0)
+	Talk("êSÇÃê∫", "")
+	Mess("We lined up as we washed our hands.")
+	hitretResult := Hitret(12480)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It's like the daily exercise on school when we wereÅ^still kids, though with the both of us washing andÅ^putting soap in our hands, gave off a strange feeling.")
+	hitretResult := Hitret(12481)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO030414")
+	Mess("Ah, it feels good and coldÅ`. Now I know how Sora-chanÅ^felt while she's taking a bath.")
+	hitretResult := Hitret(12482)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("She also washed her wrists, it suddenly felt like she'sÅ^in a good mood.")
+	hitretResult := Hitret(12483)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("It would certainly feel good if you take a bath in thisÅ^heat. That's why I even told Sora to take a bath...")
+	hitretResult := Hitret(12484)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Though she didn't wipe the floors properly, which madeÅ^it a bit slippery inside the house.")
+	hitretResult := Hitret(12485)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB02_01M", 0, 0)
+	Talk("Nao", "NO030415")
+	Mess("Well, I'll be going to our warehouse now to look for it.Å^Thanks for the ice cream.")
+	hitretResult := Hitret(12486)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Haruka", "")
+	Mess("Yeah, thanks, I'll be counting on that.")
+	hitretResult := Hitret(12487)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(3)
+	Talk("êSÇÃê∫", "")
+	Mess("Nao-chan wiped her hands with the towel and went to herÅ^house.")
+	hitretResult := Hitret(12488)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("Now then, I think I should also look for some in theÅ^warehouse.")
+	hitretResult := Hitret(12489)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("êSÇÃê∫", "")
+	Mess("The heat was driving me sleepy earlier, but I shouldn'tÅ^somehow succumb to it. I hanged the towel on my neck andÅ^then I opened the door of the warehouse.")
+	hitretResult := Hitret(12490)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	EyeCatchEnter("DATE", 0)
+	Change("00_b009")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

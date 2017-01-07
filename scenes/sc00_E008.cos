@@ -1,0 +1,713 @@
+Include"yosuga.ch"
+
+Function sc00_E008()
+	ScenarioEnter()
+	WindowView(1)
+	ScPlayBgm("BGM03", 0)
+	SetCg("B09a", 0, 0)
+	SetBustup("CE01_09M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050227")
+	Mess("Why can I never get the hang on things?")
+	hitretResult := Hitret(34347)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050228")
+	Mess("Why do I lack composure?")
+	hitretResult := Hitret(34348)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050229")
+	Mess("Why can I only think about what's right in front me?")
+	hitretResult := Hitret(34349)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050230")
+	Mess("My, that being Motoka Nogisaka's, eternal problem is／that of reality rearing its cruel head at me whenever I／attempt to look cool.")
+	hitretResult := Hitret(34350)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(6)
+	SetBustup("CJ01_01M", 0, 0)
+	Talk("Yamanashi", "YM050001")
+	Mess("Have you finished cleaning, Nogisaka-san?")
+	hitretResult := Hitret(34351)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Quake(0, 16, 1, 2, 30)
+	Talk("Motoka", "MT050231")
+	Mess("Eh? Ah, Tsukimiyama-san?!")
+	hitretResult := Hitret(34352)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050002")
+	Mess("Looks like you have not yet.")
+	hitretResult := Hitret(34353)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050232")
+	Mess("Secretary Tsukimiyama-san looked down at the floor, then／said that without changing her expression.")
+	hitretResult := Hitret(34354)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050233")
+	Mess("I had only sweeped up a bit thus far, and the majority／of the fallen leaves and dirt were still scattered／about.")
+	hitretResult := Hitret(34355)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050234")
+	Mess("Um, I was just about to get started.")
+	hitretResult := Hitret(34356)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050235")
+	Mess("That's not much of an excuse, huh.")
+	hitretResult := Hitret(34357)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050003")
+	Mess("I could have you attend to something else if you are／having issues with cleaning.")
+	hitretResult := Hitret(34358)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Quake(16, 0, 1, 2, 30)
+	Talk("Motoka", "MT050236")
+	Mess("A-ah, no, that's fine... Uwah.")
+	hitretResult := Hitret(34359)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050237")
+	Mess("The bits of leaves and dirt I did have sweeped up／scattered around after I hurriedly moved swept the／broom.")
+	hitretResult := Hitret(34360)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(10)
+	Talk("Motoka", "MT050238")
+	Mess("Eh?! No way! Wait a sec!")
+	hitretResult := Hitret(34361)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050239")
+	Mess("I chased after the dirt and leaves in a flurry.")
+	hitretResult := Hitret(34362)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050240")
+	Mess("The dirt and leaves, as if ridiculing me, just continued／to escape from my broom, refusing to gather in a single／spot.")
+	hitretResult := Hitret(34363)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050241")
+	Mess("Even this stuff is making a fool of me...")
+	hitretResult := Hitret(34364)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050242")
+	Mess("Why am I doing something so silly?")
+	hitretResult := Hitret(34365)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CJ01_01M", 0, 0)
+	Talk("初佳", "MT050243")
+	Mess("ち、散らかりすぎてっ、逆にゴミが見えなくなってません？／")
+	Mess("これで終わりってことには……")
+	hitretResult := Hitret(34366)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050004")
+	Mess("...")
+	hitretResult := Hitret(34367)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT050244")
+	Mess("で、ですよねー、ダメっすよねー、あ、あは、あはははー。")
+	hitretResult := Hitret(34368)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050245")
+	Mess("Hahh...")
+	hitretResult := Hitret(34369)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050005")
+	Mess("Ojou-sama will be heading to school soon. Please finish／as quickly as possible.")
+	hitretResult := Hitret(34370)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050246")
+	Mess("Y-yes! I'll get right-- Uwawah?!")
+	hitretResult := Hitret(34371)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(10)
+	Update()
+	Quake(0, 16, 1, 2, 30)
+	ScPlaySe("se018", 1)
+	Talk("Motoka", "MT050247")
+	Mess("Owww...")
+	hitretResult := Hitret(34372)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050248")
+	Mess("Uueeh. Why did I have to... faaall…")
+	hitretResult := Hitret(34373)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050006")
+	Mess("You seem tired, Nogisaka-san.")
+	hitretResult := Hitret(34374)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050249")
+	Mess("N-No I’m not! I’m fine! I feel so energetic I could／fly to the sky!")
+	hitretResult := Hitret(34375)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050007")
+	Mess("I see. Well then, you should get up quick. Your skirt is／rolled up...")
+	hitretResult := Hitret(34376)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050250")
+	Mess("H-Huh?!")
+	hitretResult := Hitret(34377)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CJ01_01M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050251")
+	Mess("Ahh, why is this happening?!~")
+	hitretResult := Hitret(34378)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA050013")
+	Mess("Good morning, Tsukimiyama-san.")
+	hitretResult := Hitret(34379)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050008")
+	Mess("Good morning, Ojou-sama.")
+	hitretResult := Hitret(34380)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050252")
+	Mess("O-Ojou-sama?! It's already time for school?!")
+	hitretResult := Hitret(34381)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_02M", 0, 0)
+	Talk("Kazuha", "KA050014")
+	Mess("Good morning, Nogisaka-san.")
+	hitretResult := Hitret(34382)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050253")
+	Mess("G-good morning! Ojou-sama!")
+	hitretResult := Hitret(34383)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA050015")
+	Mess("Are you alright, Nogisaka-san?")
+	hitretResult := Hitret(34384)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050254")
+	Mess("I'm fine, just got a little tripped up. Sorry for／worrying you, Ojou-sama.")
+	hitretResult := Hitret(34385)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA050016")
+	Mess("Ah, no, that's not what I meant. You seem tired as of／late.")
+	hitretResult := Hitret(34386)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_08M", 0, 0)
+	Talk("Kazuha", "KA050017")
+	Mess("The other day you came to the mansion late, too, so I／was just thinking that you might not be feeling well.")
+	hitretResult := Hitret(34387)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050255")
+	Mess("Huh?")
+	hitretResult := Hitret(34388)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050256")
+	Mess("D-does she mean when I was hungover?")
+	hitretResult := Hitret(34389)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA050018")
+	Mess("I can have father excuse you from work today if you're／not feeling well.")
+	hitretResult := Hitret(34390)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050257")
+	Mess("N-no, you don't...")
+	hitretResult := Hitret(34391)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_01M", 0, 0)
+	Talk("Kazuha", "KA050019")
+	Mess("Tsukimiyama-san, is father in his study?")
+	hitretResult := Hitret(34392)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050009")
+	Mess("That's correct, I believe he should be there.")
+	hitretResult := Hitret(34393)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050258")
+	Mess("Wait, wait, wait. All of that was my fault.")
+	hitretResult := Hitret(34394)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050259")
+	Mess("I've been working here for two years and now of all／times I'm going to have my work hours changed? Just what／the heck am I doing?!")
+	hitretResult := Hitret(34395)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050260")
+	Mess("And thanks to my employer's daughter, no less?!")
+	hitretResult := Hitret(34396)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050261")
+	Mess("N-no, really, it's fine. The other day and today were／just by chance! Usually I'm perfectly fine!")
+	hitretResult := Hitret(34397)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050262")
+	Mess("Thanks for your concern, but I'm fine, really!")
+	hitretResult := Hitret(34398)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Kazuha", "KA050020")
+	Mess("... Is that so?")
+	hitretResult := Hitret(34399)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050010")
+	Mess("You should be leaving soon, Ojou-sama.")
+	hitretResult := Hitret(34400)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CD01_02M", 0, 0)
+	Talk("Kazuha", "KA050021")
+	Mess("I guess so. I'll be going, then, Tsukimiyama-san and／Nogisaka-san.")
+	hitretResult := Hitret(34401)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050011")
+	Mess("Have a safe trip, Ojou-sama.")
+	hitretResult := Hitret(34402)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050263")
+	Mess("Take care!")
+	hitretResult := Hitret(34403)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CE01_08M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050264")
+	Mess("I deeply sighed as I waved at Ojou-sama's back.")
+	hitretResult := Hitret(34404)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050265")
+	Mess("I feel really pathetic...")
+	hitretResult := Hitret(34405)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050012")
+	Mess("Nogisaka-san.")
+	hitretResult := Hitret(34406)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_05M", 0, 0)
+	Jump(6, 0)
+	Update()
+	BustupClear()
+	SetBustup("CJ01_01M", 0, 0)
+	Talk("Motoka", "MT050266")
+	Mess("Y-yes?! What is it?!")
+	hitretResult := Hitret(34407)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Yamanashi", "YM050013")
+	Mess("Please finish cleaning the front gate as quickly as you／can. But please, compose yourself.")
+	hitretResult := Hitret(34408)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Motoka", "MT050267")
+	Mess("A-alright...")
+	hitretResult := Hitret(34409)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CE01_08M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050268")
+	Mess("Just what am I doing?")
+	hitretResult := Hitret(34410)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050269")
+	Mess("I'm just screwing up completely at work like always and／even a girl younger than me is worried about me.")
+	hitretResult := Hitret(34411)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050270")
+	Mess("I wasn't able to show off at all at Haruka-kun's house,／either.")
+	hitretResult := Hitret(34412)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050271")
+	Mess("There's a limit to just how much one can screw up.")
+	hitretResult := Hitret(34413)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_02M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050272")
+	Mess("... Maybe.")
+	hitretResult := Hitret(34414)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050273")
+	Mess("Just maybe... things would be different if I could find／a job in Tokyo.")
+	hitretResult := Hitret(34415)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_11M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050274")
+	Mess("Being able to do my work... having a boyfriend... and...")
+	hitretResult := Hitret(34416)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_01M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050275")
+	Mess("Yeah, right. I'm not Yahiro, plus I'm so clumsy that／things probably wouldn't be any different.")
+	hitretResult := Hitret(34417)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050276")
+	Mess("Nah, Okukosome is just right for me.")
+	hitretResult := Hitret(34418)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT050277")
+	Mess("I like this town, anyway, aha... haha.")
+	hitretResult := Hitret(34419)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE01_08M", 0, 0)
+	Talk("モノローグ《初佳》", "MT050278")
+	Mess("... Hahh...")
+	hitretResult := Hitret(34420)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	WindowView(0)
+	Change("00_e009a")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

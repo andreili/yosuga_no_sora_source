@@ -1,0 +1,603 @@
+Include"yosuga.ch"
+
+Function sc00_E031()
+	ScenarioEnter()
+	WindowView(1)
+	ScPlayBgm("BGM08", 0)
+	SetCg("B27b", 0, 0)
+	ScPlaySe("SE259", 0)
+	Talk("初佳", "MT051423")
+	Mess("ここで良いわ。")
+	hitretResult := Hitret(38316)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("サラリーマン《金平》", "NP020001")
+	Mess("そうかい？")
+	hitretResult := Hitret(38317)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B35b", 0, 0)
+	SetBustup("CE02_02S", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("モノローグ《初佳》", "MT051424")
+	Mess("止まった車を降りて、私は彼を振り返る。")
+	hitretResult := Hitret(38318)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("サラリーマン《金平》", "NP020002")
+	Mess("今日はありがとう。また会ってくれて、嬉しかったよ。")
+	hitretResult := Hitret(38319)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051425")
+	Mess("運転席の窓を下げて、彼は白い歯を見せて笑った。")
+	hitretResult := Hitret(38320)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051426")
+	Mess("去年まで、私が好きだった笑顔……彼の笑い方は今でも変わら")
+	Mess("ない。")
+	hitretResult := Hitret(38321)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051427")
+	Mess("なのに、私の心はときめかない。")
+	hitretResult := Hitret(38322)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051428")
+	Mess("ううん、私こそ……")
+	hitretResult := Hitret(38323)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_07S", 0, 0)
+	Talk("モノローグ《初佳》", "MT051429")
+	Mess("私こそ、何？")
+	hitretResult := Hitret(38324)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051430")
+	Mess("彼と会い、話をし、お茶を飲んでる間も、これで良かったの？")
+	Mess("と問いかけてくる自分がいた。")
+	hitretResult := Hitret(38325)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051431")
+	Mess("悠くんを振って、すぐ後に昔の男と会っている自分を、問い詰")
+	Mess("めたい私がいた。")
+	hitretResult := Hitret(38326)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051432")
+	Mess("この一年の事を何も言わない彼。何も聞かない私。")
+	hitretResult := Hitret(38327)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051433")
+	Mess("当たり障りのない世間話を二時間して、送ってもらった。")
+	hitretResult := Hitret(38328)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("サラリーマン《金平》", "NP020003")
+	Mess("乃木坂さんの家まで送っても良いんだよ？")
+	hitretResult := Hitret(38329)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_02S", 0, 0)
+	Talk("初佳", "MT051434")
+	Mess("大丈夫。ここからならすぐだから。")
+	hitretResult := Hitret(38330)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051435")
+	Mess("彼は「そうかい？」と頷いたけれど、なかなか車を出そうとし")
+	Mess("ない。")
+	hitretResult := Hitret(38331)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051436")
+	Mess("私も、立ち去る事が出来ない。")
+	hitretResult := Hitret(38332)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051437")
+	Mess("言うべき言葉が、“さようなら”なのか“またね”なのかがわ")
+	Mess("からなくて。")
+	hitretResult := Hitret(38333)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("サラリーマン《金平》", "NP020004")
+	Mess("ねえ、乃木坂さん、また……")
+	hitretResult := Hitret(38334)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CE02_07S", 0, 0)
+	Talk("初佳", "MT051438")
+	Mess("金平さん、待っ……")
+	hitretResult := Hitret(38335)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("声《亮平》", "RH050326")
+	Mess("お前っ！！")
+	hitretResult := Hitret(38336)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051439")
+	Mess("彼の言葉を遮ろうとした私を、さらに新しい声が遮った。")
+	hitretResult := Hitret(38337)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07a", 0, 0)
+	Transition("WIP_TLBR", 500)
+	Talk("初佳", "MT051440")
+	Mess("亮平くんっ……なんで、ここに……")
+	hitretResult := Hitret(38338)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050327")
+	Mess("見覚えある車だと思ったら、やっぱりあんただったか。")
+	hitretResult := Hitret(38339)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020006")
+	Mess("君は……乃木坂さんの知り合い？")
+	hitretResult := Hitret(38340)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051441")
+	Mess("え、ええ……近所の子で……亮平くんこそ、金平さんを知って")
+	Mess("るの？")
+	hitretResult := Hitret(38341)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07b", 0, 0)
+	Talk("亮平", "RH050328")
+	Mess("あ、ああ……ちょっと……")
+	hitretResult := Hitret(38342)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051442")
+	Mess("一年前、亮平くんは一度は彼を見たことがあるだろうけど、そ")
+	Mess("れだけで私と彼の関係がわかるとは思えない。")
+	hitretResult := Hitret(38343)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051443")
+	Mess("でも、亮平くんが好きだった人は、金平さんと付き合ってたん")
+	Mess("だから……知っていたのかもしれない……")
+	hitretResult := Hitret(38344)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07a", 0, 0)
+	Talk("亮平", "RH050329")
+	Mess("あんた……どうして戻って来たんだ？　どうして、初佳さんと")
+	Mess("一緒にいるんだ？")
+	hitretResult := Hitret(38345)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020007")
+	Mess("もしかして……穂見学園の生徒かい？　ということは、副島さ")
+	Mess("んの教え子くんかな？")
+	hitretResult := Hitret(38346)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07b", 0, 0)
+	Talk("亮平", "RH050330")
+	Mess("あ、ああ……")
+	hitretResult := Hitret(38347)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020008")
+	Mess("そうか……彼女とは、別れたよ。色々あってね、行き違いが増")
+	Mess("えてしまったんだ……")
+	hitretResult := Hitret(38348)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020009")
+	Mess("幸せになれなくてゴメン、と別れた時に彼女は呟いていたよ。")
+	Mess("せっかく背中を押してくれたのに、って。")
+	hitretResult := Hitret(38349)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07a", 0, 0)
+	Talk("亮平", "RH050331")
+	Mess("……副島先生は、あんたの事を心から愛してた……だから俺は")
+	Mess("応援するのが正しいって思った……")
+	hitretResult := Hitret(38350)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050332")
+	Mess("なのに、なんで別れた？　なんで幸せにしてやらなかった？")
+	hitretResult := Hitret(38351)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020010")
+	Mess("僕と彼女の事だ。君が詮索する事じゃない。")
+	hitretResult := Hitret(38352)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051444")
+	Mess("やっぱり知ってたんだ……じゃあ、彼女が学校を辞めたのも亮")
+	Mess("平くんがストーカーしたんじゃなくて……")
+	hitretResult := Hitret(38353)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051445")
+	Mess("亮平くんは、金平さんが私と彼女……両方と付き合ってたって")
+	Mess("知ってたの？")
+	hitretResult := Hitret(38354)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051446")
+	Mess("知ってて、私を応援するって……彼女の背中を押したって……")
+	hitretResult := Hitret(38355)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07b", 0, 0)
+	Talk("亮平", "RH050333")
+	Mess("先生に……好きな人がいたのは知ってた。けど、それが初佳さ")
+	Mess("んの恋人だとは知らなかったんだ。")
+	hitretResult := Hitret(38356)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050334")
+	Mess("知ったのは、先生とこいつが……この町から去った日に、初佳")
+	Mess("さんが置いていかれたってわかって……初めて知った。")
+	hitretResult := Hitret(38357)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020011")
+	Mess("君と乃木坂さんも、深い関係にあるみたいだね。")
+	hitretResult := Hitret(38358)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07a", 0, 0)
+	Talk("亮平", "RH050335")
+	Mess("そんなんじゃねえ。大切な友達ってだけだ。")
+	hitretResult := Hitret(38359)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050336")
+	Mess("それにあんた、最初の質問にまだ答えてないだろ。なんで戻っ")
+	Mess("て来た？　初佳さんにした事も忘れて、何しに来やがった？")
+	hitretResult := Hitret(38360)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051447")
+	Mess("亮平くんっ！")
+	hitretResult := Hitret(38361)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050337")
+	Mess("言わせてくれ初佳さん。じゃないと俺は……")
+	hitretResult := Hitret(38362)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051448")
+	Mess("亮平くんが怒るのはもっともよ。でも、彼が戻って来たのは、")
+	Mess("私と彼との問題よ。")
+	hitretResult := Hitret(38363)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051449")
+	Mess("亮平くんの気持ちは嬉しいけれど……口を挟まないで欲しい。")
+	hitretResult := Hitret(38364)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("亮平", "RH050338")
+	Mess("こいつと初佳さんのって……だって初佳さんは……")
+	hitretResult := Hitret(38365)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("初佳", "MT051450")
+	Mess("ありがとう、亮平くん。それ以上はもう言わないで。")
+	hitretResult := Hitret(38366)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EE07b", 0, 0)
+	Talk("亮平", "RH050339")
+	Mess("お、おい……なんだよ、どういう事だよ？")
+	hitretResult := Hitret(38367)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020012")
+	Mess("亮平くん、と言ったか？　君の心配はもっともだが、僕だって")
+	Mess("一年前の僕とは違う。")
+	hitretResult := Hitret(38368)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020013")
+	Mess("それに乃木坂さんの言うとおり、僕と彼女の問題なんだよ。")
+	hitretResult := Hitret(38369)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("金平", "NP020014")
+	Mess("ふぅ、なんだか話を続ける空気じゃなくなってしまったね。／")
+	Mess("また連絡するよ、乃木坂さん。")
+	hitretResult := Hitret(38370)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B35b", 0, 0)
+	SetBustup("CE02_07S", 0, 0)
+	SetBustup("CF02_08S", 0, 0)
+	ScPlaySe("SE260", 0)
+	Talk("モノローグ《初佳》", "MT051451")
+	Mess("「じゃあ」と言って彼は車に乗り込み、発進させる。")
+	hitretResult := Hitret(38371)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051452")
+	Mess("私と亮平くんは、黙ったまま彼の車が遠ざかって行くのを見送")
+	Mess("るだけ。")
+	hitretResult := Hitret(38372)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B27b", 0, 0)
+	Transition("WIP_TLBR", 500)
+	Talk("モノローグ《初佳》", "MT051453")
+	Mess("車影が完全に見えなくなっても、私と亮平くんはその場に立ち")
+	Mess("尽くしていた。")
+	hitretResult := Hitret(38373)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051454")
+	Mess("その時の私の心は、今までにないくらい、申し訳なさでいっぱ")
+	Mess("いになっていた。")
+	hitretResult := Hitret(38374)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《初佳》", "MT051455")
+	Mess("私は間違ってない、と浮かんでくる疑問を必死にかき消しなが")
+	Mess("ら。")
+	hitretResult := Hitret(38375)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	EyeCatchEnter("", 0)
+	WindowView(0)
+	Change("00_e032")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

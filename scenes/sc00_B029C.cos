@@ -1,0 +1,171 @@
+Include"yosuga.ch"
+
+Function sc00_B029C()
+	ScenarioEnter()
+	SetCg("B27d", 0, 600)
+	Transition("", 3000)
+	WindowView(1)
+	Talk("Nao", "NO031826")
+	Mess("!... *Pant* *Pant* *Pant*...")
+	hitretResult := Hitret(16929)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031827")
+	Mess("!... Haru-chan, what's gotten into you?")
+	hitretResult := Hitret(16930)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Tone("MONOCHROME")
+	ScPlayBgm("BGM10", 0)
+	SetCg("B17b", 0, 0)
+	SetBustup("CF01_08M", 0, 0)
+	Transition("MOZCIR", 500)
+	Talk("Ryouhei", "RH030427")
+	Mess("He was in a hurry, Nao... Haruka could be at his place.")
+	hitretResult := Hitret(16931)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Tone("")
+	SetCg("B27d", 0, 600)
+	Transition("WIP_BT", 500)
+	Scroll(0, 0, 40000, 1, 0)
+	Talk("Nao", "NO031828")
+	Mess("*Pant* *Pant* *Pant*...")
+	hitretResult := Hitret(16932)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031829")
+	Mess("Something I don't know must have happened.")
+	hitretResult := Hitret(16933)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031830")
+	Mess("But... Why are you in a hurry...?")
+	hitretResult := Hitret(16934)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031831")
+	Mess("*Pant* *Pant* *Pant*... Ughh...")
+	hitretResult := Hitret(16935)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE251", 0)
+	Talk("Nao", "NO031832")
+	Mess("Agh!?")
+	hitretResult := Hitret(16936)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE250", 0)
+	SetCg("B12d", 0, 0)
+	Transition("WIP_LR", 500)
+	SetBustup("CB01_13M", 0, 0)
+	Talk("Nao", "NO031833")
+	Mess("...Haru-chan?")
+	hitretResult := Hitret(16937)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031834")
+	Mess("... Why, why are you in a bus?")
+	hitretResult := Hitret(16938)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031835")
+	Mess("... With Sora too...")
+	hitretResult := Hitret(16939)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Talk("モノローグ《奈緒》", "NO031836")
+	Mess("...The both of you... Why are you guys...")
+	hitretResult := Hitret(16940)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopSe()
+	BlackOut(0, 0)
+	ScPlayEnvSe("SE308", "0", 0)
+	Talk("心の声", "")
+	Mess("………………………………")
+	hitretResult := Hitret(16941)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("…………………………")
+	hitretResult := Hitret(16942)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("心の声", "")
+	Mess("…………………")
+	hitretResult := Hitret(16943)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopEnvSe("SE308", 0)
+	Hide(1)
+	WindowView(0)
+	ScWait(1000, 0)
+	Change("00_b030")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

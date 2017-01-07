@@ -1,0 +1,872 @@
+Include"yosuga.ch"
+
+Function sc00_B023()
+	ScenarioEnter()
+	ScPlayEnvSe("SE302", "1", 0)
+	SetCg("B17a", 0, 0)
+	Transition("WIP_LR", 500)
+	Update()
+	ScWait(1000, 0)
+	SetCg("B21a", 0, 0)
+	Update()
+	ScWait(1000, 0)
+	BlackOut(0, 1)
+	SetCg("EB02a", 0, 0)
+	Talk("Nao", "NO031353")
+	Mess("…………………………")
+	hitretResult := Hitret(15499)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB02b", 0, 0)
+	Talk("Nao", "NO031354")
+	Mess("? ... Ah, Haru-cha...n...")
+	hitretResult := Hitret(15500)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("EB02a", 0, 0)
+	Talk("Nao", "NO031355")
+	Mess("Tch... What, it's only you...")
+	hitretResult := Hitret(15501)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B21a", 0, 0)
+	SetBustup("CF01_09M", 0, 0)
+	Talk("Ryouhei", "RH030337")
+	Mess("What's with that, even though I came all the way here to／hang out.")
+	hitretResult := Hitret(15502)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH030338")
+	Mess("Anyways, you're making a sour face.")
+	hitretResult := Hitret(15503)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_05M", 0, 0)
+	Talk("Nao", "NO031356")
+	Mess("Yes, yes. Thank you for using our services. The charge／rate for one hour is approximately 1500 Yen.")
+	hitretResult := Hitret(15504)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_06M", 0, 0)
+	Talk("Ryouhei", "RH030339")
+	Mess("Expensive!! Wait, this isn't yours, give me back my／money!")
+	hitretResult := Hitret(15505)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_06M", 0, 0)
+	Talk("Nao", "NO031357")
+	Mess("Ah, geez, shut up.")
+	hitretResult := Hitret(15506)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("Ryouhei", "RH030340")
+	Mess("...Haruka... He came here, right?")
+	hitretResult := Hitret(15507)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_05M", 0, 0)
+	Talk("Nao", "NO031358")
+	Mess("Haru-chan?... He's not here today.")
+	hitretResult := Hitret(15508)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH030341")
+	Mess("Heh? Why?")
+	hitretResult := Hitret(15509)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_09M", 0, 0)
+	Talk("Nao", "NO031359")
+	Mess("Because it's the first obon of their parents...")
+	hitretResult := Hitret(15510)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_08M", 0, 0)
+	Talk("Ryouhei", "RH030342")
+	Mess("Ah... I see.")
+	hitretResult := Hitret(15511)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031360")
+	Mess("Until everythings done, the family member should stay in／the house.")
+	hitretResult := Hitret(15512)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("Ryouhei", "RH030343")
+	Mess("And... When will that turn to normal again?")
+	hitretResult := Hitret(15513)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031361")
+	Mess("Maybe today, I want to ask though...")
+	hitretResult := Hitret(15514)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_05M", 0, 0)
+	Talk("Ryouhei", "RH030344")
+	Mess("Too bad huh, I feel bad.")
+	hitretResult := Hitret(15515)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_06M", 0, 0)
+	Talk("Nao", "NO031362")
+	Mess("Really... Geez...")
+	hitretResult := Hitret(15516)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH030345")
+	Mess("Heh...")
+	hitretResult := Hitret(15517)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031363")
+	Mess("... What is it?")
+	hitretResult := Hitret(15518)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Talk("Ryouhei", "RH030346")
+	Mess("Nothing, I felt like doing the homework with Haruka and／we can copy off from each other... I guess we can't do／it then.")
+	hitretResult := Hitret(15519)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH030347")
+	Mess("And also do a little bit of swimming.")
+	hitretResult := Hitret(15520)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031364")
+	Mess("Don't make it dirty.")
+	hitretResult := Hitret(15521)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_09M", 0, 0)
+	Talk("Ryouhei", "RH030348")
+	Mess("I-I'm not saying anything stupid!!")
+	hitretResult := Hitret(15522)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF01_01M", 0, 0)
+	Update()
+	ScWait(1000, 0)
+	SetBustup("CF04_04M", 0, 0)
+	SetBustup("CB04_13M", 0, 0)
+	Shake(3)
+	Talk("Nao", "NO031365")
+	Mess("Kyaa!?")
+	hitretResult := Hitret(15523)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF04_01M", 0, 0)
+	Talk("Ryouhei", "RH030349")
+	Mess("Ah? What the, shut up.")
+	hitretResult := Hitret(15524)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031366")
+	Mess("D-Don't take off your clothes that suddenly... You／surprised me...")
+	hitretResult := Hitret(15525)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF04_05M", 0, 0)
+	Talk("Ryouhei", "RH030350")
+	Mess("Ah? I'll always be a guy, I guess I should also lower my／pants.")
+	hitretResult := Hitret(15526)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_06M", 0, 0)
+	Talk("Nao", "NO031367")
+	Mess("Stop it with your misleading actions.")
+	hitretResult := Hitret(15527)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF04_02M", 0, 0)
+	Talk("Ryouhei", "RH030351")
+	Mess("Aren't you hoping for anything?")
+	hitretResult := Hitret(15528)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031368")
+	Mess("Do you want me to push you to the pool?")
+	hitretResult := Hitret(15529)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CF04_05M", 0, 0)
+	Talk("Ryouhei", "RH030352")
+	Mess("OOh scary...")
+	hitretResult := Hitret(15530)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	SetBustup("CF04_01S", 0, 0)
+	Talk("Ryouhei", "RH030353")
+	Mess("...Haruka... I would be glad if he would come back now.")
+	hitretResult := Hitret(15531)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031369")
+	Mess("...Eh...")
+	hitretResult := Hitret(15532)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear(7)
+	Talk("Ryouhei", "RH030354")
+	Mess("Take this!!")
+	hitretResult := Hitret(15533)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE204", 0)
+	SetBustup("CB04_06M", 0, 0)
+	Talk("Nao", "NO031370")
+	Mess("Tch... Geez!!")
+	hitretResult := Hitret(15534)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Ryouhei", "RH030355")
+	Mess("Hehehe, as I thought, it would feel great!!")
+	hitretResult := Hitret(15535)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CB04_09M", 0, 0)
+	Talk("Nao", "NO031371")
+	Mess("………………………")
+	hitretResult := Hitret(15536)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031372")
+	Mess("...Everyone... What are you trying to pull...")
+	hitretResult := Hitret(15537)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	ScStopEnvSe("SE302", 0)
+	EyeCatchEnter("", 0)
+	SetCg("B12b", 0, 0)
+	ScPlayBgm("BGM16", 0)
+	WindowView(1)
+	Talk("モノローグ《奈緒》", "NO031373")
+	Mess("As the sun went down, the houses along with the stores／lit their lights on.")
+	hitretResult := Hitret(15538)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031374")
+	Mess("In the midst of it, there's a peaceful house that didn't／even bothered turning on its lights.")
+	hitretResult := Hitret(15539)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B01b", 0, 0)
+	Talk("モノローグ《奈緒》", "NO031375")
+	Mess("Haru-chan's house.")
+	hitretResult := Hitret(15540)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031376")
+	Mess("Not yet, the people who lives in this house hasn't come／back yet.")
+	hitretResult := Hitret(15541)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031377")
+	Mess("I can't go to their clinic, the curtains there were／always closed, and it feels like it's deserted as there／were no lights inside.")
+	hitretResult := Hitret(15542)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031378")
+	Mess("The town doctor and their parents died several years／ago...")
+	hitretResult := Hitret(15543)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031379")
+	Mess("Then Haru-chan and his sister moved in, though they both／live alone with no one around them.")
+	hitretResult := Hitret(15544)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031380")
+	Mess("Here lies a lot of our fun memories during those days,／but as I stared at this building, I felt sad.")
+	hitretResult := Hitret(15545)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031381")
+	Mess("That's why... I wanted to know when they'll be back.")
+	hitretResult := Hitret(15546)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031382")
+	Mess("Again, I went out cheerfully.")
+	hitretResult := Hitret(15547)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B05b", 0, 0)
+	Transition("WIP_RL", 500)
+	Talk("モノローグ《奈緒》", "NO031383")
+	Mess("But, I grew more depressed as I got to my house.")
+	hitretResult := Hitret(15548)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031384")
+	Mess("The car's in the garage now, which means dad is home／now.")
+	hitretResult := Hitret(15549)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se100", 0)
+	Talk("Nao", "NO031385")
+	Mess("I'm back.")
+	hitretResult := Hitret(15550)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BlackOut(0, 0)
+	Talk("モノローグ《奈緒》", "NO031386")
+	Mess("I quickly went to the bathroom, then I soaked my／swimsuit in the washtub. If I don't, the chlorine that／resides in it might damage the swimsuit.")
+	hitretResult := Hitret(15551)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031387")
+	Mess("I threw the towel that I used today into the washing／machine, then I went to my room.")
+	hitretResult := Hitret(15552)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500013")
+	Mess("You're back? And you're just going back to you're／room... How's your homeworks?")
+	hitretResult := Hitret(15553)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031389")
+	Mess("From the kitchen, Mother peeked her head. Her voice／wasn't as loud as usual, you can tell that it's／unpleasant right away.")
+	hitretResult := Hitret(15554)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031390")
+	Mess("I do them everyday, so I'll be fine.")
+	hitretResult := Hitret(15555)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500014")
+	Mess("...Today, were you with Haruka-chan?")
+	hitretResult := Hitret(15556)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031392")
+	Mess("Haru-chan hasn't come back from their first obon.")
+	hitretResult := Hitret(15557)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500015")
+	Mess("I see... When will he be back?")
+	hitretResult := Hitret(15558)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031394")
+	Mess("It should be today but, it looks like he still hasn't／come back.")
+	hitretResult := Hitret(15559)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500016")
+	Mess("Those two kids really have it hard on them... It would／be much better if their relatives would take them in...")
+	hitretResult := Hitret(15560)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031396")
+	Mess("Kuh...")
+	hitretResult := Hitret(15561)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031397")
+	Mess("If that's the case, you should also help them out too／mother?")
+	hitretResult := Hitret(15562)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500017")
+	Mess("That's right, but...")
+	hitretResult := Hitret(15563)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031399")
+	Mess("………………………………")
+	hitretResult := Hitret(15564)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031400")
+	Mess("Mother's words were clouded.")
+	hitretResult := Hitret(15565)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031401")
+	Mess("That's because she doesn't like to meddle in other／people's affairs, and it looks like she'll tell me that／right now.")
+	hitretResult := Hitret(15566)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao's mother", "NP500018")
+	Mess("Anyways, be careful and not meddle with their problems／okay?")
+	hitretResult := Hitret(15567)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031403")
+	Mess("...I said I know that...")
+	hitretResult := Hitret(15568)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031404")
+	Mess("I felt sad as I went back to my room.")
+	hitretResult := Hitret(15569)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetCg("B06c", 0, 0)
+	Transition("WIP_LR", 500)
+	Talk("モノローグ《奈緒》", "NO031405")
+	Mess("I placed my bag by the corner of my room and closed the／windows.")
+	hitretResult := Hitret(15570)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031406")
+	Mess("Haru-chan's house, there's still no lights.")
+	hitretResult := Hitret(15571)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031407")
+	Mess("The last bus had already passed by, though the last／train hasn't come back, so there's still a great chance／that they might come home very late.")
+	hitretResult := Hitret(15572)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031408")
+	Mess("Haru-chan's previous address is very far from here, they／could be having a hard time on riding so many trains one／after the other.")
+	hitretResult := Hitret(15573)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031409")
+	Mess("That's why if it's this late, they probably won't be／able to come back today.")
+	hitretResult := Hitret(15574)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031410")
+	Mess("It's going to be fine tomorrow after all... I just want／them to come back safely.")
+	hitretResult := Hitret(15575)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031411")
+	Mess("I felt that as I was closing the curtains.")
+	hitretResult := Hitret(15576)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("se063", 0)
+	Talk("Nao", "NO031412")
+	Mess("...*sigh*...")
+	hitretResult := Hitret(15577)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031413")
+	Mess("I threw myself down in the bed as I laid down.")
+	hitretResult := Hitret(15578)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031414")
+	Mess("I blocked the light with my arms.")
+	hitretResult := Hitret(15579)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031415")
+	Mess("...*haaaa...")
+	hitretResult := Hitret(15580)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031416")
+	Mess("...I took a short breath.")
+	hitretResult := Hitret(15581)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031417")
+	Mess("My parents, I don't know when was the last time they／took me out, but I believe that they weren't happy that／time.")
+	hitretResult := Hitret(15582)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031418")
+	Mess("Even though it's not really a big problem, they always／watch me suspiciously.")
+	hitretResult := Hitret(15583)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031419")
+	Mess("... But... Probably it can't be helped...")
+	hitretResult := Hitret(15584)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031420")
+	Mess("...I think... that's the only thing that really bothered／me.")
+	hitretResult := Hitret(15585)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("Nao", "NO031421")
+	Mess("... When will you be back... Haru-chan...")
+	hitretResult := Hitret(15586)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("モノローグ《奈緒》", "NO031422")
+	Mess("I haven't seen him for several days now... Whenever I'm／driven by my anxiety because I can't be with him, I hug／myself tightly.")
+	hitretResult := Hitret(15587)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	WindowView(0)
+	Change("00_b024")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+
