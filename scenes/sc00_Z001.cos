@@ -421,7 +421,7 @@ Function sc00_Z001()
 		Return
 	EndIf
 	Talk("S‚Ìº", "")
-	Mess("The person who I had called "grandpa" was the town^doctor, and the one who I had called "grandma" was the^midwife.")
+	Mess("The person who I had called \"grandpa\" was the town^doctor, and the one who I had called \"grandma\" was the^midwife.")
 	hitretResult := Hitret(156)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -1215,7 +1215,7 @@ Function sc00_Z001()
 		Return
 	EndIf
 	Talk("S‚Ìº", "")
-	Mess("I thought I had heard the "karakara" sound of a bike^being pushed, but...")
+	Mess("I thought I had heard the \"karakara\" sound of a bike^being pushed, but...")
 	hitretResult := Hitret(241)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -1609,4 +1609,141 @@ Function sc00_Z001()
 		Return
 	EndIf
 	Talk("Haruka", "")
-	Mess("H-Hey those are my Consomm
+	Mess("H-Hey those are my Consomme flavored chips!")
+	hitretResult := Hitret(282)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	SetBustup("CA02_09M", 0, 0)
+	Talk("Sora", "SR000060")
+	Mess("...Huh?")
+	hitretResult := Hitret(283)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	BustupClear()
+	Talk("Haruka", "")
+	Mess("*Sigh* Don't eat them all, okay?")
+	hitretResult := Hitret(284)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Sora walked off toward the back of the house without a^word.")
+	hitretResult := Hitret(285)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	Talk("S‚Ìº", "")
+	Mess("...Well, it can't be helped. Me being late is a fact,^after all.")
+	hitretResult := Hitret(286)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("When I opened my mobile phone, I found an abundance of^missed calls and new emails.")
+	hitretResult := Hitret(287)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Those missed calls and emails were all from Sora.")
+	hitretResult := Hitret(288)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("\"You're late.\" \"Still out?\" \"What are you doing?\"^\"Haru?\" \"Stop that.\" \"Answer me...\"")
+	hitretResult := Hitret(289)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("... \"I was starting to think you ran away,\" huh? ...")
+	hitretResult := Hitret(290)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScPlaySe("SE153", 0)
+	Talk("S‚Ìº", "")
+	Mess("\"Sorry, I'm really sorry.\"")
+	hitretResult := Hitret(291)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("Entering only that, I sent the email to Sora.")
+	hitretResult := Hitret(292)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("From the back of the house, the sound indicating a new^email could be faintly heard.")
+	hitretResult := Hitret(293)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess("The reply came immediately.")
+	hitretResult := Hitret(294)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	Talk("S‚Ìº", "")
+	Mess(".\"..Idiot.\"")
+	hitretResult := Hitret(295)
+	If ((hitretResult == 30) | (hitretResult == 20))
+		Change("EXIT_SCENARIO")
+		Return
+	ElseIf (hitretResult == 40)
+		Return
+	EndIf
+	ScStopBgm()
+	EyeCatchEnter("DATE", 0)
+	Change("00_z002")
+	Return
+	Change("EXIT_SCENARIO")
+	Return
+
+EndFunc
+

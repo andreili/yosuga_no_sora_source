@@ -2222,11 +2222,10 @@ Function sc00_E024B()
 		Return
 	EndIf
 	OnRecollectFlag(17)
-	CALL IsRecollectMode
-	JUMP_OK _l_7867
-	Change("EXIT_SCENARIO")
-	Return
-@_l_7867:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	WhiteOut(0, 1)
 	Change("00_e025")

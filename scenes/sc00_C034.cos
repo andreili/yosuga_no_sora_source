@@ -2,321 +2,318 @@ Include"yosuga.ch"
 
 Function sc00_C034()
 	ScenarioEnter()
-	CALL IsRecollectMode
-	JUMP_OK _l_6
-	NOP
-	JUMP _l_1110
-@_l_6:
-	SetCg("B08a", 0, 0)
-	ScPlayBgm("BGM18", 0)
-	Talk("Akira", "AK021990")
-	Mess("Mmmm.... chuu.... mmhaa... Haru-kun......")
-	hitretResult := Hitret(26095)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
+	If (IsRecollectMode())
+	Else
+		SetCg("B08a", 0, 0)
+		ScPlayBgm("BGM18", 0)
+		Talk("Akira", "AK021990")
+		Mess("Mmmm.... chuu.... mmhaa... Haru-kun......")
+		hitretResult := Hitret(26095)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Quake(16, 0, 1, 2, 30)
+		Talk("Haruka", "")
+		Mess("Mmm.... Oww.....")
+		hitretResult := Hitret(26096)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021991")
+		Mess("Nyaa......!!")
+		hitretResult := Hitret(26097)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("When we kissed, the hand that I used to hug her stung.")
+		hitretResult := Hitret(26098)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("I subconsciously tried to protect the burnt hand, and inÅ^the end I lost my balance and fell backwards.")
+		hitretResult := Hitret(26099)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("Akira also fell with me, and did a skilful forward roll.")
+		hitretResult := Hitret(26100)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021992")
+		Mess("Haru-kun...... Are you okay?")
+		hitretResult := Hitret(26101)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("Y, yes..... How about you Akira.....")
+		hitretResult := Hitret(26102)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021993")
+		Mess("I'm also okay.")
+		hitretResult := Hitret(26103)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("Akira laid her four limbs on the floor and crawled toÅ^me.")
+		hitretResult := Hitret(26104)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021994")
+		Mess("You scared me. Haru-kun.... Your hand, are you alright?")
+		hitretResult := Hitret(26105)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("I'm okay...... I only touched the floor a little, so I'mÅ^just a little surprised.")
+		hitretResult := Hitret(26106)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021995")
+		Mess("....... It's really red...... poor thing.....")
+		hitretResult := Hitret(26107)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("No..... The pain has subsided a lot already.")
+		hitretResult := Hitret(26108)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021996")
+		Mess("I'm sorry..... Kiss..... Lick.....")
+		hitretResult := Hitret(26109)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("Akira lightly licked my burnt fingers. It's unbelievableÅ^how the pain was easing when she touched me with her hotÅ^tongue.")
+		hitretResult := Hitret(26110)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021997")
+		Mess("Mmm.... Kiss..... Then from today onwards, I'llÅ^temporarily be Haru-kun's hands.")
+		hitretResult := Hitret(26111)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("I'm fine......")
+		hitretResult := Hitret(26112)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021998")
+		Mess("There are many inconvenient things...... ChangingÅ^clothes, going toilets.")
+		hitretResult := Hitret(26113)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("I wonder if I can study in the near future.")
+		hitretResult := Hitret(26114)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK021999")
+		Mess("Ahaha, that's really cunning~!!")
+		hitretResult := Hitret(26115)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("Uwahh! Ahaha, Akira, you're too heavy!")
+		hitretResult := Hitret(26116)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("Akira flies into me half jokingly.")
+		hitretResult := Hitret(26117)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK022000")
+		Mess("But..... I'll really help you with anything, as long asÅ^Haru-kun requests for it.")
+		hitretResult := Hitret(26118)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("Akira.....")
+		hitretResult := Hitret(26119)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("The Akira who was laying over me hugged me tightly.")
+		hitretResult := Hitret(26120)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("She hugged my abdomen and brought her face to it.")
+		hitretResult := Hitret(26121)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("A.... Akira.....")
+		hitretResult := Hitret(26122)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("I'm really happy that she said something like that.")
+		hitretResult := Hitret(26123)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("But, Akira's dainty figure is hugging my stomach, andÅ^her stomach is also lying over my face.")
+		hitretResult := Hitret(26124)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("êSÇÃê∫", "")
+		Mess("Also, through her uplifted skirt, I can see a sliver ofÅ^white color, even though I'm excited..... but I don'tÅ^know where I should put eyes at.")
+		hitretResult := Hitret(26125)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK022001")
+		Mess("Nooo, Haru-kun ecchi.")
+		hitretResult := Hitret(26126)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Haruka", "")
+		Mess("N, no..... Akira is currently....")
+		hitretResult := Hitret(26127)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
+		Talk("Akira", "AK022002")
+		Mess("Hohoo, what, so that's what you meant. Alrightttt.....")
+		hitretResult := Hitret(26128)
+		If ((hitretResult == 30) | (hitretResult == 20))
+			Change("EXIT_SCENARIO")
+			Return
+		ElseIf (hitretResult == 40)
+			Return
+		EndIf
 	EndIf
-	Quake(16, 0, 1, 2, 30)
-	Talk("Haruka", "")
-	Mess("Mmm.... Oww.....")
-	hitretResult := Hitret(26096)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021991")
-	Mess("Nyaa......!!")
-	hitretResult := Hitret(26097)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("When we kissed, the hand that I used to hug her stung.")
-	hitretResult := Hitret(26098)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("I subconsciously tried to protect the burnt hand, and inÅ^the end I lost my balance and fell backwards.")
-	hitretResult := Hitret(26099)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("Akira also fell with me, and did a skilful forward roll.")
-	hitretResult := Hitret(26100)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021992")
-	Mess("Haru-kun...... Are you okay?")
-	hitretResult := Hitret(26101)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("Y, yes..... How about you Akira.....")
-	hitretResult := Hitret(26102)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021993")
-	Mess("I'm also okay.")
-	hitretResult := Hitret(26103)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("Akira laid her four limbs on the floor and crawled toÅ^me.")
-	hitretResult := Hitret(26104)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021994")
-	Mess("You scared me. Haru-kun.... Your hand, are you alright?")
-	hitretResult := Hitret(26105)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("I'm okay...... I only touched the floor a little, so I'mÅ^just a little surprised.")
-	hitretResult := Hitret(26106)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021995")
-	Mess("....... It's really red...... poor thing.....")
-	hitretResult := Hitret(26107)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("No..... The pain has subsided a lot already.")
-	hitretResult := Hitret(26108)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021996")
-	Mess("I'm sorry..... Kiss..... Lick.....")
-	hitretResult := Hitret(26109)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("Akira lightly licked my burnt fingers. It's unbelievableÅ^how the pain was easing when she touched me with her hotÅ^tongue.")
-	hitretResult := Hitret(26110)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021997")
-	Mess("Mmm.... Kiss..... Then from today onwards, I'llÅ^temporarily be Haru-kun's hands.")
-	hitretResult := Hitret(26111)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("I'm fine......")
-	hitretResult := Hitret(26112)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021998")
-	Mess("There are many inconvenient things...... ChangingÅ^clothes, going toilets.")
-	hitretResult := Hitret(26113)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("I wonder if I can study in the near future.")
-	hitretResult := Hitret(26114)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK021999")
-	Mess("Ahaha, that's really cunning~!!")
-	hitretResult := Hitret(26115)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("Uwahh! Ahaha, Akira, you're too heavy!")
-	hitretResult := Hitret(26116)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("Akira flies into me half jokingly.")
-	hitretResult := Hitret(26117)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK022000")
-	Mess("But..... I'll really help you with anything, as long asÅ^Haru-kun requests for it.")
-	hitretResult := Hitret(26118)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("Akira.....")
-	hitretResult := Hitret(26119)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("The Akira who was laying over me hugged me tightly.")
-	hitretResult := Hitret(26120)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("She hugged my abdomen and brought her face to it.")
-	hitretResult := Hitret(26121)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("A.... Akira.....")
-	hitretResult := Hitret(26122)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("I'm really happy that she said something like that.")
-	hitretResult := Hitret(26123)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("But, Akira's dainty figure is hugging my stomach, andÅ^her stomach is also lying over my face.")
-	hitretResult := Hitret(26124)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("êSÇÃê∫", "")
-	Mess("Also, through her uplifted skirt, I can see a sliver ofÅ^white color, even though I'm excited..... but I don'tÅ^know where I should put eyes at.")
-	hitretResult := Hitret(26125)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK022001")
-	Mess("Nooo, Haru-kun ecchi.")
-	hitretResult := Hitret(26126)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Haruka", "")
-	Mess("N, no..... Akira is currently....")
-	hitretResult := Hitret(26127)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-	Talk("Akira", "AK022002")
-	Mess("Hohoo, what, so that's what you meant. Alrightttt.....")
-	hitretResult := Hitret(26128)
-	If ((hitretResult == 30) | (hitretResult == 20))
-		Change("EXIT_SCENARIO")
-		Return
-	ElseIf (hitretResult == 40)
-		Return
-	EndIf
-
 	ScPlayBgm("BGM18", 0)
 	SetCg("EC16a", 0, 0)
 	Transition("CLOUD_A", 2000)
@@ -2903,11 +2900,10 @@ Function sc00_C034()
 		Return
 	EndIf
 	OnRecollectFlag(12)
-	CALL IsRecollectMode
-	JUMP_OK _l_10294
-	Change("EXIT_SCENARIO")
-	Return
-@_l_10294:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_c035")

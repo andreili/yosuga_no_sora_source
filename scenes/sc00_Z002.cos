@@ -100,7 +100,7 @@ Function sc00_Z002()
 	EndIf
 	BustupClear()
 	Talk("S‚Ìº", "")
-	Mess("I could hear the "beep beep" of the toaster oven in the^kitchen.")
+	Mess("I could hear the \"beep beep\" of the toaster oven in the^kitchen.")
 	hitretResult := Hitret(306)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -129,7 +129,7 @@ Function sc00_Z002()
 		Return
 	EndIf
 	Talk("Haruka", "")
-	Mess("...Hey, hey, that's set to microwave mode. If you don't^press the "Toast" button, the bread is just going to^turn hard.")
+	Mess("...Hey, hey, that's set to microwave mode. If you don't^press the \"Toast\" button, the bread is just going to^turn hard.")
 	hitretResult := Hitret(309)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")

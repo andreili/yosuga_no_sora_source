@@ -2739,11 +2739,10 @@ Function sc00_C019B()
 		Return
 	EndIf
 	OnRecollectFlag(10)
-	CALL IsRecollectMode
-	JUMP_OK _l_9740
-	Change("EXIT_SCENARIO")
-	Return
-@_l_9740:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_c020")

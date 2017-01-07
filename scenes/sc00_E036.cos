@@ -1926,11 +1926,10 @@ Function sc00_E036()
 		Return
 	EndIf
 	OnRecollectFlag(18)
-	CALL IsRecollectMode
-	JUMP_OK _l_6816
-	Change("EXIT_SCENARIO")
-	Return
-@_l_6816:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_e036b")

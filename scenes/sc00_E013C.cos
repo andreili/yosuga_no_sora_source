@@ -8,7 +8,7 @@ Function sc00_E013C()
 	Update()
 	ScPlayBgm("BGM18", 0)
 	Talk("Motoka", "MT050539")
-	Mess("Haruka-kun, would you become my "special someone"?")
+	Mess("Haruka-kun, would you become my \"special someone\"?")
 	hitretResult := Hitret(35533)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -2481,11 +2481,10 @@ Function sc00_E013C()
 		Return
 	EndIf
 	OnRecollectFlag(16)
-	CALL IsRecollectMode
-	JUMP_OK _l_8806
-	Change("EXIT_SCENARIO")
-	Return
-@_l_8806:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_e014")

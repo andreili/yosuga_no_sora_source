@@ -513,7 +513,7 @@ Function sc00_D042B()
 		Return
 	EndIf
 	Talk("Kazuha", "KA041419")
-	Mess("My sister is just asking "Can I touch?" and then comingÅ^at me, so... I'm just unable to reject her...")
+	Mess("My sister is just asking \"Can I touch?\" and then comingÅ^at me, so... I'm just unable to reject her...")
 	hitretResult := Hitret(32965)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -865,7 +865,7 @@ Function sc00_D042B()
 		Return
 	EndIf
 	Talk("Haruka", "")
-	Mess(""I'm sorry, I can't decide which one is better, so IÅ^can't answer.," huh?")
+	Mess("\"I'm sorry, I can't decide which one is better, so IÅ^can't answer.,\" huh?")
 	hitretResult := Hitret(33004)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -2139,7 +2139,7 @@ Function sc00_D042B()
 		Return
 	EndIf
 	Talk("êSÇÃê∫", "")
-	Mess("So, in order to make up for that, I want to convey theÅ^words "I love you" to her many times over.")
+	Mess("So, in order to make up for that, I want to convey theÅ^words \"I love you\" to her many times over.")
 	hitretResult := Hitret(33145)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -2352,7 +2352,7 @@ Function sc00_D042B()
 		Return
 	EndIf
 	Talk("Haruka", "")
-	Mess("Don't think that it's something that you can onlyÅ^receive. Just think "I'm happy" with confidence.")
+	Mess("Don't think that it's something that you can onlyÅ^receive. Just think \"I'm happy\" with confidence.")
 	hitretResult := Hitret(33168)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -2406,11 +2406,10 @@ Function sc00_D042B()
 		Return
 	EndIf
 	OnRecollectFlag(15)
-	CALL IsRecollectMode
-	JUMP_OK _l_8578
-	Change("EXIT_SCENARIO")
-	Return
-@_l_8578:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_d043")

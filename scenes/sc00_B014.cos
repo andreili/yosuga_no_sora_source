@@ -274,7 +274,7 @@ Function sc00_B014()
 	EndIf
 	SetBustup("CB01_02M", 0, 0)
 	Talk("Nao", "NO030663")
-	Mess("Yeah, we'll have a lot to select from if we go toÅ^"Imamura"(store).")
+	Mess("Yeah, we'll have a lot to select from if we go toÅ^\"Imamura\"(store).")
 	hitretResult := Hitret(13502)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -313,7 +313,7 @@ Function sc00_B014()
 		Return
 	EndIf
 	Talk("Haruka", "")
-	Mess("Heeh, you said it's along the road beside the "FunnyÅ^Crow" kind of thing.")
+	Mess("Heeh, you said it's along the road beside the \"FunnyÅ^Crow\" kind of thing.")
 	hitretResult := Hitret(13506)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")

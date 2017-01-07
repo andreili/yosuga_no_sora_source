@@ -320,7 +320,7 @@ Function sc00_D025B()
 		Return
 	EndIf
 	Talk("Kazuha", "KA040828")
-	Mess("I don't see why the "but" was in... Ah!")
+	Mess("I don't see why the \"but\" was in... Ah!")
 	hitretResult := Hitret(30835)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -627,7 +627,7 @@ Function sc00_D025B()
 		Return
 	EndIf
 	Talk("êSÇÃê∫", "")
-	Mess("Her question is really intense. It shows she'd prefer ifÅ^the answer was "no."")
+	Mess("Her question is really intense. It shows she'd prefer ifÅ^the answer was \"no.\"")
 	hitretResult := Hitret(30869)
 	If ((hitretResult == 30) | (hitretResult == 20))
 		Change("EXIT_SCENARIO")
@@ -2684,11 +2684,10 @@ Function sc00_D025B()
 		Return
 	EndIf
 	OnRecollectFlag(13)
-	CALL IsRecollectMode
-	JUMP_OK _l_9567
-	Change("EXIT_SCENARIO")
-	Return
-@_l_9567:
+	If (IsRecollectMode())
+		Change("EXIT_SCENARIO")
+		Return
+	EndIf
 	ScStopBgm()
 	EyeCatchEnter("DATE", 0)
 	Change("00_d026")
