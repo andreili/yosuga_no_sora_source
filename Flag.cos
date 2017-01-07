@@ -144,7 +144,7 @@ Function OnGlobalFlag(Integer i)
 			num := i
 			Debug("GlobalFlag" + num + "-ON")
 		EndIf
-		scObj.globalScFlag.set(i)
+		sysObj.globalScFlag.set(i)
 		SaveSystemData()
 	EndIf
 EndFunc
@@ -157,7 +157,7 @@ Function OffGlobalFlag(Integer i)
 			num := i
 			Debug("GlobalFlag" + num + "-OFF")
 		EndIf
-		scObj.globalScFlag.reset(i)
+		sysObj.globalScFlag.reset(i)
 		SaveSystemData()
 	EndIf
 EndFunc
@@ -170,20 +170,20 @@ Function OnRecollectFlag(Integer i)
 			num := i
 			Debug("‰ñ‘z" + num + "-ON")
 		EndIf
-		scObj.recollectFlag.set(i)
+		sysObj.recollectFlag.set(i)
 		SaveSystemData()
 	EndIf
 EndFunc
 
 Function ResetCgFlag(Integer id)
 	If ((1 <= id) & (id < 4096))
-		scObj.cgFlag.reset(id)
+		sysObj.cgFlag.reset(id)
 	EndIf
 EndFunc
 
 Function SetCgFlag(Integer id)
 	If ((1 <= id) & (id < 4096))
-		scObj.cgFlag.set(id)
+		sysObj.cgFlag.set(id)
 	EndIf
 EndFunc
 
