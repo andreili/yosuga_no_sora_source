@@ -17,11 +17,11 @@ Function AppreciationView::cgProc(Reference wscmd)
 		ElseIf (this.sprTag[tag].IsButtonChecked("ID_REC") == true)
 			setPage(tag, 3)
 		EndIf
-	ElseIf (wscmd.strID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_PAGE&(<0-9>*)", aParam) == "")
+	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_PAGE&(<0-9>*)", aParam) == "")
 		setPage((0 := aParam[0]) - 1, (0 := aParam[1]) - 1)
-	ElseIf (wscmd.strID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_REC&", aParam) == "")
+	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_REC&", aParam) == "")
 		setPage((0:= aParam[0]) - 1, 3)
-	ElseIf (wscmd.strID.IsMatchUsage("&ID_CGSEL&(<0-9>*)", aParam) == "")
+	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_CGSEL&(<0-9>*)", aParam) == "")
 		id :=(0 := aParam[0]) - 1
 	Else
 		Return 0

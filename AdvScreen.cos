@@ -89,7 +89,7 @@ Function AdvScreen::actionShake(Integer id)
 	bzCurve1.SetLinear(pt.x, pt.y, pt.x - w, pt.y)
 	bzCurve2.SetLinear(pt.x - w, pt.y, pt.x + w, pt.y)
 	bzCurve3.SetLinear(pt.x + w, pt.y, pt.x - w, pt.y)
-	bzCurve4.SetLinear(pt.w + w, pt.y, pt.x, pt.y)
+	bzCurve4.SetLinear(pt.x + w, pt.y, pt.x, pt.y)
 	bzCurve1.SetAcceleration(3.0, 0.0)
 	bzCurve2.SetAcceleration(3.0, 0.0)
 	bzCurve3.SetAcceleration(3.0, 0.0)
@@ -137,7 +137,7 @@ Function AdvScreen::addjustMessage_(Reference mess)
         temp += mess.Middle(index, num) + "\n"
         index += num
         While (index < mess.GetLength())
-            temp += " " + mess.Middle(index, num - 1) + " \n"
+            temp += ("@" + mess.Middle(index, num - 1)) + " \n"
             index += num
         EndWhile
     EndIf
@@ -720,8 +720,9 @@ EndFunc
 Function AdvScreen::isKeyUpdateFlush()
 	If (this.fKeyUpdateFlush == true)
         Return isSkip() | input.IsJoyButtonPushing(6)
-    EndIf
-    Return 0
+    Else
+		Return 0
+	EndIf
 EndFunc
 
 Function AdvScreen::isSelect()
@@ -815,7 +816,7 @@ Function AdvScreen::loadCg(Reference spr, String filename)
 		If (0 == true)
 			SpriteParam sprParam
 			Sprite sprTemp
-			If(File.IsExisting(filename.Left(3) + ".eri") == true)
+			If (File.IsExisting(filename.Left(3) + ".eri") == true)
 				sprTemp.LoadImage(filename.Left(3) + ".eri")
 			ElseIf (File.IsExisting(filename.Left(4) + ".eri") == true)
 				sprTemp.LoadImage(filename.Left(4) + ".eri")
@@ -971,7 +972,7 @@ Function AdvScreen::showSelectItem()
 	bzMag.SetAcceleration(3.0, 0.0)
 	screen.Lock()
 	Integer i := 0
-	If (frameSkin.screenEffect == 0)
+	If (cnfObj.screenEffect == 0)
 		While (i < this.selectItem.GetLength())
 			this.sprSelect[i].SetBlendingEnvelope(0)
 			this.sprSelect[i].SetBezierCurve(Reference, Reference, bzMag)
@@ -1029,9 +1030,7 @@ Function AdvScreen::startSelect()
 			EndIf
 		EndIf
 		If (0)
-			Continue
-		EndIf
-		If (wscmd.strID == "ID_SELECT")
+		ElseIf (wscmd.strID == "ID_SELECT")
 			Point pt
 			pt := input.GetCursorPos()
 			i := 0
@@ -1362,9 +1361,7 @@ Function AdvScreen::hitret(Integer id, Integer fVoiceWait)
 			EndIf
 		EndIf
 		If (IsUNK1)
-			Continue
-		EndIf
-		If ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(1) > 0))
+		ElseIf ((input.GetJoyButtonPushed(4) > 0) | (input.GetJoyButtonPushed(1) > 0))
 			If (this.msgFrame.isPending() == true)
 				this.msgFrame.flush()
 				FlushJoyButton()
