@@ -14,7 +14,6 @@ Function InitScenarioData()
 	scObj.messLog.create(512)
 	scObj.seqLog.create(512)
 	scObj.voiceLog.create(512)
-	Return
 EndFunc
 
 Function ScenarioLoop(String func)
@@ -389,7 +388,7 @@ Function ShowLoadEffect()
 	sprLoadEffect.SetVisible(true)
 	sprLoadEffectBase.AddSprite(10, sprLoadEffect)
 	sprLoadEffectBase.SetBlendingEnvelope(0)
-	sprLoadEffectBaseBeginActivation(300)
+	sprLoadEffectBase.BeginActivation(300)
 	WaitUntilSpriteActive(sprLoadEffectBase, false)
 EndFunc
 

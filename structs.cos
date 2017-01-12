@@ -318,11 +318,9 @@ EndStruct
 Structure CgViewManager
 	Integer isCreate
 	Array thumbInfo
-	Begin
-		If (InitFields)
-			this.isCreate := false
-		EndIf
-	End
+	If (InitFields)
+		this.isCreate := false
+	EndIf
 EndStruct
 
 Structure Sound

@@ -83,7 +83,7 @@ Function EndDebugSearch()
 EndFunc
 
 Function EnterDebugJump()
-	fDebugSearch := true
+	DebugJumpEnter := true
 EndFunc
 
 Function GetDebugJumpScenario()
@@ -244,7 +244,7 @@ Function LeaveDebugJump()
 EndFunc
 
 Function StartDebugSearch(String strSearch)
-	Debug("\c;8888FF:---Search---\c:")
+	Debug("\\c;8888FF:---Search---\\c:")
 	rDebugSearch := strSearch
 	fDebugSearch := true
 	adv.skip(true)

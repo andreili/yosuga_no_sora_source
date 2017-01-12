@@ -224,7 +224,7 @@ Function ConfigWindow::create(Integer fFromTitle)
 	screen.AddSprite(50230, this.sprBase)
 EndFunc
 
-Function ConfigWindow::destroy(Reference this)
+Function ConfigWindow::destroy()
 	If (this.sprBase.IsButtonChecked("ID_WINDOW") == true)
 		cnfObj.screenType := 0
 	Else
@@ -321,7 +321,7 @@ Function ConfigWindow::voiceDetails()
 		this.sprBase.BeginActivation(300)
 	Else
 		sprDetails.SetTransparency(256)
-		this.sprBase.SetTransparency(256)
+		this.sprBase.SetTransparency(0)
 	EndIf
 	cnfObj.voiceDetails[0] := (sprDetails.IsButtonChecked("ID_SORA") == true)
 	cnfObj.voiceDetails[1] := (sprDetails.IsButtonChecked("ID_AKIRA") == true)

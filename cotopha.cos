@@ -457,7 +457,7 @@ Function	BezierR64::pt( Real t )
 	Integer	i := 0
 	Repeat
 		Real	b
-		b := f[3] * t.Power(i) * Real(1.0 - t).Power(3 - i)
+		b := f[i] * t.Power(i) * Real(1.0 - t).Power(3 - i)
 		r += this.cp[i] * b
 		i += 1
 	Until	i >= 4

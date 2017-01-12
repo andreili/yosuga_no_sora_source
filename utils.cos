@@ -419,7 +419,7 @@ Function OutputLogText(String path, String text)
 	File file
 	If (file.Open(path, 4))
 		If (file.Open(path, 5))
-			Return
+			Return 1
 		EndIf
 	EndIf
 	file.Seek(0, 2)
@@ -880,8 +880,7 @@ Function CheckSetupCg(String str, Reference cgInfo)
 	ElseIf (CheckCg(str, "EZ06F", 1050, 1056))
 	ElseIf (CheckCg(str, "EZ07", 1060, 1061))
 	ElseIf (CheckCg(str, "EZ08", 1070, 1071))
-	Elseif (CheckCg(str, "SP"))
-	EndIf
+	Else (CheckCg(str, "SP"))
 	cgInfo.timeZone := timeZone
 	cgInfo.filename := str
 EndFunc

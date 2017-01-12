@@ -134,8 +134,7 @@ Function GetVoicePlayingPosition(Reference total, Reference pos)
 	SoundInfo info
 	info := voice.GetInfo()
 	total := info.nSampleCount
-	Integer nowTime
-	nowTime := GetCurrentTime()
+	Integer nowTime := GetCurrentTime()
 	pos := (info.nSamplesPerSec * (nowTime - playVoiceTime)) / 1000.0
 EndFunc
 
@@ -228,7 +227,7 @@ Function PlayVoice(String file, Integer fForce)
 		voice.Play(-2, ptfVoice)
 		ret := true
 	Else
-		Debug("\c;FF0000:NotFound-" + file + "\c:")
+		Debug("\\c;FF0000:NotFound-" + file + "\\c:")
 		ret := false
 	EndIf
 	Return ret
@@ -264,7 +263,7 @@ Function ScPlaySe(String file, Integer fWait)
 	If (IsLoad() == true)
 		Return
 	EndIf
-	If ((fWait == false) &(adv.isSkip() == true))
+	If ((fWait == false) &(adv.isSkip() == true))	;TODO
 		fWait := false
 	EndIf
 	PlaySe(file, fWait)
@@ -304,11 +303,11 @@ Function IsPauseBgm()
 EndFunc
 
 Function IsPlayBgm()
-	Return bgm[bgmIndex].res.IsPlaying()
+	Return bgm[bgmIndex].res.IsPlaying()	;TODO
 EndFunc
 
 Function IsPlayVoice()
-	Return voice.res.IsPlaying()
+	Return voice.res.IsPlaying()	;TODO
 EndFunc
 
 Function SetBgmInfo(Reference info)
@@ -454,6 +453,7 @@ EndFunc
 
 Function StopVoice()
 	If (voice.IsPlaying() == true)
+		playVoiceTime = 0
 		voice.Stop()
 		voice.Release()
 	EndIf

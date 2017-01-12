@@ -4,7 +4,7 @@ Include	"yosuga.ch"
 
 Function EyeCatch01(Integer fEnter)
 	Reference spr
-	spr := eyeCatchs
+	spr := sprEyeCatch
 	If (fEnter == -1)
 		spr["AlphaT"] := Resource
 		spr["AlphaT"].LoadImage("EyeCatchT.eri")
@@ -62,7 +62,7 @@ EndFunc
 
 Function EyeCatch02(Integer fEnter)
 	Reference spr
-	spr := eyeCatchs
+	spr := sprEyeCatch
 	If (fEnter == -1)
 		spr["EyeCatch"] := Sprite
 		spr["EyeCatch"].LoadImage("Eye001.eri")
@@ -82,7 +82,7 @@ EndFunc
 
 Function EyeCatch03(Integer fEnter)
 	Reference spr
-	spr := eyeCatchs
+	spr := sprEyeCatch
 	If (fEnter == -1)
 		spr["Black"] := Sprite
 		spr["Black"].CreateSprite(1, 800, 600)
@@ -115,7 +115,7 @@ EndFunc
 
 Function EyeCatch04(Integer fEnter)
 	Reference spr
-	spr := eyeCatchs
+	spr := sprEyeCatch
 	If (fEnter == -1)
 		SpriteParam param
 		adv.sprAdvBase.GetParameter(param)
@@ -155,7 +155,7 @@ EndFunc
 
 Function EyeCatch99(Integer fEnter)
 	Reference spr
-	spr := eyeCatchs
+	spr := sprEyeCatch
 	If (fEnter == -1)
 	EndIf
 EndFunc
@@ -182,21 +182,22 @@ Function EyeCatchEnter(String type, Integer fSoundKeep)
 		EyeCatch03(-1)
 	ElseIf (type == "BLACKOUT")
 		EyeCatch03(-1)
+	Else
 	EndIf
-	sprEyeCatch := type
-	eyeCatchType := -1
+	eyeCatchType := type
+	fEyeCatchEnter := true
 EndFunc
 
 Function EyeCatchLeave()
-	If (sprEyeCatch == "NORMAL")
+	If (eyeCatchType == "NORMAL")
 		EyeCatch01(0)
-	ElseIf (sprEyeCatch == "DATE")
+	ElseIf (eyeCatchType == "DATE")
 		EyeCatch03(0)
-	ElseIf (sprEyeCatch == "BLACKOUT")
+	ElseIf (eyeCatchType == "BLACKOUT")
 		EyeCatch03(0)
 	EndIf
-	eyeCatchs.RemoveAll()
-	eyeCatchType := 0
+	sprEyeCatch.RemoveAll()
+	fEyeCatchEnter := false
 EndFunc
 
 Function IsEyeCatch()
