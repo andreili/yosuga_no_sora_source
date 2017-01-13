@@ -3,6 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function LoadConfigData()
+	Debug("LoadConfigData()")
 	If (File.IsExisting("config.dat") == true)
 		LoadObject("config.dat", cnfObj)
 	Else
@@ -12,6 +13,7 @@ Function LoadConfigData()
 EndFunc
 
 Function InitConfigData()
+	Debug("InitConfigData()")
 	cnfObj.screenType := 0
 	cnfObj.flgPlayBgm := true
 	cnfObj.volBgm := 0.0
@@ -42,5 +44,6 @@ Function InitConfigData()
 EndFunc
 
 Function SaveConfigData()
+	Debug("SaveConfigData()")
 	SaveObject("config.dat", cnfObj)
 EndFunc

@@ -3,6 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function NovelLogManager::clear()
+	Debug("NovelLogManager::clear()")
 	Integer i := 0
 	While (i < this.max)
 		this.page[i].name.Remove()
@@ -14,6 +15,7 @@ Function NovelLogManager::clear()
 EndFunc
 
 Function NovelLogManager::add(Reference name, Reference mess, Reference voice)
+	Debug("NovelLogManager::add()")
 	If (this.num == true)
 		Return
 	Endif
@@ -27,6 +29,7 @@ Function NovelLogManager::add(Reference name, Reference mess, Reference voice)
 EndFunc
 
 Function NovelLogManager::create(Integer max)
+	Debug("NovelLogManager::create()")
 	this.max := max
 	Integer i := 0
 	While (i < max)
@@ -37,6 +40,7 @@ Function NovelLogManager::create(Integer max)
 EndFunc
 
 Function NovelLogManager::newPage()
+	Debug("NovelLogManager::newPage()")
 	this.index += 1
 	If (this.index >= this.max)
 		this.index := 0
@@ -50,10 +54,12 @@ Function NovelLogManager::newPage()
 EndFunc
 
 Function NovelLogManager::num()
+	Debug("NovelLogManager::num()")
 	Return this.num
 EndFunc
 
 Function NovelLogManager::get(Integer index, Reference name, Reference mess, Reference voice)
+	Debug("NovelLogManager::get()")
 	If (index < this.max)
 		If (index <= this.index)
 			name := this.page[this.index - index].name

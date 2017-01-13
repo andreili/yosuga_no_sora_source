@@ -3,6 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function LogManager::add(String str)
+	Debug("LogManager::add()")
 	If (this.index >= this.max)
 		this.index := 0
 	EndIf
@@ -14,6 +15,7 @@ Function LogManager::add(String str)
 EndFunc
 
 Function LogManager::clear()
+	Debug("LogManager::clear()")
 	this.index := 0
 	this.num := 0
 	Integer i := 0
@@ -24,6 +26,7 @@ Function LogManager::clear()
 EndFunc
 
 Function LogManager::create(Integer max)
+	Debug("LogManager::create()")
 	this.max := max
 	Integer i := 0
 	While (i < max)
@@ -34,6 +37,7 @@ Function LogManager::create(Integer max)
 EndFunc
 
 Function LogManager::get(Integer index)
+	Debug("LogManager::get()")
 	if (index < this.max)
 		If (this.index - 1 < index)
 			Return this.log[this.num - (index - (this.index - 1))]
@@ -45,5 +49,6 @@ Function LogManager::get(Integer index)
 EndFunc
 
 Function LogManager::num()
+	Debug("LogManager::num()")
 	Return this.num
 EndFunc

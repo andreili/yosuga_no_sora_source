@@ -6,6 +6,7 @@ bgm[0] := Sound
 bgm[1] := Sound
 
 Function BgmCheckCallback()
+	;Debug("BgmCheckCallback()")
 	If (bgm[0].fEndingProcess == true)
 		If ((bgm[0].res.IsPlaying() == true) && (bgm[0].res.IsPendingEnvelope() == false))
 			bgm[0].res.Stop()
@@ -23,6 +24,7 @@ Function BgmCheckCallback()
 EndFunc
 
 Function BgmRelease()
+	Debug("BgmRelease()")
 	bgm[0].res.Stop()
 	bgm[0].res.Release()
 	bgm[1].res.Stop()
@@ -30,6 +32,7 @@ Function BgmRelease()
 EndFunc
 
 Function PlayBgm(String file, Integer fNonFade)
+	Debug("PlayBgm()")
 	file.MakeUpper()
 	If (IsPlayBgm() && (bgm[bgmIndex].filename == file))
 		Return
@@ -87,6 +90,7 @@ Function StopBgm(Integer fNonFade, Integer fConfigStop)
 EndFunc
 
 Function EnvSeCheckCallback()
+	;Debug("EnvSeCheckCallback()")
 	Integer i := 0
 	While (i < envSe.GetLength())
 		String str
@@ -103,6 +107,7 @@ Function EnvSeCheckCallback()
 EndFunc
 
 Function EnvSeRelease()
+	Debug("EnvSeRelease()")
 	Integer i := 0
 	While (i < envSe.GetLength())
 		String str
@@ -115,10 +120,12 @@ Function EnvSeRelease()
 EndFunc
 
 Function GetPlayBgmName()
+	Debug("GetPlayBgmName()")
 	Return bgm[bgmIndex].filename
 EndFunc
 
 Function GetPlayEnvSeList(Reference list)
+	Debug("GetPlayEnvSeList()")
 	Integer i := 0
 	While (i < envSe.GetLength())
 		Reference rEnv
@@ -131,6 +138,7 @@ Function GetPlayEnvSeList(Reference list)
 EndFunc
 
 Function GetVoicePlayingPosition(Reference total, Reference pos)
+	Debug("GetVoicePlayingPosition()")
 	SoundInfo info
 	info := voice.GetInfo()
 	total := info.nSampleCount
@@ -139,6 +147,7 @@ Function GetVoicePlayingPosition(Reference total, Reference pos)
 EndFunc
 
 Function PauseBgm()
+	Debug("PauseBgm()")
 	bgm[bgmIndex].res.Pause()
 	bgm[bgmIndex].fPause := true
 EndFunc
@@ -217,6 +226,7 @@ Function PlaySysSe(String file, Integer fWait)
 EndFunc
 
 Function PlayVoice(String file, Integer fForce)
+	Debug("PlayVoice()")
 	Integer ret
 	If ((cnfObj.flgPlayVoice == false) & (fForce == false))
 		Return
@@ -234,11 +244,13 @@ Function PlayVoice(String file, Integer fForce)
 EndFunc
 
 Function RestartBgm()
+	Debug("RestartBgm()")
 	bgm[bgmIndex].res.Restart()
 	bgm[bgmIndex].fPause := false
 EndFunc
 
 Function ScPauseBgm()
+	Debug("ScPauseBgm()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -246,6 +258,7 @@ Function ScPauseBgm()
 EndFunc
 
 Function ScPlayBgm(String file, Integer fNonFade)
+	Debug("ScPlayBgm()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -253,6 +266,7 @@ Function ScPlayBgm(String file, Integer fNonFade)
 EndFunc
 
 Function ScPlayEnvSe(String file, Integer fFade)
+	Debug("ScPlayEnvSe()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -260,6 +274,7 @@ Function ScPlayEnvSe(String file, Integer fFade)
 EndFunc
 
 Function ScPlaySe(String file, Integer fWait)
+	Debug("ScPlaySe()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -270,10 +285,12 @@ Function ScPlaySe(String file, Integer fWait)
 EndFunc
 
 Function SetSysSeVolume(Real vol)
+	Debug("SetSysSeVolume()")
 	cnfObj.volSysSe := vol
 EndFunc
 
 Function SetSeVolume(Real vol)
+	Debug("SetSeVolume()")
 	Integer i := 0
 	While (i < envSe.GetLength())
 		String str
@@ -285,11 +302,13 @@ Function SetSeVolume(Real vol)
 EndFunc
 
 Function SetVoiceVolume(Real vol)
+	Debug("SetVoiceVolume()")
 	voice.SetVolume(vol, vol)
 	cnfObj.volVoice := vol
 EndFunc
 
 Function SetBgmVolume(Real vol)
+	Debug("SetBgmVolume()")
 	bgm[0].res.SetVolume(vol, vol)
 	bgm[1].res.SetVolume(vol, vol)
 	cnfObj.volBgm := vol
@@ -299,18 +318,22 @@ Function ShowVoicePlayIndicator()
 EndFunc
 
 Function IsPauseBgm()
+	Debug("IsPauseBgm()")
 	Return bgm[bgmIndex].fPause
 EndFunc
 
 Function IsPlayBgm()
+	Debug("IsPlayBgm()")
 	Return bgm[bgmIndex].res.IsPlaying()	;TODO
 EndFunc
 
 Function IsPlayVoice()
+	Debug("IsPlayVoice()")
 	Return voice.res.IsPlaying()	;TODO
 EndFunc
 
 Function SetBgmInfo(Reference info)
+	Debug("SetBgmInfo()")
 	If (info.filename == "BGM01")
 		info.endPos := true
 		info.rewindPos := true
@@ -382,6 +405,7 @@ Function SetBgmInfo(Reference info)
 EndFunc
 
 Function StopEnvSe(String file, Integer fFade, Integer fConfigStop)
+	Debug("StopEnvSe()")
 	file.MakeUpper()
 	If (file != "")
 		If (envSe.IsEmpty(file) == true)
@@ -438,6 +462,7 @@ Function StopEnvSe(String file, Integer fFade, Integer fConfigStop)
 EndFunc
 
 Function StopSe()
+	Debug("StopSe()")
 	If (se.IsPlaying() == true)
 		se.Stop()
 		se.Release()
@@ -445,6 +470,7 @@ Function StopSe()
 EndFunc
 
 Function StopSysSe()
+	Debug("StopSysSe()")
 	If (sysSe.IsPlaying() == true)
 		sysSe.Stop()
 		sysSe.Release()
@@ -452,6 +478,7 @@ Function StopSysSe()
 EndFunc
 
 Function StopVoice()
+	Debug("StopVoice()")
 	If (voice.IsPlaying() == true)
 		playVoiceTime := 0
 		voice.Stop()
@@ -460,6 +487,7 @@ Function StopVoice()
 EndFunc
 
 Function VoicePlayIndicatorProc()
+	Debug("VoicePlayIndicatorProc()")
 	If (IsDebug == true)
 		Integer total
 		Integer pos
@@ -479,6 +507,7 @@ Function VoicePlayIndicatorProc()
 EndFunc
 
 Function WaitVoice(Integer fKeyDisable)
+	Debug("WaitVoice()")
 	If (fKeyDisable != false)
 		While (voice.IsPlaying())
 		EndWhile

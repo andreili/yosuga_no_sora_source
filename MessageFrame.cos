@@ -3,6 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function MessageFrame::autoMode(Integer f)
+	Debug("MessageFrame::autoMode()")
 	if (f == true)
 		this.sprMenu.Enable(0, "ID_AUTO")
 	Else
@@ -11,14 +12,17 @@ Function MessageFrame::autoMode(Integer f)
 EndFunc
 
 Function MessageFrame::changeStyle(Integer style)
+	Debug("MessageFrame::changeStyle()")
 EndFunc
 
 Function MessageFrame::clearPage()
+	Debug("MessageFrame::clearPage()")
 	this.msprMess.ClearMessage()
 	this.msprMess.MoveCursorPos(0, 0)
 EndFunc
 
 Function MessageFrame::destroy()
+	Debug("MessageFrame::destroy()")
 	this.isCreate := 0
 	this.sprFrame.SetVisible(0)
 	this.sprBase[0].SetVisible(0)
@@ -39,10 +43,12 @@ Function MessageFrame::destroy()
 EndFunc
 
 Function MessageFrame::enable(Integer f)
+	Debug("MessageFrame::enable()")
 	this.sprMenu.Enable(f)
 EndFunc
 
 Function MessageFrame::enableQLoad(Integer f)
+	Debug("MessageFrame::enableQLoad()")
 	if (f == true)
 		this.sprMenu.SetTransparency(0, "ID_QLOAD")
 		this.sprMenu.Enable(-1, "ID_QLOAD")
@@ -53,20 +59,24 @@ Function MessageFrame::enableQLoad(Integer f)
 EndFunc
 
 Function MessageFrame::flush()
+	Debug("MessageFrame::flush()")
 	Return this.msprMess.FlushMessage()
 EndFunc
 
 Function MessageFrame::getView()
+	Debug("MessageFrame::getView()")
 	Return this.viewType
 EndFunc
 
 Function MessageFrame::hideBlink()
+	Debug("MessageFrame::hideBlink()")
 	this.sprBlinkHit.FlushActivation()
 	this.sprBlinkHit.SetTransparency(256)
 	this.isShowBlinkHit := false
 EndFunc
 
 Function MessageFrame::hide(Integer fFlush, Integer fWait)
+	Debug("MessageFrame::hide()")
 	If (isShow() == true)
 		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
 			this.sprParent.SetTransparency(256)
@@ -82,15 +92,18 @@ Function MessageFrame::hide(Integer fFlush, Integer fWait)
 EndFunc
 
 Function MessageFrame::hideVoice()
+	Debug("MessageFrame::hideVoice()")
 	this.sprVoice.FlushActivation()
 	this.sprVoice.SetTransparency(256)
 EndFunc
 
 Function MessageFrame::isPending()
+	Debug("MessageFrame::isPending()")
 	Return this.msprMess.IsMessagePending()
 EndFunc
 
 Function MessageFrame::hideMessage(Integer fFlush, Integer fWait)
+	Debug("MessageFrame::hideMessage()")
 	If (isShow() == true)
 		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
 			this.msprMess.SetTransparency(256)
@@ -106,18 +119,22 @@ Function MessageFrame::hideMessage(Integer fFlush, Integer fWait)
 EndFunc
 
 Function MessageFrame::isShow()
+	Debug("MessageFrame::isShow()")
 	Return this.isShow
 EndFunc
 
 Function MessageFrame::isShowBlink()
+	Debug("MessageFrame::isShowBlink()")
 	Return this.isShowBlinkHit
 EndFunc
 
 Function MessageFrame::position(Integer x, Integer y)
+	Debug("MessageFrame::position()")
 	this.sprParent.MovePosition(x, y)
 EndFunc
 
 Function MessageFrame::show(Integer fFlush, Integer fWait)
+	Debug("MessageFrame::show()")
 	If (isShow() == false)
 		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
 			this.sprParent.SetTransparency(0)
@@ -137,6 +154,7 @@ Function MessageFrame::show(Integer fFlush, Integer fWait)
 EndFunc
 
 Function MessageFrame::transparencyBase(Integer trans)
+	Debug("MessageFrame::transparencyBase()")
 	If (this.isCreate == false)
 		Return
 	EndIf
@@ -144,6 +162,7 @@ Function MessageFrame::transparencyBase(Integer trans)
 EndFunc
 
 Function MessageFrame::output(String name, String mess, Integer fFlush)
+	Debug("MessageFrame::output()")
 	If (fFlush == true)
 		this.msprMess.SetDefaultMsgSpeed(0, 0, 256)
 	Else
@@ -177,6 +196,7 @@ Function MessageFrame::output(String name, String mess, Integer fFlush)
 EndFunc
 
 Function MessageFrame::showBlink()
+	Debug("MessageFrame::showBlink()")
 	Point pos
 	pos := this.msprMess.GetCursorPos()
 	this.sprBlinkHit.MovePosition(39 + pos.x, 40 + pos.y + 2)
@@ -190,6 +210,7 @@ Function MessageFrame::showBlink()
 EndFunc
 
 Function MessageFrame::showMessage(Integer fFlush, Integer fWait)
+	Debug("MessageFrame::showMessage()")
 	If (isShow() == false)
 		If ((fFlush == true) | (cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
 			this.msprMess.SetTransparency(0)
@@ -205,6 +226,7 @@ Function MessageFrame::showMessage(Integer fFlush, Integer fWait)
 EndFunc
 
 Function MessageFrame::showVoice()
+	Debug("MessageFrame::showVoice()")
 	Point pos
 	pos := this.msprName.GetCursorPos()
 	this.sprVoice.MovePosition(27 + pos.x + 4, 5 + pos.y + 5)
@@ -217,6 +239,7 @@ Function MessageFrame::showVoice()
 EndFunc
 
 Function MessageFrame::skip(Integer f)
+	Debug("MessageFrame::skip()")
 	If (f == true)
 		this.sprMenu.Enable(false, "ID_SKIP")
 	Else
@@ -225,6 +248,7 @@ Function MessageFrame::skip(Integer f)
 EndFunc
 
 Function MessageFrame::transparency(Integer trans, Integer fFlush, Integer fWait)
+	Debug("MessageFrame::transparency()")
 	If (isShow() == true)
 		If (fFlush == false)
 			this.sprParent.SetBlendingEnvelope(trans)
@@ -240,6 +264,7 @@ Function MessageFrame::transparency(Integer trans, Integer fFlush, Integer fWait
 EndFunc
 
 Function MessageFrame::view(Integer type)
+	Debug("MessageFrame::::view()")
 	If ((0 <= type) & (type <= 1))
 		If ((cnfObj.screenEffect == 1) | (adv.isSkip() == true) | (input.IsJoyButtonPushing(6)))
 			this.sprBase[this.viewType].SetTransparency(256)
@@ -258,6 +283,7 @@ Function MessageFrame::view(Integer type)
 EndFunc
 
 Function MessageFrame::create(Integer style)
+	Debug("MessageFrame::create()")
 	this.isCreate := true
 	this.sprParent.CreateSprite(67108865, 750, 152)
 	this.sprParent.SetTransparency(256)
