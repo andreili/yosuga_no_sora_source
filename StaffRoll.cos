@@ -1,0 +1,14 @@
+@IF	@IsDefined("__BUILD_ONE__") == 0
+Include	"yosuga.ch"
+@ENDIF
+
+Function StaffRoll(Integer type)
+	Debug("StaffRoll()")
+	If (IsLoad() == true)
+		Return
+	EndIf
+	StopBgm()
+	;StaffRollView view
+	;view.run(type)
+EndFunc
+
