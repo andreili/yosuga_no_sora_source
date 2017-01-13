@@ -36,6 +36,7 @@ Function main()
 EndFunc
 
 Function Initialize()
+	Debug("Initialize()")
 	Time time
 	time := GetLocalTime()
 	InitRandom(time.nMinute * time.nSecond * GetCurrentTime())
@@ -77,6 +78,7 @@ Function Initialize()
 EndFunc
 
 Function ChangeDisplay(Integer fFullscreen)
+	Debug("ChangeDisplay()")
 	If (fFullscreen == true)
         If (0 == true)
             screen.ChangeDisplaySize(800, 600)
@@ -91,6 +93,7 @@ Function ChangeDisplay(Integer fFullscreen)
 EndFunc
 
 Function Starting()
+	Debug("Starting()")
 	Integer ret := 5
 	While (true)
 		If (ret == 4)
@@ -133,6 +136,7 @@ Function Starting()
 EndFunc
 
 Function Postprocessing()
+	Debug("Postprocessing()")
 	If (isCreateDebugWindow == true)
 		File file
 		file.Open("_exit.log", 5)
@@ -144,6 +148,7 @@ Function Postprocessing()
 EndFunc
 
 Function PlayMovie(String strFileName, Integer nFlags)
+	Debug("PlayMovie()")
 	MovieSprite movie
 	If (!movie.OpenMovie(strFileName))
 	;logic_unk3
@@ -184,6 +189,7 @@ Function PlayMovie(String strFileName, Integer nFlags)
 EndFunc
 
 Function CheckPlayVoice(String trueName)
+	Debug("CheckPlayVoice()")
 	Integer cnfId
 	If (cnfObj.voiceDetails[0] == true)
         cnfId.SetBit(4)
@@ -254,6 +260,7 @@ Function CheckPlayVoice(String trueName)
 EndFunc
 
 Function ClearEffectParameter(Reference param)
+	Debug("ClearEffectParameter()")
 	param.strType := "Nothing"
 	param.nFlags := 0
 	param.nInterval := 0
@@ -276,10 +283,12 @@ Function ClearEffectParameter(Reference param)
 EndFunc
 
 Function EnterRecollectMode()
+	Debug("EnterRecollectMode()")
 	flgRecollectMode := true
 EndFunc
 
 Function HideLoadEffect()
+	Debug("HideLoadEffect()")
 	sprLoadEffectBase.SetBlendingEnvelope(256)
 	sprLoadEffectBase.BeginActivation(300)
 	WaitUntilSpriteActive(sprLoadEffectBase, 0)
@@ -293,10 +302,12 @@ Function HideVoicePlayIndicator()
 EndFunc
 
 Function IsGameClear()
+	Debug("IsGameClear()")
 	Return sysObj.gameClear
 EndFunc
 
 Function IsHitRect(Reference rect, Integer x, Integer y)
+	Debug("IsHitRect()")
 	If ((rect.left <= x) & (x < rect.right) & (rect.top <= y) & (y < rect.bottom))
 		Return true
 	EndIf
@@ -304,30 +315,36 @@ Function IsHitRect(Reference rect, Integer x, Integer y)
 EndFunc
 
 Function IsHitSprite(Reference spr, Integer x, Integer y)
+	Debug("IsHitSprite()")
 	Rect rect
 	rect := spr.GetRectangle()
 	Return IsHitRect(rect, x, y)
 EndFunc
 
 Function IsRecollectMode()
+	Debug("IsRecollectMode()")
 	Return flgRecollectMode
 EndFunc
 
 Function LeaveRecollectMode()
+	Debug("LeaveRecollectMode()")
 	flgRecollectMode := false
 EndFunc
 
 Function OffGameClear()
+	Debug("OffGameClear()")
 	sysObj.gameClear := false
 	SaveSystemData()
 EndFunc
 
 Function OnGameClear()
+	Debug("OnGameClear()")
 	sysObj.gameClear := true
 	SaveSystemData()
 EndFunc
 
 Function OpeningMovie()
+	Debug("OpeningMovie()")
 	Hide()
 	SetCg("BLACK")
 	Transition("", 1000)
@@ -339,16 +356,51 @@ Function OpeningMovie()
 EndFunc
 
 Function ShowCursor(Integer fShow)
+	Debug("ShowCursor()")
 	screen.ShowCursor(fShow)
 EndFunc
 
 Function NormalLoad(Integer id)
+	Debug("NormalLoad()")
 	If ((0 <= id) & (id < 60))
 		Load("Save" + CreateNumString(id, 3, true))
 	EndIf
 EndFunc
 
+Function NormalSave(Integer id, Reference arrayHideSpr, Reference arrayShowSpr)
+	Debug("NormalSave()")
+	If ((0 <= id) & (id < 60))
+		String name
+		String mess
+		name := scObj.nameLog.get(0)
+		mess := scObj.messLog.get(0)
+		String comment
+		Integer i := 0
+		While (i < mess.GetLength())
+			If (mess.Char(i) != 10)
+				Break
+			EndIf
+			i += 1
+		EndWhile
+		comment += mess.Middle(i)
+		comment := comment.Replace("\n", "")
+		comment := comment.Replace("  ", "Å@")
+		If (comment.GetLength() > 20)
+			comment := comment.Left(19) + "Åc"
+		EndIf
+		comment := AddjustString(comment, 10)
+		Save("Save" + CreateNumString(id, 3, true), true, arrayHideSpr, arrayShowSpr)
+		sysObj.newBookmarkIndex := id
+		sysObj.bookmark[id].fSave := true
+		sysObj.bookmark[id].comment := comment
+		sysObj.bookmark[id].time := GetLocalTime()
+		sysObj.newBookmarkIndex := id
+		SaveSystemData()
+	EndIf
+EndFunc
+
 Function SaveBmp(String filename)
+	Debug("SaveBmp()")
 	Debug("SaveBmp-" + filename)
 	Sprite spr
 	adv.copyAdvScreen(spr)
@@ -359,6 +411,7 @@ Function SaveBmp(String filename)
 EndFunc
 
 Function SaveSprite(Reference spr, Reference filename)
+	Debug("SaveSprite()")
 	If (spr.GetType() != "Sprite")
 		Return
 	Endif

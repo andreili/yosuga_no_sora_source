@@ -1340,28 +1340,30 @@ Function sc00_Z014()
 		ScWait(2000, 0)
 		Change("EXIT_SCENARIO")
 		Return
-	ElseIf(ChkFlagOn(1))
+	EndIf
+	If(ChkFlagOn(1))
 		EyeCatchEnter("", 0)
 		Change("00_a001")
 		Return
-	ElseIf (ChkFlagOn(2))
+	EndIf
+	If (ChkFlagOn(2))
 		EyeCatchEnter("DATE", 0)
 		Change("00_b001")
 		Return
-	ElseIf (ChkFlagOn(3))
+	EndIf
+	If (ChkFlagOn(3))
 		EyeCatchEnter("DATE", 0)
 		Change("00_c001")
 		Return
-	ElseIf (ChkFlagOn(4))
+	EndIf
+	If (ChkFlagOn(4))
 		EyeCatchEnter("", 0)
 		Change("00_d001")
 		Return
-	Else
-		EyeCatchEnter("", 0)
-		Change("00_z015")
-		Return
-		Change("EXIT_SCENARIO")
-		Return
 	EndIf
+	EyeCatchEnter("", 0)
+	Change("00_z015")
+	Return
+	Change("EXIT_SCENARIO")
 EndFunc
 

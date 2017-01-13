@@ -2,11 +2,13 @@
 Include	"yosuga.ch"
 @ENDIF
 
-Function InitRandom(Integer seed)	; OK
+Function InitRandom(Integer seed)
+	Debug("InitRandom()")
 	nRandomSeed := seed
 EndFunc
 
 Function SaveObject(String path, Reference object)
+	Debug("SaveObject()")
 	File file
 	If (file.Open(path, 5))
 		Return 1
@@ -15,6 +17,7 @@ Function SaveObject(String path, Reference object)
 EndFunc
 
 Function LoadObject(String path, Reference object)
+	Debug("LoadObject()")
 	File file
 	If (file.Open(path))
 		Return 1
@@ -23,6 +26,7 @@ Function LoadObject(String path, Reference object)
 EndFunc
 
 Function AddjustString(String src, Integer num)
+	Debug("AddjustString()")
 	Integer length := src.GetLength()
 	If (length <= num)
 		Return src
@@ -40,6 +44,7 @@ Function AddjustString(String src, Integer num)
 EndFunc
 
 Function AskGameExit()
+	Debug("AskGameExit()")
 	If (Confirm("ƒQ[ƒ€‚ðI—¹‚µ‚Ü‚·", true))
 		screen.Lock()
 		Throw()
@@ -47,6 +52,7 @@ Function AskGameExit()
 EndFunc
 
 Function BlackOut(Integer wait, Integer fHide)
+	Debug("BlackOut()")
 	If (fHide != false)
 		Hide()
 	EndIf
@@ -59,6 +65,7 @@ Function BlackOut(Integer wait, Integer fHide)
 EndFunc
 
 Function CheckTrueName(Reference aliasName, Reference showName, Reference trueName)
+	Debug("CheckTrueName()")
 	String strTemp
 	strTemp := aliasName
 	Integer index := strTemp.Find("s")
@@ -81,6 +88,7 @@ Function CheckTrueName(Reference aliasName, Reference showName, Reference trueNa
 EndFunc
 
 Function ClearWscmd(Reference wscmd)
+	Debug("ClearWscmd()")
 	wscmd.strID := ""
 	wscmd.strFullID := ""
 	wscmd.nNotification := 0
@@ -88,6 +96,7 @@ Function ClearWscmd(Reference wscmd)
 EndFunc
 
 Function CreateDateString(Reference time)
+	Debug("CreateDateString()")
 	String ret
 	String temp
 	ret := ""
@@ -121,6 +130,7 @@ Function CreateDateString(Reference time)
 EndFunc
 
 Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold, Integer fItalic, String face)
+	Debug("CreateMessageEscapeSequence()")
 	String sequence
 	If (size != 0)
 		sequence += "\\s;" + ("" := size) + ":"
@@ -151,6 +161,7 @@ Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold
 EndFunc
 
 Function CreateRGBImage(Reference spr, Integer col, Integer width, Integer height)
+	Debug("CreateRGBImage()")
 	spr.Release()
 	spr.CreateSprite(1, width, height)
 	spr.SetBackColor(Reference, 0)
@@ -158,6 +169,7 @@ Function CreateRGBImage(Reference spr, Integer col, Integer width, Integer heigh
 EndFunc
 
 Function Down(Integer id, Integer mv, Integer time, Integer accel)
+	Debug("Down()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -165,6 +177,7 @@ Function Down(Integer id, Integer mv, Integer time, Integer accel)
 EndFunc
 
 Function DumpContext(String path)
+	Debug("DumpContext()")
 	File file
 	If (file.Open(path, 5))
 		Return 1
@@ -173,6 +186,7 @@ Function DumpContext(String path)
 EndFunc
 
 Function Flush(String color, Integer time, String cgFile)
+	Debug("Flush()")
 	If (IsLoad() == true)
 		Return 0
 	Endif
@@ -184,10 +198,12 @@ Function Flush(String color, Integer time, String cgFile)
 EndFunc
 
 Function FlushCommandQueue()
+	Debug("FlushCommandQueue()")
 	screen.FlushCommandQueue(true)
 EndFunc
 
 Function Font(Integer size, String face)
+	Debug("Font()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -195,6 +211,7 @@ Function Font(Integer size, String face)
 EndFunc
 
 Function GetCommand(Reference wscmd, Integer timeout)
+	Debug("GetCommand()")
 	adv.updateProc()
 	BgmCheckCallback()
 	EnvSeCheckCallback()
@@ -214,6 +231,7 @@ Function GetCommand(Reference wscmd, Integer timeout)
 EndFunc
 
 Function Hide(Integer fWait)
+	Debug("Hide()")
 	If (IsLoad() == true)
 		Return
 	EndIf
@@ -221,11 +239,13 @@ Function Hide(Integer fWait)
 EndFunc
 
 Function Hitret(Integer id, Integer fVoiceWait)
+	Debug("Hitret()")
 	Integer ret := adv.hitret(id, fVoiceWait)
 	Return ret
 EndFunc
 
 Function TestHitret(String str)
+	Debug("TestHitret()")
 	If (str != "")
 		Debug(str)
 	EndIf
@@ -241,6 +261,7 @@ Function TestHitret(String str)
 EndFunc
 
 Function HitWait(Integer time)
+	Debug("HitWait()")
 	FlushJoyButton()
 	Integer startTime := GetCurrentTime()
 	While ((GetCurrentTime() - startTime) < time)
@@ -252,10 +273,12 @@ Function HitWait(Integer time)
 EndFunc
 
 Function IsConfirm()
+	Debug("IsConfirm()")
 	Return fConfirm
 EndFunc
 
 Function MakeRandom(Integer nLimit)
+	Debug("MakeRandom()")
 	If (nLimit == 0)
 		Return 0
 	EndIf
@@ -264,10 +287,12 @@ Function MakeRandom(Integer nLimit)
 EndFunc
 
 Function Mess(String str)
+	Debug("Mess()")
 	adv.mess(str)
 EndFunc
 
 Function WaitUntilSpriteActive(Reference refSprite, Integer fEnableSkip)
+	Debug("WaitUntilSpriteActive()")
 	Integer iCanceled := 0
 	input.FlushJoyButtonPushed()
 	While (refSprite.IsActivation())
@@ -283,6 +308,7 @@ Function WaitUntilSpriteActive(Reference refSprite, Integer fEnableSkip)
 EndFunc
 
 Function Confirm(String str, Integer fYesNo, Reference refSpr, Integer time)
+	Debug("Confirm()")
 	screen.SetFocus("")
 	If (IsConfirm() == true)
 		Return false
@@ -416,6 +442,7 @@ Function Confirm(String str, Integer fYesNo, Reference refSpr, Integer time)
 EndFunc
 
 Function OutputLogText(String path, String text)
+	Debug("OutputLogText()")
 	File file
 	If (file.Open(path, 4))
 		If (file.Open(path, 5))
@@ -428,14 +455,17 @@ Function OutputLogText(String path, String text)
 EndFunc
 
 Function RGB(Integer r, Integer g, Integer b)
+	Debug("RGB()")
 	Return r.ShiftLeft(16) | g.ShiftLeft(8) | b
 EndFunc
 
 Function RGBA(Integer r, Integer g, Integer b, Integer a)
+	Debug("RGBA()")
 	Return a.ShiftLeft(24) | r.ShiftLeft(16) | g.ShiftLeft(8) | b
 EndFunc
 
 Function CreateNumString(Integer iNum, Integer iFigure, Integer flgZero, Integer flgZenkaku)
+	Debug("CreateNumString()")
 	String str
 	String temp
 	Integer flgMinus := false
@@ -573,6 +603,7 @@ Function MoveParam::set(Reference pt, Integer time, Integer accel, Integer fFade
 EndFunc
 
 Function StringToNum(Reference strNum)
+	Debug("StringToNum()")
 	Integer num := 0
 	Integer i := 0
 	While (i < strNum.GetLength())
@@ -589,6 +620,7 @@ Function TransitionInfo::clear()
 EndFunc
 
 Function WhiteOut(Integer wait, Integer fHide)
+	Debug("WhiteOut()")
 	If (fHide != false)
 		Hide()
 	Endif
@@ -627,6 +659,7 @@ Function ZoomParam::set(Integer cx, Integer cy, Integer w, Integer h, Integer ti
 EndFunc
 
 Function CheckSetupCg(String str, Reference cgInfo)
+	Debug("CheckSetupCg()")
 	Integer timeZone := 1
 	str.MakeUpper()
 	ClearEffectParameter(cgInfo.effectParam)
@@ -852,7 +885,7 @@ Function CheckSetupCg(String str, Reference cgInfo)
 	ElseIf (CheckCg(str, "EE17A", 980, 981))
 	ElseIf (CheckCg(str, "EE17B", 980, 982))
 	ElseIf (CheckCg(str, "EE18", 990, 991))
-	ElseIf (CheckCg(str, "EZ01A", 1000, 1000))
+	ElseIf (CheckCg(str, "EZ01A", 1000, 1001))
 		cgInfo.effectParam.strType := "TileImage"
 		cgInfo.effectParam.nInterval := 100
 		cgInfo.effectParam.nDegreeStep := 0
@@ -880,7 +913,8 @@ Function CheckSetupCg(String str, Reference cgInfo)
 	ElseIf (CheckCg(str, "EZ06F", 1050, 1056))
 	ElseIf (CheckCg(str, "EZ07", 1060, 1061))
 	ElseIf (CheckCg(str, "EZ08", 1070, 1071))
-	Else (CheckCg(str, "SP"))
+	ElseIf CheckCg(str, "SP")
+	EndIf
 	cgInfo.timeZone := timeZone
 	cgInfo.filename := str
 EndFunc

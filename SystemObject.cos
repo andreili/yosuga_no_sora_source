@@ -3,6 +3,7 @@ Include	"yosuga.ch"
 @ENDIF
 
 Function LoadSystemData()
+	Debug("LoadSystemData()")
 	If (File.IsExisting("system.dat") == true)
 		LoadObject("system.dat", sysObj)
 	Else
@@ -12,6 +13,7 @@ Function LoadSystemData()
 EndFunc
 
 Function InitSystemData()
+	Debug("InitSystemData()")
 	sysObj.readFlag.create(48000)
 	sysObj.cgFlag.create(4096)
 	sysObj.recollectFlag.create(32)

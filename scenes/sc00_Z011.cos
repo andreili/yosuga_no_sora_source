@@ -792,7 +792,7 @@ Function sc00_Z011()
 		Return
 	EndIf
 	SetBustup("CF01_09M", 0, 0)
-	Down(7, 0, 0, 0)
+	Down(7, 0, 0, 0, 0)
 	Talk("Ryouhei", "RH000112")
 	Mess("Tch... That's not fun...")
 	hitretResult := Hitret(1611)
@@ -1249,7 +1249,7 @@ Function sc00_Z011()
 	ScPlaySe("se011", 0)
 	Flush("WHITE", 100, "")
 	SetBustup("CC01_09M", 0, 0)
-	Down(2, 0, 0, 0)
+	Down(2, 0, 0, 0, 0)
 	Talk("Akira", "AK000061")
 	Mess("Ow!?")
 	hitretResult := Hitret(1656)
@@ -1488,7 +1488,5 @@ Function sc00_Z011()
 	Change("00_Z012")
 	Return
 	Change("EXIT_SCENARIO")
-	Return
-
 EndFunc
 

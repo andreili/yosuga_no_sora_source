@@ -1064,7 +1064,7 @@ Function sc00_Z006()
 	ElseIf (hitretResult == 40)
 		Return
 	EndIf
-	Down(5, 0, 0, 0)
+	Down(5, 0, 0, 0, 0)
 	Talk("Kazuha", "KA000004")
 	Mess("...Yeah...")
 	hitretResult := Hitret(843)
@@ -2229,7 +2229,7 @@ Function sc00_Z006()
 		Return
 	EndIf
 	SetBustup("CD01_10M", 0, 0)
-	Down(5, 0, 0, 0)
+	Down(5, 0, 0, 0, 0)
 	Talk("Kazuha", "KA000020")
 	Mess("Ah...sorry for using such a loud voice...")
 	hitretResult := Hitret(964)
@@ -2898,7 +2898,5 @@ Function sc00_Z006()
 	Change("00_z007")
 	Return
 	Change("EXIT_SCENARIO")
-	Return
-
 EndFunc
 
