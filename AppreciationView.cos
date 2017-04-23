@@ -20,7 +20,7 @@ Function AppreciationView::cgProc(Reference wscmd)
 	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_PAGE&(<0-9>*)", aParam) == "")
 		setPage(ConvertToInteger(aParam[0]) - 1, ConvertToInteger(aParam[1]) - 1)
 	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_REC&", aParam) == "")
-		setPage((0:= aParam[0]) - 1, 3)
+		setPage(ConvertToInteger(aParam[0]) - 1, 3)
 	ElseIf (wscmd.strID.IsMatchUsage("&ID_CGSEL&(<0-9>*)", aParam) == "")
 		id :=ConvertToInteger(aParam[0]) - 1
 	Else
