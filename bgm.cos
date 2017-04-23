@@ -498,7 +498,7 @@ Function VoicePlayIndicatorProc()
 				sprVoicePlayingTrim.SetVisible(true)
 			EndIf
 			total += 10000
-			sprVoicePlayingBar.MovePosition((DEBUG_VOICECHECK_X + 7) + 190.0 * ((0.0 := pos) / total),DEBUG_VOICECHECK_Y)
+			sprVoicePlayingBar.MovePosition((DEBUG_VOICECHECK_X + 7) + 190.0 * (ConvertToReal(pos) / total),DEBUG_VOICECHECK_Y)
 		ElseIf (sprVoicePlayingBar.IsVisible() == true)
 			sprVoicePlayingBar.SetVisible(false)
 			sprVoicePlayingTrim.SetVisible(false)

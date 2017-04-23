@@ -26,12 +26,12 @@ EndFunc
 Function LoadSaveWindow::loadsave(Integer index, Reference arrayHideSpr, Reference arrayShowSpr)
 	Integer ret := 0
 	If (this.fLoad == true)
-		If (Confirm(("" := (index + 1)) + "番をロードします", true) == true)
+		If (Confirm(ConvertToString((index + 1)) + "番をロードします", true) == true)
 			NormalLoad(index)
 			ret := 40
 		EndIf
 	ElseIf (sysObj.bookmark[index].fSave == true)
-		If (Confirm(("" := (index + 1)) + "番にセーブします", true) == true)
+		If (Confirm(ConvertToString((index + 1)) + "番にセーブします", true) == true)
 			NormalSave(index, arrayHideSpr, arrayShowSpr)
 			setPage(this.sprFrame.GetVertScrollPos("ID_SCROLL"))
 		EndIf
