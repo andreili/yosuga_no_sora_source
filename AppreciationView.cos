@@ -7,7 +7,7 @@ Function AppreciationView::cgProc(Reference wscmd)
 	Array aParam
 	If (IsUNK1)
 	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_TAG&", aParam) == "")
-		Integer tag := (0 := aParam[0]) - 1
+		Integer tag := ConvertToInteger(aParam[0]) - 1
 		If (this.sprTag[tag].IsButtonChecked("ID_PAGE1") == true)
 			setPage(tag, 0)
 		ElseIf (this.sprTag[tag].IsButtonChecked("ID_PAGE2") == true)
@@ -18,11 +18,11 @@ Function AppreciationView::cgProc(Reference wscmd)
 			setPage(tag, 3)
 		EndIf
 	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_PAGE&(<0-9>*)", aParam) == "")
-		setPage((0 := aParam[0]) - 1, (0 := aParam[1]) - 1)
+		setPage(ConvertToInteger(aParam[0]) - 1, ConvertToInteger(aParam[1]) - 1)
 	ElseIf (wscmd.strFullID.IsMatchUsage("&ID_PAGE_TAG&(<0-9>*)&\\\\ID_REC&", aParam) == "")
-		setPage((0:= aParam[0]) - 1, 3)
+		setPage(ConvertToInteger(aParam[0]) - 1, 3)
 	ElseIf (wscmd.strID.IsMatchUsage("&ID_CGSEL&(<0-9>*)", aParam) == "")
-		id :=(0 := aParam[0]) - 1
+		id :=ConvertToInteger(aParam[0]) - 1
 	Else
 		Return 0
 	EndIf
@@ -50,12 +50,12 @@ EndFunc
 
 Function AppreciationView::checkPaletteCg(Integer flag, Integer id, String spriteID)
 	If (CheckCgFlag(flag) == true)
-        this.sprThumbBase.SetTransparency(0, "ID_CG" + ("" := id))
-        this.sprThumbBase.SetTransparency(0, "ID_CGSEL" + ("" := id))
-        this.sprThumbBase.SetSpriteImage("ID_CG" + ("" := id), "ID_" + spriteID)
+        this.sprThumbBase.SetTransparency(0, "ID_CG" + ConvertToString(id))
+        this.sprThumbBase.SetTransparency(0, "ID_CGSEL" + ConvertToString(id))
+        this.sprThumbBase.SetSpriteImage("ID_CG" + ConvertToString(id), "ID_" + spriteID)
     Else
-        this.sprThumbBase.SetTransparency(0, "ID_CG" + ("" := id))
-        this.sprThumbBase.SetSpriteImage("ID_CG" + ("" := id), "ID_FRM_0733")
+        this.sprThumbBase.SetTransparency(0, "ID_CG" + ConvertToString(id))
+        this.sprThumbBase.SetSpriteImage("ID_CG" + ConvertToString(id), "ID_FRM_0733")
     EndIf
 EndFunc
 
@@ -99,12 +99,12 @@ EndFunc
 
 Function AppreciationView::checkPaletteRecollect(Integer flag, Integer id, String spriteID)
 	If (ChkRecollectFlag(flag) == true)
-		this.sprThumbBase.SetTransparency(0, "ID_REC" + ("" := id))
-		this.sprThumbBase.SetTransparency(0, "ID_RECSEL" + ("" := id))
-		this.sprThumbBase.SetSpriteImage("ID_REC" + ("" := id), "ID_" + spriteID)
+		this.sprThumbBase.SetTransparency(0, "ID_REC" + ConvertToString(id))
+		this.sprThumbBase.SetTransparency(0, "ID_RECSEL" + ConvertToString(id))
+		this.sprThumbBase.SetSpriteImage("ID_REC" + ConvertToString(id), "ID_" + spriteID)
 	Else
-		this.sprThumbBase.SetTransparency(0, "ID_REC" + ("" := id))
-		this.sprThumbBase.SetSpriteImage("ID_REC" + ("" := id), "ID_FRM_0735")
+		this.sprThumbBase.SetTransparency(0, "ID_REC" + ConvertToString(id))
+		this.sprThumbBase.SetSpriteImage("ID_REC" + ConvertToString(id), "ID_FRM_0735")
 	EndIf
 EndFunc
 
@@ -135,7 +135,7 @@ Function AppreciationView::create(Integer tagID, Integer pageID, Integer bgm)
 	this.sprBase.AddSprite(5, this.sprTitle)
 	For i:=0 To 5
 		this.sprTag[i] := Sprite
-		this.optionSkin.CreateFormPage(this.sprTag[i], "ID_PAGE_TAG"  + ("" := i + 1))
+		this.optionSkin.CreateFormPage(this.sprTag[i], "ID_PAGE_TAG"  + ConvertToString(i + 1))
 		this.sprTag[i].SetVisible(true)
 		this.sprTag[i].CheckButton("ID_PAGE1", true)
 		this.sprBase.AddSprite(10 + i, this.sprTag[i])
@@ -158,7 +158,7 @@ Function AppreciationView::create(Integer tagID, Integer pageID, Integer bgm)
 		this.sprMusic.CheckButton("ID_STOP", true)
 	Else
 		playBgm(bgm)
-		this.sprMusic.CheckButton("ID_BGM" + ("" := (bgm + 1)), true)
+		this.sprMusic.CheckButton("ID_BGM" + ConvertToString((bgm + 1)), true)
 	EndIf
 	this.optionSkin.CreateFormPage(this.sprScroll, "ID_PAGE_SCROLL")
 	info := this.sprScroll.GetInfo()
@@ -284,12 +284,12 @@ EndFunc
 
 Function AppreciationView::resetThumbBase()
 	For i:=0 To 11
-		this.sprThumbBase.SetTransparency(256, "ID_CG" + ("" := i + 1))
-		this.sprThumbBase.SetTransparency(256, "ID_CGSEL" + ("" := i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_CG" + ConvertToString(i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_CGSEL" + ConvertToString(i + 1))
 	Next
 	For i:=0 To 5
-		this.sprThumbBase.SetTransparency(256, "ID_REC" + ("" := i + 1))
-		this.sprThumbBase.SetTransparency(256, "ID_RECSEL" + ("" := i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_REC" + ConvertToString(i + 1))
+		this.sprThumbBase.SetTransparency(256, "ID_RECSEL" + ConvertToString(i + 1))
 	Next
 EndFunc
 
@@ -298,7 +298,7 @@ Function AppreciationView::recollectProc(Reference wscmd)
 	Array aParam
 	If (IsUNK1)
 	Elseif (wscmd.strID.IsMatchUsage("&ID_RECSEL&(<0-9>*)", aParam) == "")
-		id := (0 := aParam[0]) - 1
+		id := ConvertToInteger(aParam[0]) - 1
 		If (IsUNK1)
 		ElseIf ((this.selTag == 0) & (id == 0))
 			startRecollect("00_A020")
@@ -760,7 +760,7 @@ Function AppreciationView::showCgLoop(Integer charID, Integer id)
 			this.sprScroll.SetTransparency(256)
 			input.FlushJoyButtonPushed()
 		ElseIf (wscmd.strID == "ID_SCROLL")
-			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			this.scrollT := ConvertToReal(this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
 			Reference info
 			info := this.cgViewMan[id].thumbInfo[index]
 			Bezier2D bzPt
@@ -771,7 +771,7 @@ Function AppreciationView::showCgLoop(Integer charID, Integer id)
 			input.FlushJoyButtonPushed()
 		ElseIf ((input.GetJoyButtonPushed(2) > 0) & (this.fScroll == true))
 			this.sprScroll.SetHorzScrollPos(this.sprScroll.GetHorzScrollPos("ID_SCROLL") - 10, "ID_SCROLL")
-			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			this.scrollT := ConvertToReal(this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
 			Reference info
 			info := this.cgViewMan[id].thumbInfo[index]
 			Bezier2D bzPt
@@ -782,7 +782,7 @@ Function AppreciationView::showCgLoop(Integer charID, Integer id)
 			input.FlushJoyButtonPushed()
 		ElseIf ((input.GetJoyButtonPushed(3) > 0) & (this.fScroll == true))
 			this.sprScroll.SetHorzScrollPos(this.sprScroll.GetHorzScrollPos("ID_SCROLL") + 10, "ID_SCROLL")
-			this.scrollT := (0.0 := this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
+			this.scrollT := ConvertToReal(this.sprScroll.GetHorzScrollPos("ID_SCROLL")) / 100
 			Reference info
 			info := this.cgViewMan[id].thumbInfo[index]
 			Bezier2D bzPt
