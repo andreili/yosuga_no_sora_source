@@ -286,7 +286,7 @@ Function AdvScreen::beginAnimation()
 EndFunc
 
 Function AdvScreen::bustupClear(Integer id)
-    Debug("CharClear-" + ConvertToString(id))
+    Debug("CharClear-" + ("" := id))
     this.bustupMan.clear(id)
     this.fSetBustup := true
     this.fUpdate := true
@@ -303,7 +303,7 @@ Function AdvScreen::bustupJump(Integer id)
 EndFunc
 
 Function AdvScreen::bustupLeave(Integer id, Integer mx, Integer my, Integer fFade, Integer time, Integer accel)
-    Debug("CharLeave-" + ConvertToString(id))
+    Debug("CharLeave-" + ("" := id))
 	this.bustupMan.leave(id, mx, my, fFade, time, accel)
 	this.fSetBustup := true
 	this.fUpdate := true
@@ -917,7 +917,7 @@ Function AdvScreen::setCg(String str, Integer x, Integer y, Integer w, Integer h
 EndFunc
 
 Function AdvScreen::setCgRGB(Integer r, Integer g, Integer b)
-	Debug("CGRGB-" + ConvertToString(r) + "," + ConvertToString(g) + "," + ConvertToString(b))
+	Debug("CGRGB-" + ("" := r) + "," + ("" := g) + "," + ("" := b))
 	this.cg.pt := IPoint(0, 0)
 	this.colSetCgRGB := RGB(r, g, b)
 	this.fSetCg := true
