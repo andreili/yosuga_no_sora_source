@@ -110,7 +110,7 @@ Function CreateDateString(Reference time)
 	If (time.nDay < 10)
 		ret += "0"
 	EndIf
-	ret += ConvertToString(time.nDay) + " "
+	ret += ("" := time.nDay) + " "
 	If (time.nHour < 10)
 		ret += "0"
 	EndIf
@@ -133,12 +133,12 @@ Function CreateMessageEscapeSequence(Integer size, Integer height, Integer fBold
 	Debug("CreateMessageEscapeSequence()")
 	String sequence
 	If (size != 0)
-		sequence += "\\s;" + ConvertToString(size) + ":"
+		sequence += "\\s;" + ("" := size) + ":"
 	Else
 		sequence += "\\s:"
 	EndIf
 	If (height != 0)
-		sequence += "\\h;" + ConvertToString(height) + ":"
+		sequence += "\\h;" + ("" := height) + ":"
 	Else
 		sequence += "\\h:"
 	EndIf
@@ -283,7 +283,7 @@ Function MakeRandom(Integer nLimit)
 		Return 0
 	EndIf
 	nRandomSeed := nRandomSeed * 9 + 1779772371
-	Return ConvertToInteger((nRandomSeed & 2147483647)).ShiftRight(8) % nLimit
+	Return (0 := (nRandomSeed & 2147483647)).ShiftRight(8) % nLimit
 EndFunc
 
 Function Mess(String str)
@@ -637,11 +637,11 @@ Function ZoomParam::clear()
 EndFunc
 
 Function ZoomParam::horzUnit()
-	Return ConvertToReal(800) / this.size.w + 0.0
+	Return (0.0 := 800) / this.size.w + 0.0
 EndFunc
 
 Function ZoomParam::vertUnit()
-	Return ConvertToReal(600) / this.size.h + 0.0
+	Return (0.0 := 600) / this.size.h + 0.0
 EndFunc
 
 Function ZoomParam::isZoom()
