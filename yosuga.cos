@@ -158,8 +158,8 @@ Function PlayMovie(String strFileName, Integer nFlags)
 		screen.AddSprite(0, movie)
 		imginf := movie.GetInfo()
 		movie.GetParameter(sp)
-		sp.rHorzUnit := ConvertToReal(800.0) / imginf.nImageWidth
-		sp.rVertUnit := ConvertToReal(600.0) / imginf.nImageHeight
+		sp.rHorzUnit := (0.0 := 800.0) / imginf.nImageWidth
+		sp.rVertUnit := (0.0 := 600.0) / imginf.nImageHeight
 		movie.SetParameter(sp)
 		screen.Unlock()
 		screen.ShowCursor(false)

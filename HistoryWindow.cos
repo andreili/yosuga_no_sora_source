@@ -21,7 +21,7 @@ Function HistoryWindow::create()
 	i := 0
 	While (i < 4)
 		this.sprVoice[i] := Sprite
-		frameSkin.CreateFormPage(this.sprVoice[i], "ID_PAGE_HISTORY_VOICE" + ConvertToString((i + 1)))
+		frameSkin.CreateFormPage(this.sprVoice[i], "ID_PAGE_HISTORY_VOICE" + ("" := (i + 1)))
 		this.sprVoice[i].SetTransparency(256)
 		this.sprVoice[i].SetVisible(true)
 		this.sprBase.AddSprite(30, this.sprVoice[i])
